@@ -20,7 +20,7 @@ This file is the memory of the game. Read it before working on the game; update 
 | Core loop | Shoot infected → earn Cash → buy gun tiers mid-run → survive more waves → earn Gems → permanent upgrades in the hangar | Monkeys |
 | Unique mechanic (the twist) | Friendlies are on the ground with the enemy: 3 strikes for hitting them, and each gun has a different blast size, so picking the right gun matters | Zombie Gunship, new on Roblox in this structure |
 | Guns | 25mm (fast, small), 40mm (group clearer), 105mm (huge, slow). Keys 1/2/3, R reloads | — |
-| Abilities | Repair bunker (C, $250), A-10 run you draw with two clicks (F, $600), Nuke (V, $2500) | — |
+| Abilities | Repair bunker (C, $250), A-10 run you draw with two clicks (F, $600), Nuke (V, $2500) | A-10 has its own Armory upgrades: run length, firepower, call cost |
 | Enemy types | Runner (wave 2+), Brute (3+), Bomber (4+, explodes), Spitter (6+, holds range), Armored (7+, immune to 25mm) | Monkeys' special monkeys |
 | Bosses | Every 5 waves, big named infected with a title-card cutscene | Monkeys |
 | Tension | Bunker HP 100, friendly-fire strikes, endless waves that ramp | — |
@@ -39,8 +39,8 @@ This file is the memory of the game. Read it before working on the game; update 
 ## 4. Depth and social
 
 - Runs aren't solved: gun choice per group, when to spend Cash on tiers vs abilities, protecting friendlies near the horde.
-- Co-op (agreed, **not built**): everyone is on the same gunship as extra gunners. Each has their own guns, ammo and cash; the bunker and waves are shared. Crew size 1–4 from the mission screen.
-- Lobbies run on separate servers so friends join together: PLAY → Create or Join (UI exists, backend **not built** — needs a published place, TeleportService, MemoryStore).
+- Co-op (built in 0.4.0): everyone is on the same gunship as extra gunners. Each has their own guns, ammo, cash and in-run tiers; the bunker, waves and abilities' effects are shared. Crew of 1–4. Everyone gets the run's gems; kills count per gunner.
+- Crews (parties): PLAY → CREATE makes a crew with a 5-letter code; JOIN lists open public crews (and friends-only crews of friends) or takes a code. The host picks mode and PUBLIC/FRIENDS and presses DEPLOY.
 - Clippable moments: nuke, A-10 strafing run you aimed yourself, boss intros.
 
 ## 5. First 5 minutes (the tutorial, "FIRST MISSION")
@@ -90,7 +90,7 @@ Funnel to add: tutorial started → intro finished → first kill → switched t
 ## 10. Tech notes
 
 - Place: saved to Roblox (universe 10777953252, place 108596658459731). **All code lives in the place file**, not in this repo (no Rojo). Saving does not work in Studio playtests until "Enable Studio Access to API Services" is turned on.
-- Servers (decided, not built): one place for everything. Public servers are the hangar lobby; missions run on reserved servers of the same place. Split maps into their own places only if maps get heavy.
+- Servers (built in 0.4.0, `ConvoyServer.Lobbies`): one place for everything. `ServerRole` attribute = Studio / Lobby / Mission. Public servers are the hangar lobby (max server size 12); DEPLOY reserves a server of the same place and teleports the crew there (TeleportData kind/mode/crew). New players are sent to their own reserved tutorial server. Crews are listed across servers in MemoryStore sorted map `Parties` (key = code, 120 s expiry). Joining a crew on another hangar server teleports you to that server. Players are saved right before every teleport. In Studio everything runs on the one server (teleports can't be tested in Studio). Split maps into their own places only if maps get heavy.
 - No player characters: `CharacterAutoLoads = false`, streaming off. The client is a camera.
 - Server publishes state as attributes on `ReplicatedStorage.Convoy` and on the Player; clients read them. Remotes: `Convoy.Remotes.Action` (client → server), `Convoy.Remotes.FX` (server → clients).
 - Main scripts: `ServerScriptService.ConvoyServer.Mission` (waves, tutorial, profile), `Avatars` (builds each player's avatar rig for cutscenes), `StarterPlayerScripts.GunshipClient` (camera, thermal, cutscenes), `GunshipUI` (all screens), `HangarLife` (hangar crew and vehicles), `ConvoyAudio`; shared modules `Config`, `Upgrades`, `FXLib`, `SFX`.
@@ -106,12 +106,12 @@ Funnel to add: tutorial started → intro finished → first kill → switched t
 - Never the default Roblox sparkle particle. Textures must not contain barcodes, QR patterns or URLs.
 - Infected are tinted slightly red, friendlies slightly green.
 
-## Status at v0.3.0
+## Status at v0.4.0
 
 **Working:** full solo loop (hangar → mission setup → waves, bosses, abilities → results), tutorial, upgrades and saving, leaderboard card, cutscenes (deploy, boss, nuke, A-10, intro), part-built AC-130 / A-10 / Little Bird / vehicles, hangar with crew, helipad at the bunker.
 
 **Next up, in order:**
-1. Co-op on one gunship + real Create/Join lobbies.
+1. (Built in 0.4.0) Co-op + crews. Needs a live test with two accounts after publishing.
 2. (Done in 0.2.1) SVG-made FX textures are uploaded under the group (327304402) and wired in `Config.TEXTURES`. New textures: put the PNG in `BlenderExports\fx`, upload through Open Cloud with the group as creator, then use the image ID from the decal.
 3. Mobile controls.
 4. Longer progression, retention and monetization design (sections 6–8).

@@ -2,6 +2,15 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.4.0 — 2026-11-20
+
+- Co-op: up to 4 gunners on one gunship. Each has their own guns, ammo, cash and tiers; bunker and waves are shared. Everyone gets the run's gems.
+- Crews: CREATE makes a crew with a join code; JOIN shows open crews or takes a code. Host picks mode, PUBLIC/FRIENDS and deploys. Crew slots show each gunner's headshot.
+- Servers: public servers are the hangar; each deploy gets its own reserved server, and new players get their own tutorial server (new `ConvoyServer.Lobbies` script). Studio still runs everything on one server.
+- Debrief PLAY AGAIN reruns with the same crew; LOBBY takes you back to a hangar server.
+- A-10 upgrades in the Armory (run length, firepower, call cost); the camera moves to the A-10 while it is selected.
+- Tutorial: the sensor follows the infected, the wrong gun won't fire on a wave meant for the new gun (Garmin tells you which one), and the final horde is bigger.
+
 ## 0.3.0 — 2026-11-19
 
 - Tutorial: friendlies can't be hurt. Aiming at them doesn't fire, splash doesn't hurt them, and Garmin calls "check fire" (red text).
