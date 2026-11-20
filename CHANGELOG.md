@@ -2,6 +2,18 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.2.3 — 2026-11-19
+
+- Cabin is darker (dimmer red lights, no glowing strips, lower exposure in cabin shots).
+- Tutorial swings the sensor onto whatever Garmin is talking about (survivors, each pack, the boss); compass words removed from his lines.
+- Type icons sit above the health bar instead of over it.
+- Infected spread out: each keeps its own lane and they push apart instead of stacking.
+- Extraction cutscene: the Little Bird comes in high, flares, banks and wobbles; survivors run to the skids, turn and hop onto the benches (one runs round the nose).
+- A-10 cutscene: camera flies on the same path maths as the jet (no stutter); the jet slides down into frame.
+- Sound: softer bunker-hit thump, quieter boss footfalls and rarer roar, low-bunker alarm no longer plays in the menu or tutorial.
+- Bunker beacon lights dimmed.
+- After the tutorial the arrow points at WEAPONS, then at the Upgrade button.
+
 ## 0.2.2 — 2026-11-19
 
 - Each gun now looks different: 25mm fires thin pale-yellow streaks, 40mm fat red-orange slugs with an ember tail, 105mm a white-hot shell with a thick smoke trail. Each has its own impact effect and its own sight (cyan small cross, amber cross with ring, red large cross with heavy ring).
