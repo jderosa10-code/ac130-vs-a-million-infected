@@ -2,6 +2,12 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.2.8 — 2026-11-19
+
+- New Shop screen (opened from SHOP in the hub or the + on the gem bar): three gem packs and two passes. Nothing is for sale yet — items are listed in the `Convoy.Shop` module and show SOON until real product IDs are filled in. The server already grants gems for gem-pack purchases once IDs exist.
+- New Settings screen: music on/off, sound volume, replay tutorial, controls list (settings are not saved between visits yet).
+- A-10 ability button uses a photo of the A-10 model with a white stroke.
+
 ## 0.2.7 — 2026-11-19
 
 - Tutorial horde: the bunker only loses health while infected are actually at its walls.

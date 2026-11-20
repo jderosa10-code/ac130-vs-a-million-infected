@@ -1,6 +1,6 @@
 # AC-130 vs a Million Infected — Game Design Doc
 
-Version 0.2.7 (prototype) · last updated 2026-11-19 · solo dev: Jacob · built live in Roblox Studio through the Studio MCP
+Version 0.2.8 (prototype) · last updated 2026-11-19 · solo dev: Jacob · built live in Roblox Studio through the Studio MCP
 
 This file is the memory of the game. Read it before working on the game; update it (and CHANGELOG.md, VERSION) whenever the game changes.
 
@@ -81,7 +81,7 @@ Rules:
 
 ## 8. Monetization (not designed yet)
 
-Nothing is built. Candidates to decide later: revive bunker, 2x Gems pass, starter pack, extra ability slot. Free players must be able to reach everything.
+The Shop screen exists with placeholders: gem packs of 500 / 1,500 / 5,000 and 2x Gems / 2x Cash passes. Prices and product IDs are not set (`Convoy.Shop` module), and the pass effects are not wired. Other candidates: revive bunker, starter pack, extra ability slot. Free players must be able to reach everything.
 
 ## 9. Analytics (not built)
 
@@ -106,7 +106,7 @@ Funnel to add: tutorial started → intro finished → first kill → switched t
 - Never the default Roblox sparkle particle. Textures must not contain barcodes, QR patterns or URLs.
 - Infected are tinted slightly red, friendlies slightly green.
 
-## Status at v0.2.7
+## Status at v0.2.8
 
 **Working:** full solo loop (hangar → mission setup → waves, bosses, abilities → results), tutorial, upgrades and saving, leaderboard card, cutscenes (deploy, boss, nuke, A-10, intro), part-built AC-130 / A-10 / Little Bird / vehicles, hangar with crew, helipad at the bunker.
 
