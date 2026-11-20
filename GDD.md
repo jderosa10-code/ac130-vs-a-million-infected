@@ -1,6 +1,6 @@
 # AC-130 vs a Million Infected — Game Design Doc
 
-Version 0.2.0 (prototype) · last updated 2026-11-19 · solo dev: Jacob · built live in Roblox Studio through the Studio MCP
+Version 0.2.1 (prototype) · last updated 2026-11-19 · solo dev: Jacob · built live in Roblox Studio through the Studio MCP
 
 This file is the memory of the game. Read it before working on the game; update it (and CHANGELOG.md, VERSION) whenever the game changes.
 
@@ -106,13 +106,13 @@ Funnel to add: tutorial started → intro finished → first kill → switched t
 - Never the default Roblox sparkle particle. Textures must not contain barcodes, QR patterns or URLs.
 - Infected are tinted slightly red, friendlies slightly green.
 
-## Status at v0.2.0
+## Status at v0.2.1
 
 **Working:** full solo loop (hangar → mission setup → waves, bosses, abilities → results), tutorial, upgrades and saving, leaderboard card, cutscenes (deploy, boss, nuke, A-10, intro), part-built AC-130 / A-10 / Little Bird / vehicles, hangar with crew, helipad at the bunker.
 
 **Next up, in order:**
 1. Co-op on one gunship + real Create/Join lobbies.
-2. Upload and wire the seven SVG-made FX textures (fireball, smoke, flash, dirt, spark, shockwave, flame) — blocked until the `BlenderExports\\fx` folder is approved for uploads in Studio's Assistant settings; then replace the default Roblox fire on wrecks.
+2. (Done in 0.2.1) SVG-made FX textures are uploaded under the group (327304402) and wired in `Config.TEXTURES`. New textures: put the PNG in `BlenderExports\fx`, upload through Open Cloud with the group as creator, then use the image ID from the decal.
 3. Mobile controls.
 4. Longer progression, retention and monetization design (sections 6–8).
 5. Later: classes, daily rewards, second map, voice lines, rebuilding the mesh buildings from parts.

@@ -2,6 +2,11 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.2.1 — 2026-11-19
+
+- Seven SVG-made particle textures uploaded to the group and wired into `Config.TEXTURES`: fireball, smoke, flash, dirt, spark, shockwave, flame. Explosions now use them.
+- Burning wrecks use textured flame, smoke and embers instead of the default Roblox fire.
+
 ## 0.2.0 — 2026-11-19
 
 Tutorial rework and effects.
