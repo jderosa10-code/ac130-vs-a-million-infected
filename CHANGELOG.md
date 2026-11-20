@@ -2,6 +2,17 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.2.6 — 2026-11-19
+
+- Nuke mushroom cloud is textured smoke and fire particles instead of solid spheres; the fireball burns out into it.
+- Garmin's lines highlight key words: red for warnings, amber for what to do.
+- Bodies fall in random directions at different speeds and lose the red outline.
+- Tutorial nuke fires itself after 12 seconds if the player doesn't.
+- Less glare everywhere: weaker bloom, lower sun brightness, hangar lights halved, darker hangar ambient, floor markings no longer glow.
+- The 15 realistic mesh cars are replaced with brick cars (which also explode).
+- American flag built from parts on the hangar's back wall.
+- Radio box moved up so it no longer covers the bunker bar.
+
 ## 0.2.5 — 2026-11-19
 
 - Cars explode when shot (three 25mm hits, or one 40mm / 105mm / nearby blast): a 20-stud blast that kills everything around, the car is left charred and burning, and cars parked close together cook off in a chain. They reset each run. The 16 already-burning wrecks stay as scenery.
