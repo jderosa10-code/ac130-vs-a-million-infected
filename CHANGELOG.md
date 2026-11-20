@@ -2,6 +2,13 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.2.7 — 2026-11-19
+
+- Tutorial horde: the bunker only loses health while infected are actually at its walls.
+- Enemy type markers are small coloured name tags (BRUTE, BOMBER, ...) instead of symbols.
+- Heads now match body skin colour (the head texture was plain white); friendlies get a simple part-built face.
+- Gunship engine and helicopter loops skip the faded ends of their clips.
+
 ## 0.2.6 — 2026-11-19
 
 - Nuke mushroom cloud is textured smoke and fire particles instead of solid spheres; the fireball burns out into it.
