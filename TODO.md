@@ -15,3 +15,4 @@
    - Swarm Lord: ringed by bombers that blow up near it
    - The Titan: huge and slow, needs the A-10 or a nuke-level hit to finish
    Order them by wave so each new boss teaches one idea. Cycle them in endless mode, each time with more HP.
+   Each boss's special move (Hive split, Burrower surfacing, Screamer buff, Titan stomp...) plays a short cutscene the first time it happens in a run. After that, a quick camera nudge and banner, so it doesn't interrupt the fight every time.
