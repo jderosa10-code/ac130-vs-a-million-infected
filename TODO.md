@@ -6,3 +6,12 @@
 4. Bump `GameVersion` to 0.5.0 in Studio.
 5. Co-op needs a live test: publish, then join with two accounts.
 6. **More bosses for endless mode.** A boss comes every 5 waves (`Upgrades.BOSSES`). Each new one needs its own mechanic, look, intro cutscene and sound.
+   Jacob picked all 7 (2026-11-20). Build order:
+   - The Hive: bloated, splits into runners when hit (105 before it splits)
+   - Tank: armoured from the front, weak spots on its back
+   - The Screamer: buffs and speeds up infected near it, kill it first
+   - Burrower: goes underground, pops up somewhere else
+   - Spitter Queen: shells the bunker from range, hides behind buildings
+   - Swarm Lord: ringed by bombers that blow up near it
+   - The Titan: huge and slow, needs the A-10 or a nuke-level hit to finish
+   Order them by wave so each new boss teaches one idea. Cycle them in endless mode, each time with more HP.
