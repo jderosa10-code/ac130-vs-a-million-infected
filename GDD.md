@@ -1,6 +1,6 @@
 # AC-130 vs a Million Infected — Game Design Doc
 
-Version 0.2.1 (prototype) · last updated 2026-11-19 · solo dev: Jacob · built live in Roblox Studio through the Studio MCP
+Version 0.2.2 (prototype) · last updated 2026-11-19 · solo dev: Jacob · built live in Roblox Studio through the Studio MCP
 
 This file is the memory of the game. Read it before working on the game; update it (and CHANGELOG.md, VERSION) whenever the game changes.
 
@@ -95,7 +95,7 @@ Funnel to add: tutorial started → intro finished → first kill → switched t
 - Server publishes state as attributes on `ReplicatedStorage.Convoy` and on the Player; clients read them. Remotes: `Convoy.Remotes.Action` (client → server), `Convoy.Remotes.FX` (server → clients).
 - Main scripts: `ServerScriptService.ConvoyServer.Mission` (waves, tutorial, profile), `Avatars` (builds each player's avatar rig for cutscenes), `StarterPlayerScripts.GunshipClient` (camera, thermal, cutscenes), `GunshipUI` (all screens), `HangarLife` (hangar crew and vehicles), `ConvoyAudio`; shared modules `Config`, `Upgrades`, `FXLib`, `SFX`.
 - World: `workspace.DMZ` — city map, `Hangar` (hub), `Cabin` (gunship interior set for cutscenes), `Bunker`.
-- Debug attributes on `ReplicatedStorage.Convoy`: `DebugBossEvery`, `DebugStartWave`, `SkipTutorial`.
+- Debug attributes on `ReplicatedStorage.Convoy`: `DebugBossEvery`, `DebugStartWave`, `SkipTutorial`, `ForceTutorial` (ON while testing — turn off before launch).
 - Not done: mobile and console controls, exploit validation pass, performance pass.
 
 ## Style rules (Jacob's)
@@ -106,7 +106,7 @@ Funnel to add: tutorial started → intro finished → first kill → switched t
 - Never the default Roblox sparkle particle. Textures must not contain barcodes, QR patterns or URLs.
 - Infected are tinted slightly red, friendlies slightly green.
 
-## Status at v0.2.1
+## Status at v0.2.2
 
 **Working:** full solo loop (hangar → mission setup → waves, bosses, abilities → results), tutorial, upgrades and saving, leaderboard card, cutscenes (deploy, boss, nuke, A-10, intro), part-built AC-130 / A-10 / Little Bird / vehicles, hangar with crew, helipad at the bunker.
 
