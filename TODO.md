@@ -5,3 +5,4 @@
 3. Check in a real playtest: the new rounds from the gunship view, the exterior with hub lighting, the gun details, the A-10 props, and the stat icons on the A-10 tabs.
 4. Bump `GameVersion` to 0.5.0 in Studio.
 5. Co-op needs a live test: publish, then join with two accounts.
+6. **More bosses for endless mode.** A boss comes every 5 waves (`Upgrades.BOSSES`). Each new one needs its own mechanic, look, intro cutscene and sound.
