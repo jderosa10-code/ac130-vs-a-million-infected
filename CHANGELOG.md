@@ -2,6 +2,13 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.2.5 — 2026-11-19
+
+- Cars explode when shot (three 25mm hits, or one 40mm / 105mm / nearby blast): a 20-stud blast that kills everything around, the car is left charred and burning, and cars parked close together cook off in a chain. They reset each run. The 16 already-burning wrecks stay as scenery.
+- Dead infected and friendlies fall to the ground and dissolve after about two seconds instead of vanishing.
+- New part-built nuke model in the same style as the aircraft, used in the nuke cutscene.
+- Nuke explosion rebuilt: white screen flash, fireball that cools as it rises, stem and smoke cap (mushroom cloud), shock ring, dust wall, burning crater; the cutscene holds wide for longer.
+
 ## 0.2.4 — 2026-11-19
 
 - A-10 no longer points its nose straight at the target: it flies a real shallow dive with an eased nose-down, then pulls up.
