@@ -2,6 +2,12 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.2.4 — 2026-11-19
+
+- A-10 no longer points its nose straight at the target: it flies a real shallow dive with an eased nose-down, then pulls up.
+- Survivors climb onto the Little Bird with a generated animation (asset 115792846811060): hands on the bench, hop up backwards, settle.
+- Little Bird run-in is a curving, banking turn onto final; slower pedal turns in the hover; rotor-wash dust while it is low.
+
 ## 0.2.3 — 2026-11-19
 
 - Cabin is darker (dimmer red lights, no glowing strips, lower exposure in cabin shots).

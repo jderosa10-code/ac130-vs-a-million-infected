@@ -1,6 +1,6 @@
 # AC-130 vs a Million Infected — Game Design Doc
 
-Version 0.2.3 (prototype) · last updated 2026-11-19 · solo dev: Jacob · built live in Roblox Studio through the Studio MCP
+Version 0.2.4 (prototype) · last updated 2026-11-19 · solo dev: Jacob · built live in Roblox Studio through the Studio MCP
 
 This file is the memory of the game. Read it before working on the game; update it (and CHANGELOG.md, VERSION) whenever the game changes.
 
@@ -106,7 +106,7 @@ Funnel to add: tutorial started → intro finished → first kill → switched t
 - Never the default Roblox sparkle particle. Textures must not contain barcodes, QR patterns or URLs.
 - Infected are tinted slightly red, friendlies slightly green.
 
-## Status at v0.2.3
+## Status at v0.2.4
 
 **Working:** full solo loop (hangar → mission setup → waves, bosses, abilities → results), tutorial, upgrades and saving, leaderboard card, cutscenes (deploy, boss, nuke, A-10, intro), part-built AC-130 / A-10 / Little Bird / vehicles, hangar with crew, helipad at the bunker.
 
