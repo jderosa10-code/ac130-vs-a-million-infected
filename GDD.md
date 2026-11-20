@@ -1,6 +1,6 @@
 # AC-130 vs a Million Infected — Game Design Doc
 
-Version 0.1.0 (prototype) · last updated 2026-11-19 · solo dev: Jacob · built live in Roblox Studio through the Studio MCP
+Version 0.2.0 (prototype) · last updated 2026-11-19 · solo dev: Jacob · built live in Roblox Studio through the Studio MCP
 
 This file is the memory of the game. Read it before working on the game; update it (and CHANGELOG.md, VERSION) whenever the game changes.
 
@@ -45,16 +45,26 @@ This file is the memory of the game. Read it before working on the game; update 
 
 ## 5. First 5 minutes (the tutorial, "FIRST MISSION")
 
-1. 0:00 — Cinematic intro (~23 s, letterboxed): inside the gunship cabin, the player's own avatar walks down the aisle, sits, the chair swivels to the console, the camera pushes into the screen.
-2. Radio guy **GARMIN** (still portrait that cuts between poses) talks in typed-out lines with a typewriter font.
-3. Wave 1: 3 friendlies from the west road, 6 infected from the east road. Teaches fire/move/zoom.
-4. Wave 2: tight pack of 12 from the north. Teaches the 40mm and reload.
-5. Forced upgrade: cash is topped up, player buys one gun tier.
-6. Wave 3: pack of 13 with a Bomber from the south. Teaches the 105mm.
-7. The turn: unkillable boss, then a 15 s horde from all sides while the bunker drains (it can't actually fall).
-8. The save: two A-10 runs, then a nuke. Back to the hangar; PLAY is locked until the first permanent upgrade is bought.
+Paced slowly on purpose: one new thing per wave, with a pause between waves.
 
-Rules: teaching waves are staged (fixed counts, fixed roads, friendlies far from infected). Plain words only — "Spooky" and "Sortie" were removed because players won't know them. The plane's callsign is **Reaper 41**.
+1. Cinematic intro (~23 s, letterboxed): inside the gunship cabin, the player's own avatar walks down the aisle, sits, the chair swivels to the console, the camera pushes into the screen.
+2. Radio guy **GARMIN** (still portrait that cuts between poses) talks in typed-out lines with a typewriter font.
+3. Wave 1: 3 friendlies from the west road, 6 infected from the east road. Only the 25mm is unlocked. Teaches fire/move/zoom.
+4. Wave 2: 9 infected from the south, still 25mm only.
+5. Wave 3: the 40mm unlocks; tight pack of 12 from the north.
+6. Forced upgrade: cash is topped up, the upgrade button appears, player buys one gun tier.
+7. Wave 4: pack of 10 with a Brute from the east, to try the upgrade on.
+8. Wave 5: the 105mm unlocks; pack of 13 with a Bomber from the south.
+9. The turn: a boss that takes visible damage but cannot drop below 30% health, then a 16 s horde from all sides while the bunker drains (it can't actually fall).
+10. The save: two A-10 runs, then the Nuke button appears with cash to pay for it and the player fires it themselves (auto-fires after 35 s).
+11. Ending cutscene "EXTRACTION": a Little Bird lands on the helipad by the bunker, three survivors run out and ride the benches, it flies off.
+12. Back to the hangar; PLAY is locked until the first permanent upgrade is bought.
+
+Rules:
+- Teaching waves are staged (fixed counts, fixed roads, friendlies far from infected).
+- Guns not taught yet are greyed out and say LOCKED; the upgrade button and abilities are hidden until they are handed over. The server enforces the locks (`TutUnlock` attribute).
+- A bouncing arrow (Jacob's image, asset 78822479272148) points at the button to click next (`TutArrow` attribute) instead of hint text. The only text hint left is the controls line on wave 1.
+- Plain words only — "Spooky" and "Sortie" were removed because players won't know them. The plane's callsign is **Reaper 41**.
 
 ## 6. Progression and economy
 
@@ -79,7 +89,8 @@ Funnel to add: tutorial started → intro finished → first kill → switched t
 
 ## 10. Tech notes
 
-- Place: unsaved/unpublished Studio place at the time of v0.1.0. **All code lives in the place file**, not in this repo (no Rojo).
+- Place: saved to Roblox (universe 10777953252, place 108596658459731). **All code lives in the place file**, not in this repo (no Rojo). Saving does not work in Studio playtests until "Enable Studio Access to API Services" is turned on.
+- Servers (decided, not built): one place for everything. Public servers are the hangar lobby; missions run on reserved servers of the same place. Split maps into their own places only if maps get heavy.
 - No player characters: `CharacterAutoLoads = false`, streaming off. The client is a camera.
 - Server publishes state as attributes on `ReplicatedStorage.Convoy` and on the Player; clients read them. Remotes: `Convoy.Remotes.Action` (client → server), `Convoy.Remotes.FX` (server → clients).
 - Main scripts: `ServerScriptService.ConvoyServer.Mission` (waves, tutorial, profile), `Avatars` (builds each player's avatar rig for cutscenes), `StarterPlayerScripts.GunshipClient` (camera, thermal, cutscenes), `GunshipUI` (all screens), `HangarLife` (hangar crew and vehicles), `ConvoyAudio`; shared modules `Config`, `Upgrades`, `FXLib`, `SFX`.
@@ -95,13 +106,13 @@ Funnel to add: tutorial started → intro finished → first kill → switched t
 - Never the default Roblox sparkle particle. Textures must not contain barcodes, QR patterns or URLs.
 - Infected are tinted slightly red, friendlies slightly green.
 
-## Status at v0.1.0
+## Status at v0.2.0
 
-**Working:** full solo loop (hangar → mission setup → waves, bosses, abilities → results), tutorial, upgrades and saving, leaderboard card, cutscenes (deploy, boss, nuke, A-10, intro), part-built AC-130 / A-10 / vehicles, hangar with crew.
+**Working:** full solo loop (hangar → mission setup → waves, bosses, abilities → results), tutorial, upgrades and saving, leaderboard card, cutscenes (deploy, boss, nuke, A-10, intro), part-built AC-130 / A-10 / Little Bird / vehicles, hangar with crew, helipad at the bunker.
 
 **Next up, in order:**
 1. Co-op on one gunship + real Create/Join lobbies.
-2. Wire the six SVG-made FX textures (fireball, smoke, flash, dirt, spark, shockwave) once uploaded.
+2. Upload and wire the seven SVG-made FX textures (fireball, smoke, flash, dirt, spark, shockwave, flame) — blocked until the `BlenderExports\\fx` folder is approved for uploads in Studio's Assistant settings; then replace the default Roblox fire on wrecks.
 3. Mobile controls.
 4. Longer progression, retention and monetization design (sections 6–8).
 5. Later: classes, daily rewards, second map, voice lines, rebuilding the mesh buildings from parts.
