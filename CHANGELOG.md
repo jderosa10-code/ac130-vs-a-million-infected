@@ -2,6 +2,15 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.8.9 — 2026-11-20
+
+- A-10 picks its own target on every device; no more drawing the run. The server finds the line through the biggest group of infected, using where they will be when the guns open up (each one's route is walked forward). Civilians count against a line.
+- With fewer than 6 infected in the best line, the A-10 waits on station ("A-10 ON STATION // WAITING FOR A BIG GROUP"). It is paid for only when it flies. Pressing A-10 again (tap, or F on PC) calls it off for free.
+- Banners show "A-10 INBOUND" when it commits.
+- No A-10 cutscene in a run; you watch it come in from the gunship.
+- The tutorial's A-10 cutscene now shows the jet. It is a chase cam on the same flight path, now including the pull-up the camera was missing, so the jet no longer climbs out of frame. The street shot is aimed where the rounds actually land.
+- Phones: the weapon cards move to the bottom-right corner (no FIRE button there now), and the wave bar uses the full top width.
+
 ## 0.8.8 — 2026-11-20
 
 - Phones are full auto-fire. The FIRE button is gone, and every gun fires on its own while an infected is under the crosshair: within 6 studs for the 25mm, 9 for the 40mm and 12 for the 105mm. Guns still hold fire when a civilian is within that radius. The AUTO-FIRE setting is removed, since there is nothing to turn back on.
