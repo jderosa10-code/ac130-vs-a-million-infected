@@ -2,6 +2,13 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.8.12 — 2026-11-20
+
+Phone target boxes:
+- They no longer trail behind the infected. They are now drawn right after the gunship camera moves each frame (`BindToRenderStep` at Camera + 2, just after GunshipCamera), not before it. In a playtest, box centres land within about 2 px of the model's centre.
+- Civilians no longer get a red box. The server spawns them with the infected and then moves them to `DMZ_Civilians`, and their box now goes away when they move.
+- Box size follows the model's live scale.
+
 ## 0.8.11 — 2026-11-20
 
 Phones:
