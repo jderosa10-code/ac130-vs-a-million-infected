@@ -9,6 +9,8 @@ Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and 
 - `StarterPlayerScripts.AirbaseLife` (client): five trucks lap the ring road, three squads march and jog (feet in step with their speed), a Little Bird loads a four-man fire team (they run out and climb on with the bench-climb clip) and flies off then returns, an A-10 takes off down the runway. Paused during missions.
 - Hangar door centred on the building (moved 10 studs); every face on the door frame that sat on the same plane as another one is pushed out 0.03 (no more flicker on the doors).
 - Hangar floor: the painted ring, centre line, cyan guide lights, the parked gunship and its crew moved 10 studs so they line up with the door, the hazard box and the apron line (all on z=150). The hub camera and HangarLife's ring centre moved with them.
+- A-10 cannon: the single GAU8 tube is replaced by a GAU-8 rotary cannon (`GAU8Detail`): shroud, seven barrels round a spindle, two clamps, muzzle rings and bore holes. It's on the hangar jet, the template in `Convoy.Models` and the parked ones. A-10 parts have surface textures on every face.
+- Hangar flag: smaller and lower (y 19-54), clear of the ceiling beams and light rods.
 - Fixed a `math.clamp` error in the cutscene caption on small screens.
 
 ## 0.5.1 — 2026-11-20
