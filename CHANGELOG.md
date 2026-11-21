@@ -2,6 +2,17 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.7.4 — 2026-11-20
+
+- Lobby: MODE / ACCESS buttons moved up so they no longer sit on the line of text under them; the mode you didn't pick (or LOCKED Hardcore) is solid dark grey instead of see-through. The crew code is bigger and amber.
+- Lobby: the host can kick crew members (red X on their slot, press twice). Kicked players can't rejoin that crew with the code.
+- Guns: picking a locked gun (click, 2/3, or Q) shows the unlock price and keeps you on the gun you had; Q skips locked guns.
+- Infected: in the thermal view each kind has its own colour (normal red, runner pink, brute purple, bomber orange, spitter yellow-green, armored blue); the server keeps each kind in its own sub-model of `DMZ_Enemies` (Normal, Boss, Runner, ...). About 30% of the plain infected are a bit bigger (1.1-1.35x).
+- Offers pop up above the weapon cards instead of on top of them. Repair and Cash Drop are always on screen during a run, bottom right under the weapons.
+- Boss intro cutscene: framed by the boss's real size, and every camera angle is checked for a clear view (no more houses in the way). A boss's first special move waits until after its intro, so two cutscenes don't play back to back.
+- New `GiantSteps` client script: heavy footsteps (Giant_Step + Giant_Impact) for bosses and the nearest brutes, one per stride; you hear them in the cutscenes.
+- Welder sparks are real now: small neon cubes with trails that fall, bounce off the floor and cool from white to orange to red, plus slag drips and little cube smoke puffs.
+
 ## 0.7.3 — 2026-11-20
 
 - Lobby: a nuke loading area behind the parked AC-130 (`Hangar.NukeLoading`). One nuke strapped to a yellow weapons trailer inside a chain barrier with a DANGER / LIVE NUCLEAR ORDNANCE sign, a second nuke on a loader lined up with the rear ramp, and pallets of 105mm shells, 40mm crates and 25mm cans. Placed clear of the plane, the Set props and the crew (checked part by part).
