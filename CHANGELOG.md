@@ -2,6 +2,14 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.6.3 — 2026-11-20
+
+- Base ambience (`BaseAmbience`, new): hangar hall bed, outdoor wind and distant traffic, plus random far-off jets, helicopters, formation rumble and range fire through a muffled group, and impact wrenches / dropped tools around the hangar floor. Fades out during missions.
+- Airbase vehicles make noise: the Little Bird's rotor follows its spin, the A-10 roars on its take-off roll, every truck has a diesel loop (all 3D, heard faint from the hangar).
+- Welders: bigger sparks, a white-hot arc flare at the torch tip and an arc crackle you hear up close. The wing welder now works under the right wing tip (clear of the fuel truck).
+- Hub music volume 0.3 -> 0.2.
+- Hangar walls dressed (`WallDressing`): pipes, brackets and an air duct round the walls, a glass control office on a mezzanine with stairs, lockers and bench, pegboard tool wall and red tool chests, exhaust fans, electrical panels with conduit, fire extinguisher stations, oil drums, safety signs, a sortie board, a "days without an outbreak" board, a squadron banner, a Zulu clock and a big HANGAR 7 stencil. Checked for overlaps with everything already in the hangar.
+
 ## 0.6.2 — 2026-11-20
 
 - ForceTutorial is off: only new players get the tutorial.
