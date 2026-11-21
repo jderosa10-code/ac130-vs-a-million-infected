@@ -71,13 +71,14 @@ Rules:
 - **Cash** (in-run): from kills. Spent on gun tiers (4) and abilities.
 - **Gems** (permanent): earned per run. Spent in the hangar on per-gun stat upgrades (max level 5).
 - Saved per player: Gems, BestWave, TotalKills, TutorialDone, each upgrade level (DataStore "GunshipProfile_v2").
-- Not designed yet: time-to-endgame target, rebirth or index, second map (OUTPOST is shown locked), classes, daily rewards.
+- Ranks (from Zombie Gunship): 3 objectives at a time; finish all 3 to be promoted (RECRUIT to GENERAL, 19 ranks). Each rank is +10% cash and gems for good, a promotion pays gems, and an objective can be skipped for gems. Rules and text in `Convoy.Ranks`, state in `ConvoyServer.Ranks`.
+- Not designed yet: time-to-endgame target, rebirth or index, second map (OUTPOST is shown locked), daily rewards.
 - Risk: only 3 guns × a few stats × 5 levels is shallow for D7+. Needs a longer ladder before launch.
 
 ## 7. Retention (not designed yet)
 
 - D1: beat your best wave, unlock Hardcore at wave 10.
-- D7 / D28: nothing yet. Candidates: daily rewards, weekly boss, classes, more maps, an infected index.
+- D7 / D28: ranks (objectives always give a next goal). Candidates: daily rewards, weekly boss, more maps, an infected index.
 
 ## 8. Monetization (v0.7.0)
 
@@ -119,7 +120,7 @@ Funnel to add: tutorial started → intro finished → first kill → switched t
 2. (Done in 0.2.1) SVG-made FX textures are uploaded under the group (327304402) and wired in `Config.TEXTURES`. New textures: put the PNG in `BlenderExports\fx`, upload through Open Cloud with the group as creator, then use the image ID from the decal.
 3. Mobile controls.
 4. Longer progression, retention and monetization design (sections 6–8).
-5. Later: classes, daily rewards, second map, voice lines, rebuilding the mesh buildings from parts.
+5. Later: daily rewards, second map, voice lines, rebuilding the mesh buildings from parts.
 
 ## Bosses (v0.5.0)
 
