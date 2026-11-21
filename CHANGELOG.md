@@ -2,6 +2,12 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.9.2 — 2026-11-21
+
+- Artillery is aimed by the player. Pressing it shows a red ring the size of the barrage at the aim point; click (or tap the screen on touch) to send it there, press again or right-click to cancel. The server fires at that spot (within 700 studs of the bunker) and charges on firing.
+- HUD banner: the sub line is a dark plate that hugs its text (tan mono type, olive border) instead of a fixed amber bar with outlined text.
+- Objective toast is as wide as its words (260-660) and 76 tall, and drops in just under the wave bar instead of on top of it.
+
 ## 0.9.1 — 2026-11-21
 
 - Military look across the whole GUI. Every screen uses an olive / tan / amber / muted palette, Oswald for headings, square corners and thinner outlines. Colours set by `GunshipUI`, `RanksUI` and `BattleOffers` were remapped to the same palette. New `MilitarySkin` client script draws every button face as a flat plate (dark fill, state colour on the border).
