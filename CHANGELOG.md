@@ -2,6 +2,10 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.6.4 — 2026-11-20
+
+- Welding sound: the welders' buzzy arc (Tesla Coil) is now a sparkler sizzle (Pro Sound Effects 9119380766) that sounds like a torch. The impact-wrench "drilling" bursts in the hangar ambience are gone; short welding sizzles play around the floor instead.
+
 ## 0.6.3 — 2026-11-20
 
 - Base ambience (`BaseAmbience`, new): hangar hall bed, outdoor wind and distant traffic, plus random far-off jets, helicopters, formation rumble and range fire through a muffled group, and impact wrenches / dropped tools around the hangar floor. Fades out during missions.
