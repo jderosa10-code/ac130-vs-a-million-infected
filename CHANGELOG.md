@@ -2,6 +2,13 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.5.1 — 2026-11-20
+
+- Armory callouts: brighter (above the panel backing), each stat has its own colour (orange / cyan / green), and the cards sit round each weapon differently.
+- Parked gunship guns: every part reaches slightly into the one behind it, so no two faces share a plane (no more flicker on the 105). AC-130 parts have surface textures on every side.
+- Bosses: new look module `ConvoyServer.BossLook` (skin / shirt / trousers palette per boss plus props; no neon, no lights). Each boss has its own walk from the R15 animation packs (robot, elder, werewolf, ninja, vampire, knight, zombie). Every infected's walk now plays at the speed it actually moves (`e.track`, `e.stride`, `e.scale`), including charges, screams, burrowing and holding position. The tutorial boss is its own "PATIENT ZERO" instead of the Titan.
+- Animation from data: `Convoy.AnimClips` builds KeyframeSequences at runtime from pose tables (method from github.com/1nird/animations-cutscenes-skill) and registers them with KeyframeSequenceProvider, so nothing is uploaded. Clips: `sitDown` (stand in front of a chair and sit), `chair` (seated loop), `benchClimb` (hands on a bench edge, push up and sit), `bench` (seated loop with legs swinging). The tutorial gunner and the rescued survivors use them, so nobody floats into a seat any more. The clips move the body from where the character stands, so the root goes on the seat and the clip starts with a cut rather than a blend.
+
 ## 0.5.0 — 2026-11-20
 
 - Upgrade tab icons (blast, fire rate, reload, run length, firepower, call cost): SVGs in `art/icons`, uploaded to the group, wired in `GunshipUI` (`STAT_ICON`).
