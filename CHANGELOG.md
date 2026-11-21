@@ -2,6 +2,13 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.8.6 — 2026-11-20
+
+- Easier on phones. Each client tells the server its device (Action "Device" → Player attribute `Touch`). A crew that is all on touch gets 35% fewer infected per wave and tough types with 35% less health (bosses 30% less). Mixed crews get a share of that.
+- Infected walk 15% slower in every mode, so they take a bit longer to reach the bunker.
+- Phone target boxes are really red now. They are flat screen frames (`TargetBoxes` ScreenGui) instead of BillboardGuis, because the thermal camera's colour grading had turned them green. They are still hidden behind buildings (raycast).
+- New `EdgeAlert` (PC and phones): when 10 or fewer infected are left in a wave, the screen edge on the side where off-screen infected are glows and pulses red.
+
 ## 0.8.5 — 2026-11-20
 
 Phone fixes, round three (Jacob's iPhone):
