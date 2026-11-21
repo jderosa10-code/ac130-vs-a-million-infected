@@ -2,6 +2,10 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.8.10 — 2026-11-20
+
+- Fix: Settings > REPLAY TUTORIAL did nothing on live servers. `Mission` only starts the tutorial in Studio. Now `Lobbies` handles it on lobby and mission servers (not mid-run): it takes you out of your crew and sends you to a fresh server of your own with the tutorial plan, the same way a new player gets it. While that happens, the notice reads "LOADING THE TUTORIAL...".
+
 ## 0.8.9 — 2026-11-20
 
 - A-10 picks its own target on every device; no more drawing the run. The server finds the line through the biggest group of infected, using where they will be when the guns open up (each one's route is walked forward). Civilians count against a line.
