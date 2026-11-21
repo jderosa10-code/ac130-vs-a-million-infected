@@ -2,6 +2,13 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.8.1 — 2026-11-20
+
+- Phones: every screen fits now. After the usual scale, any top-level piece that would run off the screen or into a more important piece shrinks a little (down to 60%) until it fits (`FIT_ORDER` in GunshipUI; tween targets use each frame's `FitScale`). The hub leaderboard steps aside when there is no room for it. Checked at 844x390 (iPhone landscape): hub, HUD, lobby, armory, ranks.
+- Phones, in a run: the weapon cards go top-right so the FIRE button has the bottom-right corner (FIRE sized to the screen), the abilities sit under the tally, Repair / Cash tiles sit bottom-left, and offers drop in under the wave bar.
+- PC: the mission screen no longer pokes past the bottom on 1080p-ish windows; the Armory / Ranks centre blocks are narrower (no change in look).
+- Control hints match the device (new `ControlHints` script): the hub's hint line and the Settings controls list say HOLD FIRE / DRAG TO AIM / PINCH TO ZOOM / TAP A GUN on touch, keys on PC; the C / V / F key tags on the ability cards hide on touch; Garmin's "Press 2." becomes "Tap the 40mm." on touch. The hub hint line shrinks to fit any width.
+
 ## 0.8.0 — 2026-11-20
 
 - New: RANKS, the core hook from the original Zombie Gunship. The hub's CLASSES button is now RANKS.
