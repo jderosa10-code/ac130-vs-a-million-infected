@@ -2,6 +2,16 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.11.3 — 2026-11-21
+
+- Title on the hub is now GUNSHIP vs a Million Infected.
+- AC-47 Spooky model: the three miniguns sit in framed gun ports / the open cargo door on cradles and a pedestal (were barrels poking through the skin next to a black slab).
+- Ammunition comes with the weapon tier (`Upgrades.AMMO`, nothing to switch): tier 3 ARMOR PIERCING (the small gun hurts armored infected at 60%, every gun does 60% instead of 25% through the Tank's front plates), tier 5 HIGH EXPLOSIVE (+25% blast), tier 7 INCENDIARY (+50% to bosses, small gun full damage to armor). The HUD shows it next to the tier and announces it on the upgrade.
+- An aircraft that carries only the small gun (the Spooky) does 35% to armor from tier 1, so it can always hurt armored infected and the Tank.
+- Bosses: more health on the Hive, Screamer, Burrower, Spitter Queen and Swarm Lord. Each moves its own way: Screamer stalks then sprints, Titan takes three strides and stops, Hive lurches, Burrower darts, Swarm Lord weaves, Queen glides, Tank marches.
+- Boss sounds: the roar is a creature roar (was a pitched jet fly-by); the roar-on-a-timer and the extra unsynced thud are gone (footsteps come only from `GiantSteps`).
+- Fix: cutscene captions threw an error on very short screens (could leave the HUD up during a cutscene).
+
 ## 0.11.2 — 2026-11-21
 
 Hub and HUD
