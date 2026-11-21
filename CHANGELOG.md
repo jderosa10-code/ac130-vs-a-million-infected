@@ -2,6 +2,15 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.8.3 — 2026-11-20
+
+Phone fixes, round two (Jacob's iPhone):
+- The wave bar (AUTO-SKIP / WAVE / START / next boss) stays at the top on phones, in the gap between Roblox's buttons and the weapon cards, a bit smaller if it has to be. (0.8.2 pushed it down to the bottom.)
+- Panels are no longer moved to the right to dodge Roblox's buttons: they stay centred and only their title steps out from under the buttons.
+- Only the wave banner may slide down under something; everything else just gets smaller where it must.
+- Text stays big on phones: after fitting, any label that would draw under 12 points on screen is made bigger where its box has room (`boostText`).
+- Fitting now uses the GUI's real area (the safe area on notch phones), not the camera's full width.
+
 ## 0.8.2 — 2026-11-20
 
 From Jacob's iPhone screenshots:
