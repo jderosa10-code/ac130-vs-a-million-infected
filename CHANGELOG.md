@@ -2,6 +2,12 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.8.8 — 2026-11-20
+
+- Phones are full auto-fire. The FIRE button is gone, and every gun fires on its own while an infected is under the crosshair: within 6 studs for the 25mm, 9 for the 40mm and 12 for the 105mm. Guns still hold fire when a civilian is within that radius. The AUTO-FIRE setting is removed, since there is nothing to turn back on.
+- A-10 on touch: tap the screen (a quick tap, not a drag) to place the start and end of the run.
+- Touch hints and the tutorial line say the gun fires by itself.
+
 ## 0.8.7 — 2026-11-20
 
 - AUTO-FIRE on touch devices. The 25mm and 40mm fire on their own while an infected is under the crosshair: within 6 studs for the 25mm and 9 for the 40mm, more for big ones. They don't fire if a civilian is within that radius too. The 105mm and the FIRE button stay manual.
