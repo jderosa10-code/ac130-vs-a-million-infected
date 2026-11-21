@@ -2,13 +2,19 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
-## 0.5.0 — 2026-11-20 (in progress — built in Studio, not fully checked)
+## 0.5.0 — 2026-11-20
 
 - Upgrade tab icons (blast, fire rate, reload, run length, firepower, call cost): SVGs in `art/icons`, uploaded to the group, wired in `GunshipUI` (`STAT_ICON`).
 - Tutorial: the bunker starts damaged (62 HP) and Garmin teaches REPAIR (arrow + pulsing button). Ability buttons the arrow points at (Repair, Nuke) grow and shrink.
 - Gunship rounds look like real shells (body, coloured nose, tracer glow) instead of glowing balls (`FXLib` `SHELL_LOOK`).
 - Hangar: ammo crates, bomb cart, cans and a gun-ammo loader around the A-10; new outside view through the door (sunset sky, hills, runway, control tower, far hangars, parked AC-130 / A-10 / Little Bird); detailed guns on the parked gunship (GAU-12 barrels, Bofors flash hider, 105 muzzle brake).
 - Armory: picking 25mm / 40mm / 105mm swings the camera to that gun on the parked gunship.
+- Seven bosses, in this order, each with a special move: THE TANK (25mm bounces off, front plates take 1/4 damage, charges), THE HIVE (splits into runners at 75/50/25% and when it dies), THE SCREAMER (makes nearby infected faster), THE BURROWER (goes underground where it can't be hit, comes up ~70 studs further on), SPITTER QUEEN (shells the bunker from range, spawns spitters), SWARM LORD (a ring of bombers walks with him; bomber blasts hurt him for 12% of his health), THE TITAN (stomps buildings and survivors; the last quarter of its health only comes off to the A-10 or the nuke). After the seventh they repeat with +60% health each time round. The tutorial boss is the Titan with no moves.
+- The first time each boss move happens in a run, a short cutscene plays (CutKind `BossMove|<move>`). After that you just get a banner (`BossMove`). The A-10 and the nuke now pass hit kinds `a10` / `nuke`.
+- Testing switches: `DebugBossKind` (1-7) forces which boss appears.
+- Armory callouts: a blueprint grid with thin lines from the gun's parts (muzzle, barrels, feed / breech; A-10 wing, cannon, engines) to cards showing the stat, its value now and after the next upgrade. Click a card to select that stat.
+- Parked gunship guns: no more overlapping surfaces (the old port plates and mount are hidden), and every barrel has a bore hole. The 25mm Armory camera has its own spot so the landing-gear fairing and the propeller don't block it.
+- SkipTutorial is off again. ForceTutorial is still on for testing.
 
 ## 0.4.1 — 2026-11-20
 

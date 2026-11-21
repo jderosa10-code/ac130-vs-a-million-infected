@@ -106,7 +106,7 @@ Funnel to add: tutorial started → intro finished → first kill → switched t
 - Never the default Roblox sparkle particle. Textures must not contain barcodes, QR patterns or URLs.
 - Infected are tinted slightly red, friendlies slightly green.
 
-## Status at v0.4.0
+## Status at v0.5.0
 
 **Working:** full solo loop (hangar → mission setup → waves, bosses, abilities → results), tutorial, upgrades and saving, leaderboard card, cutscenes (deploy, boss, nuke, A-10, intro), part-built AC-130 / A-10 / Little Bird / vehicles, hangar with crew, helipad at the bunker.
 
@@ -116,3 +116,7 @@ Funnel to add: tutorial started → intro finished → first kill → switched t
 3. Mobile controls.
 4. Longer progression, retention and monetization design (sections 6–8).
 5. Later: classes, daily rewards, second map, voice lines, rebuilding the mesh buildings from parts.
+
+## Bosses (v0.5.0)
+
+A boss comes every 5 waves, in this order: Tank, Hive, Screamer, Burrower, Spitter Queen, Swarm Lord, Titan. Then they repeat, tougher each time round. Each boss teaches one idea (front armour, splitting, buffing others, hiding underground, range, guards, needing an ability). The first time each special move happens in a run, it plays a short cutscene. After that it's just a banner.
