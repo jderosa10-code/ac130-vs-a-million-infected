@@ -2,6 +2,13 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.8.7 — 2026-11-20
+
+- AUTO-FIRE on touch devices. The 25mm and 40mm fire on their own while an infected is under the crosshair: within 6 studs for the 25mm and 9 for the 40mm, more for big ones. They don't fire if a civilian is within that radius too. The 105mm and the FIRE button stay manual.
+- The FIRE button shows an AUTO tag, which turns red while auto-fire is shooting.
+- Settings has an AUTO-FIRE row on touch devices, on by default and saved with the profile (`Settings.AutoFireOff`). The panel grows to fit the row only on touch.
+- Touch control hints mention auto-fire.
+
 ## 0.8.6 — 2026-11-20
 
 - Easier on phones. Each client tells the server its device (Action "Device" → Player attribute `Touch`). A crew that is all on touch gets 35% fewer infected per wave and tough types with 35% less health (bosses 30% less). Mixed crews get a share of that.
