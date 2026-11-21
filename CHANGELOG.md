@@ -2,6 +2,16 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.11.0 — 2026-11-21
+
+No aircraft is flown by hand any more: every one is flown for you and you run its weapons. All eight can now be used in a run (and bought: rank reached + gems).
+- Line-up: AC-130H (start), AC-47 Spooky (2), UH-1 Huey (4), MQ-9 Reaper (6), AV-8B Harrier (7), AH-64 Apache (9), CH-47 Chinook gunship (12), B-52 (15). The Little Bird, A-10 and F-15E are out of the list. New models: UH1, AV8B, CH47.
+- Hovering aircraft (Huey, Harrier, Apache, Chinook): `Convoy.Orbit` has a hover path. A bot pilot holds over one of 3-4 stations round the bunker, then slides to the next, drifting slightly. Stations rotate on a timer; they do not yet chase the infected.
+- Weapons per aircraft (the three weapon slots, renamed and retuned in `Convoy.Aircraft`): Huey door minigun + rockets; Reaper 4 Hellfires; Harrier 25mm + 2 bombs; Apache chain gun + rockets + Hellfires; Chinook twin miniguns + 40mm grenades; B-52 a 12-bomb bay.
+- B-52 circles high the whole time (no gaps between passes) and drops wherever you aim.
+- Each run starts on the first weapon the aircraft carries.
+- Not built yet: lock-on for Hellfires, damage to low-flying aircraft, takeoff cutscenes for the new aircraft, and seeing crewmates' aircraft. The hand-flown helicopter code is left in `GunshipClient` unused.
+
 ## 0.10.0 — 2026-11-21
 
 Two more aircraft can be flown (and so bought: rank reached + gems):
