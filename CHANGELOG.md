@@ -2,6 +2,14 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.12.1 — 2026-11-21
+
+CONVOY OUT map rebuilt, about 3x longer (4.5 km of road, roughly 5-6 minutes if never stopped).
+- Sand terrain (dunes, rock outcrops) instead of block wedges; the road sits on a gravel bed so the sand never covers it.
+- Seven stretches: city outskirts (ruined apartments, shops, hotels, a Hesco gate), gas station, overpass with a collapsed ramp, billboard and an abandoned roadblock, a low red-rock canyon (rockfalls, burnt tanker; kept low so the gunship can see into it), an adobe village with a minaret and palms, a rail yard (tracks across the road, freight cars, a derailed car, water tower, depot), an oil field (pump jacks, storage tanks, a pipeline, a flare stack), and the army base (Hesco walls, gate, four towers, tents, command post, Humvees, helipad).
+- Burnt-out cars along the whole road and an overturned bus.
+- Infected come from narrower sides in the canyon (route points carry a `Wide` value); convoy cruise 14 studs/s; convoy 220 HP; reward 400 gems.
+
 ## 0.12.0 — 2026-11-21
 
 MISSIONS mode (first mission: CONVOY OUT).
