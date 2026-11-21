@@ -2,6 +2,29 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.11.2 — 2026-11-21
+
+Hub and HUD
+- PLAY sits in the centre of the screen. REPLAY TUTORIAL is off the hub (still in Settings).
+- Map select: DOWNTOWN shows a photo of the map (`art/map_downtown.png`).
+- The crosshair has its own top layer (`CrosshairTop`), so it draws over the Robux buttons and the toasts.
+- PROMOTED during a run is a small strip under the wave bar instead of a panel over the fight.
+- After LOBBY on the results screen, a RETURNING TO BASE card holds until the lobby loads.
+- AIRCRAFT prices use the gem picture.
+- Enemy tags and health bars are hidden while a cutscene plays.
+
+Tutorial and cutscenes
+- The radio uses the player's name where it said "gunner".
+- A-10 flyover: the street-level shot picks a spot with a clear view of the strike (no more wall in the lens).
+- Extraction: survivors sit on the Little Bird's benches (were 0.5 above them). Civilian faces are decals.
+- Failing for civilian hits no longer blows up the bunker.
+
+Enemies and weapons
+- Fixed infected sliding with frozen legs after a cutscene (the walk speed was never restored); a run clip that failed to load is retried; a stuck cutscene freeze clears after 12 s (was 25).
+- Spitters: stand in an idle stance, lunge when they spit, and a green glob arcs to the bunker and bursts (`SpitFX`). Damage lands with the glob.
+- Weapon tiers go to 8 (was 4), same formulas.
+- Bosses have 2.2x health (not the tutorial boss).
+
 ## 0.11.1 — 2026-11-21
 
 Rework of the seven new aircraft models (no gameplay change).
