@@ -2,6 +2,10 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.8.13 — 2026-11-21
+
+- Phone target boxes: camera (viewport) pixels are now converted to the boxes' ScreenGui pixels as `viewport point - GuiService:GetGuiInset() - gui.AbsolutePosition`. On PC this is zero, so nothing changes there. On phones the GUI's origin can sit away from the viewport's, because of the top bar or the notch safe area, which shifted every box off its infected.
+
 ## 0.8.12 — 2026-11-20
 
 Phone target boxes:
