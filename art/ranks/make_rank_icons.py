@@ -1,6 +1,6 @@
 # Rank insignia for the RANKS screen, in the game's icon style: flat white silhouettes with a thick black
 # outline (gold ranks are tinted in the UI). Writes rank_00..rank_18 (.svg/.png, 256px) and ranks_sheet.png:
-# 5 columns x 4 rows of 200px cells (Roblox caps images at 1024px), rank n at cell n (Convoy.Ranks.cell).
+# 5 columns x 4 rows of 200px cells on a 1024x1024 canvas (Roblox caps images at 1024px), rank n at cell n (Convoy.Ranks.cell).
 import math, os, subprocess
 from PIL import Image
 OUT = os.path.dirname(os.path.abspath(__file__))
@@ -117,12 +117,19 @@ ICONS = [
     stars(1), stars(2), stars(3), stars(4),  # 15-18 generals
 ]
 CELL = 200
-sheet = Image.new("RGBA", (5 * CELL, 4 * CELL), (0, 0, 0, 0))
+# a square power-of-two canvas: Roblox stretches other sizes, which shifts every cell
+sheet = Image.new("RGBA", (1024, 1024), (0, 0, 0, 0))
 for i, svg in enumerate(ICONS):
     p = f"{OUT}/rank_{i:02d}"
     open(p + ".svg", "w").write(svg)
     subprocess.run(["rsvg-convert", "-w", "256", "-h", "256", p + ".svg", "-o", p + ".png"], check=True)
-    sheet.paste(Image.open(p + ".png").convert("RGBA").resize((CELL, CELL), Image.LANCZOS), ((i % 5) * CELL, (i // 5) * CELL))
+    icon = Image.open(p + ".png").convert("RGBA").resize((CELL, CELL), Image.LANCZOS)
+    # centre the drawing in its cell (some stacks come out a little high)
+    l, t, r, b = icon.getbbox()
+    dx, dy = round(CELL / 2 - (l + r) / 2), round(CELL / 2 - (t + b) / 2)
+    cell = Image.new("RGBA", (CELL, CELL), (0, 0, 0, 0))
+    cell.paste(icon, (dx, dy), icon)
+    sheet.paste(cell, ((i % 5) * CELL, (i // 5) * CELL))
 sheet.save(f"{OUT}/ranks_sheet.png")
 # preview on the UI's panel colour, gold ranks tinted
 prev = Image.new("RGBA", sheet.size, (6, 8, 10, 255))
