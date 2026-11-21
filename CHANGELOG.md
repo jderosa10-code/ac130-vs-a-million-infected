@@ -2,6 +2,10 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.7.2 — 2026-11-20
+
+- Fix: the hand-made animations (gunner sitting down / chair, survivors climbing onto and sitting on the helicopter benches, the welders) didn't play in the published game: `KeyframeSequenceProvider:RegisterKeyframeSequence` only works in Studio. Every clip is now also an uploaded Animation asset owned by the group, listed in `Convoy.AnimIds`; `AnimClips.animation` uses the uploaded id (and the nearest start point for the sit-down / bench-climb clips). Clips are exported from their specs (`art/anim/specs.json`) to .rbxmx by `tools/build_rbxmx.py`; re-run and re-upload when a clip changes.
+
 ## 0.7.1 — 2026-11-20
 
 - Guns: in a normal run the 40mm and 105mm start LOCKED; unlock them with run cash ($1,500 / $4,000, `Upgrades.UNLOCK`). Locked cards say LOCKED, picking one says how much it costs, the server won't fire it.
