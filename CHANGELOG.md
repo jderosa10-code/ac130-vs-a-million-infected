@@ -2,6 +2,15 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.8.5 — 2026-11-20
+
+Phone fixes, round three (Jacob's iPhone):
+- Cutscene bars and the black wipe now reach the real screen edges. `GunshipUI.ClipToDeviceSafeArea` is off (Roblox was clipping them at the notch safe area), and the bars reach past the bottom home-bar strip.
+- Text fits its box. Labels are measured with `TextService:GetTextBoundsAsync` (the old check read `TextBounds`, which lags behind a size change, so every size passed). Text that doesn't fit gets smaller, on every device. Labels are re-fitted whenever their text changes or new ones appear.
+- The wave-cleared banner says "TAP START" on touch instead of "[SPACE] START".
+- Armory: no upgrade callout cards on phones.
+- No pop-up purchase offers and no "X called in…" toasts on phones. The Repair and Cash tiles stay.
+
 ## 0.8.4 — 2026-11-20
 
 - Pinch zoom on phones is calm now. Roblox reports a pinch as its total size change since the fingers went down, and the old code applied that total again on every frame, so a small pinch zoomed hugely. The zoom is now worked out from where the pinch started, so the view follows your fingers.
