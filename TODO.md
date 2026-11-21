@@ -1,7 +1,3 @@
-# In progress (2026-11-20 evening)
-- Move the hangar up to the surface (it is underground at y=-400 under the city terrain), then build a real airbase round it: real sky, terrain, runway, taxiways, apron, helipads, tower, barracks. Old fake sky walls: `Hangar.Exterior.Sky/Hills/Clouds`.
-- Airbase life (client): cars on a ring road, soldier squads walking and running, helicopters loading troops (benchClimb) and taking off, an A-10 taking off.
-
 # To do
 
 1. Co-op live test: publish, then join with two accounts.

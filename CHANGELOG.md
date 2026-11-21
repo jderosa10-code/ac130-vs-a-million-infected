@@ -2,6 +2,14 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.6.0 — 2026-11-20
+
+- The hangar is above ground now. It moved from under the city terrain (y -400) to x+5100 / y+0 (floor top y=0, door facing -X, centred on z=150). The old painted sky walls, hills and clouds are in `ServerStorage.OldExterior`.
+- Real airbase round it (`Hangar.Airbase`), on a terrain plain with rolling hills and mountains at ~1.5-2.7k studs and a sandy shore to the city's ocean: runway (5250, -1700..2000) with markings and edge lights, two taxiways with hold bars and blue lights, apron with the parked AC-130 and two A-10s, a heli apron with three helipads, a control tower, a radar (its dish turns), two side hangars, barracks, a fuel farm, a windsock, light poles and a ring road.
+- `StarterPlayerScripts.AirbaseLife` (client): five trucks lap the ring road, three squads march and jog (feet in step with their speed), a Little Bird loads a four-man fire team (they run out and climb on with the bench-climb clip) and flies off then returns, an A-10 takes off down the runway. Paused during missions.
+- Hangar door centred on the building (moved 10 studs); every face on the door frame that sat on the same plane as another one is pushed out 0.03 (no more flicker on the doors).
+- Fixed a `math.clamp` error in the cutscene caption on small screens.
+
 ## 0.5.1 — 2026-11-20
 
 - Armory callouts: brighter (above the panel backing), each stat has its own colour (orange / cyan / green), and the cards sit round each weapon differently.
