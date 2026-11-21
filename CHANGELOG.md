@@ -2,6 +2,16 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.11.1 — 2026-11-21
+
+Rework of the seven new aircraft models (no gameplay change).
+- Stray parts removed from every model: nav lights, beacons, antennas and wires, probes, loose panels (the black lines on top of the B-52). A stricter floating-part check (real geometry, not bounding boxes) now passes on all seven.
+- Things that did not touch the body are now joined to it: Huey skids, Harrier nose/main gear, Apache engines, Chinook engines.
+- Guns rebuilt: six-barrel miniguns with motor, clamps and ammo box (Spooky, Huey, Chinook), Apache chain gun on a turret, Chinook nose grenade launcher, Harrier cannon pods, rocket pods with tube faces.
+- Engines: intake faces follow the shape of the intake (Harrier, Apache) instead of a black box; Harrier nozzles are ducts with vanes; exhausts are dark steel, not brown.
+- All aircraft stand on their wheels/skids on the apron (the hidden root part no longer lifts them).
+- Bay 01 outside now shows the same AC-130 as the main lobby (`Hangar.ParkedGunship`).
+
 ## 0.11.0 — 2026-11-21
 
 No aircraft is flown by hand any more: every one is flown for you and you run its weapons. All eight can now be used in a run (and bought: rank reached + gems).
