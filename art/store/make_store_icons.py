@@ -55,7 +55,13 @@ def crown():
 def head_start():
     return (bills().replace('x="28"','x="20"')
             + '<path fill="#ffffff" d="M188,40 L236,92 L208,92 L208,150 L168,150 L168,92 L140,92 Z"/>')
+def skip():
+    # fast-forward: two arrows and an end bar
+    return ('<path fill="#ffffff" d="M34,58 L118,128 L34,198 Z"/>'
+            '<path fill="#ffffff" d="M112,58 L196,128 L112,198 Z"/>'
+            '<rect x="198" y="58" width="28" height="140" rx="4" fill="#ffffff"/>')
 ICONS = {
+    "skip_objective": (skip(), "#B07CFF"),
     "repair":        (wrench(), "#A6FF4D"),
     "second_chance": (heart(), "#FF5046"),
     "nuke":          (bomb(), "#FFC22E"),
