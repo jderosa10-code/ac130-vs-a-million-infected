@@ -2,6 +2,19 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.8.14 — 2026-11-21
+
+Phones:
+- A small FIRE button is back in the bottom-right corner (56-72 px, the word scales to fit). Auto-fire stays on. The weapon cards sit just above the button.
+- The bunker bar and the money under it stay small in the top-right in real runs too. The tutorial still hides the money. Quick-buy tiles size to the gap between the abilities and the weapon cards.
+- Red target boxes were rewritten. They now draw inside GunshipUI's `HUD.Markers`, using the same screen maths as the green friendly markers, and are centred on the torso with the body's measured extent (1.9 up, 2.8 down per unit of scale). They are tighter (+3 px, thinner stroke).
+- Fixed a scoping bug where `enemiesRoot` was read before it was declared, so the "not a civilian" check never ran. Civilians are never boxed now, and the check runs every frame too.
+- Green friendly markers hug the body on phones instead of a fixed 22 px square.
+
+All devices:
+- Cutscenes freeze the fight. While a gunner is in a cutscene (the client reports it with Action "Cut"), every infected and civilian stands still and stops animating, except the boss the cutscene is about. Reports time out after 25 s. Checked in a playtest: 0/5 infected moved during a boss intro while the boss walked 14 studs, and all of them moved again after it.
+- Tutorial: the impossible wave is endless. From "contact everywhere" until the nuke, a pack of 8 arrives every 0.6 s, up to 130 alive. It no longer runs dry before the A-10s and the nuke.
+
 ## 0.8.13 — 2026-11-21
 
 - Phone target boxes: camera (viewport) pixels are now converted to the boxes' ScreenGui pixels as `viewport point - GuiService:GetGuiInset() - gui.AbsolutePosition`. On PC this is zero, so nothing changes there. On phones the GUI's origin can sit away from the viewport's, because of the top bar or the notch safe area, which shifted every box off its infected.
