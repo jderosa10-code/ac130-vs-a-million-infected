@@ -2,6 +2,12 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.8.11 — 2026-11-20
+
+Phones:
+- The wave bar is centred at the top, as big as it can be without reaching Roblox's buttons.
+- Tutorial: Garmin's radio box sits along the bottom between the ability cards and the weapon cards, scaled to fit. It used to sit 200 px up the screen, which covered the middle on a phone. There is no money box, and the bunker bar goes small in the top-right corner. Layout re-fits when the tutorial starts or ends.
+
 ## 0.8.10 — 2026-11-20
 
 - Fix: Settings > REPLAY TUTORIAL did nothing on live servers. `Mission` only starts the tutorial in Studio. Now `Lobbies` handles it on lobby and mission servers (not mid-run): it takes you out of your crew and sends you to a fresh server of your own with the tutorial plan, the same way a new player gets it. While that happens, the notice reads "LOADING THE TUTORIAL...".
