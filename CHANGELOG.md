@@ -2,6 +2,13 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.8.15 — 2026-11-21
+
+Bosses bring their own horde:
+- On a boss wave, the whole wave spawns as the boss's escort, in a loose ring around it (8-22 studs, wider for bigger bosses), not on other roads. Escorts circle the boss slowly as it walks, then head for the bunker on their own once it dies. They walk during the boss's own cutscenes too, since they are in the shot.
+- Every boss calls in more infected around itself every 9 s (first call 16 s in). The call is 6 infected, fewer for a phone crew, and only while it has fewer than 10 escorts and fewer than 120 infected are out. It shows a burst at the boss and no banner. Each boss's own special move is unchanged.
+- Playtest (THE TANK): escorts 0-30 studs from the boss 26 s in, versus 32-98 before the freeze exemption.
+
 ## 0.8.14 — 2026-11-21
 
 Phones:
