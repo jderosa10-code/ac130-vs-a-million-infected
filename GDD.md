@@ -79,9 +79,13 @@ Rules:
 - D1: beat your best wave, unlock Hardcore at wave 10.
 - D7 / D28: nothing yet. Candidates: daily rewards, weekly boss, classes, more maps, an infected index.
 
-## 8. Monetization (not designed yet)
+## 8. Monetization (v0.7.0)
 
-The Shop screen exists with placeholders: gem packs of 500 / 1,500 / 5,000 and 2x Gems / 2x Cash passes. Prices and product IDs are not set (`Convoy.Shop` module), and the pass effects are not wired. Other candidates: revive bunker, starter pack, extra ability slot. Free players must be able to reach everything.
+- Battle offers (dev products, popups in a run): Emergency Repair R$25 (bunker under 35%), Instant Nuke R$39 (boss arrives), Cash Drop R$19 (every third break, 1000 + 200 x wave cash), Second Chance R$49 (bunker falls: 10 s freeze, once per run, anyone in the crew). Max one small popup per 50 s; never in the tutorial. Toast to the crew on every purchase.
+- Gem packs: 500 / 1,500 / 5,000 for R$49 / 129 / 399.
+- Passes: 2x Gems R$199, 2x Cash R$149.
+- Late purchases (run already over) refund 150 gems. Free players can still reach everything.
+- IDs and text live in `Convoy.Shop`; prices are changed in Creator Hub.
 
 ## 9. Analytics (not built)
 

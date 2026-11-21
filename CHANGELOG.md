@@ -2,6 +2,19 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.7.0 — 2026-11-20
+
+Monetization and saved settings.
+
+- Created on Roblox (prices are editable in Creator Hub > Monetization), each with its own icon (`art/store`):
+  - Battle offers (developer products): Emergency Repair R$25, Second Chance R$49, Instant Nuke R$39, Cash Drop R$19.
+  - Gem packs: 500 for R$49, 1,500 for R$129, 5,000 for R$399.
+  - Game passes: 2x Gems R$199, 2x Cash R$149.
+- `Convoy.Shop` now holds every product/pass ID, icon and the battle-offer text.
+- `BattleOffers` (new client script): a small card slides in from the right at the right moment (bunker under 35% -> Repair, 5 s after a boss walks in -> Nuke, every third break -> Cash Drop), stays 9 s, at most one every 50 s, never in the tutorial. When the bunker falls the run freezes for 10 s with a big Second Chance countdown any crew member can buy (once per run). Everyone sees a toast when someone buys ("JACOB CALLED IN AN INSTANT NUKE!").
+- Server (`Mission`): ProcessReceipt grants gem packs and battle offers, de-duplicated by purchase ID in a DataStore; an offer that lands too late gives 150 gems instead. Passes are checked on join and on purchase; 2x Cash doubles every cash gain, 2x Gems doubles your share at the end of a run (debrief shows your own number). Studio-only `DebugGrant` BindableFunction to test products without buying.
+- Settings are saved: music on/off and volume go to the server when changed and come back with the profile on every server. The ambience follows the volume setting.
+
 ## 0.6.5 — 2026-11-20
 
 - Hangar wall dressing now uses the game's four surface textures (Plastic + Weld / Studs / Inlet / Universal surfaces) like the gunship and the set: Weld on all the metal (pipes, duct, office, stairs, lockers, chests, fans, panels, drums), Studs on stair treads, benches, desks and the pallet, Inlet on the pegboard and the office floor/roof, Universal on crates and electrical panels. Signs stay smooth so the text reads.
