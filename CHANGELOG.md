@@ -2,6 +2,16 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.10.0 — 2026-11-21
+
+Two more aircraft can be flown (and so bought: rank reached + gems):
+- AC-47 Spooky (gunner): its own lower, tighter orbit (`orbit` in `Convoy.Aircraft`). One weapon, the miniguns: 22 rounds a second, no reload, small blast, limited by heat. No 40mm / 105mm.
+- AH-6 Little Bird (flown by the player, `fly = "heli"`): WASD or a floating left-thumb stick moves it in screen directions with momentum; Shift boosts. The nose swings to the aim point (to the direction of travel on touch), the body leans into acceleration, the rotors spin, height is automatic and a soft wall keeps it over the map. The camera trails on a spring and leads the direction of travel; scroll / pinch pulls back. Weapons: minigun (heat) and 14 Hydra rockets (reload), both free with the aircraft.
+- Server: each crew member's aircraft is fixed at run start (`RunPlane`). Guns take per-aircraft overrides in `applyGun`. Flown aircraft report position with Action "Fly" (clamped to the map and a height band) and shots originate there.
+- HUD: weapon cards show the aircraft's own gun names and only the guns it carries; belt-fed guns show "---" for ammo. A banner explains the flight controls at the start of a run.
+- The tutorial always uses the AC-130. The hangar roll-out cutscene plays for the AC-130 only.
+- Not done yet for the Little Bird: taking damage (it has no health bar yet), and other players cannot see your helicopter.
+
 ## 0.9.2 — 2026-11-21
 
 - Artillery is aimed by the player. Pressing it shows a red ring the size of the barrage at the aim point; click (or tap the screen on touch) to send it there, press again or right-click to cancel. The server fires at that spot (within 700 studs of the bunker) and charges on firing.
