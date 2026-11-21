@@ -47,6 +47,14 @@ def gem(cx, cy, s):
     return (f'<polygon points="{p}" fill="#ffffff"/>'
             f'<polyline fill="none" stroke-width="{lw:.0f}" points="{cx-w/2:.1f},{cy-h*0.18:.1f} {cx+w/2:.1f},{cy-h*0.18:.1f}"/>'
             f'<polyline fill="none" stroke-width="{lw:.0f}" points="{cx-w*0.14:.1f},{cy-h*0.18:.1f} {cx:.1f},{cy+h/2:.1f} {cx+w*0.14:.1f},{cy-h*0.18:.1f}"/>')
+def crown():
+    return ('<path fill="#ffffff" d="M40,196 L28,84 L84,130 L128,56 L172,130 L228,84 L216,196 Z"/>'
+            '<rect x="40" y="196" width="176" height="26" rx="4" fill="#ffffff"/>'
+            '<circle cx="128" cy="150" r="14" fill="#000000" stroke="none"/>'
+            '<circle cx="84" cy="164" r="9" fill="#000000" stroke="none"/><circle cx="172" cy="164" r="9" fill="#000000" stroke="none"/>')
+def head_start():
+    return (bills().replace('x="28"','x="20"')
+            + '<path fill="#ffffff" d="M188,40 L236,92 L208,92 L208,150 L168,150 L168,92 L140,92 Z"/>')
 ICONS = {
     "repair":        (wrench(), "#A6FF4D"),
     "second_chance": (heart(), "#FF5046"),
@@ -55,6 +63,9 @@ ICONS = {
     "gems_small":    (gem(128, 128, 1.45), "#B07CFF"),
     "gems_medium":   (gem(84, 150, 0.95) + gem(172, 150, 0.95) + gem(128, 88, 0.95), "#B07CFF"),
     "gems_large":    (gem(62, 168, 0.8) + gem(128, 172, 0.85) + gem(194, 168, 0.8) + gem(95, 100, 0.8) + gem(161, 100, 0.8), "#B07CFF"),
+    "gems_mega":     (gem(52, 184, 0.7) + gem(108, 188, 0.75) + gem(164, 188, 0.75) + gem(214, 184, 0.7) + gem(80, 124, 0.7) + gem(136, 124, 0.75) + gem(190, 124, 0.7) + gem(108, 66, 0.7) + gem(160, 66, 0.7), "#B07CFF"),
+    "pass_vip":      (crown(), "#FFC22E"),
+    "pass_head_start": (head_start(), "#A6FF4D"),
     "pass_2x_gems":  (gem(108, 112, 1.25) + txt("x2", 188, 222, 76), "#B07CFF"),
     "pass_2x_cash":  (bills() + txt("x2", 196, 236, 70), "#A6FF4D"),
 }

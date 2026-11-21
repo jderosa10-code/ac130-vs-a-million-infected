@@ -2,6 +2,22 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.7.1 — 2026-11-20
+
+- Guns: in a normal run the 40mm and 105mm start LOCKED; unlock them with run cash ($1,500 / $4,000, `Upgrades.UNLOCK`). Locked cards say LOCKED, picking one says how much it costs, the server won't fire it.
+- Explosions are voxel now: every puff is a tumbling cube (fireball, smoke, dust, embers, bullet trails, the bunker going up), rings are rings of cubes, the nuke cutscene's balls are blocks. No more round particle sprites in explosions.
+- The black scorch / bullet-hole discs are gone.
+- Sparks are streaks: new `SparkStreak` texture (art/fx/spark_streak.png) for the welders and every impact spark.
+- Welders: bigger, full-bright sparks; Jacob's imported welding crack (`Sounds.Weld_Spark`) plays in bursts of 2-4 that overlap a little; the hangar ambience uses it too.
+- Little Bird: departs and lands along the same line out over the runway, climbing as fast as it moves away, so it clears the hangars and the tower.
+- Shop: 15,000 gems (R$999), VIP pass (+25% gems and run cash, R$299), Head Start pass ($1,500 cash at the start of every run, R$129). Four cards per row; every buy button shows the live Robux price; passes you own say OWNED.
+- Gem bar + also on the armory screen.
+- Lobby crew slots: headshot above a name strip (long names cut with ...); clicking an open slot's + opens Roblox's friend invite.
+- Second Chance: a real mouse cursor over the panel (clicks don't fire the guns) and a GIVE UP button. The crew leader can also give up mid-run (`GiveUp` action).
+- After a run, PLAY AGAIN / LOBBY first shows the gunship breaking orbit and heading home for a moment.
+- A-10 gun-run cutscene only the first time per session.
+- Removed: the F-15 flyby (and its jet sound) at the start of a run, the jet sound in the deploy cutscene, and the metal clank sounds on deploy and when the run ends.
+
 ## 0.7.0 — 2026-11-20
 
 Monetization and saved settings.
