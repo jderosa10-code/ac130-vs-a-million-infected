@@ -2,6 +2,17 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.12.0 — 2026-11-21
+
+MISSIONS mode (first mission: CONVOY OUT).
+- Two modes in the crew lobby: DOWNTOWN = endless waves (as before), MISSIONS = get something out while you cover it from above. The second map card is MISSIONS; it swaps the map preview for the mission list (`MissionsUI`).
+- `Convoy.Missions`: the 9 missions (Convoy Out, Downed Crew, Supply Drop, Hospital Evac, Prison Bus, Train Run, Bridge Demo, VIP Extract, Fuel Depot) with reward, best class and description. Only Convoy Out is playable; the rest say COMING SOON until their maps exist. Any mission can be played any time; today's DAILY picks pay x2 and this week's WEEKLY pick x4, once each (profile `OpsDone`). About a third of missions run at NIGHT on a given day (seeded, same for everyone).
+- `ConvoyServer.Ops` runs a mission's objective; `Mission.runOp` runs the mission (no waves, no bosses). The objective moves `BUNKER`, so the infected go for it, it is what they hurt, and the gunship circles it. Fail pays a share of the reward by how far you got.
+- CONVOY OUT: three trucks drive a 1.6 km highway from a town to an army checkpoint. Anything standing in the road ahead stops them; infected that reach them hurt the convoy (150 HP). Map `workspace.Ops.Convoy` (built at z = 6000): town, highway with median and power lines, wrecks, overturned bus, gas station, overpass with a collapsed ramp, farm, abandoned roadblock, billboard, checkpoint with Hesco walls, tower, tents and helipad.
+- HUD in a mission: the top box shows the mission name and `progress% // status`, the health bar is named after the objective (CONVOY), no boss bar or auto-skip; the convoy glows in thermal (`OpClient`). Results say MISSION COMPLETE / FAILED. Missions skip the takeoff cutscene; a won mission's ending cutscene has no explosions.
+- Lobbies accepts a party mode of `Op_<id>` for a mission that's ready.
+- Studio test hook: `DebugOpSkip` attribute jumps the convoy 600 studs.
+
 ## 0.11.3 — 2026-11-21
 
 - Title on the hub is now GUNSHIP vs a Million Infected.
