@@ -2,6 +2,15 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.6.1 — 2026-11-20
+
+- Mobile controls (`Convoy.Aim`): on touch the crosshair is fixed in the middle of the screen, like the mobile game; drag anywhere to slew the sensor, pinch to zoom, hold the round FIRE button (bottom right) to shoot. The A-10 run's two ends are placed with FIRE too, and the tutorial's control hint uses touch words. Mouse and keyboard are unchanged; the game switches with whatever the player last touched.
+- Armory: the camera turns so the selected gun (or the A-10) sits in the middle of the gap between the two panels (`ArmoryFocusX`).
+- Fire-rate number for the 105mm was infinite (it has no cyclic rate). Hand-loaded guns now show shots per minute from the reload, and their fire-rate upgrades shorten the reload on the server too.
+- Welders in the hangar: three crew on rolling work stands weld the parked gunship's hull with a pose clip (AnimClips), shower sparks and flicker a blue-white arc light (HangarLife).
+- AC-130 cargo ramp no longer hangs down at the back (closed flush, both the parked gunship and the in-game model). The AC-130 on the apron is now a copy of the detailed hangar gunship.
+- Hangar ammo loader moved to the A-10's nose, clear of the ammo crates.
+
 ## 0.6.0 — 2026-11-20
 
 - The hangar is above ground now. It moved from under the city terrain (y -400) to x+5100 / y+0 (floor top y=0, door facing -X, centred on z=150). The old painted sky walls, hills and clouds are in `ServerStorage.OldExterior`.
