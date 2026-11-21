@@ -2,6 +2,14 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.9.1 — 2026-11-21
+
+- Military look across the whole GUI. Every screen uses an olive / tan / amber / muted palette, Oswald for headings, square corners and thinner outlines. Colours set by `GunshipUI`, `RanksUI` and `BattleOffers` were remapped to the same palette. New `MilitarySkin` client script draws every button face as a flat plate (dark fill, state colour on the border).
+- Hangar row: fixed overlapping faces (back wall / side walls, fascia / roof, sill / floor, apron / old apron) that flickered.
+- Life on the hangar row (`AirbaseLife`): two crew chiefs at every aircraft's nose, a mechanic at each door, a two-man inspection patrol walking nose to nose, three trucks running along the front of the apron and three parked between the smaller aircraft. The old squad route no longer cuts through the B-52.
+- The main hangar shows the aircraft you fly (`HangarPlane`, client side, so each player sees their own). Any aircraft other than the AC-130 hides the built-in gunship and parks its own model on the same spot. Welders move to that aircraft's hull where they can reach it from the floor, and stand down otherwise. Studio test: player attribute `HangarPlaneTest`.
+- The armory's A-10 is replaced by a 155mm howitzer (`Set.Artillery`) with ready shells and charge crates; the armory camera frames it.
+
 ## 0.9.0 — 2026-11-21
 
 Aircraft (first stage: the hangar row, the tab and unlocking; only the AC-130H can be flown so far):
