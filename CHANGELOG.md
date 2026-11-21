@@ -2,6 +2,16 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.8.2 — 2026-11-20
+
+From Jacob's iPhone screenshots:
+- Nothing sits under Roblox's own buttons (top-left menu / chat / voice) any more: the fit pass reads `GuiService.TopbarInset` and slides anything in that corner down (or, for centred panels, to the right, which keeps them bigger). Pieces that land on top of a more important one slide down under it before they shrink (the wave banner now sits under the boss bar on phones).
+- Cutscene letterbox bars and the black fade reach the real screen edges on notch phones (they were stopping at the safe area).
+- Armory on phones: only the stat you picked gets a callout card, at 60% size, and no callout goes above the gun's name.
+- Repair / Cash tiles on phones size themselves to the gap between the abilities and the bunker bar. FIRE is a little smaller (100-150).
+- Phones: holding FIRE while dragging to aim no longer zooms the camera in and out (a pinch now needs two fingers both on the view).
+- Phones: a red box around every infected (`TargetBoxes`), at least a few pixels across at any zoom, hidden behind buildings like the heat glow.
+
 ## 0.8.1 — 2026-11-20
 
 - Phones: every screen fits now. After the usual scale, any top-level piece that would run off the screen or into a more important piece shrinks a little (down to 60%) until it fits (`FIT_ORDER` in GunshipUI; tween targets use each frame's `FitScale`). The hub leaderboard steps aside when there is no room for it. Checked at 844x390 (iPhone landscape): hub, HUD, lobby, armory, ranks.
