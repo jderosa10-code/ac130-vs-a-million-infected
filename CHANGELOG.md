@@ -2,6 +2,13 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.6.2 — 2026-11-20
+
+- ForceTutorial is off: only new players get the tutorial.
+- One welder now kneels on the left wing and welds the wing skin (KneelWeld / KneelRest clips). His empty work stand stays parked by the fuselage.
+- All three welders wear the imported welding mask instead of the block mask and the soldier helmet.
+- Hub music changed to a calmer, darker track: "Watching Patrol Underscore" (APM, 9038144841).
+
 ## 0.6.1 — 2026-11-20
 
 - Mobile controls (`Convoy.Aim`): on touch the crosshair is fixed in the middle of the screen, like the mobile game; drag anywhere to slew the sensor, pinch to zoom, hold the round FIRE button (bottom right) to shoot. The A-10 run's two ends are placed with FIRE too, and the tutorial's control hint uses touch words. Mouse and keyboard are unchanged; the game switches with whatever the player last touched.

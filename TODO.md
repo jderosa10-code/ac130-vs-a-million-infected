@@ -7,4 +7,4 @@
 5. Save settings between visits.
 6. Second map (Outpost / Harbor / Highway / Snow town, not picked).
 7. Better sounds. Thumbnail and icon.
-8. Before launch: turn ForceTutorial off.
+8. ~~Before launch: turn ForceTutorial off.~~ Done (0.6.2).
