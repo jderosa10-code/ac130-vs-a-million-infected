@@ -2,6 +2,21 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.9.0 — 2026-11-21
+
+Aircraft (first stage: the hangar row, the tab and unlocking; only the AC-130H can be flown so far):
+- New `Convoy.Aircraft` module with 8 aircraft, each with a rank, a gem price, specs and weapons: AC-130H (start), AC-47 Spooky (rank 2), AH-6 Little Bird (4), MQ-9 Reaper (6), A-10 Warthog (7), AH-64 Apache (9), F-15E Strike Eagle (12), B-52 (15). `ready = false` marks the ones that can't be flown yet (shown as COMING SOON).
+- Profile saves `Planes` (owned) and `Plane` (equipped). Actions `BuyPlane` (rank reached and gems) and `EquipPlane` are checked on the server.
+- New models in `Convoy.Models`: AC47, MQ9, AH64, F15E, B52. They are built from tapered skin panels and long wing strips (rounded bodies, swept wings, real engines, gear and stores). Cockpit glass is part of the hull panels.
+- Outside base: the two old side hangars are replaced by `Airbase.AircraftRow`, eight open-door hangars sized to their aircraft with each aircraft parked out front. Each bay has hazard posts, lamps, a bay sign and a camera spot (`CamPos` / `CamLook` attributes).
+- AIRCRAFT hub button and screen (`AircraftUI`): list on the left, specs, weapons, rank needed, price and EQUIP / REQUISITION on the right. The camera flies to the selected aircraft's hangar. The screen uses a military look: olive, tan and amber, condensed type, flat plates.
+- The hub bottom row is now AIRCRAFT / WEAPONS / PLAY / RANKS.
+
+Artillery replaces the A-10 ability (the A-10 is becoming an aircraft):
+- F / the ability card calls a 155mm barrage on the biggest group of infected, avoiding civilians. It wants a group of 4, and after 8 s of waiting it settles for any pair. It is paid for only when it fires; pressing again cancels.
+- A red ring marks the impact area. Saved A-10 upgrades carry over (SHELLS / FIREPOWER / CALL COST).
+- New icon: `art/hud/hud_artillery.png`.
+
 ## 0.8.15 — 2026-11-21
 
 Bosses bring their own horde:
