@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
-<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A3A66"/><stop offset="1" stop-color="#0E1428"/></linearGradient>
-<radialGradient id="glow" cx="0.5" cy="0.45" r="0.5"><stop offset="0" stop-color="#5BE36B" stop-opacity="0.35"/><stop offset="1" stop-color="#5BE36B" stop-opacity="0"/></radialGradient></defs>
-<rect x="10" y="10" width="492" height="492" rx="70" fill="url(#g)" stroke="#5BE36B" stroke-width="20"/>
-<circle cx="256" cy="240" r="210" fill="url(#glow)"/>
-<g stroke="#000" stroke-width="16" stroke-linejoin="round" stroke-linecap="round"><g transform="translate(256 250) rotate(45) scale(1.05) translate(-256 -240)"><path d="M230,150 L230,82.9 A72,72 0 0,0 236,219.2 L236,400 A20,20 0 0,0 276,400 L276,219.2 A72,72 0 0,0 282,82.9 L282,150 Z" fill="#D8DDE4"/></g><circle cx="372" cy="372" r="74" fill="#5BE36B"/><rect x="322" y="356" width="100" height="32" rx="8" fill="#fff" stroke-width="10"/><rect x="356" y="322" width="32" height="100" rx="8" fill="#fff" stroke-width="10"/></g></svg>
