@@ -2,6 +2,10 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.8.4 — 2026-11-20
+
+- Pinch zoom on phones is calm now. Roblox reports a pinch as its total size change since the fingers went down, and the old code applied that total again on every frame, so a small pinch zoomed hugely. The zoom is now worked out from where the pinch started, so the view follows your fingers.
+
 ## 0.8.3 — 2026-11-20
 
 Phone fixes, round two (Jacob's iPhone):
