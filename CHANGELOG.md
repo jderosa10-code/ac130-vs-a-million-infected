@@ -2,6 +2,10 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.7.3 — 2026-11-20
+
+- Lobby: a nuke loading area behind the parked AC-130 (`Hangar.NukeLoading`). One nuke strapped to a yellow weapons trailer inside a chain barrier with a DANGER / LIVE NUCLEAR ORDNANCE sign, a second nuke on a loader lined up with the rear ramp, and pallets of 105mm shells, 40mm crates and 25mm cans. Placed clear of the plane, the Set props and the crew (checked part by part).
+
 ## 0.7.2 — 2026-11-20
 
 - Fix: the hand-made animations (gunner sitting down / chair, survivors climbing onto and sitting on the helicopter benches, the welders) didn't play in the published game: `KeyframeSequenceProvider:RegisterKeyframeSequence` only works in Studio. Every clip is now also an uploaded Animation asset owned by the group, listed in `Convoy.AnimIds`; `AnimClips.animation` uses the uploaded id (and the nearest start point for the sit-down / bench-climb clips). Clips are exported from their specs (`art/anim/specs.json`) to .rbxmx by `tools/build_rbxmx.py`; re-run and re-upload when a clip changes.
