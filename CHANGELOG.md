@@ -5,7 +5,7 @@ Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and 
 ## 0.6.2 — 2026-11-20
 
 - ForceTutorial is off: only new players get the tutorial.
-- One welder now kneels on the left wing and welds the wing skin (KneelWeld / KneelRest clips). His empty work stand stays parked by the fuselage.
+- One welder now stands on his work stand under the right wing, behind the fuel tank, welding the flap overhead (OverheadWeld clip, `Overhead` attribute). Stand legs lengthened; checked clear of every gunship part, including the non-queryable fuel tank.
 - All three welders wear the imported welding mask instead of the block mask and the soldier helmet.
 - Hub music changed to a calmer, darker track: "Watching Patrol Underscore" (APM, 9038144841).
 
