@@ -8,7 +8,7 @@ Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and 
   - Three objectives at a time (kill N with a gun, kill N of a type, N kills with one 40mm/105mm shot, reach wave N, reach wave N with no civilian hit, defeat bosses, rescue civilians, call in A-10s, N kills in one run). Targets grow with your rank.
   - Finish all three and you're promoted: 19 ranks from RECRUIT to GENERAL. Every rank is +10% cash and gems for good, and a promotion pays 100 + 50 x rank gems.
   - Any objective can be swapped for a new one for gems (30 + 15 x rank).
-  - RANKS screen in the hub style: your insignia, bonus, next rank, the three objectives with progress bars and SKIP buttons, the promotion reward.
+  - RANKS screen laid out like the WEAPONS screen: insignia and rank name in the middle, an OBJECTIVES list on the left (each card in the colour of what it asks for, lime when done), a RANK BONUS panel on the right (bonus, next rank, promotion reward, 3 pips), gem bar on top, EXIT at the bottom.
   - "Objective complete" strip and a "PROMOTED!" card with the new insignia, in runs and in the hub. The rank short code (SGT, CPT...) shows on the RANKS button and on every lobby crew slot.
   - Rank insignia (art/ranks, `make_rank_icons.py`): white silhouettes with a thick black outline, one 5x4 sprite sheet (200px cells; Roblox caps images at 1024px).
   - Code: rules + text `ReplicatedStorage.Convoy.Ranks`, state + progress `ConvoyServer.Ranks` (hooked from Mission: kills, shots, waves, rescues, A-10, bosses), UI `StarterPlayerScripts.RanksUI`, screen `StarterGui.GunshipUI.Ranks`. Saved in the profile (`Rank`, `RankObj`). Studio test hook: `ServerScriptService.DebugRanks`.
