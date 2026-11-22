@@ -3,6 +3,7 @@
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
 ## 0.13.20
+- Aircraft screen: the old List / Center / Detail panels are now hidden in the StarterGui template too, not only by AircraftUI at runtime.
 - New ServerStorage.GunKit (edit-time builder). It makes miniguns with spade grips, pintle mounts with yokes, ammo feeds, and the hull Weld pattern as a scalable Texture (rbxassetid://116225523969641, captured from the built-in surface).
 - Chinook: door miniguns on pintle mounts, a chin turret with a grenade launcher, and rocket pods hung on pylons with sway braces.
 - AC-47 (3 guns) and UH-1: miniguns rebuilt on pintle mounts. The black gun-port panels and frames are gone; the doors now match the hull.
