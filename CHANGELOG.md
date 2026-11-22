@@ -2,6 +2,12 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.12.8 — 2026-11-21
+
+VIP EXTRACT mission (playable).
+- A Huey drops a four-man squad in a city park. They walk through the streets to the embassy (anything in the street ahead pins them), go in for 25 s, come back out with the VIP (dark suit) and walk him back to the park; the Huey is called in on the way back, lands, everyone boards and it lifts off. Infected come out of the side streets, mostly ahead of the squad. SQUAD 170 HP, reward 400, about 5-6 minutes.
+- Map `workspace.Ops.VIP` (centre 800, 27600): a full grid city (8 x 5 streets, ~240 buildings, some with blown-out tops; kept low along the squad's route so the streets read from the gunship), a park with paths, a fountain, trees and an LZ panel with green smoke, a walled embassy (columned portico, steps, flag, blown gate, burnt SUV, planters, guard booth, sandbag walls), burnt cars on the side streets, trees round the city, mountains all round.
+
 ## 0.12.7 — 2026-11-21
 
 BRIDGE DEMO mission (playable).
