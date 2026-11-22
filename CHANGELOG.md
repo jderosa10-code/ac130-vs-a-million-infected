@@ -2,6 +2,14 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.21
+- NPC lines use Roblox's own chat bubbles (TextChatService:DisplayBubble) instead of the custom SpeechBubble.
+- Overhead player tags shrink with camera distance (UIScale on Root, full size at 16 studs) instead of staying the same size on screen.
+- Robux symbol fixed everywhere: the new RobuxGlyph script switches U+E002 to Builder Sans, because Oswald has no Robux glyph.
+- Old hub shop panel hidden in the StarterGui template and kept hidden.
+- Settings > LEAVE MATCH (mid-run only): every gunner has to vote (LeaveVote action; Shared LeaveVotes "n/m"), then the run ends with reason CREW LEFT THE MATCH. Solo ends it straight away; pressing again cancels your vote.
+- AH-64: removed the stray canopy frame bars across the cockpit.
+
 ## 0.13.20
 - Aircraft screen: the old List / Center / Detail panels are now hidden in the StarterGui template too, not only by AircraftUI at runtime.
 - New ServerStorage.GunKit (edit-time builder). It makes miniguns with spade grips, pintle mounts with yokes, ammo feeds, and the hull Weld pattern as a scalable Texture (rbxassetid://116225523969641, captured from the built-in surface).
