@@ -2,6 +2,15 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.12.2 — 2026-11-21
+
+HOSPITAL EVAC mission (playable) and our own map props.
+- HOSPITAL EVAC: a helicopter lands on the hospital roof, four operators run into the stairwell, it pulls out; after ~38 s they come back up with survivors and it returns for them. Three trips. Infected pour out of the city streets and climb the walls onto the roof; reaching the pad hurts the ROOF (200 HP). Reward 400 gems.
+- Map `workspace.Ops.Hospital`: 6-floor hospital with helipad and roof sandbag nests, a plaza with field-hospital tents, parking lots, Jersey-barrier perimeter with sandbagged gates, a full city of blocks and side streets, and a mountain ring at the edges.
+- `OpClient` draws the helicopter on each client from the server's `OpHeli` marker (smoothed, rotors turning), outlines the operators/survivors, and gives the hospital a light thermal outline so the roof reads from the gunship.
+- New props in `ServerStorage.MapProps`, built in the lobby-truck style (Plastic, Studs tops, Weld/Universal/Inlet sides): Sedan, Pickup, Police, Ambulance, Humvee (turret), military Truck (the lobby cargo truck), Jersey barrier with a sloped profile, stacked sandbag wall. All toolbox cars and barriers in both mission maps were swapped for these and spaced out; roadside wrecks are burnt and sit crooked.
+- Field-hospital tents rebuilt with peaked roofs, poles, guy lines and roof crosses.
+
 ## 0.12.1 — 2026-11-21
 
 CONVOY OUT map rebuilt, about 3x longer (4.5 km of road, roughly 5-6 minutes if never stopped).
