@@ -3,6 +3,7 @@
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
 ## 0.13.21
+- B-52: FinBridge fills the gap between the dorsal fillet and the tail fin.
 - NPC lines use Roblox's own chat bubbles (TextChatService:DisplayBubble) instead of the custom SpeechBubble.
 - Overhead player tags shrink with camera distance (UIScale on Root, full size at 16 studs) instead of staying the same size on screen.
 - Robux symbol fixed everywhere: the new RobuxGlyph script switches U+E002 to Builder Sans, because Oswald has no Robux glyph.
