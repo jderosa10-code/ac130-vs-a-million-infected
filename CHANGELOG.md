@@ -2,6 +2,14 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.1 — 2026-11-21
+
+Walkable hangar lobby, step 1 (the shell).
+- You spawn in the hangar as your avatar (`CharacterAutoLoads` on, `LobbySpawn` inside the door, walk speed 22) and walk around it with the normal follow camera. Opening the lobby/aircraft/armory screens or going into a run takes the camera back and parks your controls (`GunshipClient`).
+- Hangar rebuilt at player scale: multi-piece pillars (plinth, three stacked shaft blocks with collars, hazard foot, capital, upper post, knee brace, lamp), wall bays with olive wainscot, studded tan panels with raised insets, a steel band with an amber neon strip and louvres above, two pipes along each wall; roof trusses and purlins with 20 hanging high-bay lamps; amber/black hazard curb round the walls; a generated grime overlay on the floor (asset 139306833765196, two offset layers).
+- The big door is roped off (bollards, chain, invisible wall): the airfield is for looking at. The cargo truck is parked in the south-west corner instead of driving out of the door.
+- Old wall dressing, decor, light rig, flag and loose set pieces moved to `ServerStorage.HangarOld_v013` (nothing deleted).
+
 ## 0.13.0 — 2026-11-21
 
 Back to waves only: MISSIONS mode parked.
