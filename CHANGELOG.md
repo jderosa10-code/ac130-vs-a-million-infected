@@ -2,6 +2,13 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.20
+- New ServerStorage.GunKit (edit-time builder). It makes miniguns with spade grips, pintle mounts with yokes, ammo feeds, and the hull Weld pattern as a scalable Texture (rbxassetid://116225523969641, captured from the built-in surface).
+- Chinook: door miniguns on pintle mounts, a chin turret with a grenade launcher, and rocket pods hung on pylons with sway braces.
+- AC-47 (3 guns) and UH-1: miniguns rebuilt on pintle mounts. The black gun-port panels and frames are gone; the doors now match the hull.
+- AH-64: new chin turret (fairing, ring, yoke, receiver, shroud, barrel, ammo chute).
+- Guns, missiles, bombs, pods and the B-52 nukes now carry the Weld texture, scaled to each face.
+
 ## 0.13.19
 - B-52: carries 2 nukes as its normal load (Aircraft.freeNukes; player attribute FreeNukes). The NUKE ability is free while any are left and the card shows FREE xN.
 - B-52 model: new open bomb bay. The belly is cut open with a dark lined bay, ribs, red bay lights and a rack, and two scaled nukes hang in tandem. Hinged doors swing open with hazard-yellow edges and ribs.
