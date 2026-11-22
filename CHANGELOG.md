@@ -2,6 +2,12 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.29
+- Aircraft bay: the two stage spotlights hung in mid-air. They now have a yoke and a drop rod up to a ceiling plate (Lights.SpotMount).
+- Aircraft bay back wall (the side with the door to the hangar) is dressed to match the far wall:
+  - columns with hazard bands, panels, insets, wainscot, and the top band with its light strip (AircraftBay.WestWall);
+  - a hazard-striped door frame with a light strip, a lit "HANGAR" sign over the door, and a hazard strip along the floor.
+
 ## 0.13.28
 - TESTING: every aircraft is unlocked for anyone in Studio, the group owner, and user ids in the AllPlanesUsers attribute on ReplicatedStorage.Convoy (currently 4263620304). Remove before release if testers shouldn't keep them.
 - Daily drop: REMIND ME button (left of the claim button) opens Roblox's notification opt-in prompt (ExperienceNotificationService:PromptOptIn). It only shows when the prompt is available. Sending the actual notifications is not set up yet.
