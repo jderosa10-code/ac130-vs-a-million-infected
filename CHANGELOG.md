@@ -2,6 +2,12 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.12.7 — 2026-11-21
+
+BRIDGE DEMO mission (playable).
+- Four army engineers walk out onto an arch bridge over a gorge and plant a charge on each of its three piers (12 s each; any infected within 18 studs of the charge stops the work). Then they run back to the army line, the charges go off one after another, the two middle spans and the centre pier drop into the gorge and everything on them dies. The horde comes across the bridge from the town on the far side and round the flanks on the near side. ENGINEERS 170 HP, reward 350, about 4-5 minutes. The bridge is put back after the mission.
+- Map `workspace.Ops.Bridge` (centre 800, 24600): a deep stepped rock gorge with a river, a concrete bridge on three piers with twin red steel arches, an army line on the near rim (sandbag walls, Jersey chicane, tents, Humvees, trucks, ambulance, cable drums and the detonator, watchtower, mast, flag), a ruined town on the far side (two rows of 2-7 storey buildings, some with blown-out tops, cross streets, burnt wrecks), ~500 trees, mountains all round with the gorge cut through them, and the road running into tunnels at both ends.
+
 ## 0.12.6 — 2026-11-21
 
 TRAIN RUN mission (playable); Prison Bus bridge fixed.
