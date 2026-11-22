@@ -2,6 +2,15 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.12.4 — 2026-11-21
+
+SUPPLY DROP mission (playable) and crew results screen.
+- SUPPLY DROP: a cargo plane makes three passes over a port and drops 10 crates on parachutes into six drop zones. The infected go for the crates and drag them toward the edge of the map (a pack drags faster); a crate dragged too far is lost (-22 SUPPLIES). Two army trucks drive out along the roads to each landed crate, load it only when nothing is standing on it, and bring it back to the supply base. Win when every crate is home or lost. SUPPLIES 160 HP, reward 350.
+- Trucks drive like vehicles: limited turn rate, easing speed, slow through corners, keep to the right-hand lane, keep a gap behind each other and give way, and park in their bays without snapping round.
+- Map `workspace.Ops.Supply` (centre 800, 15040): port on an enclosed bay with mountains all the way round; army supply base (Jersey perimeter, sandbagged gate, camo-netted supply pile, tents, comms mast, generator), quay with bollards, two gantry cranes, a moored container ship, container yards, three warehouses with docks and forklifts, a tank farm with a pipe rack, a truck park with semis, a rail yard with freight cars, street lamps. The main road, the north road and both railway lines run into concrete tunnel portals in the mountains.
+- Results screen: the backdrop now flies the aircraft you actually flew; in a crew, every gunner's aircraft (up to four) flies in formation, yours in the lead.
+- Studio test hook `DebugKillAll` (Studio only).
+
 ## 0.12.3 — 2026-11-21
 
 DOWNED CREW mission (playable).
