@@ -2,6 +2,11 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.19
+- B-52: carries 2 nukes as its normal load (Aircraft.freeNukes; player attribute FreeNukes). The NUKE ability is free while any are left and the card shows FREE xN.
+- B-52 model: new open bomb bay. The belly is cut open with a dark lined bay, ribs, red bay lights and a rack, and two scaled nukes hang in tandem. Hinged doors swing open with hazard-yellow edges and ribs.
+- AC-130: Models.AC130 and the airfield ParkedAC130 replaced with the lobby's ParkedGunship (with GunDetail guns). The old parts model was deleted.
+
 ## 0.13.18
 - Artillery lowered onto the floor (wheels, trails, pallet and crates were 1 stud up); charge crates moved off the trail.
 - A-10 crate stack moved out of the north wall to open floor; ammo loader drum seated on its base.
