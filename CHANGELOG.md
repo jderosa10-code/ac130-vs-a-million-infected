@@ -2,6 +2,14 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.13 — 2026-11-22
+
+New icon set (48 Gemini icons in three 1024 sheets; `Convoy.Icons` updated, old shop-tab/gem-pack icons kept).
+- Hub: crate (shop), helmets (invite), AC-130 top view on AIRCRAFT. Shop: real icons for VIP, 2x gems/cash, head start, both bundles, and a gift crate on every GIFT button and the gift toast.
+- Aircraft screen: the selected aircraft's own picture beside its name (all 8), stat icons, length/wingspan/rotor/lock rows.
+- Lobby: shield/skull mode icons, globe/handshake access, exit icon on LEAVE.
+- Also in the set for later: weapons (25/40/105/155mm), A-10, nuke, repair, missile, trophy, daily, skip, crew, map, timer, dog tags.
+
 ## 0.13.12 — 2026-11-22
 
 Step-on pads, settings in the top bar, hangar fixes.
