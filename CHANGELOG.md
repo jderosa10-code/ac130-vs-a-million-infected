@@ -2,6 +2,19 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.30
+- B-52:
+  - its two B61 nukes are a weapon slot (B61 NUKES, 2 a load, hand-loaded, slow reload); the free-nuke ability is gone;
+  - each nuke drops out of the bomber (keeps its speed, then noses over onto the target) and goes off with the full nuke effect (fireball, mushroom, shock ring), sized to its 85-stud radius;
+  - main gun is now the BOMB BAY (12 bombs a load, falling-bomb sound, much less heat);
+  - bombs/nuke icons on the HUD and the weapons screen.
+- NUKE ALL: no cutscene any more; you watch the full blast from your plane.
+- Hangar: aircraft other than the AC-130 are shrunk until they clear the hangar props (B-52 ~0.74, AC-47 ~0.92), and the welders stand down for them. Hidden models no longer block players.
+- After a game, the menu/fly-home plane is the one you flew, not always the AC-130.
+- Gem bar "+" opens the shop scrolled to the gems.
+- Overhead tags keep the same size on screen at any zoom (like the lobby panels); proximity prompts sit at chest height.
+- Hub side buttons no longer slide off screen after the free reward goes.
+
 ## 0.13.29
 - Aircraft bay: the two stage spotlights hung in mid-air. They now have a yoke and a drop rod up to a ceiling plate (Lights.SpotMount).
 - Aircraft bay back wall (the side with the door to the hangar) is dressed to match the far wall:
