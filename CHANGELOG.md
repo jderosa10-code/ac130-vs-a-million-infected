@@ -2,6 +2,16 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.8 — 2026-11-22
+
+New hub HUD, booth fixes, officers, dust.
+- New hub screen (Menu): gem bar top-centre; rank card top-left (badge, rank name in its tier colour, three objective segments, click opens Ranks); left column SHOP / INVITE (game invite) / SETTINGS with our own icons; bottom bar AIRCRAFT | PLAY | RANKS with floating art (plane, your badge). WEAPONS left the hub (it's at the aircraft bay desk). Old title block hidden. Rank card is filled by `LobbyHUD` (client).
+- PLAY now fades and stands you in front of the four lobby pads instead of the old play menu. Before the first weapon upgrade it opens Weapons instead.
+- Rank badges redrawn: bronze (RCT-CPL), silver (SGT-SGM), gold with wings (2LT-MAJ), platinum with wings (LTC-COL), onyx with spikes (BG-GEN). Tiers in `Ranks` (`R.tier`, `R.TIERS`, `R.TIER_COLOR`). The ranks booth board shows a badge strip.
+- Booths: one continuous half-circle light curtain (no black centre), bigger and closer to the counter; floor tape cut round the decks; rebuilt posts/roof so nothing floats or z-fights; flag and lamps attached.
+- New R6 soldiers with their own uniforms: Officer, General, Pilot, Crew Chief (`Convoy.Models`), placed round the hangar; LT. REED at the ranks booth is an officer now.
+- Slow floating dust in the lamp light cones.
+
 ## 0.13.7 — 2026-11-22
 
 Booths, a better aircraft bay, real UI glow.
