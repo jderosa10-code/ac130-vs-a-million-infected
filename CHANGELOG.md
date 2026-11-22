@@ -2,6 +2,14 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.22
+- Ride out: when a pad's countdown ends, the crew (up to 4) run in and grab the Huey's skids (2 per skid, arms up). The helicopter lifts, turns away, noses down and flies off, then the screen fades to "Loading..." and they're deployed.
+  - Server (Lobbies.startRide) anchors the riders, sets player RideHeli/RideSlot and pad RideAt, and deploys after 7.3 s.
+  - Client (PadHelis) flies the heli and its rotors, places the riders, runs the camera, hides the UI and name tags, and shows the fade.
+  - Other players in the lobby see it too.
+  - The heli comes back 12 s later. A failed launch (or Studio) puts everyone back on the ground.
+- PadHUD skips the pad clamp and its panel while riding.
+
 ## 0.13.21
 - B-52: FinBridge fills the gap between the dorsal fillet and the tail fin.
 - NPC lines use Roblox's own chat bubbles (TextChatService:DisplayBubble) instead of the custom SpeechBubble.
