@@ -2,6 +2,15 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.7 — 2026-11-22
+
+Booths, a better aircraft bay, real UI glow.
+- SHOP and RANKS booths flank the walk from the spawn to the gunship: deck, corrugated olive back wall and canopy with a hazard-striped edge, multi-piece steel posts, an ammo-crate counter with a glowing edge, a hanging amber sign whose text scrolls, a hanging lamp, props (gem crate, supply shelves / rank board, flag, medal), an R6 soldier behind the counter (SGT. HAYES / LT. REED) who idles and turns his head to you, and a breathing amber floor ring with a short light curtain. Walk into the ring: our prompt opens the Shop or Ranks (`Booths`, client). Ground crew walk a tighter loop round the gunship so they stay clear.
+- Aircraft bay, rebuilt as a show (`AircraftBay`): a turntable in the stage slowly turns the parked plane; on a change it swings back to straight, roll-up shutter doors open with a motor sound, alarm and spinning amber beacons, the old plane pulls away and squats as it accelerates while the new one rolls in, brakes (nose dips, rocks, settles) with rail-joint bob and sway, then the doors roll down and the turntable starts again. A spotlight hangs over the stage with a visible cone; the camera follows the plane a little.
+- Plane info moved into the world: two hanging screens in the bay show name, role, rank, price, stats and weapons (big type). On screen only a small bar (BACK / EQUIP-BUY / NEXT, also A / D), RETURN TO HANGAR, and a dark vignette round the edges. The camera cuts into the bay instead of gliding through the wall.
+- Bay doorway: overlapping header/jamb parts removed (no more z-fighting), new sign in Sarpanch on brackets clear of the pillar.
+- UI glow is real now (`UIShadow`) on the shop, the pad screens, the prompts and the bay controls; shop/pad colours made military (olive drab buttons, tan type, amber edges, muted red close).
+
 ## 0.13.6 — 2026-11-22
 
 Shop rework, light beams, R6.
