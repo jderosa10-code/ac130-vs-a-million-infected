@@ -2,6 +2,11 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.27
+- Weapons screen follows the equipped aircraft: only the guns it carries are listed, under that aircraft's names (e.g. AC-47 shows just 7.62 MINIGUNS).
+- Air support (155mm artillery) card removed from the weapons screen, so it can no longer be upgraded.
+- The gun callout cards only show for the AC-130 (they point at its guns).
+
 ## 0.13.26
 - Aircraft icons are now photos of the in-game models with a light stroke (new sheet rbxassetid://130111932978781; Icons ac_* entries point at it).
 - New 40mm Bofors and 105mm M102 icons on the same sheet (wpn_40mm, wpn_105mm).
