@@ -2,6 +2,17 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.12 — 2026-11-22
+
+Step-on pads, settings in the top bar, hangar fixes.
+- Settings: a gear icon in Roblox's top bar (TopbarPlus v3.5, ReplicatedStorage.TopbarPlus; `TopbarIcons` client). There all the time: in the hangar it opens the Settings screen, anywhere else (a run included) the panel opens on top of what you're doing. The SETTINGS tile on the hub is gone.
+- No more E prompts at the booths or the aircraft-bay desk: step onto the glowing half-ring pad and the screen opens (`StepPads` client; pads are parts named RingAnchor with Screen/Radius attributes). New pads in front of the desk's AIRCRAFT and WEAPONS consoles. Step off and back on to open again.
+- Lobby pads: once you're in a crew you can't walk off the pad; press LEAVE (`PadHUD`).
+- Tug + bomb trolley: new loop round the parked gunship, clear of the lobby pads, booths and A-10 corner (it used to stop on a pad).
+- Pilots were half under the floor: lifted.
+- Shop: tags sit inside the card, descriptions shrink to fit instead of being cut off.
+- Gem counter: smaller box, gem badge over the left edge, big number, yellow GEMS caption and a small yellow +. Hub SHOP / INVITE tiles bigger.
+
 ## 0.13.11 — 2026-11-22
 
 New UI style (flat military, after Tiny Skies' look; our own layout).
