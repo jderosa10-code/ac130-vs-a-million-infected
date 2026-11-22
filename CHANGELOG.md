@@ -2,6 +2,14 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.12.5 — 2026-11-21
+
+PRISON BUS mission (playable) and mission lengths.
+- PRISON BUS: survivors come out of the cell block in three groups (13 in all, orange jumpsuits) and run across the yard to the prison bus; infected that catch a runner kill it (-12 BUS). Then the bus drives out of the gate, through a small town and over a steel truss bridge to an army checkpoint. Anything in the road stops it; infected that reach it hurt it. BUS 180 HP, reward 350, about 3-4 minutes.
+- Map `workspace.Ops.Prison` (centre 800, 18400): walled prison (razor wire, four guard towers with searchlights, gatehouse, three-storey cell block with a blown door, admin block, mess hall, court, floodlights, guard cars outside), country road with power poles, a main street of shops with sidewalks and street lamps, water tower, wrecks and a bus on its side, a river through the valley with a truss bridge, the checkpoint (sandbag walls, Jersey chicane, boom gate, booth, tower, tents, Humvees, truck). Mountains all the way round, the river cut through them.
+- New prop `MapProps.PrisonBus` (barred windows, light bar).
+- Mission list and mission description show roughly how long each mission takes.
+
 ## 0.12.4 — 2026-11-21
 
 SUPPLY DROP mission (playable) and crew results screen.
