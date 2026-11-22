@@ -2,6 +2,11 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.28
+- Daily drop: REMIND ME button (left of the claim button) opens Roblox's notification opt-in prompt (ExperienceNotificationService:PromptOptIn). It only shows when the prompt is available. Sending the actual notifications is not set up yet.
+- Hub side tiles: Shop / Invite / Daily are centred once the free reward tile is gone.
+- Aircraft screen: the full-screen dim is removed; only the edges are darkened (Vignette + VignetteV).
+
 ## 0.13.27
 - Weapons screen follows the equipped aircraft: only the guns it carries are listed, under that aircraft's names (e.g. AC-47 shows just 7.62 MINIGUNS).
 - Air support (155mm artillery) card removed from the weapons screen, so it can no longer be upgraded.
