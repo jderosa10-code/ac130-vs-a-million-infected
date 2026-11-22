@@ -2,6 +2,16 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.16 — 2026-11-22
+
+A livelier hangar.
+- Overhead tags on every player (template `Convoy.OverheadTag`, `OverheadTags` client): the aircraft they fly in a yellow diamond + name, their rank badge + rank number (tier colour), a trophy + best wave. Roblox's own name tag is off.
+- Officers' Mess: deck with hazard edge, trestle table with mugs (steam), a map and papers, four chairs, coffee cart with a machine, hanging lamp, OFFICERS' MESS sign; three brass sit at it (Col. Hart, Maj. Brooks, Gen. Vance) near the leaderboards.
+- Speech bubbles (`Convoy.SpeechBubble`, `NPCChatter`): the brass run little conversations, crew/staff/booth soldiers say a line now and then while you're close. `_G.NPCSay(model, text, secs)` for other scripts.
+- Walkers (`Hangar.Walkers`, `HangarWalkers`): Gen. Sterling, General of the Air Force (five stars) and three soldiers walk a loop round the hangar and wait if you stand in their way. The general's prompt: "Favorite the game" (Roblox favorite prompt), or "Join event" while `Convoy.EventOn` + `EventName` are set (sends you to the lobby pads). Soldiers: "Talk" - they stop, face you and say something silly.
+- Mailbox by the artillery corner: "Send feedback" opens Roblox's feedback window (`SocialService:PromptFeedbackSubmissionAsync`).
+- FREE REWARD (hub tile FREE, `FreeRewardUI`): like + favorite + join the group, then CLAIM for 250 gems once; the server checks the group (`Mission` "ClaimFree", saved as `FreeClaimed`). Tile hides once claimed.
+
 ## 0.13.15 — 2026-11-22
 
 Daily supply drop, results screen restyle.
