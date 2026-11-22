@@ -2,6 +2,13 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.0 — 2026-11-21
+
+Back to waves only: MISSIONS mode parked.
+- The mission picker is gone from the crew lobby (`MissionsUI` disabled) and the second map card is hidden; DOWNTOWN endless waves is the game.
+- `Lobbies.cleanMode` only accepts Normal / Hardcore.
+- The eight mission maps (Convoy, Hospital, Crew, Supply, Prison, Train, Bridge, VIP) moved out of the world into `ServerStorage.OpsParked` — nothing deleted. `Convoy.Missions`, `ConvoyServer.Ops` and `Mission.runOp` stay in the place unused, so the missions (or pieces of them as wave events) can come back.
+
 ## 0.12.8 — 2026-11-21
 
 VIP EXTRACT mission (playable).
