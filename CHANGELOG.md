@@ -10,8 +10,7 @@ New UI style (flat military, after Tiny Skies' look; our own layout).
 - Shop: yellow price buttons and active tab, red tilted tags, flat cards. Create Lobby: slanted yellow CREATE, yellow crew-size pick. Crew bar: yellow LAUNCH NOW.
 - Aircraft screen: name block straight on the scene (yellow role, big name), dark strips for size/rank/price, AIRCRAFT SPECIFICATIONS panel with thin yellow bars, action button yellow when it can buy/equip.
 - Armory / Ranks / Settings recoloured to the same palette (glows and text outlines removed).
-- Booth floor rings: dashed neon bars with a soft glow under each (was a solid strip).
-- Booth light curtains: fade bottom to top now (new vertical-fade texture), shorter (2.2), bright neon yellow.
+- Booth floor rings: dashed neon bars with a soft glow under each, over a see-through yellow neon floor; the light curtain beam is off.
 
 ## 0.13.10 — 2026-11-22
 
