@@ -2,6 +2,14 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.4 — 2026-11-21
+
+Walkable hangar lobby, step 3 (leaderboard wall) + a smaller hangar.
+- Hangar shrunk about 22% each way (now ~260 x 200 inside, door end fixed): walls, pillars, roof trusses (diagonals rebuilt end to end), lamps, curb, floor tape and the door frame all squashed together; the gunship, welders, crew, tug and nuke cart moved with it; trucks, A-10, spawn, pads and camera points moved to match. Curb and tape blocks resized so the black/yellow pieces don't overlap. Pads now 25 apart; the four Hueys and their LZ slots moved to line up. Terrain round the old footprint set back to grass.
+- Leaderboard wall on the south wall: two small glowing boards, HIGHEST WAVE (amber) and MOST KILLS (red), each with ALL TIME / WEEKLY / DAILY tabs, ranks 1-100 in a scrolling list with big text, gold/silver/bronze for the top 3, your own row lit up, a reset countdown on weekly/daily, and tabs that flip by themselves when nobody's using them (`LeaderWall`, client).
+- Daily/weekly stats: each player's best wave and kills for the current UTC day and Monday-start week ride in the profile (`Periods`) and go to their own ordered stores (`GunshipWaveD_<day>`, `GunshipKillsW_<week>`, ...). Boards fetch 100 entries with names looked up in one batch, and refresh every 2 minutes.
+- The on-screen TOP GUNNERS panel and the hub key-hint line are gone (panel kept in `ServerStorage.OldUI`).
+
 ## 0.13.3 — 2026-11-21
 
 - Walking onto an empty lobby pad now opens its own CREATE LOBBY panel instead of the old crew screen: map card (DOWNTOWN), MODE dropdown (Normal / Hardcore, locked until the unlock wave), ACCESS (public / friends only), CREW SIZE 1-4, glowing CREATE and red X. You stand still while it's open; the camera stays on you.
