@@ -2,6 +2,10 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.26
+- Aircraft icons are now photos of the in-game models with a light stroke (new sheet rbxassetid://130111932978781; Icons ac_* entries point at it).
+- New 40mm Bofors and 105mm M102 icons on the same sheet (wpn_40mm, wpn_105mm).
+
 ## 0.13.25
 - Ride out plays at 0.65 speed (Lobbies.RIDE_LEN 11.3 s). New jump: wind-up crouch with arms back, then the left arm throws up to the skid.
 - After the ride the rider is put back on the pad and the loading screen stays up until the teleport (or 1.5 s after the mission starts in Studio).
