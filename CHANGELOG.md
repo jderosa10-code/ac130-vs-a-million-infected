@@ -2,6 +2,15 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.5 — 2026-11-22
+
+Walkable hangar lobby, step 4 (aircraft bay).
+- A 24-tall doorway in the hangar's east wall (hazard-striped jambs and header, AIRCRAFT BAY sign) opens into a new aircraft bay: multi-piece pillars, panelled walls with an amber glow band, a raised display stage with a glowing edge, a track with glowing rails running through big doors on the left and right into dark tunnels, ceiling lamps and two stage spots, an AIRCRAFT BAY sign on the back wall.
+- A glowing railing keeps you off the stage. At the railing, a control desk with two consoles: AIRCRAFT and WEAPONS. Walking up shows our own prompt (key box + small label + big action word on a dark plate with a pulsing amber edge, `PromptStyle`, used by any prompt set to Custom style); using it opens the Aircraft or Weapons screen.
+- The plane on the stage is the one you fly, or the one picked on the Aircraft screen (`AircraftBay`, client): when the pick changes, the old plane rolls off on the track through the right-hand door while the new one rolls in from the left. Planes are scaled to fit the stage.
+- Aircraft screen: BACK / NEXT arrows either side of the plane name step through the list; the camera now looks at the bay stage (old outside hangar row is gone). Weapons opened from the bay desk keeps the bay camera.
+- Hangar screens can be opened from other client scripts (`GunshipUI.OpenScreen`).
+
 ## 0.13.4 — 2026-11-21
 
 Walkable hangar lobby, step 3 (leaderboard wall) + a smaller hangar.
