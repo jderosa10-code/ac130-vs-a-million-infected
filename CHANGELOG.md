@@ -2,6 +2,15 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.6 — 2026-11-22
+
+Shop rework, light beams, R6.
+- New shop screen (`ShopUI`, replaces the old shop panel): tab rail FEATURED / BUNDLES / GEMS / PASSES beside one scrolling page; the tab lights up for the section you've scrolled to and clicking a tab scrolls there. Cards use the store icons, live Robux prices, a tag ribbon (BEST VALUE, POPULAR, ...), OWNED for passes you have, glowing green price buttons, a red glowing X, a gem counter in the header.
+- GIFT button beside every price: pick someone in the server, then buy the gift for them. The server (`Mission`) sends it (gems, or a pass saved on their profile); if they've left it waits in `GunshipGifts_v1` for their next join. Both get a toast. Gift product ids are 0 (SOON) until the products are made.
+- BUNDLES: Starter (1,000 gems + Head Start, one time) and Gunship (4,000 gems + 2x Gems). Passes from bundles/gifts are saved on the profile (`ProfilePasses`). Product ids are 0 (SOON) until made.
+- Roof lamps in the hangar and aircraft bay: warm light-cone beams off all four edges of each lamp, short, soft warm tint.
+- R6: the 8 ground crew and 3 welders rebuilt as R6 (same uniforms, vests, helmets, torches); old R15 copies in `ServerStorage.HangarOld_v013`. Crew use the classic R6 walk/idle/point; welders raise their arms on the shoulder joints. Players are R6 (set in Game Settings). Enemies unchanged.
+
 ## 0.13.5 — 2026-11-22
 
 Walkable hangar lobby, step 4 (aircraft bay).
