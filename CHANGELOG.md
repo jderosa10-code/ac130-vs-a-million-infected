@@ -5,7 +5,7 @@ Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and 
 ## 0.13.18
 - Artillery lowered onto the floor (wheels, trails, pallet and crates were 1 stud up); charge crates moved off the trail.
 - A-10 crate stack moved out of the north wall to open floor; ammo loader drum seated on its base.
-- Mailbox: built-in stud surfaces swapped for a stud texture (rbxassetid://125219300387823) at half scale.
+- Mailbox: studs are now a texture copied from Roblox's own Studs surface (rbxassetid://77665526481438), tinted per part, at half scale (StudsPerTile 0.5).
 
 ## 0.13.17 — 2026-11-22
 
