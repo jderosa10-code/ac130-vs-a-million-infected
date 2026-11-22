@@ -2,6 +2,14 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.12.3 — 2026-11-21
+
+DOWNED CREW mission (playable).
+- A helicopter is down in farm country. Its four crew walk ~1.1 km from the wreck to an LZ held by a QRF: through pine woods, past a farm, over a creek footbridge and across a crossroads hamlet. Anything on the trail ahead pins them (they stop until you clear it); infected that reach them hurt the CREW (160 HP). Near the end the rescue bird is called in; it lands at the LZ, the crew runs to it and it lifts off. Reward 350 gems.
+- Map `workspace.Ops.Crew` (centre 800, 12200): grass valley ringed by mountains, creek, crashed Huey (snapped tail, bent blades, fire and smoke, scorched furrow), ~600 stud-style pines and leafy trees, farm (barn, silo, farmhouse, tractor, crop field, hay bales, fences), country road with power poles and abandoned cars, abandoned army checkpoint with a pallet tower and a burnt truck, gas stop, church, houses, water tower, LZ with marker panel, cones, green smoke, Humvees and a truck.
+- Night missions keep enough ambient light that the thermal picture still reads (was nearly black).
+- Fixed a Lua syntax error introduced with the hospital roof-guard fix in 0.12.2 (it stopped the server scripts loading).
+
 ## 0.12.2 — 2026-11-21
 
 HOSPITAL EVAC mission (playable) and our own map props.
