@@ -2,6 +2,12 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.3 — 2026-11-21
+
+- Walking onto an empty lobby pad now opens its own CREATE LOBBY panel instead of the old crew screen: map card (DOWNTOWN), MODE dropdown (Normal / Hardcore, locked until the unlock wave), ACCESS (public / friends only), CREW SIZE 1-4, glowing CREATE and red X. You stand still while it's open; the camera stays on you.
+- Crew size is real: the pad shows n/size, it's full (amber, 5 s launch) at that size, and nobody else can step in past it.
+- Pad crews never open the old crew screen.
+
 ## 0.13.2 — 2026-11-21
 
 Walkable hangar lobby, step 2 (lobby pads + new airfield).
