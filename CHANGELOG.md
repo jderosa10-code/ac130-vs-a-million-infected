@@ -9,6 +9,7 @@ HOSPITAL EVAC mission (playable) and our own map props.
 - Map `workspace.Ops.Hospital`: 6-floor hospital with helipad and roof sandbag nests, a plaza with field-hospital tents, parking lots, Jersey-barrier perimeter with sandbagged gates, a full city of blocks and side streets, and a mountain ring at the edges.
 - `OpClient` draws the helicopter on each client from the server's `OpHeli` marker (smoothed, rotors turning), outlines the operators/survivors, and gives the hospital a light thermal outline so the roof reads from the gunship.
 - New props in `ServerStorage.MapProps`, built in the lobby-truck style (Plastic, Studs tops, Weld/Universal/Inlet sides): Sedan, Pickup, Police, Ambulance, Humvee (turret), military Truck (the lobby cargo truck), Jersey barrier with a sloped profile, stacked sandbag wall. All toolbox cars and barriers in both mission maps were swapped for these and spaced out; roadside wrecks are burnt and sit crooked.
+- Roof sandbag nests moved to clear spots (no longer through the AC units / pad / mast) and the roof guards stand in them; any map prop clipping into something was snapped to the ground or nudged clear.
 - Field-hospital tents rebuilt with peaked roofs, poles, guy lines and roof crosses.
 
 ## 0.12.1 — 2026-11-21
