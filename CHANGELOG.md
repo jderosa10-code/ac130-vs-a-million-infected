@@ -2,6 +2,18 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.9 — 2026-11-22
+
+Loading screen, hub fixes, aircraft info on screen.
+- Loading screen (`ReplicatedFirst.LoadingScreen`): black with "Loading..." (dots 1-3) on join until your profile is in, and carried across every teleport (TeleportGui), shown as soon as a teleport starts.
+- Hub: RANKS takes you to the ranks booth, AIRCRAFT to the aircraft bay desk (quick fade), then opens the screen. Rank card bigger and no longer cut off (the button sits inside it so the fit code doesn't move it). Bottom-bar art no longer clipped; idle bob fixed (was erroring).
+- Create Lobby panel bigger.
+- Aircraft screen: the plane's info is on screen again (left: name, role, description, real length and wingspan/rotor, rank, price; right: performance bars and weapons). Hanging bay screens removed. Vignette much lighter; bay lamps brighter plus warm fill lights.
+- Aircraft bay swap: no more wrong plane rolling in first (screen/selection changes are settled before a swap, and a newer pick replaces the one waiting).
+- Lobby helis: new turbine start, rotor loop that speeds up with the blades, and a wind-down sound; heard from further away.
+- Dust in the lamp light now drifts.
+- New soldiers wear the crew's patrol cap, recoloured (officer, general with a gold badge, pilot, crew chief).
+
 ## 0.13.8 — 2026-11-22
 
 New hub HUD, booth fixes, officers, dust.
