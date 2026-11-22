@@ -2,6 +2,14 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.23
+- Ride out reworked:
+  - It opens with a hard cut to black (0.35 s), then the heli lifts and backs away while the crew run in one after another, jump and grab the skids.
+  - It then climbs up and back, nose a little high.
+  - The grab is a joint animation (shoulders and hips, R6 or R15): running, a crouch-and-leap with the arms reaching up, then hanging with the legs kicking and swinging after the catch.
+  - The joints are re-found if the avatar is rebuilt.
+- PadHUD's lobby setup panel stays closed during the ride.
+
 ## 0.13.22
 - Ride out: when a pad's countdown ends, the crew (up to 4) run in and grab the Huey's skids (2 per skid, arms up). The helicopter lifts, turns away, noses down and flies off, then the screen fades to "Loading..." and they're deployed.
   - Server (Lobbies.startRide) anchors the riders, sets player RideHeli/RideSlot and pad RideAt, and deploys after 7.3 s.
