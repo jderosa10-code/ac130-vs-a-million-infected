@@ -2,6 +2,12 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.10 — 2026-11-22
+
+Real UI and new icons.
+- The shop, the lobby-pad screens and the aircraft control bar are real UI in StarterGui now (ShopUI, GiftToast, PadHUD, PadSetup, GunshipUI.Aircraft.Controls/Info/Specs/Vignette), editable in Studio. ShopUI, PadHUD and AircraftUI only find them and run them (shop cards carry a `Key` attribute; the gift list copies `RowTemplate`).
+- New icon art (made in Gemini, cut out, packed into two 1024 sheets): `Convoy.Icons` with `Icons.set(image, name)`. Used on the hub tiles (shop, invite, settings), shop tabs, gem packs, the aircraft stats and size rows, and the lobby mode/access buttons.
+
 ## 0.13.9 — 2026-11-22
 
 Loading screen, hub fixes, aircraft info on screen.
