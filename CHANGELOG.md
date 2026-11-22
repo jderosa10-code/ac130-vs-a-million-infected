@@ -10,6 +10,7 @@ The outside.
 - Service roads north and south of the base (`Airfield.Roads`) with lane lines and street lamps; cargo, fuel and gun trucks drive them both ways (`OutsideLife`, templates in `Convoy.RoadVehicles`).
 - Flyovers (`OutsideLife`): every 10-25 s an aircraft crosses the sky (AC-130, A-10, F-15, B-52, CH-47, UH-1, AH-64, AC-47) at its own height and speed, with smoke trails and engine sound; one in five limps by on fire trailing black smoke.
 - Blinking beacons and pad lights (any part with a Blink attribute).
+- Officers' Mess: the three brass were sunk into their chairs; now seated on top (placed by the root part, not the model's box centre).
 
 ## 0.13.16 — 2026-11-22
 
