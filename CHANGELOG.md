@@ -2,6 +2,12 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.15 — 2026-11-22
+
+Daily supply drop, results screen restyle.
+- Daily login reward: 25 / 40 / 60 / 80 / 100 / 150 / 300 gems for days 1-7 in a row (`Shop.DAILY`). Miss a day and it starts again at day 1; after day 7 it goes round. Server checks it once per UTC day (`Mission` "ClaimDaily"), saved on the profile (`Daily = {last, streak}`). Panel is real UI (StarterGui.DailyUI): seven day cards, today's in yellow, claimed ones checked, streak line, slanted yellow CLAIM. Opens by itself in the hangar when a drop is waiting; a DAILY tile on the hub (red ! when ready) opens it too.
+- Results screen: pale headline with a tilted red reason tag, flat stat cards with hazard strips and icons, yellow NEW BEST tags, yellow PLAY AGAIN, dark LOBBY.
+
 ## 0.13.14 — 2026-11-22
 
 Weapons, Ranks and the in-run HUD in the new style.
