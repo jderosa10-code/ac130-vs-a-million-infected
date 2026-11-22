@@ -2,6 +2,14 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.14 — 2026-11-22
+
+Weapons, Ranks and the in-run HUD in the new style.
+- Weapons: flat dark cards with the new weapon pictures (25mm, 40mm, 105mm, 155mm); the picked gun gets a yellow edge and strip. Upgrade tabs turn yellow when picked; the big button is yellow when you can afford it, dark when you can't. Gem counter matches the hub. Mono fonts swapped for Oswald.
+- Ranks: objective cards show a picture for what they ask (gun, timer, skull, crew, A-10...), yellow class and progress bar, green when done; yellow SKIP; spaced yellow headings; next-rank and reward rows on dark strips.
+- HUD: flat dark panels with hazard strips (wave, tally, cash), yellow START, ability cards with icons (repair, nuke, artillery) and yellow key tags, weapon cards wider with the gun picture; the gun in hand gets a yellow edge, strip and key.
+- Aircraft / Ranks / Weapons gem counters match the hub's.
+
 ## 0.13.13 — 2026-11-22
 
 New icon set (48 Gemini icons in three 1024 sheets; `Convoy.Icons` updated, old shop-tab/gem-pack icons kept).
