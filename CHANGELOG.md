@@ -3,6 +3,7 @@
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
 ## 0.13.28
+- TESTING: every aircraft is unlocked for anyone in Studio, the group owner, and user ids in the AllPlanesUsers attribute on ReplicatedStorage.Convoy (currently 4263620304). Remove before release if testers shouldn't keep them.
 - Daily drop: REMIND ME button (left of the claim button) opens Roblox's notification opt-in prompt (ExperienceNotificationService:PromptOptIn). It only shows when the prompt is available. Sending the actual notifications is not set up yet.
 - Hub side tiles: Shop / Invite / Daily are centred once the free reward tile is gone.
 - Aircraft screen: the full-screen dim is removed; only the edges are darkened (Vignette + VignetteV).
