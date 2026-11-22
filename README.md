@@ -2,7 +2,7 @@
 
 A Roblox game. You are the gunner on an AC-130: survivors run for the bunker, infected chase them, and you keep them alive from the sky through endless waves.
 
-**Current version: 0.13.1 (prototype)**
+**Current version: 0.13.2 (prototype)**
 
 - [GDD.md](GDD.md) — the design doc: what the game is, how it is built, what is done and what is next.
 - [CHANGELOG.md](CHANGELOG.md) — what changed in each version.

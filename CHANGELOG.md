@@ -2,6 +2,16 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.2 — 2026-11-21
+
+Walkable hangar lobby, step 2 (lobby pads + new airfield).
+- Four lobby pads in the hangar door: a dark plate, a neon green rim and a beam light curtain that fades upward, with a CREATE LOBBY sign. Walk onto an empty pad and the crew screen opens (mode, access, CREATE). After CREATE you're back on foot, the pad shows HOST'S CREW n/4 and a 15 s countdown, and anyone who walks onto it joins; stepping off leaves. A full crew launches in 5 s. The pad turns amber when it's full or friends-only.
+- Crew bar while you stand in a pad (`PadHUD`): crew name, count, mode/access, countdown, LEAVE and (host) LAUNCH NOW.
+- Behind each pad a Huey parked on its own numbered slot. When a crew forms on that pad it beeps twice, plays the turbine start, settles into idle and the main and tail rotors spool up (`PadHelis`, client only); it winds down when the pad empties.
+- Pad logic lives in `Lobbies` (create/join/leave on the existing party system, `PadReady`/`PadLeave` remote calls).
+- Outside rebuilt: the old airbase (aircraft row hangars, parked planes, buildings, road ring, lights, helipads) moved to `ServerStorage.AirbaseOld_v013`, `AirbaseLife` disabled. New airfield: concrete apron with joints and grime, the helicopter line, T-wall blast walls with hazard bands framing the apron, four light masts, a taxiway out to a new runway (centre line, piano keys, edge lights), a control tower, a windsock, a parked AC-130 on a side ramp and drum/crate clutter. Terrain under paving set to Ground so grass doesn't poke through.
+- Spawn moved to face the pads. The on-foot controls toggle no longer yields in the render step.
+
 ## 0.13.1 — 2026-11-21
 
 Walkable hangar lobby, step 1 (the shell).
