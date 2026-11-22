@@ -2,6 +2,15 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.17 — 2026-11-22
+
+The outside.
+- Hangar exterior (`Hangar.Exterior`): olive cladding with dark ribs every 16 studs, dark base band with a hazard stripe, tan fascia, a row of lit clerestory windows down both long sides, a pitched roof with gables, ridge, roof vents and blinking red corner beacons, and a big lit HANGAR 07 // GUNSHIP WING sign over the door.
+- Heli pads (`Airfield.HeliPads`): one raised pad per lobby heli: hazard border, painted yellow circle and white H, number, blinking blue edge lights. The old painted lines and numbers are gone; the helis sit on the pads.
+- Service roads north and south of the base (`Airfield.Roads`) with lane lines and street lamps; cargo, fuel and gun trucks drive them both ways (`OutsideLife`, templates in `Convoy.RoadVehicles`).
+- Flyovers (`OutsideLife`): every 10-25 s an aircraft crosses the sky (AC-130, A-10, F-15, B-52, CH-47, UH-1, AH-64, AC-47) at its own height and speed, with smoke trails and engine sound; one in five limps by on fire trailing black smoke.
+- Blinking beacons and pad lights (any part with a Blink attribute).
+
 ## 0.13.16 — 2026-11-22
 
 A livelier hangar.
