@@ -2,6 +2,14 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.24
+- Ride out:
+  - Cinema bars top and bottom.
+  - Each rider's camera sits behind their own character: it chases them while they run and jump, then sits behind and below while they hang, looking up past them at the heli.
+  - Hang pose (R6 joints): left hand on the skid with the body hanging under it, right arm loose, legs dangling and swaying, a pendulum swing after the catch.
+  - The normal Animate tracks are stopped during the ride, because hanging in the air played the fall animation.
+  - Flight: a little bob in the hover, then it tips back 20 degrees and pulls up and away, picking up speed, with a slight yaw and bank.
+
 ## 0.13.23
 - Ride out reworked:
   - It opens with a hard cut to black (0.35 s), then the heli lifts and backs away while the crew run in one after another, jump and grab the skids.
