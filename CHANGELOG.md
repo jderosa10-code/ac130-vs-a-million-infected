@@ -2,6 +2,14 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.12.6 — 2026-11-21
+
+TRAIN RUN mission (playable); Prison Bus bridge fixed.
+- TRAIN RUN: an armoured train (locomotive, two gun flatcars, two refugee coaches) runs from a station through a town, a rock cutting and over a river girder bridge to an army railhead. It can't steer: anything on the line ahead stops it. Every 40-50 s a horde drags wrecks onto the line ahead (PILE-UP); the train stops short of it until the horde on it is dead. TRAIN 220 HP, reward 350, about 4-5 minutes.
+- Map `workspace.Ops.Train` (centre 800, 21600): the line runs out of a tunnel in the west mountains and into one in the east; station with platforms, canopy, station house and an old train on the siding, yard with water tower, signal box and signals, a town on both sides of the line with a level crossing (gates, stalled cars), a ridge with a stepped rock cutting, a river with a girder bridge, the railhead (platform, buffer stop, sandbag lines, tents, Humvees, trucks, ambulance, mast), ~700 trees, mountains all round with the river cut through them.
+- New props `MapProps.Loco`, `GunCar`, `Coach`.
+- PRISON BUS: the river bridge now spans just the river, on abutments at each bank, with the road running up to it and the truss properly joined.
+
 ## 0.12.5 — 2026-11-21
 
 PRISON BUS mission (playable) and mission lengths.
