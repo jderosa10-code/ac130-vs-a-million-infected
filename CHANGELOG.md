@@ -2,6 +2,13 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.25
+- Ride out plays at 0.65 speed (Lobbies.RIDE_LEN 11.3 s). New jump: wind-up crouch with arms back, then the left arm throws up to the skid.
+- After the ride the rider is put back on the pad and the loading screen stays up until the teleport (or 1.5 s after the mission starts in Studio).
+- Leaving a match from Settings skips the bunker-lost cutscene.
+- Overhead tags are sized in studs (BillboardGui scale size) so they shrink when you zoom out.
+- Proximity prompt cards are offset toward the camera so the NPC doesn't cover them.
+
 ## 0.13.24
 - Ride out:
   - Cinema bars top and bottom.
