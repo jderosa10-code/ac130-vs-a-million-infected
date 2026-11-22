@@ -2,6 +2,15 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.11 — 2026-11-22
+
+New UI style (flat military, after Tiny Skies' look; our own layout).
+- Flat dark olive panels with a yellow/black hazard strip on top, thin lines instead of thick glowing edges, no outlines on text, bright yellow for whatever is active or buyable, spaced-out yellow sub-headings. New assets: hazard tile and a slanted button image (filled + outline halves).
+- Hub: same layout as before, restyled: gems top-centre, player card top-left (avatar, name, rank tag, rank + tier, objective bars), SHOP / INVITE / SETTINGS tiles on the left, slanted AIRCRAFT | PLAY (yellow, arrows nudge) | RANKS (your badge) at the bottom.
+- Shop: yellow price buttons and active tab, red tilted tags, flat cards. Create Lobby: slanted yellow CREATE, yellow crew-size pick. Crew bar: yellow LAUNCH NOW.
+- Aircraft screen: name block straight on the scene (yellow role, big name), dark strips for size/rank/price, AIRCRAFT SPECIFICATIONS panel with thin yellow bars, action button yellow when it can buy/equip.
+- Armory / Ranks / Settings recoloured to the same palette (glows and text outlines removed).
+
 ## 0.13.10 — 2026-11-22
 
 Real UI and new icons.
