@@ -2,6 +2,14 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.14.13
+- Shop: the bundles and gifts are real products now (they all said SOON: their product ids were 0). Starter Bundle R$99 (3735303112), Gunship Bundle R$399 (3735303229), and a gift product per gem pack and pass at the item's own price (500/1,500/5,000/15,000 gems, 2x Gems, 2x Cash, Free Nuke, Head Start). Ids in Convoy.Shop.
+- LAUNCH NOW on a lobby pad goes out on the helicopter too (run, jump, hang, fly off), and the teleport comes when the ride is over; before, it teleported straight away.
+- Downtown: no more errors on join from the hub screens (AircraftUI, LobbyHUD, RanksUI): they only run in the lobby place.
+- Infected use our animations in the game: each one walks with SPRINT (55%), ARMS OUT (20%), SHAMBLE (15%) or LURCH (10%), at a pace that suits it (x1.1 / 0.75 / 0.6 / 0.6 of the base speed) and with the clip played at the rate its feet cover the ground. At the bunker wall they POUND, CLAW or RAM it (looped) instead of shuffling. 7 R15 clips uploaded to the group (tools/build_infected_rbxmx.py -> art/anim/infected). Tutorial infected all sprint.
+- Buttons always grow from the middle: ButtonFeel now watches every scale a screen tweens on a button (its "Press" or a plain UIScale) and holds the button at its middle while it's off 1, whatever script tweens it.
+- Repair, artillery and the nuke cost more each time you use one in a run: +50% of the base price per use (Repair 250 > 380 > 500...). Uses are player attributes (Uses_<name>), reset every run; the HUD cards show the current price.
+
 ## 0.14.12
 - People are R6 with their own animations (fwjelaa's method). New `Convoy.R6Clips` (source tools/R6Clips.luau): 21 R6 clips written as poses, converted to each R6 joint, uploaded to the group as Animation assets (ids in `AnimIds.R6`; rbxmx built by tools/build_r6_rbxmx.py into art/anim/r6). In Studio a clip without an upload is built on the fly.
 - Lobby pads: the run for the helicopter, the jump and the hang off the skid by one hand are clips now (R6_Run, R6_HeliJump, R6_HeliHang) instead of posing the shoulders and hips; the hand stays on the skid.
