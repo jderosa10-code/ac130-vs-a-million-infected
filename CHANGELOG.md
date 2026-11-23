@@ -2,6 +2,9 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.49
+- Aircraft bay lighting: the stage spotlight's light cone (StageSpot beams) is back on and the spot is a bit softer (brightness 5 -> 4). The room is darker than the stage: wall panels, insets, wainscot, bands and side walls at half their colour, the four corner ceiling lights 3.2 -> 1.4 and the fill lights 1.6 -> 1.0.
+
 ## 0.13.48
 - Aircraft bay: the edge vignette (Aircraft.Vignette / VignetteV) also darkened the middle of the screen over the plane; both removed. (The 0.13.47 extra key light is undone; lights are as before.)
 
