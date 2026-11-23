@@ -2,6 +2,13 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.14.0
+Lobby and maps are separate places (step 1: the code).
+- `Convoy.Places`: LOBBY = 108596658459731 (start place, the hangar), MAPS = { Downtown = 70728469839345 }, DEFAULT_MAP.
+- Lobbies: a server of a map place is always a "Mission" server; the lobby place is always "Lobby". PLAY (and the tutorial) reserve a server of the crew's map place; LOBBY / the tutorial's end / joining a crew on another hangar server go to the lobby place. Someone on a map server with no run to play is sent back to the hangar after 12 s.
+- Favourite prompts favourite the lobby place.
+- Both places run the same code for now (Downtown starts as a copy of this place); trimming each place (no city in the lobby, no hangar in Downtown) comes next.
+
 ## 0.13.60
 - Faster loading: the terrain's unseen underground (solid down to y = -1024 under every hill and mountain) is hollowed out. Each 128-stud square keeps 28 studs of ground under the lowest surface of itself and its 8 neighbours (so no cliff face opens up), and the AC-130 cabin set underground is left alone. 247M -> 80M terrain cells; every join and every run (a teleport to a new server) loads that much less.
 - The whole Hangar model had been moved by accident (+83.85, +3.41, -2): moved back. That's why PLAY sent you outside, players got pushed out, and the walkers looked sunk into the floor.
