@@ -2,8 +2,8 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
-## 0.13.47
-- Aircraft bay: the plane on the stage was dark (lit only from above and behind, in the stage spot's own shadow). New front key light (`AircraftBay.Lights.KeyLight`, warm SpotLight from the camera side, no shadows) and the stage spot no longer casts shadows.
+## 0.13.48
+- Aircraft bay: the edge vignette (Aircraft.Vignette / VignetteV) also darkened the middle of the screen over the plane; both removed. (The 0.13.47 extra key light is undone; lights are as before.)
 
 ## 0.13.46
 - Aircraft bay on phones: the BACK / EQUIP / NEXT bar sat in the middle of the screen over the plane (a fixed 200 px offset). It now sits just above RETURN TO HANGAR at that button's fitted size (10 px gap on phones; PC looks the same as before). Done in GunshipUI's fitScreens.
