@@ -2,6 +2,14 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.42
+- The special infected are redressed with gear modelled in Blender (art/infected/InfectedGear.blend, uploaded as model 128181642246806; the MeshParts live in ServerStorage.InfectedGear) instead of plain blocks. New module ConvoyServer.InfectedLook (clothes palette per type + welded gear), called from Mission.applyType:
+  - Runner: torn pink hoodie with the hood flopped back, exposed ribs, white sneakers.
+  - Brute: muscle hump, swollen shoulders, huge fists, bone spurs down the back, broken shackles.
+  - Bomber: vest, a row of dynamite with tape, a timer with red/blue wires and a blinking light, a gas tank on the back.
+  - Spitter: glowing throat sac, acid drool, a swollen belly and blisters on the back, arm and head.
+  - Armored: riot helmet with visor, chest armour, shoulder and shin guards, a riot shield on the left arm.
+
 ## 0.13.41
 - Trucks on the roads outside drove in reverse (the models face their local +Z); turned round (OutsideLife).
 - Hangar walkers no longer bunch into a group: each keeps its own place on the loop, and whoever fell behind (stopped to talk, queued, blocked by you) walks a bit faster until back in place (HangarWalkers).
