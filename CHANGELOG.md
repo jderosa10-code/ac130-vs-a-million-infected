@@ -2,6 +2,9 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.14.8
+- The loading screen waits for the lighting before it lifts: the sky (everything under Lighting) is preloaded with the rest, GunshipClient sets HubReady after 30 frames with your character in and our camera / hub lighting in place, then 1.2 s more for lights and shadows to build. (Capped at 10 s of waiting.) Lobby place; sync LoadingScreen + GunshipClient to Downtown.
+
 ## 0.14.7
 - New players go into the tutorial in one load: the hangar server sends them on as soon as their profile is in (no 2 s wait), and their loading screen stays up ("STARTING TRAINING", 100%) until the teleport takes them, so they never see the hangar flash by in between. Held for 25 s at most if the teleport fails. (LoadingScreen, Lobbies; lobby place. Sync both scripts to Downtown next time it's open.)
 
