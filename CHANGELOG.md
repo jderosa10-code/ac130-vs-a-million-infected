@@ -2,6 +2,13 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.14.16
+- Bosses: no more cutscene the first time a boss uses a move (charging...); every move just shows its banner.
+- Phones, lobby pads: the crew bar (name, timer, LEAVE / LAUNCH NOW) is smaller and sits just above the bottom row instead of over the player card and gems; the big sign over the pad you're standing in is hidden while you're in it.
+- Phones: the cutscene bars and the helicopter ride's black fade reach the screen edges (GunshipUI no longer clips to the safe area; RideFade ignores the insets).
+- Settings sizes itself like the shop: the whole panel scales to fit under the top bar (min(width / (W + 60), (height - top bar - 16) / H, 1.25)), no per-piece fitting or text boost.
+- New loading screen laid out like Tiny Skies' on black: game name, "RETURNING TO BASE ... 71%" status, a thin cream bar, what it's loading (world / assets / profile), and a TIP box with one of 7 tips.
+
 ## 0.14.15
 - Store: the 4 game pass icons (Free Nuke, Head Start, 2x Cash, 2x Gems) are the Gemini art now (bomb, cash with arrow, cash stack x2, gems x2) on a dark military tile with the old colored edge; uploaded through the Game Passes API. Files: BlenderExports/StoreIcons/gemini_pass_*.png.
 - Tutorial camera fixed: the cabin shots looked up at the roof because the player's cutscene copy (Avatars) had RootHeight 18 (measured from a bounding box before its limbs were placed). R6 RootHeight is always 3 now.
