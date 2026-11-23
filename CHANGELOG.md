@@ -2,6 +2,9 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.56
+- New icons for the in-run Robux offers, made in Gemini by Jacob, background cut out (art/battle/cut.py): FORTIFY (wall, wrench, green plus, sandbags) image 124142059269349, CASH DROP (crate of cash on a parachute) image 129069834896307. Used by the quick-buy tiles and the offer popups (Shop.BATTLE icons).
+
 ## 0.13.55
 - Weapon upgrades in the Armory swap the gun on the parked aircraft, VTOL VR style (`StarterPlayerScripts.GunSwap`, client): impact-wrench unscrew + spark bursts, the old gun drops off the side tumbling, clanks on the floor and fades, the new one slides in from outside, clunks home and is screwed on (wrench, three spark bursts with the welders' crack). AC-130: that gun (GAU12 / Bofors / Howitzer); any other aircraft: its Guns group. New sounds SoundsUI.Unscrew (9117706213) and Screw (9117707273).
 - Infected that reach the bunker stay at the wall hitting it until they're shot (a fifth of their old arrival damage every ~2 s; the wave isn't over while they're there). Bombers still go off at once. They stop just outside the bunker's plinth (ARRIVE_RADIUS 13 -> 18.5).
