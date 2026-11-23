@@ -3,7 +3,6 @@
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
 ## 0.14.16
-- Day and night: runs swap every 5 waves (1-5 day, 6-10 night, 11-15 day...; never in the tutorial; Convoy attribute NightEvery changes it, DebugNight forces it in Studio). The sun sets over 6 s (ClockTime, brightness, outdoor ambient, atmosphere); at night the sensor is NIGHT VISION (green tint, brighter, softer) instead of black-and-white thermal. Banners: NIGHT FALLS // NIGHT VISION ON and DAYBREAK // THERMAL SENSOR ON. Client side (GunshipClient, GunshipUI), tools/patches/day_night.lua.
 - Bosses: no more cutscene the first time a boss uses a move (charging...); every move just shows its banner.
 - Phones, lobby pads: the crew bar (name, timer, LEAVE / LAUNCH NOW) is smaller and sits just above the bottom row instead of over the player card and gems; the big sign over the pad you're standing in is hidden while you're in it.
 - Phones: the cutscene bars and the helicopter ride's black fade reach the screen edges (GunshipUI no longer clips to the safe area; RideFade ignores the insets).
