@@ -330,6 +330,373 @@ table.insert(CLIPS, {
 	markers = { { 23, "Hit" } },
 })
 
+---------------------------------------------------------------------------------------------------- BOSSES
+-- Each boss has its own walk (loop, in place) and its own hit on the bunker wall (looped Action, Hit marker).
+-- (The Spitter Queen stops at range: hers is a spit.) Strides for these are set in BossLook.ANIM.
+
+-- TANK: an armoured juggernaut. Wide stance, arms held out from the body, heavy stomps that drop the whole body
+do
+	local base = {
+		UpperTorso = { -6, 0, 0 }, Head = { -2, 0, 0 },
+		RightUpperArm = { 20, 0, 30 }, RightLowerArm = { 40, 0, 0 }, RightHand = { -10, 0, 0 },
+		LeftUpperArm = { 20, 0, -30 }, LeftLowerArm = { 40, 0, 0 }, LeftHand = { -10, 0, 0 },
+	}
+	local contact = with(base, { -- right foot slams down
+		LowerTorso = { -4, 8, 5, 0, -0.32, 0 }, UpperTorso = { -8, -8, -4 },
+		RightUpperLeg = { 30, 0, 8 }, RightLowerLeg = { -6, 0, 0 }, RightFoot = { 4, 0, 0 },
+		LeftUpperLeg = { -24, 0, -8 }, LeftLowerLeg = { -20, 0, 0 }, LeftFoot = { 12, 0, 0 },
+		RightUpperArm = { 4, 0, 32 }, LeftUpperArm = { 36, 0, -32 }, Head = { -6, -4, 0 },
+	})
+	local settle = with(contact, { -- the weight lands: everything sinks and shudders
+		LowerTorso = { -6, 8, 6, 0, -0.48, 0 }, UpperTorso = { -12, -8, -5 }, Head = { -10, -4, 0 },
+		RightUpperLeg = { 30, 0, 8 }, RightLowerLeg = { -16, 0, 0 },
+		RightLowerArm = { 50, 0, 0 }, LeftLowerArm = { 50, 0, 0 },
+	})
+	local pass = with(base, { -- rise onto the right leg, the left knee comes up high
+		LowerTorso = { -4, 0, 0, 0, 0.12, 0 },
+		RightUpperLeg = { -4, 0, 8 }, RightLowerLeg = { -4, 0, 0 },
+		LeftUpperLeg = { 30, 0, -8 }, LeftLowerLeg = { -64, 0, 0 }, LeftFoot = { 22, 0, 0 },
+	})
+	table.insert(CLIPS, {
+		name = "R15_BossTankWalk", length = 72, loop = true, label = "TANK WALK",
+		keys = {
+			{ 0, contact, "out" }, { 8, settle }, { 22, pass, "into" },
+			{ 36, mirror(contact), "out" }, { 44, mirror(settle) }, { 58, mirror(pass), "into" },
+		},
+	})
+	-- hit: stamps the right foot as both fists come down on the wall together, twice as heavy as an infected's
+	local stand = with(base, {
+		LowerTorso = { -6, 0, 0, 0, -0.15, 0 },
+		RightUpperLeg = { 16, 0, 10 }, RightLowerLeg = { -16, 0, 0 }, LeftUpperLeg = { -12, 0, -10 }, LeftLowerLeg = { -14, 0, 0 },
+	})
+	table.insert(CLIPS, {
+		name = "R15_BossTankHit", length = 70, loop = true, label = "TANK HIT", priority = "Action",
+		keys = {
+			{ 0, stand },
+			{ 22, with(stand, { -- rear up on the left leg, right knee high, fists locked together overhead
+				LowerTorso = { 10, 0, 0, 0, 0.2, 0.2 }, UpperTorso = { 12, 0, 0 }, Head = { 16, 0, 0 },
+				RightUpperLeg = { 50, 0, 10 }, RightLowerLeg = { -70, 0, 0 }, RightFoot = { 20, 0, 0 },
+				RightUpperArm = { 170, -10, 4 }, RightLowerArm = { 30, 0, 0 }, LeftUpperArm = { 170, 10, -4 }, LeftLowerArm = { 30, 0, 0 },
+			}), "hold" },
+			{ 28, with(stand, {
+				LowerTorso = { 12, 0, 0, 0, 0.24, 0.22 }, UpperTorso = { 14, 0, 0 }, Head = { 18, 0, 0 },
+				RightUpperLeg = { 54, 0, 10 }, RightLowerLeg = { -74, 0, 0 }, RightFoot = { 20, 0, 0 },
+				RightUpperArm = { 178, -10, 4 }, RightLowerArm = { 34, 0, 0 }, LeftUpperArm = { 178, 10, -4 }, LeftLowerArm = { 34, 0, 0 },
+			}), "into" },
+			{ 33, with(stand, { -- foot and fists land at once
+				LowerTorso = { -28, 0, 0, 0, -0.45, -0.3 }, UpperTorso = { -26, 0, 0 }, Head = { -6, 0, 0 },
+				RightUpperLeg = { 30, 0, 12 }, RightLowerLeg = { -30, 0, 0 },
+				RightUpperArm = { 70, -10, 0 }, RightLowerArm = { 6, 0, 0 }, LeftUpperArm = { 70, 10, 0 }, LeftLowerArm = { 6, 0, 0 },
+			}), "linear" },
+			{ 37, with(stand, {
+				LowerTorso = { -32, 0, 0, 0, -0.52, -0.32 }, UpperTorso = { -28, 0, 0 }, Head = { -12, 0, 0 },
+				RightUpperLeg = { 30, 0, 12 }, RightLowerLeg = { -34, 0, 0 },
+				RightUpperArm = { 60, -10, 0 }, RightLowerArm = { 14, 0, 0 }, LeftUpperArm = { 60, 10, 0 }, LeftLowerArm = { 14, 0, 0 },
+			}), "out" },
+		},
+		markers = { { 33, "Hit" } },
+	})
+end
+
+-- HIVE: bloated and heavy. Leans back under its own belly, arms wrapped round it, rolls side to side on short steps
+do
+	local base = {
+		UpperTorso = { 10, 0, 0 }, Head = { -14, 0, 0 },
+		RightUpperArm = { 30, 0, -16 }, RightLowerArm = { 76, 0, 0 }, RightHand = { -10, 0, 0 },
+		LeftUpperArm = { 30, 0, 16 }, LeftLowerArm = { 76, 0, 0 }, LeftHand = { -10, 0, 0 },
+	}
+	local step = with(base, {
+		LowerTorso = { 6, 6, 12, 0.3, -0.12, 0 }, UpperTorso = { 10, -6, -10 }, Head = { -14, 4, 12 },
+		RightUpperLeg = { 14, 0, 16 }, RightLowerLeg = { -6, 0, 0 },
+		LeftUpperLeg = { -10, 0, -16 }, LeftLowerLeg = { -12, 0, 0 }, LeftFoot = { 6, 0, 0 },
+		RightUpperArm = { 26, 0, -20 }, LeftUpperArm = { 34, 0, 12 },
+	})
+	local pass = with(base, {
+		LowerTorso = { 6, 0, 2, 0.06, 0.04, 0 }, UpperTorso = { 10, 0, -2 },
+		RightUpperLeg = { 0, 0, 16 }, RightLowerLeg = { -2, 0, 0 },
+		LeftUpperLeg = { 8, 0, -18 }, LeftLowerLeg = { -32, 0, 0 }, LeftFoot = { 12, 0, 0 },
+	})
+	table.insert(CLIPS, {
+		name = "R15_BossHiveWalk", length = 84, loop = true, label = "HIVE WALK",
+		keys = { { 0, step, "out" }, { 21, pass }, { 42, mirror(step), "out" }, { 63, mirror(pass) } },
+	})
+	-- hit: rocks back, arms flung wide, then throws its whole belly into the wall
+	local stand = with(base, {
+		LowerTorso = { 4, 0, 0, 0, -0.1, 0 },
+		RightUpperLeg = { 10, 0, 16 }, RightLowerLeg = { -10, 0, 0 }, LeftUpperLeg = { -8, 0, -16 }, LeftLowerLeg = { -10, 0, 0 },
+	})
+	table.insert(CLIPS, {
+		name = "R15_BossHiveHit", length = 64, loop = true, label = "HIVE HIT", priority = "Action",
+		keys = {
+			{ 0, stand },
+			{ 24, with(stand, { -- rock back on the heels
+				LowerTorso = { 22, 0, 0, 0, 0, 0.5 }, UpperTorso = { 18, 0, 0 }, Head = { 10, 0, 0 },
+				RightUpperArm = { 20, 0, 80 }, RightLowerArm = { 20, 0, 0 }, LeftUpperArm = { 20, 0, -80 }, LeftLowerArm = { 20, 0, 0 },
+				RightUpperLeg = { -6, 0, 16 }, LeftUpperLeg = { -20, 0, -16 }, LeftLowerLeg = { -4, 0, 0 },
+			}), "into" },
+			{ 30, with(stand, { -- belly slam
+				LowerTorso = { -16, 0, 0, 0, -0.2, -0.9 }, UpperTorso = { 22, 0, 0 }, Head = { -24, 0, 0 },
+				RightUpperArm = { 40, 0, 60 }, RightLowerArm = { 30, 0, 0 }, LeftUpperArm = { 40, 0, -60 }, LeftLowerArm = { 30, 0, 0 },
+				RightUpperLeg = { 4, 0, 16 }, RightLowerLeg = { -20, 0, 0 }, LeftUpperLeg = { -26, 0, -16 }, LeftLowerLeg = { -20, 0, 0 },
+			}), "linear" },
+			{ 36, with(stand, { -- wobbles off it
+				LowerTorso = { -8, 0, 0, 0, -0.16, -0.6 }, UpperTorso = { 16, 0, 0 }, Head = { -18, 0, 0 },
+				RightUpperArm = { 40, 0, 40 }, RightLowerArm = { 50, 0, 0 }, LeftUpperArm = { 40, 0, -40 }, LeftLowerArm = { 50, 0, 0 },
+			}), "out" },
+		},
+		markers = { { 30, "Hit" } },
+	})
+end
+
+-- SCREAMER: a feral sprint. Bent low, arms raked back behind it, head thrown up and jerking
+do
+	local contact = {
+		LowerTorso = { -30, 6, 0, 0, -0.2, 0 }, UpperTorso = { -22, -8, 0 }, Head = { 44, 10, 0 },
+		RightUpperLeg = { 52, 0, 4 }, RightLowerLeg = { -10, 0, 0 }, RightFoot = { -6, 0, 0 },
+		LeftUpperLeg = { -46, 0, -4 }, LeftLowerLeg = { -70, 0, 0 }, LeftFoot = { 20, 0, 0 },
+		RightUpperArm = { -72, 0, 26 }, RightLowerArm = { 24, 0, 0 }, RightHand = { 30, 0, 0 },
+		LeftUpperArm = { -52, 0, -26 }, LeftLowerArm = { 30, 0, 0 }, LeftHand = { 30, 0, 0 },
+	}
+	local flight = {
+		LowerTorso = { -28, 0, 0, 0, 0.28, 0 }, UpperTorso = { -24, 0, 0 }, Head = { 38, -6, 0 },
+		RightUpperLeg = { 10, 0, 4 }, RightLowerLeg = { -44, 0, 0 },
+		LeftUpperLeg = { 40, 0, -4 }, LeftLowerLeg = { -112, 0, 0 }, LeftFoot = { 30, 0, 0 },
+		RightUpperArm = { -58, 0, 30 }, RightLowerArm = { 20, 0, 0 }, RightHand = { 30, 0, 0 },
+		LeftUpperArm = { -66, 0, -30 }, LeftLowerArm = { 24, 0, 0 }, LeftHand = { 30, 0, 0 },
+	}
+	table.insert(CLIPS, {
+		name = "R15_BossScreamerRun", length = 32, loop = true, label = "SCREAMER RUN",
+		keys = { { 0, contact }, { 8, flight }, { 16, mirror(contact) }, { 24, mirror(flight) } },
+	})
+	-- hit: a frenzy of claws, right-left-right-left, head thrashing
+	local stand = {
+		LowerTorso = { -16, 0, 0, 0, -0.2, 0 }, UpperTorso = { -14, 0, 0 }, Head = { 20, 0, 0 },
+		RightUpperLeg = { 24, 0, 6 }, RightLowerLeg = { -30, 0, 0 }, LeftUpperLeg = { -10, 0, -6 }, LeftLowerLeg = { -24, 0, 0 },
+		RightUpperArm = { 60, 0, 20 }, RightLowerArm = { 50, 0, 0 }, LeftUpperArm = { 60, 0, -20 }, LeftLowerArm = { 50, 0, 0 },
+	}
+	local windR = with(stand, {
+		LowerTorso = { -16, -18, 0, 0, -0.2, 0 }, UpperTorso = { -10, -20, 0 }, Head = { 26, 20, 10 },
+		RightUpperArm = { 140, 0, 60 }, RightLowerArm = { 40, 0, 0 }, RightHand = { 30, 0, 0 },
+	})
+	local hitR = with(stand, {
+		LowerTorso = { -22, 20, 0, 0, -0.24, -0.15 }, UpperTorso = { -18, 22, 0 }, Head = { 10, -20, -10 },
+		RightUpperArm = { 60, -40, -24 }, RightLowerArm = { 10, 0, 0 }, RightHand = { -20, 0, 0 },
+		LeftUpperArm = { 90, 0, -40 }, LeftLowerArm = { 40, 0, 0 },
+	})
+	table.insert(CLIPS, {
+		name = "R15_BossScreamerHit", length = 40, loop = true, label = "SCREAMER HIT", priority = "Action",
+		keys = {
+			{ 0, stand }, { 5, windR, "into" }, { 9, hitR, "linear" },
+			{ 14, mirror(windR), "into" }, { 18, mirror(hitR), "linear" },
+			{ 24, windR, "into" }, { 28, hitR, "linear" },
+			{ 32, mirror(windR), "into" }, { 36, mirror(hitR), "linear" },
+		},
+		markers = { { 9, "Hit" }, { 18, "Hit" }, { 28, "Hit" }, { 36, "Hit" } },
+	})
+end
+
+-- BURROWER: scuttles in a deep crouch, almost flat, clawing the ground ahead of it like it's still digging
+do
+	local contact = {
+		LowerTorso = { -44, 0, 0, 0, -0.7, 0 }, UpperTorso = { -24, 0, 0 }, Head = { 56, 0, 0 },
+		RightUpperLeg = { 64, 0, 14 }, RightLowerLeg = { -84, 0, 0 }, RightFoot = { 14, 0, 0 },
+		LeftUpperLeg = { 18, 0, -14 }, LeftLowerLeg = { -96, 0, 0 }, LeftFoot = { 34, 0, 0 },
+		RightUpperArm = { 150, 0, 14 }, RightLowerArm = { 20, 0, 0 }, RightHand = { -30, 0, 0 },
+		LeftUpperArm = { 64, 0, -14 }, LeftLowerArm = { 84, 0, 0 }, LeftHand = { -10, 0, 0 },
+	}
+	local pass = {
+		LowerTorso = { -42, 0, 0, 0, -0.6, 0 }, UpperTorso = { -26, 0, 0 }, Head = { 54, 0, 0 },
+		RightUpperLeg = { 40, 0, 14 }, RightLowerLeg = { -72, 0, 0 }, RightFoot = { 10, 0, 0 },
+		LeftUpperLeg = { 58, 0, -14 }, LeftLowerLeg = { -116, 0, 0 }, LeftFoot = { 40, 0, 0 },
+		RightUpperArm = { 104, 0, 14 }, RightLowerArm = { 54, 0, 0 }, RightHand = { -20, 0, 0 },
+		LeftUpperArm = { 108, 0, -14 }, LeftLowerArm = { 54, 0, 0 }, LeftHand = { -20, 0, 0 },
+	}
+	table.insert(CLIPS, {
+		name = "R15_BossBurrowerRun", length = 40, loop = true, label = "BURROWER RUN",
+		keys = { { 0, contact }, { 10, pass }, { 20, mirror(contact) }, { 30, mirror(pass) } },
+	})
+	-- hit: drops low with its claws back, then tears up into the wall from underneath
+	local low = {
+		LowerTorso = { -36, 0, 0, 0, -0.8, 0 }, UpperTorso = { -20, 0, 0 }, Head = { 40, 0, 0 },
+		RightUpperLeg = { 60, 0, 16 }, RightLowerLeg = { -100, 0, 0 }, RightFoot = { 30, 0, 0 },
+		LeftUpperLeg = { 50, 0, -16 }, LeftLowerLeg = { -100, 0, 0 }, LeftFoot = { 30, 0, 0 },
+		RightUpperArm = { -40, 0, 30 }, RightLowerArm = { 40, 0, 0 }, LeftUpperArm = { -40, 0, -30 }, LeftLowerArm = { 40, 0, 0 },
+	}
+	local up = {
+		LowerTorso = { -6, 0, 0, 0, 0.25, -0.4 }, UpperTorso = { 4, 0, 0 }, Head = { 14, 0, 0 },
+		RightUpperLeg = { 10, 0, 10 }, RightLowerLeg = { -10, 0, 0 }, LeftUpperLeg = { -14, 0, -10 }, LeftLowerLeg = { -20, 0, 0 },
+		RightUpperArm = { 160, 0, 16 }, RightLowerArm = { 16, 0, 0 }, RightHand = { -30, 0, 0 },
+		LeftUpperArm = { 160, 0, -16 }, LeftLowerArm = { 16, 0, 0 }, LeftHand = { -30, 0, 0 },
+	}
+	table.insert(CLIPS, {
+		name = "R15_BossBurrowerHit", length = 56, loop = true, label = "BURROWER HIT", priority = "Action",
+		keys = { { 0, low }, { 18, with(low, { LowerTorso = { -40, 0, 0, 0, -0.9, 0.1 } }), "into" }, { 24, up, "linear" }, { 30, with(up, { LowerTorso = { -2, 0, 0, 0, 0.3, -0.45 }, RightUpperArm = { 170, 0, 20 }, LeftUpperArm = { 170, 0, -20 } }), "out" } },
+		markers = { { 24, "Hit" } },
+	})
+end
+
+-- SPITTER QUEEN: upright and regal. Glides on crossing steps, head high, clawed hands held up at her chest
+do
+	local base = {
+		UpperTorso = { 6, 0, 0 }, Head = { 10, 0, 0 },
+		RightUpperArm = { 52, 0, 22 }, RightLowerArm = { 64, 0, 0 }, RightHand = { -34, 0, 0 },
+		LeftUpperArm = { 52, 0, -22 }, LeftLowerArm = { 64, 0, 0 }, LeftHand = { -34, 0, 0 },
+	}
+	local step = with(base, {
+		LowerTorso = { 0, 12, -5, -0.15, -0.04, 0 }, UpperTorso = { 6, -10, 3 }, Head = { 10, 6, -4 },
+		RightUpperLeg = { 22, 0, -6 }, RightLowerLeg = { -4, 0, 0 }, RightFoot = { 6, 0, 0 },
+		LeftUpperLeg = { -16, 0, -4 }, LeftLowerLeg = { -14, 0, 0 }, LeftFoot = { 8, 0, 0 },
+		RightUpperArm = { 44, 0, 28 }, LeftUpperArm = { 60, 0, -18 },
+	})
+	local pass = with(base, {
+		LowerTorso = { 0, 0, 0, 0, 0.04, 0 },
+		RightUpperLeg = { 0, 0, -2 }, RightLowerLeg = { -2, 0, 0 },
+		LeftUpperLeg = { 10, 0, 4 }, LeftLowerLeg = { -36, 0, 0 }, LeftFoot = { 14, 0, 0 },
+	})
+	table.insert(CLIPS, {
+		name = "R15_BossQueenWalk", length = 84, loop = true, label = "QUEEN WALK",
+		keys = { { 0, step }, { 21, pass }, { 42, mirror(step) }, { 63, mirror(pass) } },
+	})
+	-- spit (one-shot): rears back with her arms spread, then lunges her head forward as the glob leaves
+	local stand = with(base, {
+		LowerTorso = { 0, 0, 0, 0, -0.05, 0 },
+		RightUpperLeg = { 12, 0, 6 }, RightLowerLeg = { -8, 0, 0 }, LeftUpperLeg = { -10, 0, -6 }, LeftLowerLeg = { -10, 0, 0 },
+	})
+	table.insert(CLIPS, {
+		name = "R15_BossQueenSpit", length = 48, loop = false, label = "QUEEN SPIT", priority = "Action",
+		keys = {
+			{ 0, stand },
+			{ 16, with(stand, {
+				LowerTorso = { 12, 0, 0, 0, 0.05, 0.3 }, UpperTorso = { 20, 0, 0 }, Head = { 30, 0, 0 },
+				RightUpperArm = { 60, 0, 80 }, RightLowerArm = { 30, 0, 0 }, LeftUpperArm = { 60, 0, -80 }, LeftLowerArm = { 30, 0, 0 },
+			}), "into" },
+			{ 21, with(stand, {
+				LowerTorso = { -18, 0, 0, 0, -0.15, -0.4 }, UpperTorso = { -24, 0, 0 }, Head = { -10, 0, 0 },
+				RightUpperArm = { 20, 0, 50 }, RightLowerArm = { 40, 0, 0 }, LeftUpperArm = { 20, 0, -50 }, LeftLowerArm = { 40, 0, 0 },
+			}), "linear" },
+			{ 30, with(stand, {
+				LowerTorso = { -10, 0, 0, 0, -0.1, -0.25 }, UpperTorso = { -14, 0, 0 }, Head = { -4, 0, 0 },
+			}), "out" },
+			{ 48, stand },
+		},
+		markers = { { 21, "Hit" } },
+	})
+end
+
+-- SWARM LORD: a commander's march. Chest out, high knees, right arm pointed ahead, left fist pumping
+do
+	local contact = {
+		LowerTorso = { 2, 6, 3, 0, -0.08, 0 }, UpperTorso = { 8, -6, -2 }, Head = { 6, 4, 0 },
+		RightUpperLeg = { 30, 0, 4 }, RightLowerLeg = { -4, 0, 0 }, RightFoot = { 4, 0, 0 },
+		LeftUpperLeg = { -20, 0, -4 }, LeftLowerLeg = { -16, 0, 0 }, LeftFoot = { 10, 0, 0 },
+	}
+	local pass = {
+		LowerTorso = { 2, 0, 0, 0, 0.1, 0 }, UpperTorso = { 8, 0, 0 }, Head = { 6, 0, 0 },
+		RightUpperLeg = { -4, 0, 4 }, RightLowerLeg = { -4, 0, 0 },
+		LeftUpperLeg = { 56, 0, -4 }, LeftLowerLeg = { -92, 0, 0 }, LeftFoot = { 20, 0, 0 },
+	}
+	local point = { RightUpperArm = { 100, 0, 6 }, RightLowerArm = { 4, 0, 0 }, RightHand = { 0, 0, 0 } }
+	local pumpUp = with(point, { LeftUpperArm = { 50, 0, -10 }, LeftLowerArm = { 100, 0, 0 }, LeftHand = { -10, 0, 0 } })
+	local pumpDown = with(point, { LeftUpperArm = { -24, 0, -12 }, LeftLowerArm = { 70, 0, 0 }, LeftHand = { -10, 0, 0 } })
+	table.insert(CLIPS, {
+		name = "R15_BossLordWalk", length = 64, loop = true, label = "LORD WALK",
+		keys = {
+			{ 0, with(contact, pumpDown) }, { 16, with(pass, pumpUp) },
+			{ 32, with(mirror(contact), pumpUp) }, { 48, with(mirror(pass), pumpDown) },
+		},
+	})
+	-- hit: a big overhead chop with the right arm, the left fist braced, roaring
+	local stand = {
+		LowerTorso = { -4, 0, 0, 0, -0.1, 0 }, UpperTorso = { 4, 0, 0 }, Head = { 4, 0, 0 },
+		RightUpperLeg = { 18, 0, 6 }, RightLowerLeg = { -14, 0, 0 }, LeftUpperLeg = { -14, 0, -6 }, LeftLowerLeg = { -14, 0, 0 },
+		RightUpperArm = { 30, 0, 10 }, RightLowerArm = { 30, 0, 0 }, LeftUpperArm = { 10, 0, -30 }, LeftLowerArm = { 110, 0, 0 },
+	}
+	table.insert(CLIPS, {
+		name = "R15_BossLordHit", length = 60, loop = true, label = "LORD HIT", priority = "Action",
+		keys = {
+			{ 0, stand },
+			{ 20, with(stand, {
+				LowerTorso = { 6, -30, 0, 0, 0, 0.2 }, UpperTorso = { 16, -24, 0 }, Head = { 20, 20, 0 },
+				RightUpperArm = { 190, 0, 30 }, RightLowerArm = { 70, 0, 0 },
+			}), "into" },
+			{ 25, with(stand, {
+				LowerTorso = { -24, 26, 0, 0, -0.3, -0.35 }, UpperTorso = { -20, 24, 0 }, Head = { -6, -14, 0 },
+				RightUpperArm = { 60, -30, -10 }, RightLowerArm = { 10, 0, 0 },
+				RightUpperLeg = { 34, 0, 6 }, RightLowerLeg = { -30, 0, 0 },
+			}), "linear" },
+			{ 30, with(stand, {
+				LowerTorso = { -28, 28, 0, 0, -0.34, -0.38 }, UpperTorso = { -22, 26, 0 }, Head = { 24, -14, 0 },
+				RightUpperArm = { 48, -36, -14 }, RightLowerArm = { 18, 0, 0 },
+				RightUpperLeg = { 34, 0, 6 }, RightLowerLeg = { -32, 0, 0 },
+			}), "out" },
+		},
+		markers = { { 25, "Hit" } },
+	})
+end
+
+-- TITAN: colossal and slow. Hunched over, long arms hanging and swinging with a heavy twist of the shoulders,
+-- each step a weight that sinks the whole body
+do
+	local contact = {
+		LowerTorso = { -16, 14, 6, 0, -0.3, 0 }, UpperTorso = { -20, -16, -4 }, Head = { 24, 10, 0 },
+		RightUpperLeg = { 26, 0, 8 }, RightLowerLeg = { -8, 0, 0 }, RightFoot = { 4, 0, 0 },
+		LeftUpperLeg = { -18, 0, -8 }, LeftLowerLeg = { -20, 0, 0 }, LeftFoot = { 10, 0, 0 },
+		RightUpperArm = { -14, 0, 12 }, RightLowerArm = { 14, 0, 0 }, RightHand = { -10, 0, 0 },
+		LeftUpperArm = { 34, 0, -12 }, LeftLowerArm = { 20, 0, 0 }, LeftHand = { -10, 0, 0 },
+	}
+	local settle = with(contact, {
+		LowerTorso = { -18, 14, 7, 0, -0.44, 0 }, UpperTorso = { -24, -18, -5 }, Head = { 20, 10, 0 },
+		RightLowerLeg = { -18, 0, 0 }, RightLowerArm = { 24, 0, 0 }, LeftLowerArm = { 30, 0, 0 },
+	})
+	local pass = {
+		LowerTorso = { -16, 0, 0, 0, -0.08, 0 }, UpperTorso = { -20, 0, 0 }, Head = { 24, 0, 0 },
+		RightUpperLeg = { -2, 0, 8 }, RightLowerLeg = { -4, 0, 0 },
+		LeftUpperLeg = { 14, 0, -8 }, LeftLowerLeg = { -52, 0, 0 }, LeftFoot = { 16, 0, 0 },
+		RightUpperArm = { 10, 0, 12 }, RightLowerArm = { 16, 0, 0 }, RightHand = { -10, 0, 0 },
+		LeftUpperArm = { 10, 0, -12 }, LeftLowerArm = { 16, 0, 0 }, LeftHand = { -10, 0, 0 },
+	}
+	table.insert(CLIPS, {
+		name = "R15_BossTitanWalk", length = 100, loop = true, label = "TITAN WALK",
+		keys = {
+			{ 0, contact, "out" }, { 12, settle }, { 32, pass, "into" },
+			{ 50, mirror(contact), "out" }, { 62, mirror(settle) }, { 82, mirror(pass), "into" },
+		},
+	})
+	-- hit: rises to its full height with both arms raised, hangs there, then crashes them down into the wall
+	local stand = {
+		LowerTorso = { -14, 0, 0, 0, -0.2, 0 }, UpperTorso = { -18, 0, 0 }, Head = { 20, 0, 0 },
+		RightUpperLeg = { 18, 0, 10 }, RightLowerLeg = { -16, 0, 0 }, LeftUpperLeg = { -12, 0, -10 }, LeftLowerLeg = { -16, 0, 0 },
+		RightUpperArm = { 20, 0, 14 }, RightLowerArm = { 20, 0, 0 }, LeftUpperArm = { 20, 0, -14 }, LeftLowerArm = { 20, 0, 0 },
+	}
+	table.insert(CLIPS, {
+		name = "R15_BossTitanHit", length = 90, loop = true, label = "TITAN HIT", priority = "Action",
+		keys = {
+			{ 0, stand },
+			{ 30, with(stand, {
+				LowerTorso = { 8, 0, 0, 0, 0.3, 0.3 }, UpperTorso = { 14, 0, 0 }, Head = { 24, 0, 0 },
+				RightUpperArm = { 172, 0, 30 }, RightLowerArm = { 40, 0, 0 }, LeftUpperArm = { 172, 0, -30 }, LeftLowerArm = { 40, 0, 0 },
+				RightUpperLeg = { 6, 0, 10 }, RightLowerLeg = { -4, 0, 0 }, LeftUpperLeg = { -8, 0, -10 }, LeftLowerLeg = { -4, 0, 0 },
+			}), "hold" },
+			{ 42, with(stand, {
+				LowerTorso = { 12, 0, 0, 0, 0.34, 0.34 }, UpperTorso = { 16, 0, 0 }, Head = { 28, 0, 0 },
+				RightUpperArm = { 180, 0, 26 }, RightLowerArm = { 46, 0, 0 }, LeftUpperArm = { 180, 0, -26 }, LeftLowerArm = { 46, 0, 0 },
+				RightUpperLeg = { 6, 0, 10 }, RightLowerLeg = { -4, 0, 0 }, LeftUpperLeg = { -8, 0, -10 }, LeftLowerLeg = { -4, 0, 0 },
+			}), "into" },
+			{ 48, with(stand, {
+				LowerTorso = { -36, 0, 0, 0, -0.6, -0.4 }, UpperTorso = { -30, 0, 0 }, Head = { 0, 0, 0 },
+				RightUpperArm = { 56, 0, 8 }, RightLowerArm = { 4, 0, 0 }, LeftUpperArm = { 56, 0, -8 }, LeftLowerArm = { 4, 0, 0 },
+				RightUpperLeg = { 40, 0, 12 }, RightLowerLeg = { -50, 0, 0 }, LeftUpperLeg = { 0, 0, -12 }, LeftLowerLeg = { -40, 0, 0 },
+			}), "linear" },
+			{ 54, with(stand, {
+				LowerTorso = { -40, 0, 0, 0, -0.7, -0.42 }, UpperTorso = { -32, 0, 0 }, Head = { -8, 0, 0 },
+				RightUpperArm = { 46, 0, 10 }, RightLowerArm = { 12, 0, 0 }, LeftUpperArm = { 46, 0, -10 }, LeftLowerArm = { 12, 0, 0 },
+				RightUpperLeg = { 42, 0, 12 }, RightLowerLeg = { -56, 0, 0 }, LeftUpperLeg = { 2, 0, -12 }, LeftLowerLeg = { -44, 0, 0 },
+			}), "out" },
+		},
+		markers = { { 48, "Hit" } },
+	})
+end
+
 M.CLIPS = CLIPS
 
 function M.build()

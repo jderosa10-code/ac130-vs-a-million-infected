@@ -2,6 +2,12 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.14.17
+- Map ground (both places): the roads were painted into the terrain, so where a road met the sand the two materials blended into blotchy patches (worse in the thermal view). The whole city floor is now one terrain material (Sand; the road, mud and grass patches were repainted) and the roads are crisp slabs on top: 129 parts in `Workspace.DMZ.Roads`, 30 studs wide on the 150-stud street grid, top at 2.15 (terrain 2.0, road marks 2.22). The 75 `*_DirtRoad` ground meshes under the buildings were removed (they showed through the sand in a checker pattern).
+- Hardcore is much harder: 2.2x as many infected per wave (was 1.5x), 1.3x speed with a higher cap (26, was 1.15x / 22), waves arrive in 75% of the time, up to 190 infected at once (135), special types 2.2x as likely (1.4x), specials 1.5x HP, bosses 2.5x HP (1.6x), 1.5x damage to the bunker, and the bunker starts at 50 HP (60). Gems stay 2x.
+- Bosses get their own animations (tools/InfectedAnims.luau, BOSSES; rbxmx in art/anim/infected): a walk each (TANK stomp, HIVE waddle, SCREAMER feral sprint, BURROWER crouched scuttle, QUEEN regal glide, LORD march with a pointing arm, TITAN hunched lumber) and a hit on the bunker wall each (TANK stamp-and-hammer, HIVE belly slam, SCREAMER claw frenzy, BURROWER uppercut from below, LORD overhead chop, TITAN two-handed crash); the Spitter Queen spits with her own clip. Bosses used to shuffle at the wall with no hit at all. `BossLook.CLIP` lists them with their strides (played near 1x instead of the pack walks at ~0.36x). Until the clips are uploaded and their ids put in `Convoy.AnimIds.Boss`, Studio plays them from `ServerStorage.Animations` and live servers keep the pack walks.
+- Hangar welders: every aircraft gets one welder (two on the AC-47, B-52 and CH-47), standing on the floor (his stand stays behind), on the side you're looking from, torch on the hull; a height scan finds the hull. Sparks and sound only run for a welder who is out.
+
 ## 0.14.16
 - PROMOTED! pop-up is compact, in the HUD panel skin: badge on the left; PROMOTED!, rank name, bonus and gems beside it (was a tall card with lots of empty space).
 - Daily supply drop: a new player gets it when they're back in the hangar after the tutorial (never before it, not on the tutorial's own server), after the loading screen is gone.
