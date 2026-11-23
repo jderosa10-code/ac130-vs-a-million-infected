@@ -2,6 +2,10 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.14.14
+- Phones: AUTO-FIRE ON/OFF in Settings. GunshipUI already handled a row named AutoFire (touch devices only, saved with the profile), but the row was never in the UI and GunshipClient's auto-fire ignored the setting: the row is now in Settings (a copy of MUSIC) and auto-fire stops when it's OFF (the FIRE button still shoots).
+- No JUMP button in a run: new RunNoJump turns jumping off while you're on the HUD (Roblox's touch controls hide the button with it; it sat under FIRE on phones) and back on after.
+
 ## 0.14.13
 - Shop: the bundles and gifts are real products now (they all said SOON: their product ids were 0). Starter Bundle R$99 (3735303112), Gunship Bundle R$399 (3735303229), and a gift product per gem pack and pass at the item's own price (500/1,500/5,000/15,000 gems, 2x Gems, 2x Cash, Free Nuke, Head Start). Ids in Convoy.Shop.
 - LAUNCH NOW on a lobby pad goes out on the helicopter too (run, jump, hang, fly off), and the teleport comes when the ride is over; before, it teleported straight away.
