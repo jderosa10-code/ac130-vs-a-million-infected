@@ -2,6 +2,10 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.14.2
+- FORTIFY and CASH DROP tiles back on the original flat icons (the Gemini ones didn't match the rest).
+- Cutscenes clear the screen: while one plays (RETURNING TO BASE, takeoff, boss intros...) every other screen of ours (results...) and our other GUIs (offers, toasts, alerts) are hidden, and come back as they were after.
+
 ## 0.14.1
 - Loading screen says where you're going and how far along it is: "DEPLOYING TO DOWNTOWN", "RETURNING TO BASE" or "LOADING", a yellow bar and a percentage (0-80% instances received out of the server's count, a Workspace attribute set by Lobbies; 80-95% assets downloaded; 95-100% your save). The server sets the player's TeleportTo before each teleport so the screen carried across already has the right title.
 - Infected lose a limb or two when they die (sometimes the head, with its hats): copies fly off, tumble, land and fade with the body; a dark stump cap and a few dark bits. Civilians and bosses stay whole (GunshipClient corpses).
