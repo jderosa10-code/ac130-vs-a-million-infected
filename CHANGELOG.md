@@ -2,6 +2,9 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.32
+- Booth NPC name tags (SGT. HAYES, LT. REED) are sized in studs (5 x 1) instead of pixels, so they shrink with distance like the lobby signs instead of looking bigger as you back away.
+
 ## 0.13.31
 Phone pass (tested in Studio's iPhone XR emulator, 801x413):
 - Phones get a bigger UI scale (screen height / 1080 x 1.6 instead of ~0.44); fitScreens still shrinks only what collides. Minimum phone text is 14 pt.
