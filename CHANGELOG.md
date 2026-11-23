@@ -2,6 +2,11 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.58
+- SKIP on a rank objective now completes it (toast, and the promotion if it was the last one) instead of rolling a new one. The Skip Objective product (3734067874) is 10 R$ now (was 25), with a new thumbnail and description (art/products).
+- Aircraft can be unlocked with Robux in the aircraft bay: a green UNLOCK NOW button above the bar for any aircraft you don't own, no rank or gems needed (`Shop.PLANE_PRODUCTS`: AC-47 125, Huey 175, Reaper 249, Harrier 299, Apache 379, Chinook 499, B-52 659). The server grants it on purchase (owned, equipped, saved). The buttons stay hidden until the product ids are filled in: the products still have to be created (thumbnails ready in art/products).
+- SHOP button walks you to the shop stand first (like RANKS and AIRCRAFT).
+
 ## 0.13.57
 Weapon upgrades fit what the weapon fires (`Upgrades.weaponClass`, `statText`, `tierText`; same saved stats Up_<slot>_Radius/Rate/Reload):
 - GUN (7.62 miniguns, 25mm GAU-12 and Harrier cannon, 30mm chain gun): bullets, so no growing blast (each round keeps its small one). Radius is now ROUND DAMAGE (+20% damage per level), Rate is FIRE RATE, Reload is RELOAD SPEED or, on belt-fed miniguns, COOLING (-12% heat per round). In-run tiers: fire rate, magazine, reload and +8% damage; tier 3 AP, tier 5 API (+25% damage) instead of HE, tier 7 incendiary.
