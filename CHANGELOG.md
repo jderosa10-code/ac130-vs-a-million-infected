@@ -2,6 +2,13 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.14.1
+- Loading screen says where you're going and how far along it is: "DEPLOYING TO DOWNTOWN", "RETURNING TO BASE" or "LOADING", a yellow bar and a percentage (0-80% instances received out of the server's count, a Workspace attribute set by Lobbies; 80-95% assets downloaded; 95-100% your save). The server sets the player's TeleportTo before each teleport so the screen carried across already has the right title.
+- Infected lose a limb or two when they die (sometimes the head, with its hats): copies fly off, tumble, land and fade with the body; a dark stump cap and a few dark bits. Civilians and bosses stay whole (GunshipClient corpses).
+- Brutes walk like brutes: 1.7x longer strides (slower legs) on the server, and on the client a heavy lurch (hunched, rolling onto each leg, sinking on every step; EnemyMover).
+- In-run gun tiers cost 30% more (TIER_BASE 400 / 650 / 1050, was 300 / 500 / 800).
+- ButtonFeel: buttons grow from their middle, not the top-left corner (anchor moved to the centre, same spot on screen; not inside layouts).
+
 ## 0.14.0
 Lobby and maps are separate places (step 1: the code).
 - `Convoy.Places`: LOBBY = 108596658459731 (start place, the hangar), MAPS = { Downtown = 70728469839345 }, DEFAULT_MAP.
