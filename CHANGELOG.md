@@ -2,6 +2,12 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.40
+- Every aircraft's weapons are their own now:
+  - Looks: AV-8B 25mm cannon gets its own pale-orange streaks (FXLib CAL "cannon"); the rest already had theirs (minigun, chain gun, rocket, missile, grenade, bomb).
+  - Sounds (ConvoyAudio LOOK_SOUND, by the gun's look): miniguns a fast high buzz, the Apache's 30mm a slow heavy thump, Hydras a rocket launch, Hellfires a missile launch, CH-47 grenades a grenade-launcher thunk, MK-82s the bomb drop. New templates in Convoy.Sounds: Rocket_Launch (509177476), Missile_Launch (717392973), Grenade_Launch (124807383431117).
+- Weapon pictures are now photos of each gun's ammo, built from parts and shot in Studio (art/ammo, make_sheet.py: black/white backdrop matte, light stroke; sheet image 108330527658903). One per weapon: 25mm, 40mm Bofors clip, 105mm shell, AV-8B 25mm belt, 7.62 belt, 30mm belt, Hydra rockets, Hellfire, MK-82s, 40mm grenades, B-52 bomb load, B61 nuke. Used on the HUD weapon slots, the armory and the rank objectives (Aircraft guns[g].icon; wpn_25mm/40mm/105mm/bombs point at the photos).
+
 ## 0.13.39
 - Weapons look like what they are on every aircraft, not like the AC-130's shells: miniguns fire thin red streaks, the Apache's 30mm chain gun orange streaks, Hydra rockets and Hellfires a rocket body with a white smoke trail and flame, grenades short glowing slugs, bombs dark falling bombs (Aircraft guns[g].look -> Ballistics -> FXLib CAL / SHELL_LOOK).
 - Results / fly-home screens: helicopter rotors spin (main and tail; the CH-47's two rotors turn opposite ways).
