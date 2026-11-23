@@ -2,6 +2,16 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.14.12
+- People are R6 with their own animations (fwjelaa's method). New `Convoy.R6Clips` (source tools/R6Clips.luau): 21 R6 clips written as poses, converted to each R6 joint, uploaded to the group as Animation assets (ids in `AnimIds.R6`; rbxmx built by tools/build_r6_rbxmx.py into art/anim/r6). In Studio a clip without an upload is built on the fly.
+- Lobby pads: the run for the helicopter, the jump and the hang off the skid by one hand are clips now (R6_Run, R6_HeliJump, R6_HeliHang) instead of posing the shoulders and hips; the hand stays on the skid.
+- AC-130 cabin: the gunner walks up, turns his back to the seat and sits down into it (R6_GunnerSitDown), then works the console (R6_GunnerSeat). The players' cutscene copies (Avatars) are built R6 like the players.
+- End of the tutorial: the three survivors are R6 (new Models.R6Survivor1-3, the civilians' colors), run to the Little Bird, back up to the bench, push up and sit (R6_BenchClimb), then ride with their legs swinging (R6_BenchRide). Seats come from the benches themselves.
+- Hangar: crew walk (R6_Walk), idle, point, marshal the gunship in, go down a checklist; pilots talk / check their list; the General stands at parade rest; walkers talk with their hands when they stop for you; welders weld / weld overhead with the clips (no more hand-posed shoulders); the coffee table sits properly (their pre-bent hips are reset), sips and laughs (and laughs after a story); booth clerks lean on the counter and wave when you walk up.
+- Models.Soldier is now an R6 hangar crewman (the old R15 one is in ServerStorage.OldModels).
+- Showcase: `ServerStorage.CrewAnims` (lobby) shows every R6 clip looping in Edit mode: `require(game.ServerStorage.CrewAnims).showcase()` / `.clear()`. Both showcases are cleared.
+- Still R15: infected (as asked), the tutorial's ground civilians, the Garmin portrait and the parked Missions operators.
+
 ## 0.14.11
 - Infected animations, made with fwjelaa's method (FWJ STUDIOS, make-anim pack): `ServerStorage.InfectedAnims` (source in tools/InfectedAnims.luau) writes 7 R15 clips as poses over time and builds them into KeyframeSequences in `ServerStorage.Animations`. Walks (loops): SHAMBLE (limping, head lolled), ARMS OUT (classic stiff zombie), SPRINT (bent forward, flailing), LURCH (twisted, dragging a foot). Bunker hits (Action, Hit markers on contact): POUND (two-fist hammer), CLAW (right then left swipe), RAM (shoulder slam). Legs are keyed against the vertical (the hips' lean/roll is taken out of them).
 - Showcase in Downtown's Workspace (`InfectedAnimShowcase`, floating at -2400, 400, 150): each clip on one of our real infected rigs, looping in Edit mode with no Play (AnimationClipProvider + Animator:StepAnimations). Command bar: `require(game.ServerStorage.InfectedAnims).showcase()` / `.stop()` / `.clear()`. Not wired into the game yet; clear the showcase before publishing.
