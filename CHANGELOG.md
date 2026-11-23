@@ -2,6 +2,21 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.34
+Multiplayer lag:
+- The server no longer moves the infected / civilian rigs (100+ roots, 20 times a second, sent to every client). Each rig has a NetId; the server moves an invisible hitbox per rig in a folder under its own Camera (not replicated) for rounds to hit, and sends packed positions (14 bytes a rig, ~12 a second, UnreliableRemoteEvent Remotes.EnemyPos). New LocalScript EnemyMover moves each client's copy of the rigs, walking them on from the last two positions. Mission's gun raycasts exclude the rigs (they hit the hitboxes).
+- Rig templates (Infected, Civilians) are stripped at server start of instances nothing uses (ragdoll sockets, no-collision pairs, wrap targets, 69 size values, face controls, body colours): ~210 -> ~90 instances to send per spawn.
+- Building destruction: chunks are thrown on each client (FX "debris") instead of being unanchored server parts, and between runs only the buildings that were hit are rebuilt (it used to delete and resend all ~7,800 parts).
+- Shots, rounds, impacts and ricochets go on a new UnreliableRemoteEvent (Remotes.FXU), so a burst of them never holds up the rest.
+- The plane showcase (_Showcase, ~3,400 parts) and a stray AC47 model at the map origin were still in Workspace; moved to ServerStorage.Parked_NotInGame.
+
+Other:
+- Weapon slots follow the aircraft: B-52 = 1 BOMB BAY, 2 B61 NUKES (keys 1 / 2, slots stacked from the bottom); every run starts on slot 1. Aircraft.gunOrder.
+- The selected weapon slot's edge no longer gets thicker (colour only).
+- Proximity prompts are sized in studs (3.6 wide), so they shrink when you zoom out; capped at 20% of the screen up close.
+- Tutorial cleaned of removed things: the A-10 "Hawg flight" runs and their street cutscene are now artillery barrages; the fallback nuke no longer plays the cutscene; the first hint is the touch one on phones. The inert FreeNukes price override is gone.
+- OverheadTags no longer errors on a tiny viewport.
+
 ## 0.13.33
 Settings checked (music, volume, replay tutorial, leave match, close):
 - Music toggle, volume -/+ (0-100%), close, LEAVE MATCH (ends the run, "CREW LEFT THE MATCH") and REPLAY TUTORIAL all work; music and volume reach the server to be saved.
@@ -9,7 +24,6 @@ Settings checked (music, volume, replay tutorial, leave match, close):
 - Controls list is a 3-column grid with the keys in amber (spacing in one text line couldn't line up), plus G / SPACE start the wave; V is labelled NUKE ALL.
 - Sounds a script makes without a SoundGroup (aircraft bay turntable) are put in the GunshipUI group, so SOUND VOLUME reaches them.
 - New server script GunshipUICopyGuard: removes the disabled copy of StarterGui.GunshipUI that Roblox drops into PlayerGui on spawn, so scripts that WaitForChild("GunshipUI") can't grab the dead copy.
-- NOTE: GameVersion attribute still needs setting to 0.13.33 in the place (Studio disconnected before it was set).
 
 ## 0.13.32
 - Booth NPC name tags (SGT. HAYES, LT. REED) are sized in studs (5 x 1) instead of pixels, so they shrink with distance like the lobby signs instead of looking bigger as you back away.
