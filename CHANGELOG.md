@@ -6,7 +6,7 @@ Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and 
 - Bosses: no more cutscene the first time a boss uses a move (charging...); every move just shows its banner.
 - Phones, lobby pads: the crew bar (name, timer, LEAVE / LAUNCH NOW) is smaller and sits just above the bottom row instead of over the player card and gems; the big sign over the pad you're standing in is hidden while you're in it.
 - Phones: the cutscene bars and the helicopter ride's black fade reach the screen edges (GunshipUI no longer clips to the safe area; RideFade ignores the insets).
-- Settings sizes itself like the shop: the whole panel scales to fit under the top bar (min(width / (W + 60), (height - top bar - 16) / H, 1.25)), no per-piece fitting or text boost.
+- Settings sizes itself like the shop: the whole panel scales to fit under the top bar (min(width / (W + 60), (height - top bar - 16) / H, 1.25)), no per-piece fitting or text boost. Set when it opens, on a screen-size change or when the panel grows a row (a first version set it every frame and fought the open animation and the buttons); the general rescale leaves Settings alone.
 - New loading screen laid out like Tiny Skies' on black: game name, "RETURNING TO BASE ... 71%" status, a thin cream bar, what it's loading (world / assets / profile), and a TIP box with one of 7 tips.
 
 ## 0.14.15
