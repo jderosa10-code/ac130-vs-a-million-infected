@@ -10,7 +10,7 @@ local dayLight = {
 }
 local atmo = Lighting:FindFirstChildOfClass("Atmosphere")
 local dayAtmo = atmo and { color = atmo.Color, decay = atmo.Decay, glare = atmo.Glare }
-local NIGHT_OUT = Color3.fromRGB(62, 74, 100)
+local NIGHT_OUT = Color3.fromRGB(80, 92, 115)
 local NV_TINT = Color3.fromRGB(110, 255, 125)
 local TH_TINT = cc.TintColor
 local nightK, nightShown = 0, 0
@@ -45,7 +45,7 @@ RunService.RenderStepped:Connect(function(dt)
 	end
 	-- through the sensor: thermal by day, night vision by night
 	cc.TintColor = TH_TINT:Lerp(NV_TINT, k)
-	cc.Contrast = 0.55 + (0.22 - 0.55) * k
-	cc.Brightness = (if blackHot then 0.12 else -0.08) + 0.34 * k
+	cc.Contrast = 0.55 + (0.3 - 0.55) * k
+	cc.Brightness = (if blackHot then 0.12 else -0.08) + 0.42 * k
 	blur.Size = 2 + k
 end)
