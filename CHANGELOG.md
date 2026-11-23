@@ -2,6 +2,20 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.31
+Phone pass (tested in Studio's iPhone XR emulator, 801x413):
+- Phones get a bigger UI scale (screen height / 1080 x 1.6 instead of ~0.44); fitScreens still shrinks only what collides. Minimum phone text is 14 pt.
+- Hidden panels no longer take room from the visible ones, and a screen re-fits when a panel shows or hides (the aircraft screen's info panels were stuck at 0.37).
+- Aircraft screen: arrows start at 0.62 of the scale on phones; info rows' label and value no longer overlap ("RANK NEEDED" / "BRIGADIER GENERAL").
+- HUD on phones: the wave bar sits under the top bar (it was under the settings gear), bigger; bunker bar top-right; the tally is smaller; the abilities column stays in its touch spot (it was sliding back to the desktop one and shrinking).
+- The settings gear (TopbarPlus) counts as part of Roblox's top-left buttons.
+- Shop, daily drop and free reward panels sit below the top bar.
+- Overhead tags: the template's fixed UIScale was overriding the distance scale (only one UIScale per frame works), so tags never shrank. Removed; tags are now ~6 studs wide, capped at 20% of the screen. Your own tag only shows on the hangar's main screen.
+- Proximity prompts are scaled to the screen (they were popping to full size on phones).
+- Device emulator in Studio always uses the touch layout.
+- New photo icons for the B-52's bombs and nuke (rbxassetid://80028457490291; the old cells were empty).
+- Studio only: the DebugShow player attribute opens a GunshipUI screen, for testing layouts.
+
 ## 0.13.30
 - B-52:
   - its two B61 nukes are a weapon slot (B61 NUKES, 2 a load, hand-loaded, slow reload); the free-nuke ability is gone;
