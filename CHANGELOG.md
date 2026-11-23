@@ -2,6 +2,12 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.52
+- Bunker rebuilt in the hangar's style (`DMZ.Bunker`, same Center/pivot): steel plinth with a hazard edge, olive block with tan inset panels and an olive wainscot, dark corner posts with yellow/black collars and green beacons, a blast door on each side (hazard frame, ribs, yellow light strip), sandbags, and a roof with a hazard edge, a yellow light line under the lip, a hatch, AC units, radio mast and dish, and a sandbag nest. Studs/Weld/Universal/Inlet surfaces. The old one is in ServerStorage.Parked_NotInGame.Bunker_Old_v013.
+- Selected weapon key: the dark outline on the dark number (yellow box) is off, so the number reads instead of a blob.
+- Special infected sized from their rig's own scale: the Brute template is at 0.4, so ScaleTo(1.75) made it about 4x too big and half in the ground. Now 1.75x the rig.
+- Objective / promotion toasts use the HUD panel skin: dark body, 1 px edge, hazard strip on top, a lime tick block (amber bar for a promotion), thinner text outlines; no thick coloured border.
+
 ## 0.13.51
 - Weapon tiers hold more ammo and reload faster: every tier adds 25% to the magazine (at least +1 round; a Reaper's 4 Hellfires are 6 at tier 3 and 11 at tier 8), and the new rounds are loaded as soon as you buy the tier. Reload time per tier x0.86 (was x0.9). Hand-loaded guns (one round, then reload) stay one round. Applies to every aircraft's guns. `Weapons.publish` re-sends ammo after a change.
 - REPAIR with a full bunker: no more buy sound and green flash for a repair that doesn't happen; it buzzes and says BUNKER IS ALREADY FULL.
