@@ -2,6 +2,11 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.14.10
+- Hub SHOP / RANKS / AIRCRAFT buttons walk you to the yellow ring and let the ring open the screen; the button only opens it itself if the ring didn't and you're still standing there. Walking straight back out no longer leaves a screen opening behind you (no more empty dimmed screen with the UI gone).
+- NPC chatter cut way down: one line every 12-20 s from someone near you, then that person is quiet for 40 s, and no line repeats until 6 others have been said (no more the same line twice back to back). The coffee table talks every 35-60 s.
+- Downtown synced with everything since 0.14.6 (LoadingScreen, Lobbies, GunshipClient, AircraftBay, GunshipUI, NPCChatter): both places' scripts match again.
+
 ## 0.14.9
 - Aircraft bay shows planes at true size next to a player: each is scaled to its real length (rotors included) at 0.88 studs a foot (the AC-130 / Apache build scale), then shrunk only if wider or longer than 70 studs (FIT, was 52; the shutter doors are 73 wide). True size now: Apache, Harrier, Reaper, Huey (+21%). Still shrunk to fit: Chinook (81%), Spooky (82%), AC-130 (64%), B-52 (44%). Lobby place only (the bay isn't in Downtown).
 
