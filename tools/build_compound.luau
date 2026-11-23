@@ -87,5 +87,20 @@ for _, sx in ipairs({ -1, 1 }) do
 	end
 end
 M.Parent = detail
+-- surfaces like the bunker: studs on top, inlets under, weld (walls, crates) or universal (slabs, sandbags) on the sides
+do
+local S = Enum.SurfaceType
+local UNI = { Pad = true, TowerDeck = true, TowerRoof = true, Sandbags = true, WallCap = true, TowerFoot = true }
+local WELD = { Wall = true, WallBase = true, GatePost = true, TowerBase = true, TowerRail = true, Crate = true }
+local n = 0
+for _, p in ipairs(workspace.DMZ.CityDetail.Compound:GetDescendants()) do
+	if p:IsA("BasePart") and (UNI[p.Name] or WELD[p.Name]) then
+		local side = if UNI[p.Name] then S.Universal else S.Weld
+		p.TopSurface, p.BottomSurface = S.Studs, S.Inlet
+		p.FrontSurface, p.BackSurface, p.LeftSurface, p.RightSurface = side, side, side, side
+		n += 1
+	end
+end
+end
 if rec then CHS:FinishRecording(rec, Enum.FinishRecordingOperation.Commit) end
 return #M:GetDescendants()

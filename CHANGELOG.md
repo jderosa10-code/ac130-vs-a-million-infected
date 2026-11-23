@@ -3,7 +3,7 @@
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
 ## 0.14.5
-- Bunker compound rebuilt to match the new bunker (CityDetail.Compound, both places; tools/build_compound.luau): concrete walls with an olive base and dark cap, hazard-banded gate posts with sandbags, four olive watchtowers (no more red roofs or yellow wall tops), two dark helipads with a yellow edge, H and green corner lights, and two small supply dumps. Same footprint, roads still open.
+- Bunker compound rebuilt to match the new bunker (CityDetail.Compound, both places; tools/build_compound.luau): concrete walls with an olive base and dark cap, hazard-banded gate posts with sandbags, four olive watchtowers (no more red roofs or yellow wall tops), two dark helipads with a yellow edge, H and green corner lights, and two small supply dumps. Same footprint, roads still open. Every main part has the surface textures on all sides (studs on top, inlets under, weld or universal on the sides), like the bunker.
 
 ## 0.14.4
 - Gem packs cheaper (Roblox prices): 500 = 25, 1,500 = 69, 5,000 = 199, 15,000 = 499 R$ (were 49 / 129 / 399 / 999).
