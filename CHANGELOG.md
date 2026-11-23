@@ -2,6 +2,12 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.41
+- Trucks on the roads outside drove in reverse (the models face their local +Z); turned round (OutsideLife).
+- Hangar walkers no longer bunch into a group: each keeps its own place on the loop, and whoever fell behind (stopped to talk, queued, blocked by you) walks a bit faster until back in place (HangarWalkers).
+- New: every 20-45 s a squad of 15 trainees runs down one of the service roads in step, three files, with a drill sergeant (campaign hat) beside them calling cadence and the squad answering. Trucks keep off that road while they run (OutsideLife formationRun; rigs cloned from the hangar walkers).
+- Rank objectives: FIRE SUPPORT (artillery strikes) shows the howitzer instead of the A-10.
+
 ## 0.13.40
 - Every aircraft's weapons are their own now:
   - Looks: AV-8B 25mm cannon gets its own pale-orange streaks (FXLib CAL "cannon"); the rest already had theirs (minigun, chain gun, rocket, missile, grenade, bomb).
