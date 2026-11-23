@@ -2,6 +2,12 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.60
+- Faster loading: the terrain's unseen underground (solid down to y = -1024 under every hill and mountain) is hollowed out. Each 128-stud square keeps 28 studs of ground under the lowest surface of itself and its 8 neighbours (so no cliff face opens up), and the AC-130 cabin set underground is left alone. 247M -> 80M terrain cells; every join and every run (a teleport to a new server) loads that much less.
+- The whole Hangar model had been moved by accident (+83.85, +3.41, -2): moved back. That's why PLAY sent you outside, players got pushed out, and the walkers looked sunk into the floor.
+- Hangar NPCs can't push players: new "NPC" collision group (doesn't collide with Default or itself), set on every character model in the world and by `NpcNoPush` (client) on the ones scripts clone in.
+- `ButtonFeel` (client): every GUI button grows on hover, dips on press and ticks on hover like the hub's (Shop, Daily, offers...). Buttons with their own feel are left alone; "Hit" overlay buttons move their card. GunshipUI's hook tags its buttons (FeelSound) so nothing ticks twice.
+
 ## 0.13.59
 - Aircraft Robux unlocks are live: products created (AC-47 3735039493 125 R$, Huey 3735039651 175, Reaper 3735039761 249, Harrier 3735039873 299, Apache 3735039978 379, Chinook 3735040075 499, B-52 3735040151 659; managed pricing off) and set in `Shop.PLANE_PRODUCTS`. The aircraft bay shows UNLOCK NOW for any aircraft you don't own (same font as the EQUIP button).
 - Dashboard: Emergency Repair renamed FORTIFY with a new description; Fortify and Cash Drop use the new Gemini icons.
