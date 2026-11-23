@@ -2,6 +2,11 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.36
+- Daily drop reminders (ServerScriptService.DailyReminders): claiming the daily drop queues a Roblox notification for the next day ("Your daily supply drop is ready. Day {day} gems are waiting!", notification string 8ca2920a-c101-5d48-917b-fd34d9894941, made on the Creator Dashboard). Due at the next UTC day and at least 20 h after the claim; every running server sweeps the queue (OrderedDataStore DailyReminder_v1) every 2 minutes and sends through Open Cloud /cloud/v2/users/{id}/notifications. Only players who turned notifications on get it.
+- HttpService.HttpEnabled turned on.
+- STILL NEEDED (dashboard, by Jacob): an Open Cloud API key with user.user-notification:write for this experience, saved as an experience Secret named NotifyKey (domain apis.roblox.com). Until then the sweep logs "no NotifyKey secret" and sends nothing.
+
 ## 0.13.35
 - After a run, PLAY AGAIN / LOBBY flew a second copy of your plane home while the results formation stayed put. The fly-home shot now moves the results formation itself (your plane in the lead, the crew on your wing); GunshipClient poseFleet.
 
