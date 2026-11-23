@@ -2,6 +2,9 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.35
+- After a run, PLAY AGAIN / LOBBY flew a second copy of your plane home while the results formation stayed put. The fly-home shot now moves the results formation itself (your plane in the lead, the crew on your wing); GunshipClient poseFleet.
+
 ## 0.13.34
 Multiplayer lag:
 - The server no longer moves the infected / civilian rigs (100+ roots, 20 times a second, sent to every client). Each rig has a NetId; the server moves an invisible hitbox per rig in a folder under its own Camera (not replicated) for rounds to hit, and sends packed positions (14 bytes a rig, ~12 a second, UnreliableRemoteEvent Remotes.EnemyPos). New LocalScript EnemyMover moves each client's copy of the rigs, walking them on from the last two positions. Mission's gun raycasts exclude the rigs (they hit the hitboxes).
