@@ -2,6 +2,17 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.14.15
+- Store: the 4 game pass icons (Free Nuke, Head Start, 2x Cash, 2x Gems) are the Gemini art now (bomb, cash with arrow, cash stack x2, gems x2) on a dark military tile with the old colored edge; uploaded through the Game Passes API. Files: BlenderExports/StoreIcons/gemini_pass_*.png.
+- Tutorial camera fixed: the cabin shots looked up at the roof because the player's cutscene copy (Avatars) had RootHeight 18 (measured from a bounding box before its limbs were placed). R6 RootHeight is always 3 now.
+- Downtown has the AC-130 cabin too (copied from the lobby), so the cabin reaction shots in runs work there.
+- Tutorial end: the "contact everywhere" horde is much bigger (6 packs at once, then a pack of 12 every 0.4 s, up to 260 infected); the two A-10 gun runs are back (the first with its street cutscene) in place of the artillery; once the Little Bird comes for the survivors your guns are cold (CeaseFire, checked on the client and the server).
+- Settings: LEAVE TUTORIAL during the tutorial (the LEAVE MATCH row, relabelled). It ends the tutorial, counts it as done, and takes you back to the hangar.
+- Weapon cards: the gun in hand has one even 2 px yellow frame; the thick left strip is gone.
+- Hangar walkers walk round someone who stopped instead of queueing behind them (the queue bunched them into one line that never spread out), wait a beat before stopping for you (no stop-start twitch), and get standard R6 joints.
+- RANKS button: the insignia sheet is preloaded and the badges are re-applied whenever the hub shows.
+- Step pads (SHOP, RANKS, AIRCRAFT, WEAPONS) find the screen opener whenever it's ready instead of giving up after 30 s; a failed layout pass can no longer lock every screen change.
+
 ## 0.14.14
 - Phones: AUTO-FIRE ON/OFF in Settings. GunshipUI already handled a row named AutoFire (touch devices only, saved with the profile), but the row was never in the UI and GunshipClient's auto-fire ignored the setting: the row is now in Settings (a copy of MUSIC) and auto-fire stops when it's OFF (the FIRE button still shoots).
 - No JUMP button in a run: new RunNoJump turns jumping off while you're on the HUD (Roblox's touch controls hide the button with it; it sat under FIRE on phones) and back on after.
