@@ -5,6 +5,7 @@ Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and 
 ## 0.14.6
 - Buttons no longer go "whacky" on hover (armory list, LEAVE / LAUNCH NOW, weapon cards...). New `Convoy.HoverAnchor`: the grow-from-the-middle anchor move only lasts while a hover / press / pop / tutorial pulse runs, and if any script moves, re-anchors or resizes the object meanwhile, it is handed straight back as that script meant it. ButtonFeel and GunshipUI (hook, pop, tutorial pulse) use it; nothing is re-anchored for good any more. Weapon card placement back to the plain version.
 - Artillery: you can see the shells come in. The server picks every landing spot up front and sends them with the "arty" FX; FXLib flies a glowing shell with a fiery trail in from far off (steep, from the base's side) onto each spot, landing on the beat of its blast (ARTY_LEAD, then every 0.28 s).
+- Artillery call-in mark: red rings drawn on the screen (so the black-and-white thermal view can't grey them): a pulsing red ring at the edge of the barrage and two red rings pulsing out from the middle, fading at the end. Replaces the grey neon disc.
 - CIV HITS reset every 10 waves (at the start of waves 11, 21, 31...).
 - Battle offer cards never sit lower than the weapon panel's own top (they could cover the top weapon card).
 - Aircraft flying over the base spin their rotors, tail rotors and props (OutsideLife; same rig rules as the results flyby).
