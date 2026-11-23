@@ -2,6 +2,12 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.53
+- SECOND CHANCE also comes up when a run ends on TOO MANY CIVILIANS HIT (not only when the bunker falls): buying it puts the civilian hits back to zero and the run goes on. The panel says which (`SecondChanceWhy` = CIV / BUNKER).
+- The Robux repair is now FORTIFY (same product 3734051090, 25 R$): full health, +25 max bunker health for the rest of the run (up to double) and a blast that clears the infected at the walls. The $250 REPAIR ability is unchanged.
+- In-run Robux tiles (FORTIFY, CASH DROP) in the HUD panel skin: dark body, 1 px edge, hazard strip, accent strip on the left, white names, a solid green price button (no pale cream inner outline).
+- Main-action buttons (UPGRADE, PLAY AGAIN, BUY...) keep a solid face: MilitarySkin no longer turns a button with dark text into a dark plate (it looked disabled); only its border goes a shade darker.
+
 ## 0.13.52
 - Bunker rebuilt in the hangar's style (`DMZ.Bunker`, same Center/pivot): steel plinth with a hazard edge, olive block with tan inset panels and an olive wainscot, dark corner posts with yellow/black collars and green beacons, a blast door on each side (hazard frame, ribs, yellow light strip), sandbags, and a roof with a hazard edge, a yellow light line under the lip, a hatch, AC units, radio mast and dish, and a sandbag nest. Studs/Weld/Universal/Inlet surfaces. The old one is in ServerStorage.Parked_NotInGame.Bunker_Old_v013.
 - Selected weapon key: the dark outline on the dark number (yellow box) is off, so the number reads instead of a blob.
