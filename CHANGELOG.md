@@ -2,6 +2,16 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.57
+Weapon upgrades fit what the weapon fires (`Upgrades.weaponClass`, `statText`, `tierText`; same saved stats Up_<slot>_Radius/Rate/Reload):
+- GUN (7.62 miniguns, 25mm GAU-12 and Harrier cannon, 30mm chain gun): bullets, so no growing blast (each round keeps its small one). Radius is now ROUND DAMAGE (+20% damage per level), Rate is FIRE RATE, Reload is RELOAD SPEED or, on belt-fed miniguns, COOLING (-12% heat per round). In-run tiers: fire rate, magazine, reload and +8% damage; tier 3 AP, tier 5 API (+25% damage) instead of HE, tier 7 incendiary.
+- SHELL (40mm Bofors, 105mm, 40mm grenades): BLAST RADIUS / FIRE RATE / RELOAD SPEED as before.
+- ROCKET (Hydra): BLAST RADIUS / SALVO RATE / RELOAD SPEED.
+- MISSILE (Hellfire): WARHEAD (+12% blast and +15% damage per level) / LAUNCH RATE / RELOAD SPEED.
+- BOMB (Mk-82, B-52 bay): BLAST RADIUS / DROP RATE / RELOAD SPEED.
+- Server: per-player damage multiplier per gun (`crew.dmgMul`) used for round hits and blasts. Armory tabs, titles, descriptions, values and icons (damage icon for ROUND DAMAGE) follow the class of the gun on the aircraft you fly; the HUD tier label, tier banner and tier tooltip too. The Armory's values now read the aircraft's own gun numbers.
+- GunSwap on other aircraft swaps the right weapon: rocket pods, missiles or bombs (their loose parts), the Harrier's cannon pod, otherwise the Guns group. (Upgrading Hydras swapped the chain gun before.)
+
 ## 0.13.56
 - New icons for the in-run Robux offers, made in Gemini by Jacob, background cut out (art/battle/cut.py): FORTIFY (wall, wrench, green plus, sandbags) image 124142059269349, CASH DROP (crate of cash on a parachute) image 129069834896307. Used by the quick-buy tiles and the offer popups (Shop.BATTLE icons).
 
