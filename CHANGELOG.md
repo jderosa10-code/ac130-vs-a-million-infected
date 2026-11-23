@@ -3,6 +3,8 @@
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
 ## 0.14.16
+- PROMOTED! pop-up is compact, in the HUD panel skin: badge on the left; PROMOTED!, rank name, bonus and gems beside it (was a tall card with lots of empty space).
+- Daily supply drop: a new player gets it when they're back in the hangar after the tutorial (never before it, not on the tutorial's own server), after the loading screen is gone.
 - Bosses: no more cutscene the first time a boss uses a move (charging...); every move just shows its banner.
 - Phones, lobby pads: the crew bar (name, timer, LEAVE / LAUNCH NOW) is smaller and sits just above the bottom row instead of over the player card and gems; the big sign over the pad you're standing in is hidden while you're in it.
 - Phones: the cutscene bars and the helicopter ride's black fade reach the screen edges (GunshipUI no longer clips to the safe area; RideFade ignores the insets).
