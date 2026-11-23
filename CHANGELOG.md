@@ -2,6 +2,9 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.14.9
+- Aircraft bay shows planes at true size next to a player: each is scaled to its real length (rotors included) at 0.88 studs a foot (the AC-130 / Apache build scale), then shrunk only if wider or longer than 70 studs (FIT, was 52; the shutter doors are 73 wide). True size now: Apache, Harrier, Reaper, Huey (+21%). Still shrunk to fit: Chinook (81%), Spooky (82%), AC-130 (64%), B-52 (44%). Lobby place only (the bay isn't in Downtown).
+
 ## 0.14.8
 - The loading screen waits for the lighting before it lifts: the sky (everything under Lighting) is preloaded with the rest, GunshipClient sets HubReady after 30 frames with your character in and our camera / hub lighting in place, then 1.2 s more for lights and shadows to build. (Capped at 10 s of waiting.) Lobby place; sync LoadingScreen + GunshipClient to Downtown.
 
