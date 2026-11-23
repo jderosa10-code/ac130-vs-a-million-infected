@@ -2,6 +2,11 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.45
+- Old maps deleted for good. The terrain of the eight parked mission maps (z 3,900 to 29,500: hills, lake, valleys) is cleared to air; the hangar/airfield and downtown terrain is untouched.
+- Removed from ServerStorage: OpsParked (the mission maps), AirbaseOld_v013, HangarOld_v013, OldExterior, OldBackdrop, CabinOld, BunkerZone_Removed, OceanRemoved, FarBuildings_Parked, ToolboxBuildings_Old, HangarBoards_Old, HangarProps_Old. No script used them. The mission code (Convoy.Missions, ConvoyServer.Ops) is still in the place but has no maps now.
+- A stray part out in the old map area removed from Workspace.
+
 ## 0.13.44
 - Rank objectives that ask for an infected type (SPITTER HUNT, BRUTE HUNT...) show that infected's portrait instead of the generic firepower icon. Portraits made in Gemini by Jacob, background cut out (art/infected/icons/cut.py), sheet image 121219509791332; Icons type_runner / type_brute / type_bomber / type_spitter / type_armored.
 
