@@ -2,6 +2,11 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.14.18
+- Hangar NPC lines no longer stack up: Roblox's DisplayBubble kept every line for 15 s, so one talk showed three bubbles on top of each other. NPCChatter now draws one bubble per person (same white Roblox-chat look); a new line replaces the last one and it disappears when the line is over.
+- Upgrade tutorial (after the first mission, in the hangar): Garmin's radio now works in the hangar. "Spend those gems. Hit AIRCRAFT." with the arrow on AIRCRAFT (PLAY also takes you there) -> walks you to the weapons ring at the aircraft bay desk -> "Pick a gun and a stat, then hit UPGRADE" with the arrow on UPGRADE -> after the buy, "That upgrade is yours for every run" and the arrow goes to EXIT, then PLAY ("READY  PLAY"). Same rule as before for who gets it (NeedFirstUpgrade, no upgrades yet, can afford one).
+- Bosses: `BossLook.shape` (per-boss body proportions on the same rig) and extra boss pieces are in the code but parked (`NEW_LOOK = false`); bosses look as before. Props now use Welds instead of WeldConstraints.
+
 ## 0.14.17
 - Map ground (both places): the roads were painted into the terrain, so where a road met the sand the two materials blended into blotchy patches (worse in the thermal view). The whole city floor is now one terrain material (Sand; the road, mud and grass patches were repainted) and the roads are crisp slabs on top: 129 parts in `Workspace.DMZ.Roads`, 30 studs wide on the 150-stud street grid, top at 2.15 (terrain 2.0, road marks 2.22). The 75 `*_DirtRoad` ground meshes under the buildings were removed (they showed through the sand in a checker pattern).
 - Hardcore is much harder: 2.2x as many infected per wave (was 1.5x), 1.3x speed with a higher cap (26, was 1.15x / 22), waves arrive in 75% of the time, up to 190 infected at once (135), special types 2.2x as likely (1.4x), specials 1.5x HP, bosses 2.5x HP (1.6x), 1.5x damage to the bunker, and the bunker starts at 50 HP (60). Gems stay 2x.
