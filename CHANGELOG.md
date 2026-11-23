@@ -2,6 +2,14 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.14.4
+- Gem packs cheaper (Roblox prices): 500 = 25, 1,500 = 69, 5,000 = 199, 15,000 = 499 R$ (were 49 / 129 / 399 / 999).
+- VIP is now FREE NUKE: same game pass (2094034947) and key (Pass_VIP), so owners keep it. Every run starts with one free NUKE ALL (FreeNukes = 1; the server now honours FreeNukes). The +25% gems / cash is gone. Pass renamed, new description and icon (art/store/pass_free_nuke.png); shop cards and base chatter updated.
+- Weapon cards no longer jump left when you pick a gun: the hover feel moves a card's anchor to its middle, and refreshSlots now places them by their anchor.
+- NEW: <type> banners show the infected's portrait (type_runner, type_bomber...) left of the title instead of a text glyph.
+- WHEELS UP takeoff cutscene removed (the helicopter ride replaced it). RETURNING TO BASE aims at workspace.DMZ's BaseLook when there's no hangar.
+- Downtown trimmed: hangar and tutorial cabin deleted (23.9k -> 13.5k instances), the spawn kept as DMZ.MapSpawn, hangar-only client scripts disabled there. Lobbies no longer waits forever for a hangar.
+
 ## 0.14.3
 - The tutorial runs on a reserved server of the lobby place (the hangar), not Downtown; Lobbies treats a reserved lobby server as a "Mission" server. Loading title says TRAINING.
 - From now on every edit goes into both places (lobby + Downtown) directly; no more re-copying.
