@@ -2,6 +2,10 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.59
+- Aircraft Robux unlocks are live: products created (AC-47 3735039493 125 R$, Huey 3735039651 175, Reaper 3735039761 249, Harrier 3735039873 299, Apache 3735039978 379, Chinook 3735040075 499, B-52 3735040151 659; managed pricing off) and set in `Shop.PLANE_PRODUCTS`. The aircraft bay shows UNLOCK NOW for any aircraft you don't own (same font as the EQUIP button).
+- Dashboard: Emergency Repair renamed FORTIFY with a new description; Fortify and Cash Drop use the new Gemini icons.
+
 ## 0.13.58
 - SKIP on a rank objective now completes it (toast, and the promotion if it was the last one) instead of rolling a new one. The Skip Objective product (3734067874) is 10 R$ now (was 25), with a new thumbnail and description (art/products).
 - Aircraft can be unlocked with Robux in the aircraft bay: a green UNLOCK NOW button above the bar for any aircraft you don't own, no rank or gems needed (`Shop.PLANE_PRODUCTS`: AC-47 125, Huey 175, Reaper 249, Harrier 299, Apache 379, Chinook 499, B-52 659). The server grants it on purchase (owned, equipped, saved). The buttons stay hidden until the product ids are filled in: the products still have to be created (thumbnails ready in art/products).
