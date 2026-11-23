@@ -2,6 +2,13 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.55
+- Weapon upgrades in the Armory swap the gun on the parked aircraft, VTOL VR style (`StarterPlayerScripts.GunSwap`, client): impact-wrench unscrew + spark bursts, the old gun drops off the side tumbling, clanks on the floor and fades, the new one slides in from outside, clunks home and is screwed on (wrench, three spark bursts with the welders' crack). AC-130: that gun (GAU12 / Bofors / Howitzer); any other aircraft: its Guns group. New sounds SoundsUI.Unscrew (9117706213) and Screw (9117707273).
+- Infected that reach the bunker stay at the wall hitting it until they're shot (a fifth of their old arrival damage every ~2 s; the wave isn't over while they're there). Bombers still go off at once. They stop just outside the bunker's plinth (ARRIVE_RADIUS 13 -> 18.5).
+- TOO MANY CIVILIANS HIT ends the run 2.5 s after the third hit, so you see the round land first.
+- `PassesOffUsers` on Convoy ("4263620304" = Jacob): those players play without their passes (2x cash, 2x gems, VIP, head start); remove the id to get them back. Ownership isn't touched.
+- Stepping back out of a hangar pad's yellow ring closes the screen it opened (Shop, Ranks, Aircraft, Weapons).
+
 ## 0.13.54
 - Helicopters fly like themselves (`Orbit` cfg.Style): the Huey flies a slow, low pedal turn round the target with its door side facing in (no more station hops); the Apache hovers nose-on and sinks 26 studs behind cover to move between five stations, popping back up to shoot; the Chinook sits broadside (side guns), moves slowly and sways. Every hovering aircraft leans into its motion (nose down accelerating, banking into a slide) with a little idle wobble.
 - 30mm chain gun (and every gun in the small-gun slot): each round only shows a small pop now. Its blast radius had grown with tiers and BLAST RADIUS upgrades and the server sent a fireball per round. Damage radius unchanged.
