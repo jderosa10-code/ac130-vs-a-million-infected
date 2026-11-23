@@ -2,6 +2,10 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.54
+- Helicopters fly like themselves (`Orbit` cfg.Style): the Huey flies a slow, low pedal turn round the target with its door side facing in (no more station hops); the Apache hovers nose-on and sinks 26 studs behind cover to move between five stations, popping back up to shoot; the Chinook sits broadside (side guns), moves slowly and sways. Every hovering aircraft leans into its motion (nose down accelerating, banking into a slide) with a little idle wobble.
+- 30mm chain gun (and every gun in the small-gun slot): each round only shows a small pop now. Its blast radius had grown with tiers and BLAST RADIUS upgrades and the server sent a fireball per round. Damage radius unchanged.
+
 ## 0.13.53
 - SECOND CHANCE also comes up when a run ends on TOO MANY CIVILIANS HIT (not only when the bunker falls): buying it puts the civilian hits back to zero and the run goes on. The panel says which (`SecondChanceWhy` = CIV / BUNKER).
 - The Robux repair is now FORTIFY (same product 3734051090, 25 R$): full health, +25 max bunker health for the rest of the run (up to double) and a blast that clears the infected at the walls. The $250 REPAIR ability is unchanged.
