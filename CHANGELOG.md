@@ -2,6 +2,9 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.46
+- Aircraft bay on phones: the BACK / EQUIP / NEXT bar sat in the middle of the screen over the plane (a fixed 200 px offset). It now sits just above RETURN TO HANGAR at that button's fitted size (10 px gap on phones; PC looks the same as before). Done in GunshipUI's fitScreens.
+
 ## 0.13.45
 - Old maps deleted for good. The terrain of the eight parked mission maps (z 3,900 to 29,500: hills, lake, valleys) is cleared to air; the hangar/airfield and downtown terrain is untouched.
 - Removed from ServerStorage: OpsParked (the mission maps), AirbaseOld_v013, HangarOld_v013, OldExterior, OldBackdrop, CabinOld, BunkerZone_Removed, OceanRemoved, FarBuildings_Parked, ToolboxBuildings_Old, HangarBoards_Old, HangarProps_Old. No script used them. The mission code (Convoy.Missions, ConvoyServer.Ops) is still in the place but has no maps now.
