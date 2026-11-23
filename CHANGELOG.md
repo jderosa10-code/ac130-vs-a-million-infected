@@ -11,6 +11,7 @@ Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and 
 - Weapon cards: the gun in hand has one even 2 px yellow frame; the thick left strip is gone.
 - Hangar walkers walk round someone who stopped instead of queueing behind them (the queue bunched them into one line that never spread out), wait a beat before stopping for you (no stop-start twitch), and get standard R6 joints.
 - RANKS button: the insignia sheet is preloaded and the badges are re-applied whenever the hub shows.
+- Map ground flicker: the 75 building foundation slabs (`*_DirtRoad`, 0.4 thick) had their tops at 1.5-2.05, right where the terrain surface is (2.0), so slab and terrain fought. They sit at top 1.2 now, under the terrain (both places).
 - Step pads (SHOP, RANKS, AIRCRAFT, WEAPONS) find the screen opener whenever it's ready instead of giving up after 30 s; a failed layout pass can no longer lock every screen change.
 
 ## 0.14.14
