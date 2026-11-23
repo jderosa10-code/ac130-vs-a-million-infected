@@ -2,6 +2,14 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.43
+- Special infected use toolbox models now (picked by Jacob), cleaned (scripts, sounds, values, effects removed), rigged and sized in Studio. They live in ServerStorage.ConvoyTemplates.Types.<Type> (attributes Rig = R6/R15, RootHeight):
+  - Bomber: soldier zombie with a bomb vest and welding mask (R15).
+  - Brute: muscular hulk zombie (R6).
+  - Armored: three riot-police zombies (R6, R6 rebuilt from loose parts, and an R15 built from a riot morph).
+  - Spitter: irradiated zombie with a biohazard face (R6; old Motor joints rebuilt as Motor6Ds).
+- Enemies.typeTemplate / Enemies.swapRig: applyType swaps the just-spawned rig for the type's model (same NetId and place; hitbox re-sized; R6 rigs run on the classic R6 walk, played fast). Runner has no model yet and keeps the Blender gear look (InfectedLook).
+
 ## 0.13.42
 - The special infected are redressed with gear modelled in Blender (art/infected/InfectedGear.blend, uploaded as model 128181642246806; the MeshParts live in ServerStorage.InfectedGear) instead of plain blocks. New module ConvoyServer.InfectedLook (clothes palette per type + welded gear), called from Mission.applyType:
   - Runner: torn pink hoodie with the hood flopped back, exposed ribs, white sneakers.
