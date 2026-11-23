@@ -2,6 +2,10 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.14.3
+- The tutorial runs on a reserved server of the lobby place (the hangar), not Downtown; Lobbies treats a reserved lobby server as a "Mission" server. Loading title says TRAINING.
+- From now on every edit goes into both places (lobby + Downtown) directly; no more re-copying.
+
 ## 0.14.2
 - FORTIFY and CASH DROP tiles back on the original flat icons (the Gemini ones didn't match the rest).
 - Cutscenes clear the screen: while one plays (RETURNING TO BASE, takeoff, boss intros...) every other screen of ours (results...) and our other GUIs (offers, toasts, alerts) are hidden, and come back as they were after.
