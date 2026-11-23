@@ -9,6 +9,7 @@ Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and 
 - NEW: <type> banners show the infected's portrait (type_runner, type_bomber...) left of the title instead of a text glyph.
 - WHEELS UP takeoff cutscene removed (the helicopter ride replaced it). RETURNING TO BASE aims at workspace.DMZ's BaseLook when there's no hangar.
 - Downtown trimmed: hangar and tutorial cabin deleted (23.9k -> 13.5k instances), the spawn kept as DMZ.MapSpawn, hangar-only client scripts disabled there. Lobbies no longer waits forever for a hangar.
+- Downtown: the airbase land east of the city's hills is gone too (terrain x 3980-9984, z -3328-4096 cleared); MapSpawn moved onto the back of the east hills (3820, -75, 150).
 
 ## 0.14.3
 - The tutorial runs on a reserved server of the lobby place (the hangar), not Downtown; Lobbies treats a reserved lobby server as a "Mission" server. Loading title says TRAINING.
