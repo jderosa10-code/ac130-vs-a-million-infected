@@ -2,6 +2,10 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.50
+- Music in a run. Three APM tracks play in turn under the guns (`Convoy.SoundsUI.BattleMusic1-3`: Mission Danger (underscore) 9045941477, Battleground 9048541013, Push To The Limit 131200017582350; volume 0.22, swap the SoundId to change one). Starts on a random track and fades in over 3 s when the HUD comes up, fades out on the debrief and back in the hangar (hub music takes over). Follows the MUSIC setting and SOUND VOLUME.
+- `SFX.playlist(names)`: tracks in turn, faded as one; a pause resumes where it left off.
+
 ## 0.13.49
 - Aircraft bay lighting: the stage spotlight's light cone (StageSpot beams) is back on and the spot is a bit softer (brightness 5 -> 4). The room is darker than the stage: wall panels, insets, wainscot, bands and side walls at half their colour, the four corner ceiling lights 3.2 -> 1.4 and the fill lights 1.6 -> 1.0.
 
