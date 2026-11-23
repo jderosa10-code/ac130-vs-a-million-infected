@@ -2,6 +2,9 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.14.5
+- Bunker compound rebuilt to match the new bunker (CityDetail.Compound, both places; tools/build_compound.luau): concrete walls with an olive base and dark cap, hazard-banded gate posts with sandbags, four olive watchtowers (no more red roofs or yellow wall tops), two dark helipads with a yellow edge, H and green corner lights, and two small supply dumps. Same footprint, roads still open.
+
 ## 0.14.4
 - Gem packs cheaper (Roblox prices): 500 = 25, 1,500 = 69, 5,000 = 199, 15,000 = 499 R$ (were 49 / 129 / 399 / 999).
 - VIP is now FREE NUKE: same game pass (2094034947) and key (Pass_VIP), so owners keep it. Every run starts with one free NUKE ALL (FreeNukes = 1; the server now honours FreeNukes). The +25% gems / cash is gone. Pass renamed, new description and icon (art/store/pass_free_nuke.png); shop cards and base chatter updated.
