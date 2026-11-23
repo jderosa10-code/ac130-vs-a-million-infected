@@ -2,6 +2,9 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.14.7
+- New players go into the tutorial in one load: the hangar server sends them on as soon as their profile is in (no 2 s wait), and their loading screen stays up ("STARTING TRAINING", 100%) until the teleport takes them, so they never see the hangar flash by in between. Held for 25 s at most if the teleport fails. (LoadingScreen, Lobbies; lobby place. Sync both scripts to Downtown next time it's open.)
+
 ## 0.14.6
 - Buttons no longer go "whacky" on hover (armory list, LEAVE / LAUNCH NOW, weapon cards...). New `Convoy.HoverAnchor`: the grow-from-the-middle anchor move only lasts while a hover / press / pop / tutorial pulse runs, and if any script moves, re-anchors or resizes the object meanwhile, it is handed straight back as that script meant it. ButtonFeel and GunshipUI (hook, pop, tutorial pulse) use it; nothing is re-anchored for good any more. Weapon card placement back to the plain version.
 - Artillery: you can see the shells come in. The server picks every landing spot up front and sends them with the "arty" FX; FXLib flies a glowing shell with a fiery trail in from far off (steep, from the base's side) onto each spot, landing on the beat of its blast (ARTY_LEAD, then every 0.28 s).
