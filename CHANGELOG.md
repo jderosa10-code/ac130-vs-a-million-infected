@@ -2,6 +2,10 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.37
+- Aircraft screen: the grey haze down the middle was the stage spotlight's light cone (AircraftBay.StageSpot beams, in front of the plane); turned off. The lamp itself still lights the stage.
+- Hangar walkers no longer walk into each other: one waits behind whoever is just ahead on the loop (e.g. a talker who stopped to talk).
+
 ## 0.13.36
 - Daily drop reminders (ServerScriptService.DailyReminders): claiming the daily drop queues a Roblox notification for the next day ("Your daily supply drop is ready. Day {day} gems are waiting!", notification string 8ca2920a-c101-5d48-917b-fd34d9894941, made on the Creator Dashboard). Due at the next UTC day and at least 20 h after the claim; every running server sweeps the queue (OrderedDataStore DailyReminder_v1) every 2 minutes and sends through Open Cloud /cloud/v2/users/{id}/notifications. Only players who turned notifications on get it.
 - HttpService.HttpEnabled turned on.
