@@ -2,6 +2,10 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.14.11
+- Infected animations, made with fwjelaa's method (FWJ STUDIOS, make-anim pack): `ServerStorage.InfectedAnims` (source in tools/InfectedAnims.luau) writes 7 R15 clips as poses over time and builds them into KeyframeSequences in `ServerStorage.Animations`. Walks (loops): SHAMBLE (limping, head lolled), ARMS OUT (classic stiff zombie), SPRINT (bent forward, flailing), LURCH (twisted, dragging a foot). Bunker hits (Action, Hit markers on contact): POUND (two-fist hammer), CLAW (right then left swipe), RAM (shoulder slam). Legs are keyed against the vertical (the hips' lean/roll is taken out of them).
+- Showcase in Downtown's Workspace (`InfectedAnimShowcase`, floating at -2400, 400, 150): each clip on one of our real infected rigs, looping in Edit mode with no Play (AnimationClipProvider + Animator:StepAnimations). Command bar: `require(game.ServerStorage.InfectedAnims).showcase()` / `.stop()` / `.clear()`. Not wired into the game yet; clear the showcase before publishing.
+
 ## 0.14.10
 - Hub SHOP / RANKS / AIRCRAFT buttons walk you to the yellow ring and let the ring open the screen; the button only opens it itself if the ring didn't and you're still standing there. Walking straight back out no longer leaves a screen opening behind you (no more empty dimmed screen with the UI gone).
 - NPC chatter cut way down: one line every 12-20 s from someone near you, then that person is quiet for 40 s, and no line repeats until 6 others have been said (no more the same line twice back to back). The coffee table talks every 35-60 s.
