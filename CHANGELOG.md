@@ -3,6 +3,7 @@
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
 ## 0.14.5
+- Tutorial pointer is now a plain yellow ">" with a black stroke, tilted to point down at the thing to press (sits up-left of the weapon cards, up-right of the abilities, above PLAY / UPGRADE), bouncing along the way it points. Replaces the arrow image.
 - Bunker compound rebuilt to match the new bunker (CityDetail.Compound, both places; tools/build_compound.luau): concrete walls with an olive base and dark cap, hazard-banded gate posts with sandbags, four olive watchtowers (no more red roofs or yellow wall tops), two dark helipads with a yellow edge, H and green corner lights, and two small supply dumps. Same footprint, roads still open. Every main part has the surface textures on all sides (studs on top, inlets under, weld or universal on the sides), like the bunker.
 
 ## 0.14.4
