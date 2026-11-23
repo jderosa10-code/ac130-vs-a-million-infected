@@ -2,6 +2,11 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.51
+- Weapon tiers hold more ammo and reload faster: every tier adds 25% to the magazine (at least +1 round; a Reaper's 4 Hellfires are 6 at tier 3 and 11 at tier 8), and the new rounds are loaded as soon as you buy the tier. Reload time per tier x0.86 (was x0.9). Hand-loaded guns (one round, then reload) stay one round. Applies to every aircraft's guns. `Weapons.publish` re-sends ammo after a change.
+- REPAIR with a full bunker: no more buy sound and green flash for a repair that doesn't happen; it buzzes and says BUNKER IS ALREADY FULL.
+- The red (hit) and green (repair) screen flashes are bigger than the screen, so they reach past the safe-area edges on notch phones.
+
 ## 0.13.50
 - Music in a run. Three APM tracks play in turn under the guns (`Convoy.SoundsUI.BattleMusic1-3`: Mission Danger (underscore) 9045941477, Battleground 9048541013, Push To The Limit 131200017582350; volume 0.22, swap the SoundId to change one). Starts on a random track and fades in over 3 s when the HUD comes up, fades out on the debrief and back in the hangar (hub music takes over). Follows the MUSIC setting and SOUND VOLUME.
 - `SFX.playlist(names)`: tracks in turn, faded as one; a pause resumes where it left off.
