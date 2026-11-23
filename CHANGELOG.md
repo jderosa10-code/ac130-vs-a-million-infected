@@ -2,6 +2,9 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.44
+- Rank objectives that ask for an infected type (SPITTER HUNT, BRUTE HUNT...) show that infected's portrait instead of the generic firepower icon. Portraits made in Gemini by Jacob, background cut out (art/infected/icons/cut.py), sheet image 121219509791332; Icons type_runner / type_brute / type_bomber / type_spitter / type_armored.
+
 ## 0.13.43
 - Special infected use toolbox models now (picked by Jacob), cleaned (scripts, sounds, values, effects removed), rigged and sized in Studio. They live in ServerStorage.ConvoyTemplates.Types.<Type> (attributes Rig = R6/R15, RootHeight):
   - Bomber: soldier zombie with a bomb vest and welding mask (R15).
