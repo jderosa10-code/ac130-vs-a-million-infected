@@ -2,6 +2,9 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.38
+- Overhead tag: the aircraft badge was a 45-degree diamond with the icon turned back -45, made for the old flat icons; with the in-game photos (already at a 3/4 angle) it looked crooked. Badge and icon are both level now (Convoy.OverheadTag.Root.Top.Badge).
+
 ## 0.13.37
 - Aircraft screen: the grey haze down the middle was the stage spotlight's light cone (AircraftBay.StageSpot beams, in front of the plane); turned off. The lamp itself still lights the stage.
 - Hangar walkers no longer walk into each other: one waits behind whoever is just ahead on the loop (e.g. a talker who stopped to talk).
