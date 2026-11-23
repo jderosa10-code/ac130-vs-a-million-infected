@@ -2,6 +2,15 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.33
+Settings checked (music, volume, replay tutorial, leave match, close):
+- Music toggle, volume -/+ (0-100%), close, LEAVE MATCH (ends the run, "CREW LEFT THE MATCH") and REPLAY TUTORIAL all work; music and volume reach the server to be saved.
+- REPLAY TUTORIAL is hidden mid-run (it used to drop you on the hub screen with the run still going); LEAVE MATCH takes its place.
+- Controls list is a 3-column grid with the keys in amber (spacing in one text line couldn't line up), plus G / SPACE start the wave; V is labelled NUKE ALL.
+- Sounds a script makes without a SoundGroup (aircraft bay turntable) are put in the GunshipUI group, so SOUND VOLUME reaches them.
+- New server script GunshipUICopyGuard: removes the disabled copy of StarterGui.GunshipUI that Roblox drops into PlayerGui on spawn, so scripts that WaitForChild("GunshipUI") can't grab the dead copy.
+- NOTE: GameVersion attribute still needs setting to 0.13.33 in the place (Studio disconnected before it was set).
+
 ## 0.13.32
 - Booth NPC name tags (SGT. HAYES, LT. REED) are sized in studs (5 x 1) instead of pixels, so they shrink with distance like the lobby signs instead of looking bigger as you back away.
 
