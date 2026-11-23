@@ -2,6 +2,11 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.13.39
+- Weapons look like what they are on every aircraft, not like the AC-130's shells: miniguns fire thin red streaks, the Apache's 30mm chain gun orange streaks, Hydra rockets and Hellfires a rocket body with a white smoke trail and flame, grenades short glowing slugs, bombs dark falling bombs (Aircraft guns[g].look -> Ballistics -> FXLib CAL / SHELL_LOOK).
+- Results / fly-home screens: helicopter rotors spin (main and tail; the CH-47's two rotors turn opposite ways).
+- The battle offer card (e.g. CASH DROP) sits above the top weapon card and follows it, so it no longer overlaps it.
+
 ## 0.13.38
 - Overhead tag: the aircraft badge was a 45-degree diamond with the icon turned back -45, made for the old flat icons; with the in-game photos (already at a 3/4 angle) it looked crooked. Badge and icon are both level now (Convoy.OverheadTag.Root.Top.Badge).
 
