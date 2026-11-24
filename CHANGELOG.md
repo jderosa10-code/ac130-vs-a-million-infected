@@ -2,6 +2,10 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.14.20
+- Loading screen: the tip box is taller and the tip text is bigger (up to 28 px, was 16; the TIP label up to 20).
+- Downtown: removed the `ThumbScene` thumbnail set and `ServerStorage.ThumbKit`.
+
 ## 0.14.19
 - Boss animations are live: the 14 boss clips (a walk and a bunker hit for each boss, the Queen's spit) are uploaded to the group and their ids are in `Convoy.AnimIds.Boss`, so live servers play them instead of the animation-pack walks.
 - Removed the `AllPlanesUsers` test list (attribute and the check in Mission). Only Studio and the group owner still get every aircraft.
