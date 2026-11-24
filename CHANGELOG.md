@@ -2,6 +2,10 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.14.22
+- Tutorial intro cutscene ("FIRST MISSION": the cabin walk into the gunner's seat) plays again on live servers. The tutorial server starts its run the moment you arrive, before GunshipClient is listening, so the State change that triggered it was missed. GunshipClient now also checks on start: in a running tutorial at wave 1 with no kills, it plays the intro once the loading screen lifts (once per join).
+- Leaving the tutorial (Settings > LEAVE TUTORIAL) no longer counts it as done: you go back to the hangar for now, and the next time you join the game the tutorial starts again from the beginning (same as disconnecting mid-tutorial).
+
 ## 0.14.21
 - Gem bar: the + button is bigger and heavier (TextSize 54, was 34) on every gem bar.
 - Hangar welders no longer stand inside the aircraft: `HangarPlane` checks that a welder's head, torso and legs are clear of the aircraft (skids, pylons, stub wings stick out past the hull at torch height), backs him off up to 1.5 studs, then tries the next spot (four more spots near nose and tail). Every aircraft still gets its welder(s).
