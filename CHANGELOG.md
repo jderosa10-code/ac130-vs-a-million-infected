@@ -2,6 +2,10 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.15.4
+- Sand Dunes: the black fog ring is no longer a circle. Its radius wobbles from 0.8x to 1.13x around the map (DMZ attribute FogShape = "n,amp,phase;..."), and Mission spawns the infected at the fog's inner edge using the same shape (all 3 places). The permanent fog bands are now plain near-black ribbons (the smoke texture made spikes from above), with fewer, longer-lived puffs on top so they stay under the particle budget and don't pop.
+- Sand Dunes: seven dunes inside the basin (8-16 studs, steep slip faces), kept clear of the bunker, helipad and props; a few props moved off them. Crates are 62% and barrel groups 80% of their old size (they looked huge next to the infected), and everything was set back on the sand.
+
 ## 0.15.3
 - Sand Dunes bunker: no more flickering (z-fighting). 894 places where two parts shared the same face were fixed (the arched ribs, lips, legs, door frame and skin slats overlapped flush); neighbouring segments are now a hair thinner in turn. The concrete apron sits 0.45 higher so the sand no longer pokes through it.
 - Sand Dunes fog: the black fog ring is now always there. Twelve rings of camera-facing smoke beams (his smoke texture, near-black) make a solid wall at ~334-444 studs, and the drifting puffs now live 18-20 s and fade in/out quickly, so the ring never thins out or pops.
