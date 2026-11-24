@@ -2,6 +2,9 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.15.5
+- Sand Dunes: you can't see over the black fog from any aircraft any more. A 1000-stud-tall black wall (non-colliding, non-query Plastic parts) stands ~520-640 studs out, outside even the B-52's 520-stud orbit, following the same wobbly fog shape, and all the terrain beyond the fog band is now near-black basalt, so from up high the land past the smoke reads as darkness.
+
 ## 0.15.4
 - Sand Dunes: the black fog ring is no longer a circle. Its radius wobbles from 0.8x to 1.13x around the map (DMZ attribute FogShape = "n,amp,phase;..."), and Mission spawns the infected at the fog's inner edge using the same shape (all 3 places). The permanent fog bands are now plain near-black ribbons (the smoke texture made spikes from above), with fewer, longer-lived puffs on top so they stay under the particle budget and don't pop.
 - Sand Dunes: seven dunes inside the basin (8-16 studs, steep slip faces), kept clear of the bunker, helipad and props; a few props moved off them. Crates are 62% and barrel groups 80% of their old size (they looked huge next to the infected), and everything was set back on the sand.
