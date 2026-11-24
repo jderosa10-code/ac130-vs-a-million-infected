@@ -2,6 +2,10 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.14.30
+- Tracking the live "RETURNING TO BASE" bounce on join: every server teleport now logs (server F9) and shows in small print at the bottom of the loading screen which server sent you (role, job id, reserved/public) and why ("no run here", "menu button", "tutorial over", "tutorial", "mission", "join crew").
+- Guard: a player who was just sent home and lands on a run server again stays there instead of being bounced again.
+
 ## 0.14.29
 - Aircraft bonuses (Aircraft.LIST `perk`), shown as a BONUS line on the aircraft bay's spec panel:
   - AC-47 Spooky: +25% cash from kills. UH-1 Huey: +20% gems at the end of a run. AV-8B Harrier: +30% reload speed. AH-64 Apache: +40% damage to Brutes and bosses.
