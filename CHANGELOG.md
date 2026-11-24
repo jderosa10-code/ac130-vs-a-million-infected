@@ -2,6 +2,11 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.14.21
+- Gem bar: the + button is bigger and heavier (TextSize 54, was 34) on every gem bar.
+- Hangar welders no longer stand inside the aircraft: `HangarPlane` checks that a welder's head, torso and legs are clear of the aircraft (skids, pylons, stub wings stick out past the hull at torch height), backs him off up to 1.5 studs, then tries the next spot (four more spots near nose and tail). Every aircraft still gets its welder(s).
+- Hangar: Welder1 re-placed on his stand beside the gunship's hull (mirror of Welder2, other side).
+
 ## 0.14.20
 - Loading screen: the tip box is taller and the tip text is bigger (up to 28 px, was 16; the TIP label up to 20).
 - Downtown: removed the `ThumbScene` thumbnail set and `ServerStorage.ThumbKit`.
