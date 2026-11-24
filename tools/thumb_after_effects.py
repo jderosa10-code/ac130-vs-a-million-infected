@@ -16,22 +16,39 @@ def P(p): return tuple(int(v) for v in p)
 
 def streak(p, q, dash, gap, w, phase=0):
     p = np.array(p, float); q = np.array(q, float); d = q - p; L = np.linalg.norm(d); u = d / L
+    # a faint hot stream under the rounds so a burst reads as one line of fire
+    if w <= 6:
+        cv2.line(glow, P(p), P(q), tuple(ORANGE * 0.55), int(w * 2.2), cv2.LINE_AA)
     t = phase
     while t < L:
         a = p + u * t; b = p + u * min(L, t + dash)
-        k = 0.55 + 0.45 * (t / L)  # rounds grow toward the camera
-        cv2.line(glow, P(a), P(b), tuple(ORANGE), int(w * 4 * k), cv2.LINE_AA)
-        cv2.line(core, P(a), P(b), tuple(YEL), max(1, int(w * k)), cv2.LINE_AA)
-        cv2.line(core, P(a), P(b), tuple(WHITE), max(1, int(w * k * 0.45)), cv2.LINE_AA)
+        k = 0.6 + 0.6 * (t / L)  # rounds grow toward the camera
+        cv2.line(glow, P(a), P(b), tuple(ORANGE), int(w * 4.5 * k), cv2.LINE_AA)
+        cv2.line(core, P(a), P(b), tuple(YEL), max(1, int(w * 1.2 * k)), cv2.LINE_AA)
+        cv2.line(core, P(a), P(b), tuple(WHITE), max(1, int(w * k * 0.55)), cv2.LINE_AA)
         t += dash + gap
 
 def flash(c, r, ang):
-    cv2.circle(glow, P(c), int(r * 1.8), tuple(ORANGE), -1, cv2.LINE_AA)
+    global im
+    a0 = np.radians(ang); u = np.array([np.cos(a0), np.sin(a0)]); n = np.array([-u[1], u[0]])
+    c = np.array(c, float)
+    for i in range(8):  # gun smoke puffing out of the muzzle
+        q = c + u * r * rng.uniform(0.8, 3.2) + n * rng.normal(0, r * 0.6)
+        cube(im, q, rng.uniform(0.6, 1.4) * r, rng.uniform(0, 90), np.array([0.5, 0.52, 0.55]), 0.3)
+    def cone(length, width, col, layer, wscale=1.0):
+        tip = c + u * length
+        pts = np.array([c + n * width * 0.5 * wscale, c + u * length * 0.35 + n * width * wscale, tip, c + u * length * 0.35 - n * width * wscale, c - n * width * 0.5 * wscale], np.int32)
+        cv2.fillPoly(layer, [pts], tuple(col), cv2.LINE_AA)
+    cv2.circle(glow, P(c), int(r * 2.2), tuple(ORANGE), -1, cv2.LINE_AA)
+    cone(r * 4.2, r * 1.3, ORANGE, glow)
+    cone(r * 3.4, r * 0.8, YEL, core)
+    cone(r * 2.0, r * 0.45, WHITE, core)
+    for s in (-1, 1):  # side petals from the muzzle brake
+        d = u * np.cos(np.radians(70)) + n * s * np.sin(np.radians(70))
+        e = c + d * r * 1.6
+        cv2.line(glow, P(c), P(e), tuple(ORANGE), int(r * 0.9), cv2.LINE_AA)
+        cv2.line(core, P(c), P(e), tuple(YEL), max(2, int(r * 0.3)), cv2.LINE_AA)
     cv2.circle(core, P(c), int(r * 0.6), tuple(WHITE), -1, cv2.LINE_AA)
-    for da, l in ((0, 2.6), (-30, 1.5), (30, 1.5), (180, 0.7)):
-        a = np.radians(ang + da); e = (c[0] + np.cos(a) * r * l, c[1] + np.sin(a) * r * l)
-        cv2.line(core, P(c), P(e), tuple(YEL), max(2, int(r * 0.4)), cv2.LINE_AA)
-        cv2.line(glow, P(c), P(e), tuple(ORANGE), int(r * 1.0), cv2.LINE_AA)
 
 def cube(layer, c, s, ang, col, alpha=1.0):
     box = cv2.boxPoints(((float(c[0]), float(c[1])), (float(s), float(s)), float(ang))).astype(np.int32)
@@ -89,8 +106,18 @@ if fg:
     dust = ((hsv0[..., 1] < 60) & (hsv0[..., 2] > 170)).astype(np.uint8)
     dust = cv2.dilate(dust, np.ones((5, 5), np.uint8))
     obj = np.where(dust > 0, 0, obj).astype(np.uint8)
-    for bx in fg.get("protect", []):  # boxes that must stay untouched (aircraft parts that read smooth)
-        x0, y0, x1, y1 = bx; obj[y0:y1, x0:x1] = np.maximum(obj[y0:y1, x0:x1], 1)
+    if fg.get("mask"):
+        mk = cv2.imread(fg["mask"], 0)
+        obj = np.maximum(obj, (cv2.dilate(mk, np.ones((5, 5), np.uint8)) > 127).astype(np.uint8))
+    for bx in fg.get("protect", []):  # inside these boxes look harder for the aircraft (smooth panels too)
+        x0, y0, x1, y1 = bx
+        hs = cv2.cvtColor((np.clip(im[y0:y1, x0:x1], 0, 1) * 255).astype(np.uint8), cv2.COLOR_BGR2HSV)
+        sub = (((hs[..., 1] < 125) & (hs[..., 2] > 55)) | (hs[..., 0] < 40) | (hs[..., 0] > 150)).astype(np.uint8)
+        sub = cv2.morphologyEx(sub, cv2.MORPH_OPEN, np.ones((3, 3), np.uint8))
+        sub = cv2.morphologyEx(sub, cv2.MORPH_CLOSE, np.ones((9, 9), np.uint8))
+        ff2 = np.pad(sub, 1); m2 = np.zeros((ff2.shape[0] + 2, ff2.shape[1] + 2), np.uint8); cv2.floodFill(ff2, m2, (0, 0), 1)
+        sub = np.clip(sub + (ff2[1:-1, 1:-1] == 0), 0, 1).astype(np.uint8)
+        obj[y0:y1, x0:x1] = np.maximum(obj[y0:y1, x0:x1], sub)
     obj = cv2.erode(obj, np.ones((5, 5), np.uint8)); obj = cv2.GaussianBlur(obj.astype(np.float32), (0, 0), 1.2)
     free = 1 - np.clip(obj * 1.3, 0, 1)
     hx0, hy0, hx1, hy1 = fg["horizon"]  # horizon line (left point, right point)
