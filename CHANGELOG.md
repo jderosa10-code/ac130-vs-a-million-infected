@@ -2,6 +2,14 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.16.0
+- Map places: players kept dying and respawning (red flash) because MapSpawn floats in the air with nothing under it; an invisible SpawnFloor now catches them (Sand Dunes and Downtown).
+- Sand Dunes: the infected no longer stand at the bunker hitting it. They run through the mouth into the tunnel, each does its whole damage once (8 for a normal one, x1.5 on Hardcore) and disappears inside. Bosses, bombers and spitters keep their old behaviour. Their ground inside the tunnel is the tunnel floor.
+- Sand Dunes: losing plays a new BREACH cutscene (letterboxed): low beside the apron as the horde pours past into the mouth, inside the tunnel looking out as they flood in, then up and back over the sand. The server sends everyone left plus ~140 more running in for 8 s while it plays (no bunker explosion on this map).
+- Sand Dunes fog: you can't see past it from any aircraft. The black wall moved out past the B-52's orbit (575-745 studs) and the gap between the smoke and the wall is filled with solid dark smoke; the inner bands are see-through textured smoke and the drifting puffs are a lighter grey so they read against the black (also in thermal).
+- Lobby pad: the map row shows one card per map side by side with a bigger picture; tap one to select it (yellow edge and name), the other is dimmed. "SELECT MAP" label; the panel is taller and scales to fit.
+- Target boxes on the infected are bigger (min 18x24, ~1.3x the body) with a thicker outline.
+
 ## 0.15.5
 - Gunship Bundle now also gives a free aircraft of your choice (any rank). The pick is saved on the profile (FreePlanePicks) until used; FreePlaneUI opens a copy of the shop's gift picker in the hangar listing every aircraft you don't own (icons from the plane products), PICK -> Mission "ClaimFreePlane" (unlocks + equips). Owning them all turns the pick into 2,500 gems (Shop.FREE_PLANE_GEMS). X hides it until next time.
 - Daily supply drop pays more and climbs harder: 50 / 75 / 125 / 200 / 300 / 450 / 1000 gems (was 25-300; 2200 a full week instead of 755).
