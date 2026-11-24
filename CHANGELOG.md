@@ -2,6 +2,14 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.14.31
+- Crew orbit slots: every gunner flies their own place on the path (Orbit.withSlot / OrbitSlot; lead = slot 0, the rest a quarter turn apart, or one hover station further round). Two AC-130s no longer sit on top of each other. Server fire origins and nukes use the gunner's slot.
+- Dead infected never stand there outlined: the death hook now tells rigs from sub-folders by NetId (HumanoidRootPart could arrive after the model, so those rigs were missed), and a rig that arrives already dead still falls.
+- Hangar soldiers step round a player standing on their loop instead of stopping behind them (all four used to pile up at spawn with their prompts stacked).
+- Bosses' feet stay on the street (EnemyMover lifts a boss so its lowest foot is on the ground; their walk clips dipped them 0.3-2 studs in).
+- No more boss roar ("screaming") in the boss intro and boss-move cutscenes: a deep thud instead. The tutorial boss fight's random distant blasts are gone (red flares stay).
+- iPad / tablets: the in-game HUD is 35% bigger (weapon cards, abilities, tally, wave bar, bunker bar); the menus are unchanged. Tutorial LOCKED label centred on its card.
+
 ## 0.14.30
 - Tracking the live "RETURNING TO BASE" bounce on join: every server teleport now logs (server F9) and shows in small print at the bottom of the loading screen which server sent you (role, job id, reserved/public) and why ("no run here", "menu button", "tutorial over", "tutorial", "mission", "join crew").
 - Guard: a player who was just sent home and lands on a run server again stays there instead of being bounced again.
