@@ -2,6 +2,11 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.16.1
+- Settings: INVERT CAMERA (every device), a copy of the AUTO-FIRE row under it. Flips the drag-to-aim direction; saved with the profile (Settings.InvertCam, Mission "Settings" 5th arg).
+- iPad / phones: the sensor could stop moving for good after tapping things. A touch whose end the game never saw counted as a second finger forever, so one-finger drag was ignored; stale touches are now dropped. Also a leftover Cutscene attribute with nothing playing is cleared, so a cutscene can never keep the camera.
+- Checked the lobby map picker in Studio: selecting Sand Dunes works (needs this version published).
+
 ## 0.16.0
 - Sand Dunes map card picture: rbxassetid://109331821964301 (the horde streaming in from every side).
 - Map places: players kept dying and respawning (red flash) because MapSpawn floats in the air with nothing under it; an invisible SpawnFloor now catches them (Sand Dunes and Downtown).
