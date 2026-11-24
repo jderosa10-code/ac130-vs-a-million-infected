@@ -2,6 +2,12 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.14.27
+- All three guns are ready from the start of every run (40mm and 105mm were locked behind run cash). Only the tutorial still hands them out one by one.
+- Red target boxes around the infected on every device, not just phones.
+- Infected hitboxes 30% wider and 12% taller than the body: a bit easier to hit.
+- In-run FORTIFY / CASH DROP tiles say what they do under their names ("FULL REPAIR + 25 MAX HEALTH", "A CRATE OF CASH FOR GUNS + ABILITIES"); tiles a little taller.
+
 ## 0.14.26
 - Daily supply drop waits until the upgrade tutorial is done too (not just the mission tutorial), plus a few seconds for Garmin's last line.
 - Hangar radio box: low and centred just above the bottom buttons (72% size) instead of the middle of the screen.
