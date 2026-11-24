@@ -65,21 +65,95 @@ def blast(c, r):
         p = (c[0] + np.cos(ang) * dist, c[1] + np.sin(ang) * dist)
         cube(im, p, rng.uniform(5, 12), rng.uniform(0, 90), [np.array([0.35, 0.55, 0.7]), np.array([0.1, 0.3, 0.9]), SMOKE][rng.integers(0, 3)])
 
-G = [float(v) for v in sys.argv[3].split(",")]  # gun muzzles x,y pairs: 25mm, 40mm, 105mm
-g25, g40, g105 = (G[0], G[1]), (G[2], G[3]), (G[4], G[5])
-B = [float(v) for v in sys.argv[4].split(",")]  # blasts x,y,r triples
-blasts = [(B[i], B[i + 1], B[i + 2]) for i in range(0, len(B), 3)]
+import json
+spec = json.load(open(sys.argv[3]))
+blasts = [tuple(b) for b in spec.get("blasts", [])]
+
+# ---- thick black fog ring on the horizon (where the infected come from)
+def smooth_noise(scale, seed):
+    r = np.random.default_rng(seed)
+    small = r.random((int(H / scale) + 3, int(W / scale) + 3)).astype(np.float32)
+    big = cv2.resize(small, (W + 3 * int(scale), H + 3 * int(scale)), interpolation=cv2.INTER_CUBIC)[:H, :W]
+    return big
+fg = spec.get("fog")
+if fg:
+    gray = cv2.cvtColor((im * 255).astype(np.uint8), cv2.COLOR_BGR2GRAY).astype(np.float32) / 255
+    gx = cv2.Sobel(gray, cv2.CV_32F, 1, 0, ksize=3); gy = cv2.Sobel(gray, cv2.CV_32F, 0, 1, ksize=3)
+    tex = cv2.GaussianBlur(np.sqrt(gx * gx + gy * gy), (0, 0), 1.5)
+    obj = (tex > fg.get("tex", 0.06)).astype(np.uint8)
+    obj = cv2.morphologyEx(obj, cv2.MORPH_CLOSE, np.ones((fg.get("close", 15), fg.get("close", 15)), np.uint8))
+    # fill holes inside objects
+    ff = obj.copy(); msk = np.zeros((H + 2, W + 2), np.uint8); cv2.floodFill(ff, msk, (0, 0), 1)
+    holes = (ff == 0).astype(np.uint8); obj = np.clip(obj + holes, 0, 1)
+    hsv0 = cv2.cvtColor((np.clip(im, 0, 1) * 255).astype(np.uint8), cv2.COLOR_BGR2HSV)
+    dust = ((hsv0[..., 1] < 60) & (hsv0[..., 2] > 170)).astype(np.uint8)
+    dust = cv2.dilate(dust, np.ones((5, 5), np.uint8))
+    obj = np.where(dust > 0, 0, obj).astype(np.uint8)
+    for bx in fg.get("protect", []):  # boxes that must stay untouched (aircraft parts that read smooth)
+        x0, y0, x1, y1 = bx; obj[y0:y1, x0:x1] = np.maximum(obj[y0:y1, x0:x1], 1)
+    obj = cv2.erode(obj, np.ones((5, 5), np.uint8)); obj = cv2.GaussianBlur(obj.astype(np.float32), (0, 0), 1.2)
+    free = 1 - np.clip(obj * 1.3, 0, 1)
+    hx0, hy0, hx1, hy1 = fg["horizon"]  # horizon line (left point, right point)
+    hor = hy0 + (hy1 - hy0) * (xx - hx0) / max(1, hx1 - hx0)
+    up = hor - yy  # px above the horizon
+    n1 = smooth_noise(90, 1); n2 = smooth_noise(35, 2); n3 = smooth_noise(14, 3)
+    billow = 0.55 * n1 + 0.3 * n2 + 0.15 * n3
+    top = fg.get("h", 260) * (0.55 + 0.8 * smooth_noise(120, 4))  # ragged billowing top
+    band = np.clip(1 - (up - top * 0.35) / (top * 0.65), 0, 1) * np.clip(1 - (-up) / fg.get("below", 40), 0, 1)
+    band = band ** 0.8 * (0.75 + 0.35 * billow)
+    a = np.clip(band * fg.get("strength", 1.0), 0, 0.97) * free
+    shade = 0.05 + 0.10 * billow[..., None] * np.clip(up / 300, 0, 1)[..., None]  # lighter billow tops
+    fogc = np.concatenate([shade * 1.05, shade, shade * 0.95], 2)
+    # existing dark blobs in the sky turn black too (they render blue through the haze)
+    hsv = cv2.cvtColor((np.clip(im, 0, 1) * 255).astype(np.uint8), cv2.COLOR_BGR2HSV).astype(np.float32)
+    V = hsv[..., 2] / 255; Hh = hsv[..., 0]
+    skyish = ((Hh > 90) & (Hh < 125)).astype(np.float32)
+    ref = cv2.GaussianBlur(np.where(skyish > 0, V, 0).astype(np.float32), (0, 0), 1)
+    ref = np.maximum.accumulate(np.max(np.where(skyish > 0, V, 0), axis=1)[:, None] * np.ones((1, W), np.float32), axis=0) * 0 + np.percentile(V[skyish > 0], 92)
+    dark = np.clip((ref - V) / (ref * 0.55), 0, 1) * skyish * free * np.clip(1.4 - yy / (H * 0.9), 0, 1)
+    a = np.clip(np.maximum(a, dark * 0.9), 0, 0.97)
+    im = im * (1 - a[..., None]) + fogc * a[..., None]
+    FOG_A = a
+else:
+    FOG_A = np.zeros((H, W), np.float32)
 
 for b in blasts:
     blast((b[0], b[1]), b[2])
 
 # tracer streams from each gun to an impact
-streak(g25, (blasts[0][0] + 14, blasts[0][1] - 10), 26, 30, 4, 8)
-streak((g25[0] + 6, g25[1] + 3), (blasts[0][0] - 30, blasts[0][1] + 6), 26, 30, 4, 24)
-streak(g40, (blasts[1][0], blasts[1][1] - 6), 34, 48, 6, 12)
-streak(g105, (blasts[2][0], blasts[2][1] - 10), 90, 60, 12, 30)
-for g, r, t in ((g25, 13, blasts[0]), (g40, 17, blasts[1]), (g105, 24, blasts[2])):
-    flash(g, r, np.degrees(np.arctan2(t[1] - g[1], t[0] - g[0])))
+STYLE = {"25": (26, 30, 4, 13), "40": (34, 48, 6, 17), "105": (90, 60, 12, 24), "30": (22, 26, 3, 11), "rocket": (0, 0, 7, 16)}
+for sh in spec.get("shots", []):
+    g = tuple(sh["from"]); t = tuple(sh["to"]); dash, gap, w, fr = STYLE[sh["kind"]]
+    sc = sh.get("scale", 1.0)
+    if sh["kind"] == "rocket":
+        # a rocket: bright head, smoke trail back to the launcher
+        p = np.array(g, float); q = np.array(t, float); u = (q - p) / np.linalg.norm(q - p)
+        head = p + (q - p) * sh.get("at", 0.6)
+        trail = np.zeros((H, W), np.float32)
+        n = int(np.linalg.norm(head - p) / 6)
+        for i in range(n):
+            f = i / max(1, n)
+            c = p + (head - p) * f + rng.normal(0, 3 * f, 2)
+            cv2.circle(trail, P(c), max(2, int((5 + 9 * f) * sc)), 0.75 * (0.35 + 0.65 * f), -1, cv2.LINE_AA)
+        trail = cv2.GaussianBlur(trail, (0, 0), 3)
+        im = im * (1 - trail[..., None]) + np.array([0.86, 0.88, 0.9]) * trail[..., None]
+        cv2.line(glow, P(head - u * 40 * sc), P(head), tuple(ORANGE), int(22 * sc), cv2.LINE_AA)
+        cv2.line(core, P(head - u * 26 * sc), P(head), tuple(YEL), int(7 * sc), cv2.LINE_AA)
+        cv2.circle(core, P(head - u * 30 * sc), int(6 * sc), tuple(WHITE), -1, cv2.LINE_AA)
+        flash(g, fr * 0.7 * sc, np.degrees(np.arctan2(u[1], u[0])))
+        continue
+    streak(g, t, dash * sc, gap * sc, max(1, int(w * sc)), sh.get("phase", 8))
+    flash(g, fr * sc, np.degrees(np.arctan2(t[1] - g[1], t[0] - g[0])))
+for bb in spec.get("bombs", []):
+    # a falling bomb: dark body, fins, a faint whistle streak above it
+    x, y, sz = bb[0], bb[1], bb[2]; ang = bb[3] if len(bb) > 3 else 80
+    box = cv2.boxPoints(((x, y), (sz * 2.4, sz), ang)).astype(np.int32)
+    cv2.fillConvexPoly(im, box, (0.18, 0.2, 0.22), cv2.LINE_AA)
+    a = np.radians(ang)
+    tail = (x - np.cos(a) * sz * 1.4, y - np.sin(a) * sz * 1.4)
+    fin = cv2.boxPoints((tail, (sz * 0.5, sz * 1.8), ang)).astype(np.int32)
+    cv2.fillConvexPoly(im, fin, (0.14, 0.15, 0.17), cv2.LINE_AA)
+    cv2.line(glow, P((x - np.cos(a) * sz * 7, y - np.sin(a) * sz * 7)), P(tail), (0.6, 0.6, 0.6), max(1, int(sz * 0.4)), cv2.LINE_AA)
 
 glow = cv2.GaussianBlur(glow, (0, 0), 9)
 core = cv2.GaussianBlur(core, (0, 0), 0.9)
@@ -93,7 +167,7 @@ for i in range(6):
     x0 = rng.uniform(-0.2, 0.5) * W; ang = np.radians(rng.uniform(20, 38)); w = rng.uniform(6, 22)
     x1 = x0 + np.cos(ang) * W * 1.6; y1 = np.sin(ang) * W * 1.6
     cv2.line(beams, (int(x0), -10), (int(x1), int(y1)), rng.uniform(0.25, 0.55), int(w), cv2.LINE_AA)
-beams = cv2.GaussianBlur(beams, (0, 0), 6) * np.clip(1.15 - yy / (H * 0.62), 0, 1)
+beams = cv2.GaussianBlur(beams, (0, 0), 6) * np.clip(1.15 - yy / (H * 0.62), 0, 1) * (1 - 0.8 * FOG_A)
 im = 1 - (1 - im) * (1 - beams[..., None] * np.array([0.85, 0.92, 1.0]) * 0.55)
 
 # embers drifting up
@@ -109,6 +183,14 @@ im = 1 - (1 - im) * (1 - np.clip(emb, 0, 1))
 # bloom
 bright = np.clip(im - 0.72, 0, 1) * 2.2
 im = 1 - (1 - im) * (1 - np.clip(cv2.GaussianBlur(bright, (0, 0), 14) * 0.45, 0, 1))
+
+# blur the edges (sharp in the middle, soft toward the frame)
+eb = spec.get("edge_blur", 1.0)
+if eb > 0:
+    cx, cy = spec.get("focus", [0.5, 0.5])
+    m = np.clip(((((xx - W * cx) / (W * 0.5)) ** 2 + ((yy - H * cy) / (H * 0.55)) ** 2) ** 0.5 - 0.55) / 0.55, 0, 1) ** 1.4 * eb
+    soft = cv2.GaussianBlur(im, (0, 0), 9)
+    im = im * (1 - m[..., None]) + soft * m[..., None]
 
 # grade: saturation, warm sand / deep blue sky, contrast, vignette
 hsv = cv2.cvtColor((np.clip(im, 0, 1) * 255).astype(np.uint8), cv2.COLOR_BGR2HSV).astype(np.float32)
