@@ -12,15 +12,15 @@ end
 function G.H(x: number, z: number): number
 	local r = math.sqrt(x * x + z * z)
 	local h = 1.0 -- flat basin (low ripples came out as blotchy contour bands at 4-stud voxels)
-	local crestZ = -92 + 18 * math.sin(x / 240)
+	local crestZ = -80 + 14 * math.sin(x / 240)
 	local along = math.exp(-(x / 560) ^ 2)
 	local d
 	if z > crestZ then
-		d = (1 - sm(crestZ, crestZ + 88, z)) ^ 1.35 -- slip face down to the bunker
+		d = (1 - sm(crestZ, crestZ + 68, z)) ^ 1.3 -- slip face down to the bunker
 	else
-		d = sm(crestZ - 480, crestZ, z) -- long back
+		d = sm(crestZ - 420, crestZ, z) -- long back
 	end
-	h += 98 * along * d
+	h += 54 * along * d -- (kept low enough that every aircraft can see the bunker over it from behind)
 	local w = sm(470, 800, r) -- rolling transverse dunes to the horizon
 	if w > 0 then
 		local dz = z + 110 * math.noise(x / 420, z / 420, 3.1)
