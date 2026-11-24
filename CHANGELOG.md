@@ -2,6 +2,10 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.14.25
+- Brutes dismember: their R6 limbs are invisible with the muscle parts welded on, so the old code flung invisible limbs. A severed limb now takes every part welded to it (not through the torso/root/other limbs), led by its biggest visible part; cloned pieces drop child models/welds (the Brute's whole body hangs under its Head).
+- Tutorial boss fight: a tense boss track (`SoundsUI.BossMusic`, APM "Code Black", 9039723734) crossfades in for the boss and out after; sirens and a slow red edge pulse; distant blasts across the city (105mm-style, fires left burning) and red flares climbing off the skyline.
+
 ## 0.14.24
 - Tutorial: the nuke is free (a FreeNukes charge instead of topping up cash), and once it has gone off the nuke locks again for the rest of the tutorial.
 - Abilities (nuke, repair, A-10...) can't be used once the guns are cold or the run isn't running: at the end of the tutorial you could still nuke from the plane.
