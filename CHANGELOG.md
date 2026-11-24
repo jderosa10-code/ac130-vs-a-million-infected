@@ -3,6 +3,7 @@
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
 ## 0.16.0
+- Sand Dunes map card picture: rbxassetid://109331821964301 (the horde streaming in from every side).
 - Map places: players kept dying and respawning (red flash) because MapSpawn floats in the air with nothing under it; an invisible SpawnFloor now catches them (Sand Dunes and Downtown).
 - Sand Dunes: the infected no longer stand at the bunker hitting it. They run through the mouth into the tunnel, each does its whole damage once (8 for a normal one, x1.5 on Hardcore) and disappears inside. Bosses, bombers and spitters keep their old behaviour. Their ground inside the tunnel is the tunnel floor.
 - Sand Dunes: losing plays a new BREACH cutscene (letterboxed): low beside the apron as the horde pours past into the mouth, inside the tunnel looking out as they flood in, then up and back over the sand. The server sends everyone left plus ~140 more running in for 8 s while it plays (no bunker explosion on this map).
