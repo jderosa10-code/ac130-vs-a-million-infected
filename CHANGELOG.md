@@ -2,6 +2,16 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.15.0
+- New map: **Sand Dunes** (place 88208849422941, built from a copy of Downtown with the city removed). Modeled on Zombie Gunship's first map:
+  - A flat sand basin with one giant dune behind the bunker (98 studs, steep slip face) and rolling dunes to the horizon; Roblox terrain (sand, soft hard-ground patches, sandstone/rock outcrops). Generator: tools/sand_dunes_terrain.luau.
+  - The bunker is a ribbed steel tunnel coming out of the dune face, with two curved support legs, a hooded mouth with a hazard lip, a blast door with red lights inside, floodlights, sandbags and a concrete apron. All parts Plastic with stud/inlet/weld/universal surfaces (Neon for lights, Fabric sandbags).
+  - A ring of black fog round the bunker (DMZ.FogRing, three bands at ~395/440/490 studs, the game's own smoke texture); the infected walk out of it, in an arc in front of the bunker (nothing comes over the dune).
+  - Wrecked jeeps and trucks (RouteProps "Car_" models, so they blow up when shot), barrels, crate stacks and a line of concrete barriers in front of the bunker. Desert daylight with a sandy haze.
+- Map-aware run code (shared by all places): DMZ attribute Map = "Dunes" switches on terrain-height ground for the infected (raycast, cached on a 3-stud grid), straight-across-the-sand routes and the fog-ring spawn arc (DMZ Facing). Downtown is unchanged.
+- Boss feet lift (EnemyMover) also reads the terrain.
+- Lobby map pick: the CREATE LOBBY panel's map card steps through the maps when tapped (Places.ORDER / Places.INFO); the party keeps its map and the run reserves a server of that map's place. Loading screen says "DEPLOYING TO SAND DUNES".
+
 ## 0.14.32
 - AC-130 intro: no more sit-down move (the body floated into the chair, and the step-in spot put his feet in the chair base). He turns to his station, cut to black, and he's sitting in the chair facing the screens.
 - Lobby heli ride: the hang is posed in code (PadHelis, Motor6D Transforms after the animation step) instead of the old one-hand clip that came out arms-spread: both arms straight up with the hands together on the skid, facing the fuselage, legs dangling and kicking, a small swing about the skid. The root is placed from where the hands actually are each frame, so they stay on the tube for any avatar.
