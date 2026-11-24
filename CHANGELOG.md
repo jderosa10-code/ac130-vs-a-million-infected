@@ -2,6 +2,11 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.15.2
+- Sand Dunes: fog ring moved back out between the two earlier distances (bands at ~340 / 382 / 428 studs, up to 170 tall); the infected walk out of it at ~352 and wade through sand at 80% speed.
+- Nothing floats: the bunker sits on the sand, every barrel, crate and barrier is set on the ground part by part, and vehicles/prop groups that were on slopes were moved to flat sand.
+- The lights inside the bunker door are dimmer (the orange ring looked like a shape in the tunnel).
+
 ## 0.15.1
 - Sand Dunes: the black fog ring is closer and much taller (bands at ~285 / 325 / 370 studs, up to 170 tall) and the infected now walk out of it at ~300. They wade through the sand at 70% speed, so the walk in takes about as long as Downtown's streets.
 - The big dune is lower (54 instead of 98) with its crest a little further back: from behind, its top was right on the gunship's line of sight and hid the bunker (helicopters were worse). The tunnel now shows ~40 studs before it goes into the dune. Outcrops, sand patches, props and fog re-seated on the new ground.
