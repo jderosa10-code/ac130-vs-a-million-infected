@@ -2,6 +2,10 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.15.3
+- Sand Dunes bunker: no more flickering (z-fighting). 894 places where two parts shared the same face were fixed (the arched ribs, lips, legs, door frame and skin slats overlapped flush); neighbouring segments are now a hair thinner in turn. The concrete apron sits 0.45 higher so the sand no longer pokes through it.
+- Sand Dunes fog: the black fog ring is now always there. Twelve rings of camera-facing smoke beams (his smoke texture, near-black) make a solid wall at ~334-444 studs, and the drifting puffs now live 18-20 s and fade in/out quickly, so the ring never thins out or pops.
+
 ## 0.15.2
 - Sand Dunes: fog ring moved back out between the two earlier distances (bands at ~340 / 382 / 428 studs, up to 170 tall); the infected walk out of it at ~352 and wade through sand at 80% speed.
 - Nothing floats: the bunker sits on the sand, every barrel, crate and barrier is set on the ground part by part, and vehicles/prop groups that were on slopes were moved to flat sand.
