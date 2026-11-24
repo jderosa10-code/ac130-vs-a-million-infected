@@ -2,6 +2,14 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.14.29
+- Aircraft bonuses (Aircraft.LIST `perk`), shown as a BONUS line on the aircraft bay's spec panel:
+  - AC-47 Spooky: +25% cash from kills. UH-1 Huey: +20% gems at the end of a run. AV-8B Harrier: +30% reload speed. AH-64 Apache: +40% damage to Brutes and bosses.
+  - MQ-9 Reaper, Mark Target: keeps the boss (or the Brute nearest the bunker) marked with a red diamond; the whole crew does +50% to it.
+  - CH-47 Chinook, Resupply: once a wave, 15 s in, every crew gun reloads (not the B-52's nukes) and the bunker gets 10% back; the radio calls it.
+- Hangar crew and Capt. Reyes hold a real clipboard (board, sheet, clip) when they play the clipboard animation.
+- Airfield trucks follow routes with rounded turns: road to road across the tarmac, or out through the taxiway gap and down the runway (and back). They no longer drive through the blast walls at the end of the roads. The trainee formation run turns across the tarmac too, and trucks wait while it runs.
+
 ## 0.14.28
 - Spitters animate when they stop to spit: the Toxic rig is R6 and the spit idle / lunge were R15 clips (they never loaded, so it stood frozen). R6 rigs now use Roblox's R6 idle (180435571) and lunge (129967478).
 
