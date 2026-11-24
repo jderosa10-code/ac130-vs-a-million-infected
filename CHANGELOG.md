@@ -2,6 +2,11 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.14.24
+- Tutorial: the nuke is free (a FreeNukes charge instead of topping up cash), and once it has gone off the nuke locks again for the rest of the tutorial.
+- Abilities (nuke, repair, A-10...) can't be used once the guns are cold or the run isn't running: at the end of the tutorial you could still nuke from the plane.
+- Upgrade tutorial: `NeedFirstUpgrade` is now saved with the profile, so it carries from the tutorial server to the hangar (it was lost on the teleport), and it no longer shows on the tutorial's own server.
+
 ## 0.14.23
 - Radio box in a run now sits just above the bunker bar (placed from the HUD's Bottom panel each frame) instead of a fixed 200 px up, which covered the bar on some screen sizes.
 
