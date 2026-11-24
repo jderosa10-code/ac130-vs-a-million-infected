@@ -3,6 +3,8 @@
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
 ## 0.15.5
+- Daily supply drop pays more and climbs harder: 50 / 75 / 125 / 200 / 300 / 450 / 1000 gems (was 25-300; 2200 a full week instead of 755).
+- Lobby pad map card: tapping the card cycles Downtown / Sand Dunes (it always did) and now also swaps the picture (Places.INFO[map].image). Sand Dunes' image id is empty until the card picture is uploaded.
 - Lobby: the 4 helicopters on the airfield pads are now the current UH-1 Huey model (door gun with yoke, grips, ammo can and feed chutes, door openings) instead of the older copy; same spot, same rotor/skid part names, so the pad spin-up and ride-out still work. The old ones are parked in ServerStorage.Parked_NotInGame.
 - Sand Dunes: you can't see over the black fog from any aircraft any more. A 1000-stud-tall black wall (non-colliding, non-query Plastic parts) stands ~520-640 studs out, outside even the B-52's 520-stud orbit, following the same wobbly fog shape, and all the terrain beyond the fog band is now near-black basalt, so from up high the land past the smoke reads as darkness.
 
