@@ -2,6 +2,10 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.14.32
+- AC-130 intro: no more sit-down move (the body floated into the chair, and the step-in spot put his feet in the chair base). He turns to his station, cut to black, and he's sitting in the chair facing the screens.
+- Lobby heli ride: the hang is posed in code (PadHelis, Motor6D Transforms after the animation step) instead of the old one-hand clip that came out arms-spread: both arms straight up with the hands together on the skid, facing the fuselage, legs dangling and kicking, a small swing about the skid. The root is placed from where the hands actually are each frame, so they stay on the tube for any avatar.
+
 ## 0.14.31
 - Crew orbit slots: every gunner flies their own place on the path (Orbit.withSlot / OrbitSlot; lead = slot 0, the rest a quarter turn apart, or one hover station further round). Two AC-130s no longer sit on top of each other. Server fire origins and nukes use the gunner's slot.
 - Dead infected never stand there outlined: the death hook now tells rigs from sub-folders by NetId (HumanoidRootPart could arrive after the model, so those rigs were missed), and a rig that arrives already dead still falls.
