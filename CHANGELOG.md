@@ -2,6 +2,9 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.14.28
+- Spitters animate when they stop to spit: the Toxic rig is R6 and the spit idle / lunge were R15 clips (they never loaded, so it stood frozen). R6 rigs now use Roblox's R6 idle (180435571) and lunge (129967478).
+
 ## 0.14.27
 - All three guns are ready from the start of every run (40mm and 105mm were locked behind run cash). Only the tutorial still hands them out one by one.
 - Red target boxes around the infected on every device, not just phones.
