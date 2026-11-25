@@ -193,24 +193,31 @@ if w then
 	local at = camCF.Position + camCF.LookVector * dist + camCF.RightVector * (f.X * 2 * halfW) + camCF.UpVector * (f.Y * 2 * halfH)
 	local aim = CFrame.lookAt(at, CONFIG.weaponAim)
 	if w == "minigun" then
-		local g = SS.Parked_NotInGame._Showcase.CH47.Guns.Minigun:Clone()
-		for _, d in ipairs(g:GetDescendants()) do
-			if d:IsA("BasePart") then d.Anchored = true; d.CanCollide = false; d.CastShadow = false end
+		-- built from parts: six barrels, rings, housing, motor. Dark grey metal under a light, mostly see-through
+		-- navy Highlight with a white rim, so the shading and the black barrel gaps still show.
+		local g = Instance.new("Model")
+		g.Name = "Gun"
+		local L = CONFIG.weaponLen or 5.6
+		local aimR = aim * CFrame.Angles(0, 0, math.rad(CONFIG.weaponRoll or 12))
+		local ax = CFrame.Angles(0, math.rad(90), 0)
+		local metal, dark, light = Color3.fromRGB(70, 74, 86), Color3.fromRGB(18, 18, 22), Color3.fromRGB(225, 228, 235)
+		for i = 0, 5 do
+			local a = math.rad(60 * i)
+			local off = Vector3.new(math.cos(a), math.sin(a), 0) * L * 0.075
+			part(g, Enum.PartType.Cylinder, Vector3.new(L * 0.62, L * 0.055, L * 0.055), aimR * CFrame.new(off + Vector3.new(0, 0, -L * 0.28)) * ax, dark)
 		end
-		-- which way do its barrels point? the long axis of its bounding box
-		local bcf, bs = g:GetBoundingBox()
-		local axis = if bs.Z >= bs.X and bs.Z >= bs.Y then bcf.LookVector elseif bs.X >= bs.Y then bcf.RightVector else bcf.UpVector
-		local long = math.max(bs.X, bs.Y, bs.Z)
-		g:ScaleTo(g:GetScale() * (CONFIG.weaponLen or 7) / long)
-		bcf, bs = g:GetBoundingBox()
-		-- turn so the long axis is the aim; muzzle end = the end with the thinner parts (flip via weaponFlip)
-		local turn = CFrame.lookAt(Vector3.zero, axis):Inverse()
-		local flip = if CONFIG.weaponFlip then CFrame.Angles(0, math.pi, 0) else CFrame.identity
-		local roll = CFrame.Angles(0, 0, math.rad(CONFIG.weaponRoll or 0))
-		local rel = bcf:Inverse() * g:GetPivot()
-		g:PivotTo(aim * roll * flip * turn * CFrame.new(bcf.Position):Inverse() * bcf * rel)
+		part(g, Enum.PartType.Cylinder, Vector3.new(L * 0.05, L * 0.24, L * 0.24), aimR * CFrame.new(0, 0, -L * 0.57) * ax, light)
+		part(g, Enum.PartType.Cylinder, Vector3.new(L * 0.06, L * 0.25, L * 0.25), aimR * CFrame.new(0, 0, -L * 0.22) * ax, metal)
+		part(g, Enum.PartType.Cylinder, Vector3.new(L * 0.3, L * 0.31, L * 0.31), aimR * CFrame.new(0, 0, L * 0.12) * ax, metal)
+		part(g, Enum.PartType.Cylinder, Vector3.new(L * 0.04, L * 0.35, L * 0.35), aimR * ax, dark)
+		part(g, nil, Vector3.new(L * 0.26, L * 0.22, L * 0.3), aimR * CFrame.new(L * 0.02, -L * 0.12, L * 0.38), metal)
+		part(g, nil, Vector3.new(L * 0.12, L * 0.12, L * 0.18), aimR * CFrame.new(L * 0.2, L * 0.02, L * 0.22), dark)
+		part(g, nil, Vector3.new(L * 0.16, L * 0.05, L * 0.4), aimR * CFrame.new(-L * 0.18, -L * 0.04, L * 0.3), dark)
 		g.Parent = stage
-		hl(g, Color3.fromRGB(34, 44, 120), 0.3, Color3.fromRGB(150, 170, 255), 0.35)
+		hl(g, Color3.fromRGB(70, 90, 200), CONFIG.gunFill or 0.72, Color3.fromRGB(255, 255, 255), 0.05)
+		cam.CFrame = camCF
+		local v = cam:WorldToViewportPoint((aimR * CFrame.new(0, 0, -L * 0.6)).Position)
+		stage:SetAttribute("Muzzle", Vector2.new(v.X / cam.ViewportSize.X * 2061 - 70, v.Y / cam.ViewportSize.Y * 1080))
 	elseif w == "rocket" then
 		local r = Instance.new("Model")
 		r.Name = "Rocket"
