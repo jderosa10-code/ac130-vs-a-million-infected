@@ -2,6 +2,11 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.17.8 — Better season rewards
+- SEASON 1 rewards roughly doubled. Free: 100-1,000 gems a tier (was 50-500), more 2x cash / 2x gems / free nuke tiers, Ember still at 10. Premium: 300-1,000 gems, boosts up to 15 runs, nukes up to 8 runs, Void at 25, aircraft at 30.
+- A FREE NUKE card for 2 or more runs shows that many nukes, stacked (up to 3); Season.count(r).
+- Season track: cards moved in 4 px so the highlighted tier's outline isn't cut off at the top / left.
+
 ## 0.17.7 — Controller: upgrade the selected gun
 - B upgrades the gun you have selected (same as its card's ▲: cost check, "NEED $... MORE" when short). Works during a wave and in the break; while placing artillery B still cancels. Control hints list "[B] UPGRADE GUN".
 
