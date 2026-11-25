@@ -2,6 +2,9 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.17.1
+- Weapons on both sides fire left, right, left...: each shot leaves from the next mount (Aircraft guns[slot].mounts, studs from the model's pivot) instead of the aircraft's centre. Huey rockets, Reaper Hellfires, Harrier cannon pods and bombs, Apache rocket pods and Hellfire rails, Chinook twin miniguns. Single guns (AC-130 side guns, Apache chin gun, Chinook grenade launcher, B-52 bay) are unchanged.
+
 ## 0.17.0 — Season pass, tracers, hub buttons
 
 - SEASON PASS (Convoy.Season): Season 1 runs 2026-11-25 to 2027-01-01 UTC, 30 tiers of 100 XP. XP from runs: 10 per wave cleared, 1 per 5 kills, 25 per boss. Every tier has a FREE reward (gems; EMBER tracers at 10; 500 gems at 30) and a PREMIUM one (more gems; ARCTIC 5, INFERNO 15, VOID 25 tracers; a free aircraft pick at 30). Premium = developer product 3735965747, R$399; rewards are given as tiers are reached, and every premium one already reached when it's bought. A new season resets everyone to tier 0.
