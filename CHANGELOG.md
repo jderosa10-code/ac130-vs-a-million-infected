@@ -2,6 +2,11 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.18.4 — Taller RELOAD ALL, offers stay clear of it
+- `HUD.Weapons.ReloadAll` is 68 tall (was 52, looked stretched at 370 wide); label 32, icon 38.
+- BattleOffers `cardSpot`: the small offer card (e.g. the CASH DROP offer on every 3rd break, which is when RELOAD ALL shows) now sits above RELOAD ALL as well as the weapon cards; with 3 guns it used to land on top of the button. If there's no room above it (short screen), the card goes just left of the weapon cards, level with the top one. Checked in Studio with a faked wave-3 break on the AC-130 (1920x900): the card is above the button and fully on screen.
+- All 3 places, saved.
+
 ## 0.18.3 — RELOAD ALL above the guns, quicker aircraft bay
 - RELOAD ALL (between waves) is now a real button in the template, `HUD.Weapons.ReloadAll`: a full-width bar just above weapon 1 (follows how many guns the aircraft has), in the gun cards' button style (amber face, so MilitarySkin draws it as a dark amber plate with an amber border like their ▲ upgrade buttons), with the reload icon. It was a yellow copy of START floating left of the cards. GunshipUI only hooks it, shows it and places it.
 - Aircraft bay (`AircraftBay`): flicking through planes on the AIRCRAFT screen keeps up. One pick still runs the full show at normal speed. A pick made while a show is running speeds it up (`pace`, +0.9 a pick, up to 3x; a pick within 2 s of the last show ending starts at 2x). A plane still rolling in carries on out the far door while the newest one follows it in (the doors stay open), and a plane that hasn't started rolling yet is dropped. The next plane stays hidden until it has room behind the one ahead. Tested in Studio: picking all 8 at 0.25 s apart, the B-52 is parked 3.2 s after the last pick. Picking three times mid roll-in, the last one is parked 2.2 s after its pick. Planes never overlap (8 studs minimum gap).
