@@ -2,6 +2,13 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.16.3
+- Weapons screen: the gun cards slid around when hovered. ButtonFeel re-anchored them to the middle for a hover grow they don't have (they carry their own "Sel" UIScale), so the shrink pivoted from the middle. It now leaves cards with their own scale alone, and refreshArmory resets their anchor.
+- Leaving a match (debrief LOBBY, LEAVE MATCH, tutorial end) takes you back to the same hangar server you deployed from (TeleportData.lobby = that server's JobId). If it's gone or full you go to any hangar.
+- Wingmen: in a run you see your crew's aircraft flying their own places on the orbit, with a blue outline so they read in thermal. (Studio: DebugWingmen on ReplicatedStorage.Convoy shows a copy of your own plane.)
+- Sand Dunes: the black fog sat so close that low aircraft (Apache, Huey, Chinook) lost most of the map. The smoke bands, puffs and dark fill moved out (smoke 243-533 -> 360-560, fill 347-764 -> 540-790); the wall is unchanged, so you still can't see past it. The infected spawn points moved out with the smoke, and their sand slowdown is mostly gone so the walk in takes about as long.
+- Crew scaling: each gunner after the first adds +70% infected per wave, +40% health on tough types, +60% boss health and a higher on-map cap. With 3+ gunners ordinary infected take two hits.
+
 ## 0.16.2
 - Lobby pad: tapping a map card errored (PadHUD:244, `refresh` was used before it was declared), so the map couldn't be changed. Fixed and tested in Studio (Sand Dunes selects).
 - New-player tutorial (live): a player sent home from a reserved server was landing on a reserved hangar server with no run and sat there doing nothing (error report: "home teleport landed on a Mission server again"). A reserved hangar server now decides its role from its first arrival: tutorial data -> tutorial server; sent home / joining a crew -> works as a normal hangar; no data at all -> a new player gets the tutorial right there instead of a bounce.
