@@ -2,6 +2,13 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.18.1 — Mechanic panel, new F-15
+- The Mechanic's prompt uses our custom prompt style (Kind = "Strike", no hold) and opens a STRIKE UPGRADES panel (StarterGui.StrikeUI, a copy of the season panel; script StrikeUI): three cards ARTILLERY / A-10 STRIKE / F-15 STRIKE with photos of the real models (outlined; art/strike, rbxassetid 84573117546235 / 99792664342161 / 124753424927721), the one you have marked EQUIPPED, and an UPGRADE button with the game's gem icon. Buying only through the BuyStrike action now. Header icon: the repair tools, not the season badge.
+- The HUD's F card shows the A-10 / F-15 photo once you have it.
+- New F-15 (`Models.F15`) built from parts in the A-10's style: stud/weld/universal plastic, stepped swept wings, twin canted tails, boxy intakes, twin nozzles, canopy, missiles, gear. Used for the strike, the bay and flybys (the old mesh is ServerStorage.F15_OldMesh). All 3 places.
+- Notifications (GiftToast) drop in under the gem counter instead of on top of it.
+- Icons uploaded through a temporary localhost server in Jacob's Blender (Studio's upload_image only takes http URLs).
+
 ## 0.18.0 — Strike upgrades: artillery -> A-10 -> F-15
 - A Mechanic stands at the front corner of the artillery bay in the hangar (Jacob's R15 mechanic in grey coveralls and cap, anchored, facing the hangar; the first toolbox one was pitch black and is gone). Hold E / X on his prompt to upgrade the F ability with gems: A-10 STRIKE 2,500, then F-15 STRIKE 6,000 (`Upgrades.STRIKES`, player attribute `StrikeTier`, saved as `Strike`; `Cosmetics` buys it, also action `BuyStrike`). Not enough gems: a "NEED X MORE GEMS" notice.
 - In a run the F ability is then: artillery barrage (as before) / an A-10 30mm gun run (`callA10`) / an F-15 that comes in low and drops a stick of 6 bombs (`Strike.f15`, 2.2x artillery damage, 18-stud blasts). The jets fly along the line through your point that catches the most infected (8 headings, civilians count against it); on-station calls use the best run. Call price and the armory's 3 strike upgrades are shared. The A-10's 30mm no longer hurts civilians.
