@@ -6,6 +6,7 @@ Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and 
 - `Models.F15` rebuilt (all 3 places): every part overlaps its neighbour (wing roots sunk into the body, stepped wing / stabilator / tail blocks overlapping, gear struts start inside the body, wingtips on the wing). Checked with a GetPartsInPart flood fill from the fuselage: 0 floating parts.
 - Six Mk-82 bombs on pylons (four under the wings, two under the intakes): olive body, nose, yellow band, cross tail fins. The AIM missiles are gone.
 - Strike card photo retaken (rbxassetid://115198505980368).
+- `Models.F15` is now Jacob's edited copy (lobby Workspace.F15), copied to all 3 places.
 - Z-fighting fixed: overlapping wing / stabilator steps alternate thickness (0.6 / 0.74, 0.4 / 0.52), the middle tail block is thicker, the red wingtips are taller than the wing, and the intakes overlap the fuselage side instead of sharing its face.
 
 ## 0.18.1 — Mechanic panel, new F-15
