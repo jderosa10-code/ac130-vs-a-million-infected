@@ -2,6 +2,18 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.17.0 — Season pass, tracers, hub buttons
+
+- SEASON PASS (Convoy.Season): Season 1 runs 2026-11-25 to 2027-01-01 UTC, 30 tiers of 100 XP. XP from runs: 10 per wave cleared, 1 per 5 kills, 25 per boss. Every tier has a FREE reward (gems; EMBER tracers at 10; 500 gems at 30) and a PREMIUM one (more gems; ARCTIC 5, INFERNO 15, VOID 25 tracers; a free aircraft pick at 30). Premium = developer product 3735965747, R$399; rewards are given as tiers are reached, and every premium one already reached when it's bought. A new season resets everyone to tier 0.
+- Server: ServerScriptService.ConvoyServer.Cosmetics (load/save on the profile: Tracers, Tracer, Season {id,xp,f,p,prem}; runEnd after each run; grantProduct from ProcessReceipt; actions BuyTracer / EquipTracer). Tier-ups and unlocks use the GiftNotice toast.
+- SEASON screen (StarterGui.SeasonUI): a bigger copy of the daily drop panel. FREE row over PREMIUM row, a column per tier, scrolls sideways to your next tier; tier, XP and days left at the bottom; UNLOCK PREMIUM (live Robux price) / PREMIUM ACTIVE. Script: StarterPlayerScripts.SeasonUI.
+- TRACERS (Convoy.Tracers): your rounds' tracer glow in a colour of your choice, on every gun of every aircraft; the whole crew sees it. Gems: CRIMSON 1,500, COBALT 2,500, VIOLET 3,500, FROST 5,000. Robux: GOLD 99 (3735965809), PLASMA 149 (3735965821, wider), RAINBOW 199 (3735965832, cycles colours). Season 1 only: EMBER, ARCTIC, INFERNO, VOID. No greens (civilians).
+  - Ballistics sends the shooter's tracer with each round; FXLib colours it and puts it in a per-tracer model with a Highlight so the colour shows through the black-and-white thermal sensor.
+- Shop: TRACERS tab and section (copies of the pass cards): price in gems or Robux, EQUIP / EQUIPPED (tap again for the guns' own colour), season ones say SEASON PASS and open the season screen.
+- Hub: DAILY and INVITE moved to a right-hand column (Menu.SideRight); the left column is SHOP, SEASON (copy of the FREE tile, season badge), FREE.
+- Art: art/season (icons + purchase thumbnails, make.py). In-game icons: tracer streak 74496714171970, season badge 86397412865806.
+- tools/snippets/sync_0_17_ui.luau rebuilds the UI changes in a place (used for Downtown and Sand Dunes).
+
 ## 0.16.6
 - Sand Dunes is night: moonlit (ClockTime 0.3, default night sky with stars, blue ambient and haze, cool colour grade). The day look is kept in ServerStorage.DunesDayLighting.
 - Sand Dunes: the tall black FogWall around the map is gone (kept in ServerStorage as DunesFogWall_Removed); the smoke bands and dark fill stay.
