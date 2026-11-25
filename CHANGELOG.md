@@ -2,6 +2,10 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.16.6
+- Sand Dunes is night: moonlit (ClockTime 0.3, default night sky with stars, blue ambient and haze, cool colour grade). The day look is kept in ServerStorage.DunesDayLighting.
+- Night maps through the thermal sensor: GunshipClient swaps in the Lighting attributes ThermalClock / ThermalBrightness / ThermalOutdoor / ThermalAtmColor / ThermalAtmDecay while the sensor is on (a bit darker than day, still readable), and puts the night back for cutscenes and the plain camera.
+
 ## 0.16.5
 - Spitters are yellow now (thermal tint, name tag, acid sacs and clothes, spit globs, new-type banner, ranks colour): lime green read as a civilian.
 - Civilians spawn at a spawn point away from live infected (best of up to 8 tries, stops at 140+ studs), and infected groups likewise away from live civilians.
