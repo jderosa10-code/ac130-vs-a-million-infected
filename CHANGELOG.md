@@ -2,6 +2,11 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.16.2
+- Lobby pad: tapping a map card errored (PadHUD:244, `refresh` was used before it was declared), so the map couldn't be changed. Fixed and tested in Studio (Sand Dunes selects).
+- New-player tutorial (live): a player sent home from a reserved server was landing on a reserved hangar server with no run and sat there doing nothing (error report: "home teleport landed on a Mission server again"). A reserved hangar server now decides its role from its first arrival: tutorial data -> tutorial server; sent home / joining a crew -> works as a normal hangar; no data at all -> a new player gets the tutorial right there instead of a bounce.
+- More warnings in the live error report to trace it: "no run here" bounces, tutorial not started (and why), profile not loaded after 30 s.
+
 ## 0.16.1
 - Settings: INVERT CAMERA (every device), a copy of the AUTO-FIRE row under it. Flips the drag-to-aim direction; saved with the profile (Settings.InvertCam, Mission "Settings" 5th arg).
 - iPad / phones: the sensor could stop moving for good after tapping things. A touch whose end the game never saw counted as a second finger forever, so one-finger drag was ignored; stale touches are now dropped. Also a leftover Cutscene attribute with nothing playing is cleared, so a cutscene can never keep the camera.
