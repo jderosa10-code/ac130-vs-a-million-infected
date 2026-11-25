@@ -4,6 +4,7 @@ Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and 
 
 ## 0.16.6
 - Sand Dunes is night: moonlit (ClockTime 0.3, default night sky with stars, blue ambient and haze, cool colour grade). The day look is kept in ServerStorage.DunesDayLighting.
+- Sand Dunes: the tall black FogWall around the map is gone (kept in ServerStorage as DunesFogWall_Removed); the smoke bands and dark fill stay.
 - Night maps through the thermal sensor: GunshipClient swaps in the Lighting attributes ThermalClock / ThermalBrightness / ThermalOutdoor / ThermalAtmColor / ThermalAtmDecay while the sensor is on (a bit darker than day, still readable), and puts the night back for cutscenes and the plain camera.
 
 ## 0.16.5
