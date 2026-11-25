@@ -2,6 +2,13 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.18.0 — Strike upgrades: artillery -> A-10 -> F-15
+- A Mechanic stands at the front corner of the artillery bay in the hangar (toolbox R6 mechanic, scripts removed, anchored). Hold E / X on his prompt to upgrade the F ability with gems: A-10 STRIKE 2,500, then F-15 STRIKE 6,000 (`Upgrades.STRIKES`, player attribute `StrikeTier`, saved as `Strike`; `Cosmetics` buys it, also action `BuyStrike`). Not enough gems: a "NEED X MORE GEMS" notice.
+- In a run the F ability is then: artillery barrage (as before) / an A-10 30mm gun run (`callA10`) / an F-15 that comes in low and drops a stick of 6 bombs (`Strike.f15`, 2.2x artillery damage, 18-stud blasts). The jets fly along the line through your point that catches the most infected (8 headings, civilians count against it); on-station calls use the best run. Call price and the armory's 3 strike upgrades are shared. The A-10's 30mm no longer hurts civilians.
+- `StrikeHangar` (client): the prompt says what's next and its price; once bought, the A-10 / F-15 stands in the bay instead of the howitzer (only on your screen); the ability card and the armory card say ARTILLERY / A-10 STRIKE / F-15 STRIKE.
+- Studio only: workspace attribute `DebugStrikeTier` forces a tier in Mission (for testing without touching saves). Tested in Studio: both jets fire, cost and bay swap work.
+- The bay's F-15 currently uses `Models.F15` (the flyby model); the part-built F15E was deleted on 0.11.0.
+
 ## 0.17.10 — Sand Dunes: infected under the sand
 - Roblox draws far-away terrain simplified (more so on low graphics), so from a low aircraft (Apache) looking across the dunes, the infected and civilians were hidden inside the blocky far sand. On the dunes (DMZ Map = "Dunes") their highlights now draw on top (AlwaysOnTop); Downtown keeps buildings hiding them. Reproduced and checked in Studio at graphics level 1.
 - Season / controller changes from 0.17.8-0.17.9 synced to Downtown and Sand Dunes (incl. the season track's 4 px inset).
