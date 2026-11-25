@@ -2,6 +2,11 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.17.4
+- Sand Dunes through the thermal sensor: dark sky (Lighting attributes ThermalAtmColor 28,30,34 / ThermalAtmDecay 14,15,18 / ThermalAtmOffset 1 / ThermalAtmHaze 2.6; GunshipClient's sensorLight now also swaps Atmosphere Offset and Haze). The smoke ring blends into the sky instead of reading as a black wall under a pale sky.
+- Cutscenes keep the camera at least 4 studs above the terrain under it (boss shots on the dunes were inside the sand).
+- Controller detection is stricter (Aim): only a button, a trigger or a stick pushed past half way switches to the controller layout; any mouse movement switches straight back; a console (no keyboard) starts on it. A drifting stick or a pad left plugged into a PC no longer takes over. ConsoleNav drops its button selection when the mouse takes over.
+
 ## 0.17.3 — Console / controller support
 - Gamepad in the aircraft (Aim.pad(): the crosshair stays in the middle, like touch): RT fire, left or right stick move the sensor (left stick flies helicopters, L3 boosts), LT zooms in while held, D-pad up / down zoom, RB / LB next / previous gun, X reload, R3 thermal polarity, A start the wave, Y nuke, D-pad left repair, D-pad right artillery (RT places it, B cancels). Ability cards show < / Y / > on a controller.
 - Menus on a controller (StarterPlayerScripts.ConsoleNav + Convoy.PadNav): a panel that opens gets a button selected inside it (D-pad / stick move, A press), B does the panel's close / exit / back button, the end-of-run debrief is selected too. The hub and HUD stay free for the character and guns; the View button selects their buttons (Roblox's own navigation). Close buttons register with PadNav.on / PadNav.back (GunshipUI hook() does it for Close / Exit / Back).
