@@ -6,6 +6,7 @@ Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and 
 - `Models.F15` rebuilt (all 3 places): every part overlaps its neighbour (wing roots sunk into the body, stepped wing / stabilator / tail blocks overlapping, gear struts start inside the body, wingtips on the wing). Checked with a GetPartsInPart flood fill from the fuselage: 0 floating parts.
 - Six Mk-82 bombs on pylons (four under the wings, two under the intakes): olive body, nose, yellow band, cross tail fins. The AIM missiles are gone.
 - Strike card photo retaken (rbxassetid://115198505980368).
+- Z-fighting fixed: overlapping wing / stabilator steps alternate thickness (0.6 / 0.74, 0.4 / 0.52), the middle tail block is thicker, the red wingtips are taller than the wing, and the intakes overlap the fuselage side instead of sharing its face.
 
 ## 0.18.1 — Mechanic panel, new F-15
 - The Mechanic's prompt uses our custom prompt style (Kind = "Strike", no hold) and opens a STRIKE UPGRADES panel (StarterGui.StrikeUI, a copy of the season panel; script StrikeUI): three cards ARTILLERY / A-10 STRIKE / F-15 STRIKE with photos of the real models (outlined; art/strike, rbxassetid 84573117546235 / 99792664342161 / 124753424927721), the one you have marked EQUIPPED, and an UPGRADE button with the game's gem icon. Buying only through the BuyStrike action now. Header icon: the repair tools, not the season badge.
