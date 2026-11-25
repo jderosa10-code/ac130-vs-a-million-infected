@@ -2,6 +2,9 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.17.2
+- B-52 bombs drop from the wing racks in turn: left, right, working back along the three rows (6 mounts). Nukes still come from the bay.
+
 ## 0.17.1
 - Weapons on both sides fire left, right, left...: each shot leaves from the next mount (Aircraft guns[slot].mounts, studs from the model's pivot) instead of the aircraft's centre. Huey rockets, Reaper Hellfires, Harrier cannon pods and bombs, Apache rocket pods and Hellfire rails, Chinook twin miniguns. Single guns (AC-130 side guns, Apache chin gun, Chinook grenade launcher, B-52 bay) are unchanged.
 
