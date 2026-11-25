@@ -2,6 +2,15 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.18.5 — Pick your strike, Mechanic idle, visible strikes, target boxes
+- Mechanic panel: no more ticks. Every strike you own says EQUIP (tap the card to use it); the one in use says EQUIPPED; the next one's card buys it (same as the button). Player attribute `StrikeEquip` (saved), action `EquipStrike` (Cosmetics, checked against StrikeTier); buying a new one equips it. Mission flies the equipped one; the bay, the F card's name and photo follow it.
+- HUD F card photo fixed: the photos are whole images, so the icon-sheet crop (ImageRectSize) is cleared for them and put back for artillery.
+- The Mechanic idles (Roblox's R15 idle, client side; accessories welded on).
+- F-15 bombs are drawn: each leaves the jet and falls onto its spot with a nose-down tilt and a white smoke trail, landing on the damage beat (FX `f15bombs`, sent by Strike.f15).
+- A-10 rounds are easy to see: thick, long tracers (w 1.0, len 30) and slower (650 / 600 studs/s) so the burst reads as a rope of fire from the gunship's height.
+- Red target boxes: an infected is boxed if its torso OR head is in view (one ray to the torso hid ones half behind walls / cars); ones that arrive before their torso get boxed when it does; on Sand Dunes the terrain never hides them.
+- All 3 places.
+
 ## 0.18.4 — Taller RELOAD ALL, offers stay clear of it
 - `HUD.Weapons.ReloadAll` is 68 tall (was 52, looked stretched at 370 wide); label 32, icon 38.
 - BattleOffers `cardSpot`: the small offer card (e.g. the CASH DROP offer on every 3rd break, which is when RELOAD ALL shows) now sits above RELOAD ALL as well as the weapon cards; with 3 guns it used to land on top of the button. If there's no room above it (short screen), the card goes just left of the weapon cards, level with the top one. Checked in Studio with a faked wave-3 break on the AC-130 (1920x900): the card is above the button and fully on screen.
