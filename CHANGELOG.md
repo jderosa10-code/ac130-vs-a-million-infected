@@ -2,6 +2,10 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.17.6 — Controller: reaching the on-screen buttons
+- Between waves (the break) a controller gets the HUD's buttons selected straight away: START first (A still starts the wave), the D-pad moves to RELOAD ALL, the gun upgrades, FORTIFY, CASH DROP...; when the wave starts the selection goes and the sticks / triggers are the guns' again. (During a wave the upgrades are on the View button.)
+- In the hangar, Y picks the hub's buttons (PLAY first, then SHOP / SEASON / DAILY / AIRCRAFT / RANKS with the D-pad), Y again or B goes back to walking. The hub hint line says "[Y] HUB BUTTONS" on a controller.
+
 ## 0.17.5 — Season boosts, tracers with perks
 - SEASON rewards: besides gems, tiers now give 2X CASH for n runs, 2X GEMS for n runs and FREE NUKE for n runs (Season helpers cash2x / gems2x / nuke). Stored as Boost_Cash / Boost_Gems / Boost_Nuke on the profile (data.Boosts); Cosmetics.runStart uses one run of each when a run or op starts (not the tutorial), RunBoosts tells the HUD ("BOOST ACTIVE" banner). Mission doubles cash / end-of-run gems and adds a free nuke. Premium: Arctic and Inferno tiers replaced by boosts; Void stays at 25, the aircraft at 30. Free: Ember stays at 10.
 - Season cards use the real icons (Season.icon): gem piles that grow with the amount (gems_s/m/l/xl), the 2x cash / 2x gems pass art, the nuke, an aircraft.
