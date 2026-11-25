@@ -2,6 +2,12 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.17.3 — Console / controller support
+- Gamepad in the aircraft (Aim.pad(): the crosshair stays in the middle, like touch): RT fire, left or right stick move the sensor (left stick flies helicopters, L3 boosts), LT zooms in while held, D-pad up / down zoom, RB / LB next / previous gun, X reload, R3 thermal polarity, A start the wave, Y nuke, D-pad left repair, D-pad right artillery (RT places it, B cancels). Ability cards show < / Y / > on a controller.
+- Menus on a controller (StarterPlayerScripts.ConsoleNav + Convoy.PadNav): a panel that opens gets a button selected inside it (D-pad / stick move, A press), B does the panel's close / exit / back button, the end-of-run debrief is selected too. The hub and HUD stay free for the character and guns; the View button selects their buttons (Roblox's own navigation). Close buttons register with PadNav.on / PadNav.back (GunshipUI hook() does it for Close / Exit / Back).
+- Controller words: hub hint line, Settings controls list, wave-cleared / flying / artillery banners, tutorial hints ("HOLD RT TO FIRE", "PRESS RB FOR THE 40MM").
+- Studio: the DebugPad attribute on the local player turns the controller layout on with a keyboard (Studio's input tools send controller buttons as keyboard input).
+
 ## 0.17.2
 - B-52 bombs drop from the wing racks in turn: left, right, working back along the three rows (6 mounts). Nukes still come from the bay.
 
