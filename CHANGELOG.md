@@ -2,6 +2,10 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.17.10 — Sand Dunes: infected under the sand
+- Roblox draws far-away terrain simplified (more so on low graphics), so from a low aircraft (Apache) looking across the dunes, the infected and civilians were hidden inside the blocky far sand. On the dunes (DMZ Map = "Dunes") their highlights now draw on top (AlwaysOnTop); Downtown keeps buildings hiding them. Reproduced and checked in Studio at graphics level 1.
+- Season / controller changes from 0.17.8-0.17.9 synced to Downtown and Sand Dunes (incl. the season track's 4 px inset).
+
 ## 0.17.9 — Controller cursor
 - D-pad down, in the hangar and between waves: turns on Roblox's gamepad cursor (left stick moves it, A clicks); D-pad down again turns it off. It goes off by itself when the wave starts or you leave the hangar; ConsoleNav doesn't auto-select buttons under it. Control hints: "[D-PAD DOWN] CURSOR" (replaces the VIEW entry in the list).
 
