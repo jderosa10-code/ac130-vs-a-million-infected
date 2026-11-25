@@ -11,6 +11,14 @@ SMOKE = np.array([0.16, 0.17, 0.2])
 
 glow = np.zeros_like(src); core = np.zeros_like(src)
 im = src.copy()
+import json
+spec = json.load(open(sys.argv[3]))
+# warm the grey thermal ground toward sand (only pixels with little colour, so the infected keep theirs)
+st = spec.get("sand_tint", 0)
+if st:
+    hsv0 = cv2.cvtColor((im * 255).astype(np.uint8), cv2.COLOR_BGR2HSV).astype(np.float32)
+    grey = np.clip(1 - hsv0[..., 1] / 60, 0, 1)[..., None] * st
+    im = im * (1 - grey) + im * np.array([0.72, 0.88, 1.06]) * grey
 
 def P(p): return tuple(int(v) for v in p)
 
@@ -82,8 +90,6 @@ def blast(c, r):
         p = (c[0] + np.cos(ang) * dist, c[1] + np.sin(ang) * dist)
         cube(im, p, rng.uniform(5, 12), rng.uniform(0, 90), [np.array([0.35, 0.55, 0.7]), np.array([0.1, 0.3, 0.9]), SMOKE][rng.integers(0, 3)])
 
-import json
-spec = json.load(open(sys.argv[3]))
 blasts = [tuple(b) for b in spec.get("blasts", [])]
 
 # ---- thick black fog ring on the horizon (where the infected come from)
@@ -195,7 +201,7 @@ for i in range(6):
     x1 = x0 + np.cos(ang) * W * 1.6; y1 = np.sin(ang) * W * 1.6
     cv2.line(beams, (int(x0), -10), (int(x1), int(y1)), rng.uniform(0.25, 0.55), int(w), cv2.LINE_AA)
 beams = cv2.GaussianBlur(beams, (0, 0), 6) * np.clip(1.15 - yy / (H * 0.62), 0, 1) * (1 - 0.8 * FOG_A)
-im = 1 - (1 - im) * (1 - beams[..., None] * np.array([0.85, 0.92, 1.0]) * 0.55)
+im = 1 - (1 - im) * (1 - np.clip(beams[..., None] * np.array([0.55, 0.8, 1.0]) * 0.55 * spec.get("beams", 1.0), 0, 1))
 
 # embers drifting up
 emb = np.zeros_like(im)
@@ -206,6 +212,20 @@ for i in range(90):
     cv2.line(emb, (int(x), int(y)), (int(x + np.cos(a) * L), int(y + np.sin(a) * L)), tuple(ORANGE * rng.uniform(0.7, 1.0)), rng.integers(2, 4), cv2.LINE_AA)
 emb = cv2.GaussianBlur(emb, (0, 0), 0.8) + cv2.GaussianBlur(emb, (0, 0), 4) * 0.8
 im = 1 - (1 - im) * (1 - np.clip(emb, 0, 1))
+
+# soft out-of-focus ember dots near the camera (optional)
+nb = spec.get("bokeh", 0)
+if nb:
+    bk = np.zeros_like(im)
+    for i in range(nb):
+        side = rng.random()
+        x = rng.uniform(0, W); y = rng.uniform(0, H)
+        if side < 0.7:  # mostly toward the frame edges
+            x = rng.choice([rng.uniform(0, W * 0.22), rng.uniform(W * 0.78, W)])
+        r = rng.uniform(9, 26)
+        cv2.circle(bk, (int(x), int(y)), int(r), tuple(ORANGE * rng.uniform(0.6, 1.0)), -1, cv2.LINE_AA)
+    bk = cv2.GaussianBlur(bk, (0, 0), 3) + cv2.GaussianBlur(bk, (0, 0), 12) * 0.6
+    im = 1 - (1 - im) * (1 - np.clip(bk * 0.85, 0, 1))
 
 # bloom
 bright = np.clip(im - 0.72, 0, 1) * 2.2
