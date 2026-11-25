@@ -2,6 +2,9 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.17.9 — Controller cursor
+- D-pad down, in the hangar and between waves: turns on Roblox's gamepad cursor (left stick moves it, A clicks); D-pad down again turns it off. It goes off by itself when the wave starts or you leave the hangar; ConsoleNav doesn't auto-select buttons under it. Control hints: "[D-PAD DOWN] CURSOR" (replaces the VIEW entry in the list).
+
 ## 0.17.8 — Better season rewards
 - SEASON 1 rewards roughly doubled. Free: 100-1,000 gems a tier (was 50-500), more 2x cash / 2x gems / free nuke tiers, Ember still at 10. Premium: 300-1,000 gems, boosts up to 15 runs, nukes up to 8 runs, Void at 25, aircraft at 30.
 - A FREE NUKE card for 2 or more runs shows that many nukes, stacked (up to 3); Season.count(r).
