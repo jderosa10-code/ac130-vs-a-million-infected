@@ -2,6 +2,12 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.17.5 — Season boosts, tracers with perks
+- SEASON rewards: besides gems, tiers now give 2X CASH for n runs, 2X GEMS for n runs and FREE NUKE for n runs (Season helpers cash2x / gems2x / nuke). Stored as Boost_Cash / Boost_Gems / Boost_Nuke on the profile (data.Boosts); Cosmetics.runStart uses one run of each when a run or op starts (not the tutorial), RunBoosts tells the HUD ("BOOST ACTIVE" banner). Mission doubles cash / end-of-run gems and adds a free nuke. Premium: Arctic and Inferno tiers replaced by boosts; Void stays at 25, the aircraft at 30. Free: Ember stays at 10.
+- Season cards use the real icons (Season.icon): gem piles that grow with the amount (gems_s/m/l/xl), the 2x cash / 2x gems pass art, the nuke, an aircraft.
+- TRACERS: 6 instead of 11, and each does something while equipped (Tracers perk, applied when a run starts): CRIMSON 1,500 gems +10% cash from kills; COBALT 3,000 gems +10% reload speed; GOLD R$99 +10% gems from runs; PLASMA R$149 +15% damage to brutes and bosses; EMBER (season free) +10% damage to brutes and bosses; VOID (season premium) +15% cash, +10% reload. Violet, Frost, Rainbow, Arctic and Inferno are retired: not sold or shown, anyone who has one keeps it. Shop cards say the perk; the hidden ones' gaps close.
+- Hangar welders: turned from the torso (the model pivot is the work stand), torch held level, and only placed where the torch tip really touches the aircraft; with no such spot they stand down (they were welding the air next to the Apache).
+
 ## 0.17.4
 - Sand Dunes through the thermal sensor: dark sky (Lighting attributes ThermalAtmColor 28,30,34 / ThermalAtmDecay 14,15,18 / ThermalAtmOffset 1 / ThermalAtmHaze 2.6; GunshipClient's sensorLight now also swaps Atmosphere Offset and Haze). The smoke ring blends into the sky instead of reading as a black wall under a pale sky.
 - Cutscenes keep the camera at least 4 studs above the terrain under it (boss shots on the dunes were inside the sand).
