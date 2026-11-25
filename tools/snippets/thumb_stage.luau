@@ -192,31 +192,41 @@ if w then
 	local halfW = halfH * (cam.ViewportSize.X / cam.ViewportSize.Y)
 	local at = camCF.Position + camCF.LookVector * dist + camCF.RightVector * (f.X * 2 * halfW) + camCF.UpVector * (f.Y * 2 * halfH)
 	local aim = CFrame.lookAt(at, CONFIG.weaponAim)
+	if CONFIG.sideOn then -- point along the on-screen line to the target, tilted only part-way into the screen (seen from the side)
+		cam.CFrame = camCF
+		local a2, t2 = cam:WorldToViewportPoint(at), cam:WorldToViewportPoint(CONFIG.weaponAim)
+		local d = Vector2.new(t2.X - a2.X, t2.Y - a2.Y).Unit
+		local flat = (camCF.RightVector * d.X - camCF.UpVector * d.Y).Unit
+		local tilt = math.rad(CONFIG.sideOn)
+		aim = CFrame.lookAt(at, at + flat * math.cos(tilt) + camCF.LookVector * math.sin(tilt))
+	end
 	if w == "minigun" then
-		-- built from parts: six barrels, rings, housing, motor. Dark grey metal under a light, mostly see-through
-		-- navy Highlight with a white rim, so the shading and the black barrel gaps still show.
+		-- built from parts: six long barrels, rings, a short housing and motor. Dark metal under a light,
+		-- mostly see-through navy Highlight with a white rim, so the grey/black shading still shows.
 		local g = Instance.new("Model")
 		g.Name = "Gun"
-		local L = CONFIG.weaponLen or 5.6
+		local L = CONFIG.weaponLen or 7
 		local aimR = aim * CFrame.Angles(0, 0, math.rad(CONFIG.weaponRoll or 12))
 		local ax = CFrame.Angles(0, math.rad(90), 0)
-		local metal, dark, light = Color3.fromRGB(70, 74, 86), Color3.fromRGB(18, 18, 22), Color3.fromRGB(225, 228, 235)
+		local metal, dark, light = Color3.fromRGB(84, 88, 100), Color3.fromRGB(12, 12, 14), Color3.fromRGB(200, 204, 214)
+		local bl, bz = L * 0.64, -L * 0.3 -- barrel length / centre: the tip is at -0.76 L
 		for i = 0, 5 do
 			local a = math.rad(60 * i)
 			local off = Vector3.new(math.cos(a), math.sin(a), 0) * L * 0.075
-			part(g, Enum.PartType.Cylinder, Vector3.new(L * 0.62, L * 0.055, L * 0.055), aimR * CFrame.new(off + Vector3.new(0, 0, -L * 0.28)) * ax, dark)
+			part(g, Enum.PartType.Cylinder, Vector3.new(bl, L * 0.05, L * 0.05), aimR * CFrame.new(off + Vector3.new(0, 0, bz)) * ax, dark)
 		end
-		part(g, Enum.PartType.Cylinder, Vector3.new(L * 0.05, L * 0.24, L * 0.24), aimR * CFrame.new(0, 0, -L * 0.57) * ax, light)
-		part(g, Enum.PartType.Cylinder, Vector3.new(L * 0.06, L * 0.25, L * 0.25), aimR * CFrame.new(0, 0, -L * 0.22) * ax, metal)
-		part(g, Enum.PartType.Cylinder, Vector3.new(L * 0.3, L * 0.31, L * 0.31), aimR * CFrame.new(0, 0, L * 0.12) * ax, metal)
-		part(g, Enum.PartType.Cylinder, Vector3.new(L * 0.04, L * 0.35, L * 0.35), aimR * ax, dark)
-		part(g, nil, Vector3.new(L * 0.26, L * 0.22, L * 0.3), aimR * CFrame.new(L * 0.02, -L * 0.12, L * 0.38), metal)
-		part(g, nil, Vector3.new(L * 0.12, L * 0.12, L * 0.18), aimR * CFrame.new(L * 0.2, L * 0.02, L * 0.22), dark)
-		part(g, nil, Vector3.new(L * 0.16, L * 0.05, L * 0.4), aimR * CFrame.new(-L * 0.18, -L * 0.04, L * 0.3), dark)
+		part(g, Enum.PartType.Cylinder, Vector3.new(bl * 0.98, L * 0.05, L * 0.05), aimR * CFrame.new(0, 0, bz) * ax, metal) -- spindle
+		part(g, Enum.PartType.Cylinder, Vector3.new(L * 0.035, L * 0.18, L * 0.18), aimR * CFrame.new(0, 0, -L * 0.6) * ax, light) -- muzzle clamp
+		part(g, Enum.PartType.Cylinder, Vector3.new(L * 0.035, L * 0.18, L * 0.18), aimR * CFrame.new(0, 0, -L * 0.34) * ax, metal) -- mid clamp
+		part(g, Enum.PartType.Cylinder, Vector3.new(L * 0.22, L * 0.22, L * 0.22), aimR * CFrame.new(0, 0, L * 0.1) * ax, metal) -- rotor housing
+		part(g, Enum.PartType.Cylinder, Vector3.new(L * 0.03, L * 0.25, L * 0.25), aimR * CFrame.new(0, 0, -L * 0.02) * ax, dark)
+		part(g, nil, Vector3.new(L * 0.18, L * 0.16, L * 0.24), aimR * CFrame.new(0, -L * 0.1, L * 0.3), metal) -- receiver
+		part(g, Enum.PartType.Cylinder, Vector3.new(L * 0.16, L * 0.09, L * 0.09), aimR * CFrame.new(L * 0.13, L * 0.03, L * 0.22) * ax, dark) -- motor
+		part(g, nil, Vector3.new(L * 0.05, L * 0.12, L * 0.3), aimR * CFrame.new(-L * 0.12, -L * 0.06, L * 0.2), dark) -- feed chute
 		g.Parent = stage
-		hl(g, Color3.fromRGB(70, 90, 200), CONFIG.gunFill or 0.72, Color3.fromRGB(255, 255, 255), 0.05)
+		hl(g, Color3.fromRGB(60, 80, 190), CONFIG.gunFill or 0.82, Color3.fromRGB(255, 255, 255), 0.1)
 		cam.CFrame = camCF
-		local v = cam:WorldToViewportPoint((aimR * CFrame.new(0, 0, -L * 0.6)).Position)
+		local v = cam:WorldToViewportPoint((aimR * CFrame.new(0, 0, -L * 0.66)).Position)
 		stage:SetAttribute("Muzzle", Vector2.new(v.X / cam.ViewportSize.X * 2061 - 70, v.Y / cam.ViewportSize.Y * 1080))
 	elseif w == "rocket" then
 		local r = Instance.new("Model")

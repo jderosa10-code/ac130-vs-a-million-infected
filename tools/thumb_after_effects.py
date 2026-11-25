@@ -176,7 +176,7 @@ for sh in spec.get("shots", []):
         flash(g, fr * 0.7 * sc, np.degrees(np.arctan2(u[1], u[0])))
         continue
     streak(g, t, dash * sc, gap * sc, max(1, int(w * sc)), sh.get("phase", 8))
-    flash(g, fr * sc, np.degrees(np.arctan2(t[1] - g[1], t[0] - g[0])))
+    flash(g, fr * sc * sh.get("flash", 1.0), np.degrees(np.arctan2(t[1] - g[1], t[0] - g[0])))
 for bb in spec.get("bombs", []):
     # a falling bomb: dark body, fins, a faint whistle streak above it
     x, y, sz = bb[0], bb[1], bb[2]; ang = bb[3] if len(bb) > 3 else 80
