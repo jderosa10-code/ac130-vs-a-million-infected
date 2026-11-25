@@ -2,6 +2,12 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.16.4
+- Sand Dunes terrain: smoothed the sand inside the play area (heightfield blurred over ~16 studs; the bunker and its dune left alone) so there are no flat raised plates or hard creases, and the dark Ground/Basalt patches near the edge are now sand. Props were set back down on the new surface.
+- Sand Dunes: infected sank into the tunnel mouth. The tunnel's floor height now covers the whole Bunker.Floor part (it stopped ~35 studs short, where a raycast falls into the carved sand). Ground height also takes the highest of three samples so nobody stands inside a dune face.
+- 105mm (hand-loaded, one round): the tier tooltip and banner no longer promise "+25% MAGAZINE"; they say faster reload + bigger blast (Upgrades.tierText oneRound).
+- RELOAD ALL between waves: a copy of the break's START button just left of the weapon cards (Mission action "ReloadAll": every unlocked gun that isn't full starts reloading).
+
 ## 0.16.3
 - Weapons screen: the gun cards slid around when hovered. ButtonFeel re-anchored them to the middle for a hover grow they don't have (they carry their own "Sel" UIScale), so the shrink pivoted from the middle. It now leaves cards with their own scale alone, and refreshArmory resets their anchor.
 - Leaving a match (debrief LOBBY, LEAVE MATCH, tutorial end) takes you back to the same hangar server you deployed from (TeleportData.lobby = that server's JobId). If it's gone or full you go to any hangar.
