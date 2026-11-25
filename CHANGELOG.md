@@ -2,6 +2,9 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.17.7 — Controller: upgrade the selected gun
+- B upgrades the gun you have selected (same as its card's ▲: cost check, "NEED $... MORE" when short). Works during a wave and in the break; while placing artillery B still cancels. Control hints list "[B] UPGRADE GUN".
+
 ## 0.17.6 — Controller: reaching the on-screen buttons
 - Between waves (the break) a controller gets the HUD's buttons selected straight away: START first (A still starts the wave), the D-pad moves to RELOAD ALL, the gun upgrades, FORTIFY, CASH DROP...; when the wave starts the selection goes and the sticks / triggers are the guns' again. (During a wave the upgrades are on the View button.)
 - In the hangar, Y picks the hub's buttons (PLAY first, then SHOP / SEASON / DAILY / AIRCRAFT / RANKS with the D-pad), Y again or B goes back to walking. The hub hint line says "[Y] HUB BUTTONS" on a controller.
