@@ -2,6 +2,11 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.16.5
+- Spitters are yellow now (thermal tint, name tag, acid sacs and clothes, spit globs, new-type banner, ranks colour): lime green read as a civilian.
+- Civilians spawn at a spawn point away from live infected (best of up to 8 tries, stops at 140+ studs), and infected groups likewise away from live civilians.
+- CIVILIAN KILLED banner on every civilian hit: strike n/3 and the fine, who did it in co-op (Shared CivHitBy), "TOO MANY CIVILIANS HIT" on the last one.
+
 ## 0.16.4
 - Sand Dunes terrain: smoothed the sand inside the play area (heightfield blurred over ~16 studs; the bunker and its dune left alone) so there are no flat raised plates or hard creases, and the dark Ground/Basalt patches near the edge are now sand. Props were set back down on the new surface.
 - Sand Dunes: infected sank into the tunnel mouth. The tunnel's floor height now covers the whole Bunker.Floor part (it stopped ~35 studs short, where a raycast falls into the carved sand). Ground height also takes the highest of three samples so nobody stands inside a dune face.
