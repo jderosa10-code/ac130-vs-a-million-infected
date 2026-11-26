@@ -2,6 +2,11 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.18.10 — First-buy bonus, losing-streak offer, daily deal
+- FIRST BUY 2X: the 1,500 and 5,000 gem packs (`firstBonus` in Convoy.Shop) give double gems the first time each player buys them. Shop cards show "3,000 GEMS / 1,500 + 1,500 FIRST-BUY BONUS" with a green 2X FIRST BUY ribbon until used; the gem top-up popup counts the bonus too. Server: Cosmetics.grantProduct (runs before Mission's normal pack grant); saved as FirstBuys.
+- LOSING STREAK: a run that ends before wave 3, or before half your best wave, counts as rough (Cosmetics.runEnd, RoughRuns, session only). After 2 in a row, the next run offers CASH DROP at the first break as "TOUGH STREAK? START STRONG" (BattleOffers; once per streak).
+- DAILY DEAL: a DEAL tile under INVITE in the hangar (red -30% ribbon) opens a panel with today's item at 30% off in gems: a gem tracer, an aircraft your rank has reached, or your next strike, picked per player per day (Convoy.Deals, changes at 00:00 UTC = 6 PM Central). One buy per day (DealDay, saved). Short on gems opens the top-up popup. Server: Cosmetics action BuyDeal. UI: StarterGui.DealUI + LocalScript DealUI.
+
 ## 0.18.9 — 2X GEMS offer on the debrief
 - Players without 2X GEMS see a strip above GEMS EARNED on the debrief: "2X GEMS PASS // COUNTS THIS RUN TOO  +170 MORE GEMS" with the live price. Tapping it prompts the pass.
 - Buy it within 5 minutes of the run ending (Shop.PASS_BONUS_WINDOW) and the server doubles that run's gems too (Mission, PromptGamePassPurchaseFinished; once per run via RunBonusAt). The strip turns green: "+170 BONUS GEMS ADDED" and the GEMS EARNED card updates.
