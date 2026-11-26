@@ -2,6 +2,10 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.18.7 — Sand Dunes: no more doubled ground
+- The sand looked like a second copy of the map lying on top and shifting as the helicopter moved: Roblox swaps far terrain for lower-detail versions, and with sharp little bumps the versions don't line up. The terrain heightfield is smoothed (Gaussian, 12 studs in the play area, 36 studs out past the fog; the bunker, its dune face and the tunnel untouched), so the detail levels match. Largest change 10 studs; 13 props re-seated. Checked at graphics level 3 from the Apache.
+- Backup of the old terrain: ServerStorage.DunesTerrain_Backup_0186 (a TerrainRegion; PasteRegion it back at cell -256,-64,-256 to undo).
+
 ## 0.18.6 — Cooler tracers
 - Each tracer now has its own trail in a run (Tracers `fx`, drawn by FXLib in the tracer's colour so it shows through the thermal sensor, capped at 260 sparks): CRIMSON hot embers falling off, COBALT electric crackle, GOLD glitter that hangs in the air, PLASMA fat pulsing blobs and a pulsing beam, EMBER rising licks of fire, VOID dark motes spiralling round the line.
 - New shop / season art for each (art/tracers/make_tracer_cards.py): a glowing round with a white-hot core and its trail style (`image` on each tracer; the old tinted line is the fallback). Tracer card art is a bit bigger.
