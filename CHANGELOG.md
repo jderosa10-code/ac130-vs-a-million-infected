@@ -2,6 +2,11 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.19.8 — Better alert badges on the hub tiles
+- The red "!" dots on SEASON and DAILY are now square badges in the game's style (like the shop / DEAL ribbons): red plate, dark miter edge, lit top half, stroked text. They pop in when they turn on, breathe, and give a small shake every few seconds (new LocalScript BadgePulse).
+- The SEASON badge shows how many rewards are waiting to claim (1-9, then 9+) instead of "!".
+- All 4 places, GameVersion 0.19.8.
+
 ## 0.19.7 — Season rewards are claimed
 - Season pass rewards no longer arrive by themselves: reaching a tier (or buying premium) makes them wait. Waiting cards glow green with "TAP TO CLAIM"; tapping one, or the new green CLAIM ALL (n) button left of UNLOCK PREMIUM, claims everything waiting (action "ClaimSeason", Cosmetics). The toast says what was claimed. Reaching a tier says "SEASON TIER n! CLAIM IT IN THE SEASON PASS".
 - A locked premium card now opens the premium purchase when tapped.
