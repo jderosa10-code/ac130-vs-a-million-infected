@@ -13,7 +13,8 @@ Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and 
 - Mobile: the presents chip sits under the kills tally at the tally's scale (was a fixed big size); the present markers scale with the screen (about half on a phone). The hub's side tiles (SHOP, SEASON, DAILY, INVITE, DEAL) hang from just under the rank card on touch screens instead of being centred low by PLAY (GunshipUI fitScreens).
 - NORTH POLE map card decorated (new LocalScript NorthPoleCard): candy-cane border, snow cap, a string of lights that twinkle when it's picked, falling snow, EVENT tag (COMING SOON while Christmas is held back).
 - Tested in Studio (DebugNoSave on): daily panel on join, shop cards, MAX OUT button, map card, COMING SOON, aircraft bay without the sleigh, hangar without the stand/booth, a lobby test run with the UNLIMITED AMMO tile, Weapons.tryFire with and without UnlimitedAmmo (300->300 vs 300->280). No script errors. Not tested on a phone.
-- All 4 places match (scripts 704c2aaa8e9b28fd), GameVersion 0.19.13, saved. Shop cards copied to all 4 StarterGui.ShopUI.
+- Fix: after PLAY AGAIN, a copy of your aircraft stayed in the sky for the whole next run. The fly-home shot was still posing the results formation when the next run started, so it was rebuilt after it had been cleared. GunshipClient `poseFleet` now does nothing once the results are over (State isn't Debrief). Tested: give up, PLAY AGAIN, no leftover plane.
+- All 4 places match (scripts 4486210cc9a47a25), GameVersion 0.19.13, saved. Shop cards copied to all 4 StarterGui.ShopUI.
 
 ## 0.19.12 — Santa's sleigh guns rebuilt in detail
 - The sleigh's guns (`Models.SLEIGH.Guns`, and the copy on the lobby SleighStand) are rebuilt part by part, at the Apache's level of detail, in the sleigh's red / white / gold toy style. 276 parts (was 70). Same places and muzzle points, so rounds still leave the barrels.
