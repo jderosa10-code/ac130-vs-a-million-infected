@@ -14,6 +14,7 @@ Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and 
 - North Pole's parked SleighDisplay swapped for the new model; North Pole also got Jacob's Claude's analytics (Funnels, Analytics, AnalyticsClient, Remotes.Track) and the latest GemTopUp.
 - Tested in Studio on North Pole: legs swing (0.4-0.5 rad in 0.12 s), all three weapons fire from the run (HUD counts down), presents / candy rockets / snowballs drawn as models with their trails (shot close up from a fixed camera with FX sent from the server). One test run was lost by mistake and ended (a few gems to pigeon's save).
 - All 4 places match (fingerprint 4f0b875f88bbc257, includes 0.19.2 analytics), GameVersion 0.19.3, saved.
+- Studs on every face of the sleigh (another of pigeon's sessions): all 6 surfaces of every Models.SLEIGH part are Studs except the 2 Neon parts and the invisible Root (298 of 301), in all 4 places and on North Pole's SleighDisplay; re-applied in Downtown / Sand Dunes after the 0.19.3 copy. Copy the sleigh from the lobby from now on so the studs stay. (Models aren't in the fingerprint, so it's unchanged.)
 
 ## 0.19.2 — Analytics: funnels, economy, progression
 - 16 funnels (Onboarding + Run, Shop, FirstBuy, GemTopUp, DebriefPass, DailyDeal, BattleOffer, StreakOffer, SecondChance, Season, Ranks, Aircraft, Armory, Mechanic, Daily), gem economy sources/sinks with reasons, progression (Rank, BestWave, Strike) and custom events (RunEnded, RunGems, RobuxPurchase, PurchaseCancelled...). Custom fields on everything: place, detail, rank band.
