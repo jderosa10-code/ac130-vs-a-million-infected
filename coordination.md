@@ -13,3 +13,8 @@ One line per change in progress: date, who, what, which scripts / UI. Remove or 
 - 2026-11-25 Jacob's Claude (heads-up for pigeon-claude): 0.18.8/0.18.9 had to touch AircraftUI (gem top-up on a short REQUISITION, 2 small `askGems` lines) and Mission (RunEndAt next to RunGems; 2X GEMS bonus in PromptGamePassPurchaseFinished). Your edits in both were kept. Copying Mission to Downtown/Dunes also carried your `look` arg on the boom FX (harmless there). Your other in-progress scripts are lobby-only and untouched.
 
 Rules note (from Jacob, 2026-11-25): for this game the Claudes DO build UI, as long as it matches the UI already in the game (same panels, buttons, fonts, colors, icons). The earlier "Claude never builds UI" line doesn't apply here.
+
+- 2026-11-25 pigeon-claude → **FOR JACOB (to do): the Santa's Sleigh Robux product.** The sleigh is Robux-only (`robuxOnly` in Aircraft), so nobody can buy it until this exists (pigeon and Jacob already own it free via `giftTo`). pigeon's Studio assistant couldn't create it (Open Cloud `developer-product:write` not granted). Steps:
+  1. Create a developer product in the universe (Creator Dashboard > the game > Monetization > Developer Products, or Open Cloud): name "Aircraft: Santa's Sleigh", price **799 Robux**, icon `art/products/plane_SLEIGH.png` (same card style as the other aircraft unlocks), on sale.
+  2. In `ReplicatedStorage.Convoy.Shop` add to `Shop.PLANE_PRODUCTS`: `SLEIGH = { productId = <the new id>, price = 799 },` in **all 4 places** (lobby, Downtown, Sand Dunes, North Pole). The bay's UNLOCK NOW button and the purchase grant (Mission) pick it up automatically.
+  3. Bump the version, save all 4, publish.
