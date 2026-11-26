@@ -2,10 +2,10 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
-## 0.19.9 — Sleigh display rebuilt: flying, in our style
+## 0.19.10 — Sleigh display rebuilt: flying, in our style
 - Hangar SleighStand (lobby) rebuilt in the game's own look, modelled on Survive a Million Monkeys' weapon displays: three stepped tiers (weld-plate base with a hazard band, studded middle, glossy black deck) with glowing red neon edges, red / green / white base lights (the twinkling Bulbs), two deck spotlights, a red glow under the sleigh, and a dark weld backboard with a red neon frame and light strips; the SANTA'S SLEIGH sign sits on the board in Oswald. Removed: the cloud, its snow and sparkle emitters, the presents, candy-cane lamps and chains. Old stand kept in ServerStorage.SleighStand_Backup_0198.
 - The sleigh flies free (no podium): a wave rolls back through the reindeer team (each deer rises a beat ahead of the one behind, nose up on the way up; traces and reins follow) and the sleigh rides it, banking and drifting. ReindeerGallop: sleigh attributes WaveA / WaveW / WaveK switch the wave on (only this stand has them; every other sleigh is unchanged). SleighStand moves the sleigh with the same wave.
-- All 4 places (scripts), GameVersion 0.19.9.
+- All 4 places (scripts), GameVersion 0.19.10.
 
 ## 0.19.9 — Santa's sleigh stand in the lobby, sleigh is a 599 Robux game pass, aircraft camera can't get stuck
 - The sleigh is now sold as GAME PASS 2101997395 (599 Robux) instead of a developer product: new `Shop.PLANE_PASSES` (`SLEIGH = { passId, price }`). Mission grants it when the profile loads (UserOwnsGamePassAsync) and the moment it's bought (PromptGamePassPurchaseFinished: owned, equipped, saved). In the aircraft bay a Robux-only aircraft now shows UNLOCK WITH ROBUX on the big button (was a dead grey "ROBUX ONLY") and both it and UNLOCK NOW prompt the pass with its live price; its list row reads ROBUX.

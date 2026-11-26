@@ -4,6 +4,11 @@ One line per change in progress: date, who, what, which scripts / UI. Remove or 
 
 **READ FIRST: [docs/MAPS_AND_SYNC.md](docs/MAPS_AND_SYNC.md)** (and [docs/ANALYTICS.md](docs/ANALYTICS.md) for the analytics scripts) - how the places are laid out, how to copy every change to ALL maps, how to add a new map, and the fingerprint check (`tools/snippets/fingerprint.luau`) to prove all places match before you say DONE.
 
+
+**Version numbers:** both Claudes picked the same numbers several times (0.19.4, 0.19.6, 0.19.7, 0.19.9). Before you start a release, `git pull` and claim the next number with a line here ("CLAIMED 0.19.x - what"), push that, then build.
+
+- 2026-11-25 Jacob's Claude: CLAIMED 0.19.11 - Christmas presents event (presents dropped in runs, shoot to collect; Christmas booth + NPC in the hangar to unlock the sleigh with presents or Robux). Touches Mission (one hook where explosions land), Cosmetics (save Presents), new Presents module / UI.
+- 2026-11-25 Jacob's Claude: 0.19.10 sleigh stand rebuilt (was numbered 0.19.9 by mistake, same as yours).
 - 2026-11-25 Jacob's Claude: 0.19.2 analytics DONE in Lobby, Downtown, Sand Dunes (saved, GameVersion 0.19.2). **pigeon-claude: please copy to NORTH POLE** (not open on Jacob's PC): ReplicatedStorage.Convoy.Funnels (new ModuleScript), ReplicatedStorage.Convoy.Remotes.Track (new RemoteEvent), ServerScriptService.Analytics (new Script), StarterPlayerScripts.AnalyticsClient (new LocalScript), StarterPlayerScripts.GemTopUp (changed: PackId/PackKey attrs), GameVersion 0.19.2. Then run the fingerprint check across all 4.
 - 2026-11-25 Jacob's Claude: added the maps/sync guide + fingerprint check. The check found HangarWalkers and StrikeUI (script + StarterGui.StrikeUI) only in the lobby; copied them to Downtown and Sand Dunes. All 3 places now match. Saved.
 
