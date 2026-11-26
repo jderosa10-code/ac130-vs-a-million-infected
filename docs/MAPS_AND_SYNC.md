@@ -105,7 +105,7 @@ If you can't reach a place (it isn't open in Studio, or the copy fails), say so 
 
 ## 4. Rules everyone follows
 
-- Studio playtests save to the **real** DataStore. Never change saved player data in a playtest. Use client-only previews, or the Studio-only debug attributes: `DebugPad` on the player, `DebugStrikeTier` on workspace.
+- Studio playtests save to the **real** DataStore. Never change saved player data in a playtest. Use client-only previews, or the Studio-only debug attributes: `DebugPad` on the player, `DebugStrikeTier` on workspace. For a full test run, set `DebugNoSave = true` on ReplicatedStorage.Convoy from the server at the start of the play session: nothing saves while it's on.
 - UI: for this game Claude builds UI, but it must match the UI already in the game: same panels, buttons, fonts, colours and icons. Reuse or clone existing UI where you can.
 - Don't make your own character rigs. Use rigs Jacob adds, or toolbox ones.
 - Never use Roblox's default sparkle particle texture. Never put "Nzo" in a name.
