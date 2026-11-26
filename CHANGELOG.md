@@ -2,6 +2,20 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.19.14 — Phone and iPad hub layout
+- Phones, hangar hub: less cluttered and the move stick is free.
+  - The settings gear and CODES sit in the top right instead of next to Roblox's buttons (CODES covered the gem counter). In a run the gear goes back to the left, where the HUD keeps room for it (TopbarIcons, CodesUI: TopbarPlus `align`).
+  - SHOP / SEASON / FREE are one smaller row under the rank card; DAILY / INVITE / DEAL a column from just under the gear and CODES, above Roblox's jump button (GunshipUI fitScreens `rowTiles`; PHONE_K Side 0.7, SideRight 0.85).
+  - AIRCRAFT / PLAY / RANKS stay centred, a bit narrower, so AIRCRAFT clears the move stick and RANKS the jump button.
+  - The hub fits itself again whenever our top-bar icons change size (they load after GunshipUI, and CODES hides in the aircraft). Before, the gem counter sat under CODES until something else made it re-fit.
+- Phones: the aircraft bay's BACK / EQUIP / NEXT bar is bigger (PHONE_K Controls 0.62 to 0.85; EQUIP was hard to read).
+- Phones: the CREATE LOBBY panel (pads) is smaller and sits under the top bar (PadHUD; it was at least 0.7 scale and ran up under Roblox's buttons). Still the main thing on screen.
+- iPad / tablets: the hangar screens are 25% bigger (the HUD keeps its own TABLET_HUD_K), except the hub's AIRCRAFT / PLAY / RANKS bar (bigger ran into the move stick). SHOP / SEASON / FREE sit a little further down from the rank card.
+- PC unchanged.
+- Heads-up: GunshipUI's main chunk is at Luau's 200-locals limit. Two new top-level locals broke it ("Out of local registers") during this work; new helpers have to go inside functions (or use attributes).
+- Tested in Studio's device emulator (DebugNoSave on): iPhone 13, iPhone 7, iPad 9th gen. Hub, daily panel, free reward, CREATE LOBBY on a pad, aircraft bay, a solo run's HUD (stopped before the end). No script errors. Not tested on a real phone.
+- All 4 places match (fingerprint 78a4aea0cedcc5e9, includes Jacob's price changes), GameVersion 0.19.14, saved.
+
 ## 0.19.13 — Daily drop every join, Unlimited Ammo, Max Out, No Civ Hits, Christmas held back
 - **Christmas switch** (new `Convoy.Presents.LIVE`, now **false**): the Christmas update is held back for launch. While off: no presents (drops, HUD chip, daily rewards: `Presents.active()`); the NORTH POLE card on the CREATE LOBBY panel says COMING SOON and can't be picked, and `Places.mapPlace` sends a North Pole crew to Downtown (`Places.soon`); Santa's sleigh is out of the aircraft bay, the free picks and the flyovers (`Aircraft.LIST` filters `christmas = true` aircraft; new `Aircraft.ALL` keeps them for saves via `A.join`, `Aircraft.shown(id)`; Mission won't equip / buy a hidden one and resets an equipped one to the AC-130); the lobby hangar's SleighStand and SANTA'S WORKSHOP booth are moved to ServerStorage.ChristmasHeldBack as the server starts (new Script `ConvoyServer.ChristmasSwitch`). Set `LIVE = true` to launch it. The sleigh's game pass (2101997395) is still on sale on the store page.
 - **Daily supply drop**: opens every time you join the hangar (not on a new player's tutorial visit; back from a run only when a drop is waiting). New rewards: two weeks that take turns (`Shop.DAILY_WEEKS`, by UTC week) of gems, run boosts (2X CASH, 2X GEMS, FREE NUKE, UNLIMITED AMMO: `Boost_<id>`), and presents during the Christmas event (gems otherwise). `Shop.dailyFor` / `Shop.dailyLook`; Mission ClaimDaily grants them; DailyUI cards show each day's icon, amount and unit.
