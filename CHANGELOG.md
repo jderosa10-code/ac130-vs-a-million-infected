@@ -2,6 +2,11 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.19.4 — The sleigh free for the devs, product thumbnail ready
+- Aircraft `giftTo`: user ids that own an aircraft for free, added on every profile load (Mission, next to the Studio / group-owner grant). SLEIGH: pigeon (bmasterdevil, 89199750) and Jacob (BING_CHILLING2525, 4263620304), so both can test the Robux sleigh in the live game once this is published. Done in code, not by editing saves: the live game's old code doesn't know SLEIGH and would drop it from a save the next time either of them plays.
+- Robux product NOT created yet: the Studio assistant doesn't have the `developer-product:write` Open Cloud scope (Assistant MCP Permissions). Thumbnail ready: art/products/plane_SLEIGH.png (same card style as the others). Plan: "Aircraft: Santa's Sleigh", 799 R$, then `SLEIGH = { productId = <id>, price = 799 }` in Shop.PLANE_PRODUCTS in all 4 places.
+- All 4 places match (fingerprint bc166a8888bc9f28), GameVersion 0.19.4, saved.
+
 ## 0.19.3 — SANTA'S SLEIGH reworked: present cannon, galloping reindeer, Robux-only and OP
 - **Back of the sleigh rebuilt** (Models.SLEIGH): the ball sack, the loose gift cubes, the snowball cannon and the present rack under the floor are gone. Now a fat red PRESENT CANNON with gold bands on a gold swivel sits on the back (a wrapped present peeking out of the muzzle), CANDY CANE ROCKET pods hang low on both sides, a neat stack of five wrapped presents with ribbons and bows sits in front of the seat, and the side miniguns have icy snowball barrels.
 - **The reindeer gallop**: new LocalScript StarterPlayerScripts.ReindeerGallop. Every leg / hoof of the sleigh is tagged `ReindeerLeg` with its rest pose and hip point (attributes); wherever a sleigh is in the workspace (aircraft bay, hangar, lobby flyover, wingmen, results backdrop, the parked one on North Pole) the legs swing about their hips, front and back pairs opposite, each reindeer a little out of step. Works on scaled copies. Skipped beyond 900 studs from the camera.
