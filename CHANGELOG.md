@@ -2,6 +2,11 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.19.2 — Analytics: funnels, economy, progression
+- 16 funnels (Onboarding + Run, Shop, FirstBuy, GemTopUp, DebriefPass, DailyDeal, BattleOffer, StreakOffer, SecondChance, Season, Ranks, Aircraft, Armory, Mechanic, Daily), gem economy sources/sinks with reasons, progression (Rank, BestWave, Strike) and custom events (RunEnded, RunGems, RobuxPurchase, PurchaseCancelled...). Custom fields on everything: place, detail, rank band.
+- New: ReplicatedStorage.Convoy.Funnels, Remotes.Track, ServerScriptService.Analytics, StarterPlayerScripts.AnalyticsClient. They only watch (attributes, purchase prompts, existing UI); no other script calls them. GemTopUp sets PackId/PackKey on its gui for them.
+- Guide: docs/ANALYTICS.md. Studio check: workspace attribute DebugAnalytics = true prints every event.
+
 ## 0.19.1 — NORTH POLE is a different kind of map: a Christmas village
 - Was still the Sand Dunes shape (a bunker dug into a hill, infected coming over open ground). Now it's a **street-type map** like Downtown (DMZ has no `Map` attribute any more; `Weather = "Snow"` stays): a small snowy village on the street grid the infected walk (streets at -150 / 0 / 150 both ways through the bunker), flat snow (ground 4.0) out to ~600, then hills and tall mountains past the blizzard (tools/north_pole_terrain.luau).
 - The bunker is **Santa's Workshop** in the town square (Bunker, Center 0,2,0, 38 x 38 like Downtown's): red hall with white bands, a big double door with a wreath on each of the 4 sides, candy-cane corner posts, glowing windows, a stepped snowy roof with a glowing strip round every tier, smoking chimney, big star, "SANTA'S WORKSHOP" sign. The infected walk in down the streets and crowd round it; losing plays the street-map cutscene (the workshop blows up, the camera orbits over the lit village).
