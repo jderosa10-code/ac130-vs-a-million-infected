@@ -2,6 +2,10 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.18.8 — Gem top-up popup
+- When a gem buy comes up short (armory upgrade, aircraft, tracer, A-10 / F-15 strike), a NEED MORE GEMS popup now shows the smallest gem pack that covers the gap ("COVERS IT, WITH 260 TO SPARE"), with a GET IT Robux button and SEE ALL GEM PACKS (opens the shop on the gem packs from any screen). It closes by itself once you have enough. Never shows during a run.
+- New: LocalScript GemTopUp + StarterGui.GemTopUpUI (copy of the Mechanic's panel). `Shop.bestPack(short)` and `Shop.askGems(need, what)` in Convoy.Shop; call `askGems` from any new gem purchase. GunshipUI's OpenScreen can now open the Shop from any screen. Uses the existing gem pack products (no new products).
+
 ## 0.18.7 — Sand Dunes: no more doubled ground
 - The sand looked like a second copy of the map lying on top and shifting as the helicopter moved: Roblox swaps far terrain for lower-detail versions, and with sharp little bumps the versions don't line up. The terrain heightfield is smoothed (Gaussian, 12 studs in the play area, 36 studs out past the fog; the bunker, its dune face and the tunnel untouched), so the detail levels match. Largest change 10 studs; 13 props re-seated. Checked at graphics level 3 from the Apache.
 - Backup of the old terrain: ServerStorage.DunesTerrain_Backup_0186 (a TerrainRegion; PasteRegion it back at cell -256,-64,-256 to undo).
