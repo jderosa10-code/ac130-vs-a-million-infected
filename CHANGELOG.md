@@ -2,6 +2,10 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.19.17 — SPIN chest on the gem bar
+- The SUPPLY CRATE's SPIN tile is off the hub's side column (it crowded phones: SHOP / SEASON / FREE are back to three). The crate now opens from a small chest button on the right end of the gem bar (GunshipUI_Template Menu.Top.Crate, the old tile made square, no label): red dot when a free spin is ready or spins are saved, and a little shake every 3 s while there is (CrateUI). Every device, one place everyone looks.
+- Checked: iPhone 13 emulator (tap opens the crate) and PC. All 4 places match (fingerprint 226ca6c6d98e6c1c), GameVersion 0.19.17, saved. Patch: tools/snippets/spin_chest_0_19_17.luau.
+
 ## 0.19.16 — Store items live, tap to fire, phone markers fixed, boosts kept on test flights
 - **Store items made** (Open Cloud, from Studio): developer products Crew 2X Gems 3736707225 (99), Crew 2X Cash 3736707227 (49), Supply Crate: 1 Spin 3736707234 (25), Supply Crate: 5 Spins 3736707292 (99); game pass VIP 2099382685 (249). Ids are in Shop (`BATTLE.CrewGems / CrewCash`, `CRATE.PACKS`, the Pass_VIPGold entry), so the crew-boost tile and offer, the crate's Robux buttons and the VIP card are live.
 - **Test flights keep your boosts**: a run starting uses up one of each saved boost (2X CASH / 2X GEMS / FREE NUKE / UNLIMITED AMMO), and test flights did too (a 2X CASH from the crate went into one). `Cosmetics.runStart` now uses none on a test flight. Tested: Boost_Cash 2 before and during a test flight.
