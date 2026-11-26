@@ -2,6 +2,11 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.18.9 — 2X GEMS offer on the debrief
+- Players without 2X GEMS see a strip above GEMS EARNED on the debrief: "2X GEMS PASS // COUNTS THIS RUN TOO  +170 MORE GEMS" with the live price. Tapping it prompts the pass.
+- Buy it within 5 minutes of the run ending (Shop.PASS_BONUS_WINDOW) and the server doubles that run's gems too (Mission, PromptGamePassPurchaseFinished; once per run via RunBonusAt). The strip turns green: "+170 BONUS GEMS ADDED" and the GEMS EARNED card updates.
+- New: LocalScript GemsUpsell (builds the strip in code from the debrief card style). Mission now sets RunEndAt next to RunGems.
+
 ## 0.18.8 — Gem top-up popup
 - When a gem buy comes up short (armory upgrade, aircraft, tracer, A-10 / F-15 strike), a NEED MORE GEMS popup now shows the smallest gem pack that covers the gap ("COVERS IT, WITH 260 TO SPARE"), with a GET IT Robux button and SEE ALL GEM PACKS (opens the shop on the gem packs from any screen). It closes by itself once you have enough. Never shows during a run.
 - New: LocalScript GemTopUp + StarterGui.GemTopUpUI (copy of the Mechanic's panel). `Shop.bestPack(short)` and `Shop.askGems(need, what)` in Convoy.Shop; call `askGems` from any new gem purchase. GunshipUI's OpenScreen can now open the Shop from any screen. Uses the existing gem pack products (no new products).
