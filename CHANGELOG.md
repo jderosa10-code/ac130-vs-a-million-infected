@@ -2,6 +2,10 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.18.6 — Cooler tracers
+- Each tracer now has its own trail in a run (Tracers `fx`, drawn by FXLib in the tracer's colour so it shows through the thermal sensor, capped at 260 sparks): CRIMSON hot embers falling off, COBALT electric crackle, GOLD glitter that hangs in the air, PLASMA fat pulsing blobs and a pulsing beam, EMBER rising licks of fire, VOID dark motes spiralling round the line.
+- New shop / season art for each (art/tracers/make_tracer_cards.py): a glowing round with a white-hot core and its trail style (`image` on each tracer; the old tinted line is the fallback). Tracer card art is a bit bigger.
+
 ## 0.18.5 — Pick your strike, Mechanic idle, visible strikes, target boxes
 - Mechanic panel: no more ticks. Every strike you own says EQUIP (tap the card to use it); the one in use says EQUIPPED; the next one's card buys it (same as the button). Player attribute `StrikeEquip` (saved), action `EquipStrike` (Cosmetics, checked against StrikeTier); buying a new one equips it. Mission flies the equipped one; the bay, the F card's name and photo follow it.
 - HUD F card photo fixed: the photos are whole images, so the icon-sheet crop (ImageRectSize) is cleared for them and put back for artillery.
