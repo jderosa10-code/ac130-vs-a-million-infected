@@ -2,6 +2,15 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.19.12 — Santa's sleigh guns rebuilt in detail
+- The sleigh's guns (`Models.SLEIGH.Guns`, and the copy on the lobby SleighStand) are rebuilt part by part, at the Apache's level of detail, in the sleigh's red / white / gold toy style. 276 parts (was 70). Same places and muzzle points, so rounds still leave the barrels.
+  - CANDY CANE MINIGUNS: a real six-barrel cluster round a spindle, every barrel red / white with the stripes offset barrel to barrel (a candy-cane twist), dark bores, gold muzzle and mid clamps, a rotor, a gunmetal receiver with gold trim, a red drive motor, back plate with spade grips and trigger, a gold mount plate bolted to the sleigh's side, a feed chute with a red / white ammo belt up to a present ammo box on the side rail, holly and berries on the receiver and a jingle bell under the barrels.
+  - CANDY CANE ROCKETS: Apache-style pods (same part names: RocketPod, PodRim, PodFace, PodTube, PodTail) with spiral red stripes, a gold rim, a dark face with seven launch tubes and red / white rocket noses in them, a tail cone with a gold cap and a gold pylon.
+  - PRESENT CANNON: a red jacket and white tube with spiral red stripes, gold bands, a gold muzzle brake with vents, a present loaded in the bore, a breech block with lever, twin recoil buffers, a trunnion in a gold yoke on a turntable, a side sight with an icy lens, and a bow on top.
+- Every gun part carries attribute `GunSlot` (25mm / 40mm / 105mm). GunSwap now swaps only the parts tagged with the gun being upgraded (before, any sleigh upgrade swapped all three guns at once). Other aircraft are unchanged.
+- Builder script kept in `tools/sleigh_guns.luau` (run it in a place to rebuild the guns on the template and on the lobby stand).
+- All 4 places match (scripts 8a8a9f71b7b1498a, sleigh guns 5c431cc1b479dd6c, on top of Jacob's 0.19.11), GameVersion 0.19.12, saved.
+
 ## 0.19.11 — Christmas presents event: shoot presents, unlock Santa's sleigh
 - In runs (not the tutorial) gift boxes drop on open ground around the bunker: one every 8 s, up to 4 at a time, each lasts 25 s. Small = 1 present, Big = 3, Gold = 10 (rare). Shoot one (any blast that lands on it) and it's yours: confetti pop and "+N PRESENTS" over the spot. Config: new `Convoy.Presents` (COST 250, ENDS 31 Dec 2026). Server: new `ConvoyServer.PresentDrops` (spawns, hits, unlock). Mission's `explode` calls `PresentDrops.hit`; Cosmetics loads / saves `data.Presents` (player attribute Presents) and inits it.
 - New LocalScript PresentsClient: each present gets a see-through-walls glow, a coloured light beam to the sky, a present icon over it, bobs and spins, blinks before it vanishes. HUD chip PRESENTS (new StarterGui.PresentsHUD, a one-row copy of the kills tally) under the tally during runs, with a +N pop.
