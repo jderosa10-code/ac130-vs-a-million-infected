@@ -49,6 +49,7 @@ Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and 
 - **Gun upgrades 30% cheaper in gems**: new `Upgrades.GEM_COST_SCALE = 0.7` multiplies every gun's base in `Upgrades.cost` (25mm now 110 / 320 / 610 / 960 / 1,380; 105mm 280 / 850 / 1,620 / 2,570 / 3,680). Used everywhere the gem price is read (GunshipUI, Mission, MaxOutUI, Cosmetics refund, DailyUI).
 - **MAX OUT a bit cheaper**: 79 / 149 / 299 / 499 R$ (was 99 / 199 / 399 / 699) and the gem bands scaled with the new prices (`upTo` 2,100 / 4,900 / 10,500). The four dev products' prices have to be changed on the Creator Hub to match (Open Cloud only takes form uploads for products).
 - Fix: the MAX OUT button twitched when hovered near its edge (it grew 5%, the mouse fell inside / outside the grown edge, it shrank, repeat). MaxOutUI now works out hover from the button's normal-size spot each frame and eases the grow. Tested in Downtown: hovered 1.236 -> 1.298 steady; 13 px below the normal bottom edge stays 1.236.
+- Removed the Studio-only TRACER SHOWCASE (STUDIO) button: LocalScript StarterPlayerScripts.TracerShowcase deleted in all 4 places (it only ran in Studio; live players never saw it).
 - All 4 places match (scripts incl. ReplicatedFirst b7b5df9a2785860b), GameVersion 0.19.13, saved. Shop cards copied to all 4 StarterGui.ShopUI.
 
 ## 0.19.12 — Santa's sleigh guns rebuilt in detail
