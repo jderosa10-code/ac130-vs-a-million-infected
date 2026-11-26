@@ -14,6 +14,10 @@ Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and 
 - B-52 B61 nukes now kill every infected on the map, wherever they're aimed (was: an 85-stud circle). Bosses still take a quarter of their health and burrowed infected are still safe underground, same as the NUKE ability. Card text: "EACH ONE CLEARS THE WHOLE MAP".
 - All 4 places (incl. Christmas Town), GameVersion 0.19.6 (built on 0.19.5: its sleigh, sound and Chinook changes are kept).
 
+## 0.19.6 — Sleigh minigun back to red and white candy-cane rounds
+- pigeon liked the red / white rounds: the sleigh's 25mm is CANDY CANE MINIGUNS again (look `candycane`: every round red or white, tinted so it stays coloured through the thermal sensor, glitter sparks), icon ammo_candycane. It keeps 0.19.5's numbers (x2.2 blast growing with upgrades, x2.0 damage) and the sleigh-bell / jingle sounds (ConvoyAudio `candycane`); its hits get a red and white ring (FXLib boom) and draw up to 12 studs.
+- All 4 places match (fingerprint 6381811888c7bb0c), GameVersion 0.19.6, saved.
+
 ## 0.19.5 — Sleigh even stronger with Christmas sounds, galloping team, minigun / Chinook splash, darker North Pole
 - **Santa's sleigh, more OP** (Aircraft): SNOWBALL MINIGUNS blast x2.2 (was 1.3) and the blast now grows with upgrades (`splashUp` 0.12: +12% per upgrade level, +6% per run tier; Mission applyGun) and x2.0 damage; CANDY CANE ROCKETS x1.8 blast, x1.8 damage, 32 a load, 0.12 s, 3.5 s reload; PRESENT CANNON x2.0 blast, x2.2 damage, 8 a load, 0.4 s, 4 s reload. Perk now +50% vs Brutes and bosses and 25% faster reloads (plus +50% gems, +30% cash). The snowball minigun's blasts are drawn up to 12 studs (other guns' 25mm pops stay capped at 5).
 - **Christmas sounds** (new Convoy.Sounds Xmas_SleighBells 6974173557, Xmas_Jingle 116968929570638, Xmas_HoHoHo 138079767, Xmas_Chime 99980076888596; free Creator Store audio, all load in Studio): the snowball minigun opens with sleigh bells and jingles now and then over a soft buzz; the present cannon fires with a bright chime and a soft thump, and Santa's "Ho Ho Ho!" at the start of a salvo (at most every 6 s).
