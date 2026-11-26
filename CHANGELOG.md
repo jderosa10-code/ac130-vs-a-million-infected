@@ -2,6 +2,12 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.19.9 — Santa's sleigh stand in the lobby, sleigh is a 599 Robux game pass, aircraft camera can't get stuck
+- The sleigh is now sold as GAME PASS 2101997395 (599 Robux) instead of a developer product: new `Shop.PLANE_PASSES` (`SLEIGH = { passId, price }`). Mission grants it when the profile loads (UserOwnsGamePassAsync) and the moment it's bought (PromptGamePassPurchaseFinished: owned, equipped, saved). In the aircraft bay a Robux-only aircraft now shows UNLOCK WITH ROBUX on the big button (was a dead grey "ROBUX ONLY") and both it and UNLOCK NOW prompt the pass with its live price; its list row reads ROBUX.
+- Lobby: SANTA'S SLEIGH promo stand right behind the spawn, between the SHOP and RANKS booths (`Workspace.DMZ.Hangar.SleighStand`, lobby only). Red stadium stage with a gold neon band, a snowy studded top and twinkling coloured bulbs, piles of the sleigh's own present rounds, four candy-cane lamp posts spotlighting the sleigh, the full sleigh hovering and swaying over it (reindeer galloping, gold sparkles off the runners), a little snow cloud that snows only over the sleigh, a hanging SANTA'S SLEIGH banner (both sides) and a kiosk at the front with the price and a prompt: UNLOCK (prompts the pass) / EQUIP / EQUIPPED. New LocalScript StarterPlayerScripts.SleighStand drives it (does nothing in places without the stand).
+- Fix: the aircraft camera could get stuck so only side to side worked (reported after switching aircraft, cleared up a while later). Panning the sensor past the point under your own aircraft spun the view round 180 and swapped forward / back, so the aim bounced under the aircraft until the orbit carried it away; the low fliers (AC-47, Huey, Apache, Chinook, Harrier) hit it easily. GunshipClient now keeps the aim point at least a steep look-down in front of the aircraft. All aircraft, keys, sticks and touch drag.
+- All 4 places match (fingerprint cf8fe5bea83fa66d, includes Jacob's 0.19.8), GameVersion 0.19.9, saved.
+
 ## 0.19.8 — Better alert badges on the hub tiles
 - The red "!" dots on SEASON and DAILY are now square badges in the game's style (like the shop / DEAL ribbons): red plate, dark miter edge, lit top half, stroked text. They pop in when they turn on, breathe, and give a small shake every few seconds (new LocalScript BadgePulse).
 - The SEASON badge shows how many rewards are waiting to claim (1-9, then 9+) instead of "!".
