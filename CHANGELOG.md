@@ -2,6 +2,13 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.19.7 — Season rewards are claimed
+- Season pass rewards no longer arrive by themselves: reaching a tier (or buying premium) makes them wait. Waiting cards glow green with "TAP TO CLAIM"; tapping one, or the new green CLAIM ALL (n) button left of UNLOCK PREMIUM, claims everything waiting (action "ClaimSeason", Cosmetics). The toast says what was claimed. Reaching a tier says "SEASON TIER n! CLAIM IT IN THE SEASON PASS".
+- A locked premium card now opens the premium purchase when tapped.
+- The hub's SEASON tile red dot now means "rewards waiting to claim".
+- SeasonFree / SeasonPrem are now "tiers claimed"; old saves already had everything reached handed out, so nothing is lost. CLAIM ALL is built in code from the premium button (SeasonUI).
+- All 4 places, GameVersion 0.19.7.
+
 ## 0.19.6 — Your own kill count; B-52 nukes clear the map
 - The HUD's KILLS tally, the kill-streak callouts and the debrief's INFECTED KILLED now show each gunner's own kills, not the crew's total (Mission sets player attribute LiveKills in onKills, reset on joinCrew; GunshipUI reads it; the debrief uses RunKills). Shared Kills is still the crew total for everything else.
 - B-52 B61 nukes now kill every infected on the map, wherever they're aimed (was: an 85-stud circle). Bosses still take a quarter of their health and burrowed infected are still safe underground, same as the NUKE ability. Card text: "EACH ONE CLEARS THE WHOLE MAP".
