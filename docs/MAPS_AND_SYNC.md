@@ -13,7 +13,7 @@ One universe (10777953252, group "Hanger 9") with one place per job:
 | Lobby / hangar | 108596658459731 | The start place: the hangar, crews, shop, ranks, aircraft, mechanic. Its Workspace also has the Downtown map, so Studio's "Deploy" works here. **This is the script master.** |
 | Downtown | 70728469839345 | The city map |
 | Sand Dunes | 88208849422941 | The desert map (night, fog ring, terrain dunes) |
-| North Pole | 134466727053055 | The Christmas map (night, snow valley, candy-cane bunker; a copy of Sand Dunes, `Map = "Dunes"` behaviour, `Weather = "Snow"`) |
+| North Pole | 134466727053055 | The Christmas map: a street-type snowy village (like Downtown, no `Map` attribute), Santa's Workshop is the bunker, `Weather = "Snow"` |
 
 The ids live in `ReplicatedStorage.Convoy.Places`.
 
