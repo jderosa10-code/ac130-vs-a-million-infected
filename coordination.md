@@ -2,6 +2,10 @@
 
 One line per change in progress: date, who, what, which scripts / UI. Remove or mark DONE when it's released.
 
+**READ FIRST: [docs/MAPS_AND_SYNC.md](docs/MAPS_AND_SYNC.md)** - how the places are laid out, how to copy every change to ALL maps, how to add a new map, and the fingerprint check (`tools/snippets/fingerprint.luau`) to prove all places match before you say DONE.
+
+- 2026-11-25 Jacob's Claude: added the maps/sync guide + fingerprint check. The check found HangarWalkers and StrikeUI (script + StarterGui.StrikeUI) only in the lobby; copied them to Downtown and Sand Dunes. All 3 places now match. Saved.
+
 - 2026-11-25 pigeon-claude (Jacob's friend): 0.18.3 RELOAD ALL above gun 1 + quicker aircraft bay. DONE in all 3 places (Jacob's Claude copied GunshipUI, AircraftBay, the ReloadAll button and GameVersion 0.18.3 to Sand Dunes and saved it).
 - 2026-11-25 pigeon-claude: 0.18.4 taller RELOAD ALL + offer card moves above it (BattleOffers). DONE in all 3 places, saved.
 
