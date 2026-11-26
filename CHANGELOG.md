@@ -9,6 +9,10 @@ Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and 
 - SeasonFree / SeasonPrem are now "tiers claimed"; old saves already had everything reached handed out, so nothing is lost. CLAIM ALL is built in code from the premium button (SeasonUI).
 - All 4 places, GameVersion 0.19.7.
 
+## 0.19.7 — Santa's sleigh barely overheats
+- Two of its guns had no heat settings of their own and took the AC-130 slot's: the CANDY CANE ROCKETS the Bofors' 0.06 a shot (overheated ~16 rockets into a 32 load), the PRESENT CANNON the howitzer's 0.18 a shot with a 25 s cool-down (overheated after ~5). Now: candy-cane miniguns 0.003 a shot, CoolTau 2 (about 15 s of nonstop fire, was ~6); rockets 0.012, CoolTau 2.5, no jams (a full load never overheats); present cannon 0.04, CoolTau 4.
+- All 4 places match (fingerprint cde621f288c7a0f9), GameVersion 0.19.7, saved.
+
 ## 0.19.6 — Your own kill count; B-52 nukes clear the map
 - The HUD's KILLS tally, the kill-streak callouts and the debrief's INFECTED KILLED now show each gunner's own kills, not the crew's total (Mission sets player attribute LiveKills in onKills, reset on joinCrew; GunshipUI reads it; the debrief uses RunKills). Shared Kills is still the crew total for everything else.
 - B-52 B61 nukes now kill every infected on the map, wherever they're aimed (was: an 85-stud circle). Bosses still take a quarter of their health and burrowed infected are still safe underground, same as the NUKE ability. Card text: "EACH ONE CLEARS THE WHOLE MAP".
