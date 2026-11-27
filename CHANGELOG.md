@@ -2,6 +2,11 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.19.23 — Lobby pads closed while the host sets up
+- While someone is on a CREATE LOBBY pad's setup panel (before they confirm), nobody else can step into that pad: they're put back off it with "<HOST> IS SETTING UP THIS LOBBY. WAIT A SEC". The pad glows amber while it's being set up (closed), green once it's open (Lobbies `tickPad` / `signPad`). Once the host confirms, people step in and join as before.
+- Tested in Studio (one player, DebugNoSave on): stepping in opens setup and the pad goes amber with SETTING UP...; PadReady turns it green. The second-player push-off couldn't be tested with one player in Studio.
+- All 4 places match (104 scripts, per-script check), GameVersion 0.19.23, saved. Needs a publish.
+
 ## 0.19.22 — Range shots from the aircraft, land round the range, one free crate spin, civilians clear of hordes, gem bar sizes
 - **Test range shots come from your aircraft**: the server fires from the orbit round the "bunker" point, which the range had moved behind the firing line (330 studs off), so rounds came from empty sky. On the range the bunker point is now the range's middle (the orbit centre) and nothing "arrives" there (ARRIVE_RADIUS 0, back to normal after). Mission.
 - **No map edges from the range**: Workspace.TestRange.Land: ground tiles out to about 6,000 studs, 40 low hills, 150 rocks, 70 scrub clumps (436 parts, same seed in all 4). tools/test_range.luau.
