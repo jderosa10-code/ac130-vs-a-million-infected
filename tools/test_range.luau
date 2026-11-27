@@ -205,5 +205,39 @@ for _, c in ipairs({ { -360, -360 }, { 360, -360 }, { -360, 360 }, { 360, 360 } 
 	part("Lamp", Vector3.new(10, 2.5, 5), at(c[1], 46, c[2]), Color3.fromRGB(255, 232, 170), Enum.Material.Neon, edge)
 end
 
+-- (0.19.22) the land all round, so no edge is ever in view: ground tiles out to ~6,000 studs, low hills, rocks, scrub
+local land = folder("Land")
+local TILE = 2048 -- (a part's largest size)
+for ix = -3, 2 do
+	for iz = -3, 2 do
+		part("Ground", Vector3.new(TILE, 2, TILE), at(ix * TILE + TILE / 2, -1.4, iz * TILE + TILE / 2), Color3.fromRGB(86, 82, 66), Enum.Material.Ground, land)
+	end
+end
+local lr = Random.new(22)
+local function around(minR, maxR)
+	local a = lr:NextNumber(0, math.pi * 2)
+	local r = lr:NextNumber(minR, maxR)
+	return math.cos(a) * r, math.sin(a) * r
+end
+for _ = 1, 40 do
+	local x, z = around(900, 4200)
+	local w = lr:NextNumber(120, 380)
+	local h = part("Hill", Vector3.new(w, lr:NextNumber(10, 34), w * lr:NextNumber(0.5, 1)), at(x, 0, z) * CFrame.Angles(0, lr:NextNumber(0, 3.14), 0), Color3.fromRGB(96, 90, 70):Lerp(Color3.fromRGB(70, 74, 56), lr:NextNumber()), Enum.Material.Ground, land)
+	h.TopSurface = Enum.SurfaceType.Studs
+end
+for _ = 1, 150 do
+	local x, z = around(440, 2600)
+	local s = lr:NextNumber(5, 16)
+	local r = part("Rock", Vector3.new(s, s * lr:NextNumber(0.4, 0.8), s * lr:NextNumber(0.6, 1.2)), at(x, s * 0.2, z) * CFrame.Angles(lr:NextNumber(-0.3, 0.3), lr:NextNumber(0, 3.14), lr:NextNumber(-0.3, 0.3)), Color3.fromRGB(112, 108, 98):Lerp(Color3.fromRGB(84, 76, 64), lr:NextNumber()), Enum.Material.Slate, land)
+	r.CastShadow = s > 10
+end
+for _ = 1, 70 do
+	local x, z = around(440, 2200)
+	for k = 1, 3 do
+		local b = part("Scrub", Vector3.new(4, 3, 4) * lr:NextNumber(0.7, 1.4), at(x + lr:NextNumber(-4, 4), 1.4, z + lr:NextNumber(-4, 4)) * CFrame.Angles(0, lr:NextNumber(0, 3.14), 0), Color3.fromRGB(78, 92, 52):Lerp(Color3.fromRGB(104, 96, 60), lr:NextNumber()), Enum.Material.Grass, land)
+		b.CastShadow = false
+	end
+end
+
 range.Parent = workspace
 return "TestRange built at " .. tostring(C) .. ", " .. count .. " parts"
