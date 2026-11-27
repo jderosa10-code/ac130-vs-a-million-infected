@@ -2,6 +2,15 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.19.39 — Analytics funnels remade: a Tutorial funnel, clearer Onboarding
+- **New Tutorial funnel** (one per tutorial played, all logged by the server from Mission runTutorial): Tutorial Started › Heard The Briefing › First Zombies Spawned › First Kill › Wave 1 Cleared (25mm) › Wave 2 Cleared (25mm) › 40mm Wave Cleared › Gun Upgraded › Bunker Repaired › Brute Wave Cleared › 105mm Bomber Wave Cleared › Boss Appeared › Held Off The Horde › Nuke Dropped › Survivors Rescued › Tutorial Complete. Detail field (CustomField02): wave steps say Cleared / TimedOut; upgrade, repair and nuke say Self / Auto (did the player do it, or did the tutorial do it for them). LEAVE TUTORIAL logs a TutorialLeft custom event with the last beat reached.
+- **Onboarding funnel reordered** to the order a new player really goes, with readable titles: Joined Game › Save Loaded › Tutorial Started › Tutorial First Kill › Tutorial Gun Upgraded › Tutorial Boss Appeared › Tutorial Finished › Hangar Menu Shown › Pressed PLAY › Picked Create or Join › First Real Run Started › First Real Run Kill › First Run Reached Wave 5 › First Run Ended › Debrief Button Pressed › Second Run Started › Opened Armory › First Gem Upgrade › Opened Aircraft › First Aircraft Unlocked › Reached Wave 10 › First Robux Purchase. Before, "RunStarted / FirstKill / Wave2 / Wave5" were really the tutorial and "RunEnded" never fired for it.
+- The tutorial no longer counts in the Run funnel or the "first real run" steps (AnalyticsClient skips runs with Convoy.Tutorial).
+- Funnels entries take a `title` (what the dashboard shows); ServerScriptService.Analytics has a `Step` BindableEvent other server scripts can fire (player, funnel, step, detail).
+- Note: the dashboard will mix the old and new Onboarding step names for a while (step numbers changed).
+- Tested in Studio: a full tutorial logged all 16 Tutorial steps and the 5 tutorial Onboarding steps, then Hangar Menu Shown. No script errors.
+- All 4 places match (132 scripts), GameVersion 0.19.39, saved. Needs a publish.
+
 ## 0.19.38 — Season XP bar, season XP on the results screen, better supply crate
 - **Season pass XP bar** (SeasonUI): TIER 9 on the left, "80 / 100 XP › TIER 10" on the right, a 520-wide bar under them (yellow gradient fill, a tick every 10%, eases when XP changes), then the ENDS IN line. MAXED fills it.
 - **Results screen**: a SEASON XP strip above the results row when the run paid season XP (Cosmetics.runEnd's SeasonGain): "+45", the tier and XP, and the bar filling from before to after; crossing a tier shows "TIER UP!  TIER 10" in green with a click, then the new tier's bar. Built by SeasonUI into GunshipUI.Debrief (GunshipUI itself is at the local limit), sized with the results row's AutoScale.
