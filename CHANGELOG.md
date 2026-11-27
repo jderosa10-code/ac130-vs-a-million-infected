@@ -2,6 +2,11 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.19.20 — Gem bar and chest bigger on phones, chest lined up
+- The chest on the gem bar now lines up with the whole bar, striped top included (62 x 62 from the top of the stripe; it started 6 px lower).
+- Phones: the gem bar and its chest are 20% bigger (GunshipUI PHONE_K Top = 1.2).
+- All 4 places, GameVersion 0.19.20, saved. Checked in the iPhone 13 emulator.
+
 ## 0.19.19 — Phone tile row as wide as the rank card, "!" on the chest
 - Phones: SHOP / SEASON / FREE are exactly as wide as the rank card above them and lined up with it (they were a narrower row: one looked bigger than the other). GunshipUI fitScreens.
 - The chest on the gem bar always has its red "!" (CrateUI); it still shakes only when a spin is ready.
