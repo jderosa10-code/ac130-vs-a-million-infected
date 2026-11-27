@@ -2,6 +2,12 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.19.37 — Tutorial radio box shows the controls
+- Garmin's radio box (tutorial) has a row of key chips in its empty bottom space: the controls for what he's asking, matched to the device. Always FIRE / AIM / ZOOM (+ RELOAD off touch); SWITCH GUN, UPGRADE GUN, REPAIR or NUKE ALL added (highlighted yellow) when the line asks for it; FIRE highlighted on "weapons free" / "keep" lines. Keyboard: LEFT MOUSE, W A S D, SCROLL, 1 / 2 / 3, CLICK ▲, C, V, R. Controller: RT, STICKS, LT, RB / LB, B, D-PAD LEFT, Y, X. Touch: AUTO, DRAG, PINCH, TAP A GUN, TAP ▲, TAP.
+- GunshipUI: the line area is 68 tall (was 96) and the chips sit under it. Built inside its own task.spawn function and fed through the radio's "KeysFor" attribute: GunshipUI is at Luau's 200-local limit, any new top-level local breaks the whole script.
+- Tested in Studio (Replay Tutorial): "Weapons free." shows LEFT MOUSE FIRE (yellow), W A S D AIM, SCROLL ZOOM, R RELOAD under the line. No script errors.
+- All 4 places match (107 scripts), GameVersion 0.19.37, saved. Needs a publish.
+
 ## 0.19.36 — NAPALM FLARES icon
 - New ammo icon for the AC-47's NAPALM FLARES: two silver napalm canisters with orange bands, built from parts and photographed in Studio against a magenta backdrop, keyed out, with the same cream glow as the other ammo icons (art/ammo/ammo_napalm.png; decal 97059226419356, image 109028986299792). Icons `ammo_napalm` (whole image); Aircraft AC47 flare `icon = "ammo_napalm"` (was the MK-82's). Checked on the run HUD card.
 - All 4 places match (107 scripts), GameVersion 0.19.36, saved. Needs a publish.
