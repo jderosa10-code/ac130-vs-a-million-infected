@@ -2,6 +2,11 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.19.19 — Phone tile row as wide as the rank card, "!" on the chest
+- Phones: SHOP / SEASON / FREE are exactly as wide as the rank card above them and lined up with it (they were a narrower row: one looked bigger than the other). GunshipUI fitScreens.
+- The chest on the gem bar always has its red "!" (CrateUI); it still shakes only when a spin is ready.
+- All 4 places, GameVersion 0.19.19, saved. Patch: tools/snippets/hub_row_0_19_19.luau. Checked in the iPhone 13 emulator (rank card and row both 231 px from x 16).
+
 ## 0.19.18 — SPIN chest the same size as the gem bar
 - The chest on the gem bar (Menu.Top.Crate) is now exactly the gem bar's height and lined up with it (56 x 56 at the bar's top, was 64 tall and stuck out above and below). Template only. All 4 places, GameVersion 0.19.18, saved.
 
