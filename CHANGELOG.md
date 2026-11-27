@@ -2,6 +2,12 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.19.31 — Crewmates' guns are faint
+- **Cause**: every crew's shots go out to the clients tagged `"gunship"`, and each player's ConvoyAudio treated any `"gunship"` shot as its own gun: in your head, full volume. So in a 4-player crew you heard four sets of guns as loud as your own.
+- **Fix**: Ballistics now adds who fired (UserId) to the `"shot"` FX. ConvoyAudio (`onShot` wrapper around the old one, now `playShot`): your shots are unchanged; a crewmate's play from their aircraft (the gunner's flat mix, a little muffled) at `MATE.gain` 0.3, with no echo / brass tails. FXLib ignores the extra value.
+- Measured in Studio (same shot sent as yours and as a crewmate's 150 studs away): 25mm 1.12 / 0.95 yours vs 0.38 / 0.33 theirs; 105mm 2.20 vs 0.53. Real firing still plays at full volume as your own. Not tested with a second real player (Studio has one).
+- Patch: `tools/snippets/mate_shots_0_19_31.luau` (Ballistics, ConvoyAudio). All 4 places match (dc135051e017ab2c), GameVersion 0.19.31, saved. Needs a publish.
+
 ## 0.19.30 — Console (controller) gaps closed
 - Audit: every menu panel already had controller support (ConsoleNav / PadNav: a button selected when it opens, D-pad / stick moves, A presses, B closes; checked live with the daily popup, CREATE LOBBY and Settings). The gaps were the screens that pop up in a run, plus the pad bar:
 - **SECOND CHANCE** (bunker fell / too many civilian hits) had no controller path: nothing was selected, so a pad player couldn't press KEEP GOING. Now KEEP GOING is selected the moment it opens (A buys it). BattleOffers names it `SecondChance`, ConsoleNav treats it as a panel (`extraPanel`).
