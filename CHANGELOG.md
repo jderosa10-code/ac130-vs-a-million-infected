@@ -2,6 +2,11 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.19.27 — CREATE LOBBY panel no longer opens hidden behind popups
+- Bug: stepping onto a lobby pad sometimes showed no CREATE LOBBY panel (live game and Studio). The server did start the setup, but the panel (StarterGui.PadSetup, DisplayOrder 8) drew under ten popups: Daily 9, Crate 9, Codes 9, Free Reward 9, Season 10, Strike 10, Deal 11, Gem top-up 12, Presents 12, Free Plane 60. The daily popup opens by itself when you join (in Studio every playtest, saves are off), so walking straight to a pad put the panel behind it; your character is frozen while it's open, and 15 s later the server stepped you off with "TOOK TOO LONG".
+- PadSetup and the pad crew bar (PadHUD) are now DisplayOrder 13: above every popup except Free Plane (and toasts). Tested in Studio: daily popup up, step onto a pad, the CREATE LOBBY panel opens on top with its countdown.
+- All 4 places, GameVersion 0.19.27, saved. (0.19.26 is Jacob's Claude's, claimed at the same time.)
+
 ## 0.19.25 — Test range HUD, UNLIMITED AMMO switch, hold a finger down to fire
 - **Hold to fire (phones / tablets)**: a finger put down on open screen fires straight away and keeps firing while it's held, aimed at the finger, just like holding FIRE (each gun at its own rate and reloads). Moving it past a few pixels turns it into a drag that slews the sensor (firing stops); two fingers are a pinch; a quick tap still fires for a moment. A flown aircraft's stick (left 45%) never fires. Convoy.Aim. Tested in the iPhone emulator: held 2 s = 25 rounds of 25mm, stops on release.
 - **TEST RANGE title no longer flickers**: GunshipUI's top bar rewrote "WAVE 1" every time the zombie count changed and TestFlightUI put TEST RANGE back the next frame. refreshTop now writes TEST RANGE itself and hides AUTO-SKIP and NEXT BOSS on a test flight.
