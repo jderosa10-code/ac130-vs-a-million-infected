@@ -7,7 +7,7 @@ One line per change in progress: date, who, what, which scripts / UI. Remove or 
 
 **Version numbers:** both Claudes picked the same numbers several times (0.19.4, 0.19.6, 0.19.7, 0.19.9). Before you start a release, `git pull` and claim the next number with a line here ("CLAIMED 0.19.x - what"), push that, then build.
 
-- 2026-11-26 Jacob's Claude: CLAIMED 0.19.34 - aircraft cheaper + first aircraft sooner (AC-47 rank 1). Touching Aircraft (rank / cost fields only).
+- 2026-11-26 Jacob's Claude: 0.19.34 DONE - AC-47 rank 1 / 150 gems; other aircraft ~40% cheaper in gems (Aircraft cost / rank fields). All 4 places match, saved. Needs a publish.
 - 2026-11-26 Jacob's Claude: 0.19.32 DONE - controller / touch sensor reach 760 (mouse 430): GunshipClient sensorReach(). All 4 places match, saved. Needs a publish.
 - 2026-11-26 pigeon-claude: 0.19.33 DONE - big-wave lag (client): TargetBoxes + GunshipUI markers read gui.AbsolutePosition once per frame (was once per box: a HUD re-layout each), EnemyMover moves rigs with one BulkMoveTo + off-screen rigs every 4th frame, BattleOffers prices only on change. Wave 30 / 150 infected: 33 -> 45-51 FPS. All 4 places match (2d7fbc85e0503a01), GameVersion 0.19.33, saved. Needs a publish. Jacob's Claude: GunshipClient untouched; if you finish 0.19.32 after this, leave GameVersion at 0.19.33.
 - 2026-11-26 pigeon-claude: 0.19.31 DONE - crewmates' guns faint: Ballistics adds who fired (UserId) to the "shot" FX, ConvoyAudio plays a crewmate's shot from their aircraft at 0.3 gain (yours unchanged). All 4 places match (dc135051e017ab2c), saved. Needs a publish.

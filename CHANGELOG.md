@@ -2,6 +2,11 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.19.34 — First aircraft sooner, every aircraft cheaper
+- AC-47: unlocks at rank 1 (PRIVATE, was rank 2) for 150 gems (was 300): the first new aircraft after one promotion.
+- Gem prices about 40% lower: UH-1 350 (was 600), MQ-9 550 (900), AV-8B 750 (1,200), AH-64 1,000 (1,600), CH-47 1,500 (2,400), B-52 2,200 (3,500). Rank needed for the others unchanged. Robux UNLOCK NOW prices unchanged (Creator Hub products).
+- Aircraft (rank / cost fields only). All 4 places match (106 scripts), GameVersion 0.19.34, saved. Needs a publish.
+
 ## 0.19.33 — Less lag in big waves (client)
 - **Measured** (Studio, Downtown, `DebugStartWave` 30 Hardcore, 150 infected on screen): 60 FPS at wave 1 fell to **33 FPS**; client scripts 33% of a core. The server was fine (0.21 ms a tick, 34 kbps): this was the players' frame rate, not server lag.
 - **TargetBoxes** (16% of a core): read `gui.AbsolutePosition` inside its loop right after moving the previous box, so the whole HUD was re-laid-out once per infected, every frame. Now read once per frame. GunshipUI's friendly markers / bunker box / crosshair had the same pattern (`markers.o`, set once per frame in GunshipMarkers; `worldToGui` uses it).
