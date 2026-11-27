@@ -7,7 +7,7 @@ One line per change in progress: date, who, what, which scripts / UI. Remove or 
 
 **Version numbers:** both Claudes picked the same numbers several times (0.19.4, 0.19.6, 0.19.7, 0.19.9). Before you start a release, `git pull` and claim the next number with a line here ("CLAIMED 0.19.x - what"), push that, then build.
 
-- 2026-11-26 Jacob's Claude: CLAIMED 0.19.24 - controls never got turned off in runs / menus (GunshipClient looked for PlayerModule in PlayerScripts; it's in StarterPlayer now), so WASD walked the hidden body off the underground floor and it died (health bar). Touching GunshipClient (one lookup).
+- 2026-11-26 Jacob's Claude: 0.19.24 DONE - walking controls now really turn off in runs / menus (GunshipClient: PlayerModule is in StarterPlayer now, new ControlModule.Enabled API). Fixes the hidden body walking off its floor and dying (health bar). All 4 places match, saved. Needs a publish.
 - 2026-11-26 Jacob's Claude: 0.19.23 DONE - lobby pads closed (amber, push-off + notice) while the host is on the CREATE LOBBY panel. Lobbies only. All 4 places match, saved. Needs a publish.
 - 2026-11-26 pigeon-claude: 0.19.22 DONE - test range shots from the aircraft + land all round it (Mission, TestRange.Land), one free crate spin then Robux (Crate, CrateUI), civilians kept clear of hordes (Mission), gem image smaller / gem bar bigger on phones. All 4 places match (df940fc1d9bc2090), saved. Needs a publish.
 

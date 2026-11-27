@@ -2,6 +2,12 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.19.24 — Fix: hidden body walking off its floor in runs (Roblox health bar showing)
+- Bug: in a run the Roblox health bar sometimes popped up top right, as if you'd died. Your avatar waits on a hidden 80x80 floor 76 studs under the map (MapSpawn / SpawnFloor at about 3820, -76, 150) while the camera is on the aircraft. Holding WASD / the thumbstick to steer the view also walked that body around; steer long enough and it walked off the floor, fell and died.
+- Cause: GunshipClient turns your walking controls off whenever you're not on foot (runs, cutscenes, the hangar's LOBBY / AIRCRAFT / WEAPONS screens), but it looked for Roblox's PlayerModule in PlayerScripts. Roblox now loads it from StarterPlayer with a new API (`ControlModule.Enabled`), so it was never found and the controls were never turned off. Now it looks in both places and uses `ControlModule.Enabled` (falls back to the old GetControls() Enable / Disable).
+- Tested in Studio (DebugNoSave on): Downtown run, W+D held 6 s: body didn't move (before the fix it walked about 100 studs and off the floor); A still turns the camera. Lobby hangar: S walks normally.
+- All 4 places match (104 scripts), GameVersion 0.19.24, saved. Needs a publish.
+
 ## 0.19.23 — Lobby pads closed while the host sets up
 - While someone is on a CREATE LOBBY pad's setup panel (before they confirm), nobody else can step into that pad: they're put back off it with "<HOST> IS SETTING UP THIS LOBBY. WAIT A SEC". The pad glows amber while it's being set up (closed), green once it's open (Lobbies `tickPad` / `signPad`). Once the host confirms, people step in and join as before.
 - Tested in Studio (one player, DebugNoSave on): stepping in opens setup and the pad goes amber with SETTING UP...; PadReady turns it green. The second-player push-off couldn't be tested with one player in Studio.
