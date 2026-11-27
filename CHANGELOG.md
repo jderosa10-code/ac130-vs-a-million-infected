@@ -2,6 +2,13 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.19.38 — Season XP bar, season XP on the results screen, better supply crate
+- **Season pass XP bar** (SeasonUI): TIER 9 on the left, "80 / 100 XP › TIER 10" on the right, a 520-wide bar under them (yellow gradient fill, a tick every 10%, eases when XP changes), then the ENDS IN line. MAXED fills it.
+- **Results screen**: a SEASON XP strip above the results row when the run paid season XP (Cosmetics.runEnd's SeasonGain): "+45", the tier and XP, and the bar filling from before to after; crossing a tier shows "TIER UP!  TIER 10" in green with a click, then the new tier's bar. Built by SeasonUI into GunshipUI.Debrief (GunshipUI itself is at the local limit), sized with the results row's AutoScale.
+- **Supply crate** (Shop.CRATE, same odds): common prizes a little smaller, rare ones much bigger: 60 gems (was 100), 200 gems (300), 2X CASH 1 run, 2X GEMS 2 runs (1), FREE NUKE 3 runs (1), UNLIMITED AMMO 3 runs (1), 10,000 gems (2,500). Spin prices 19 / 79 R$ (were 25 / 99): the products 3736707234 / 3736707292 need those prices set on the Creator Hub; the panel shows Roblox's live price.
+- Tested in Studio: the pass bar at tier 9 (80/100), the results strip with +45 crossing into tier 10, the crate's new cards. No script errors.
+- All 4 places match (107 scripts), GameVersion 0.19.38, saved. Needs a publish.
+
 ## 0.19.37 — Tutorial radio box shows the controls
 - Garmin's radio box (tutorial) has a row of key chips in its empty bottom space: the controls for what he's asking, matched to the device. Always FIRE / AIM / ZOOM (+ RELOAD off touch); SWITCH GUN, UPGRADE GUN, REPAIR or NUKE ALL added (highlighted yellow) when the line asks for it; FIRE highlighted on "weapons free" / "keep" lines. Keyboard: LEFT MOUSE, W A S D, SCROLL, 1 / 2 / 3, CLICK ▲, C, V, R. Controller: RT, STICKS, LT, RB / LB, B, D-PAD LEFT, Y, X. Touch: AUTO, DRAG, PINCH, TAP A GUN, TAP ▲, TAP.
 - GunshipUI: the line area is 68 tall (was 96) and the chips sit under it. Built inside its own task.spawn function and fed through the radio's "KeysFor" attribute: GunshipUI is at Luau's 200-local limit, any new top-level local breaks the whole script.
