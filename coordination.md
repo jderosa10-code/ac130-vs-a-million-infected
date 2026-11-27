@@ -7,7 +7,7 @@ One line per change in progress: date, who, what, which scripts / UI. Remove or 
 
 **Version numbers:** both Claudes picked the same numbers several times (0.19.4, 0.19.6, 0.19.7, 0.19.9). Before you start a release, `git pull` and claim the next number with a line here ("CLAIMED 0.19.x - what"), push that, then build.
 
-- 2026-11-26 pigeon-claude: CLAIMED 0.19.22 - civilians kept clear of hordes (Mission: spawnPointAwayFrom, spawnGroup, stepActors, the civ spawn in runMission).
+- 2026-11-26 pigeon-claude: 0.19.22 DONE - test range shots from the aircraft + land all round it (Mission, TestRange.Land), one free crate spin then Robux (Crate, CrateUI), civilians kept clear of hordes (Mission), gem image smaller / gem bar bigger on phones. All 4 places match (df940fc1d9bc2090), saved. Needs a publish.
 
 - 2026-11-26 pigeon-claude: 0.19.21 DONE - TEST FLIGHT flies over a new shooting range (Workspace.TestRange in all 4, tools/test_range.luau; Mission test loop, GunshipUI, TestFlightUI) + SUPPLY CRATE case-opening reel (CrateUI, StarterGui.CrateUI.Panel.Reel, Crate PAY_AFTER 5). All 4 places match (e6ed5173d9b4c477), saved. Needs a publish.
 - 2026-11-26 pigeon-claude: 0.19.20 DONE - gem bar + chest 20% bigger on phones, chest lined up with the bar's stripe. All 4 places, saved. Needs a publish.
