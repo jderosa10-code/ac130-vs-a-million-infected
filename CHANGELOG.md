@@ -2,6 +2,9 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.19.18 — SPIN chest the same size as the gem bar
+- The chest on the gem bar (Menu.Top.Crate) is now exactly the gem bar's height and lined up with it (56 x 56 at the bar's top, was 64 tall and stuck out above and below). Template only. All 4 places, GameVersion 0.19.18, saved.
+
 ## 0.19.17 — SPIN chest on the gem bar
 - The SUPPLY CRATE's SPIN tile is off the hub's side column (it crowded phones: SHOP / SEASON / FREE are back to three). The crate now opens from a small chest button on the right end of the gem bar (GunshipUI_Template Menu.Top.Crate, the old tile made square, no label): red dot when a free spin is ready or spins are saved, and a little shake every 3 s while there is (CrateUI). Every device, one place everyone looks.
 - Checked: iPhone 13 emulator (tap opens the crate) and PC. All 4 places match (fingerprint 226ca6c6d98e6c1c), GameVersion 0.19.17, saved. Patch: tools/snippets/spin_chest_0_19_17.luau.

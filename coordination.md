@@ -7,6 +7,7 @@ One line per change in progress: date, who, what, which scripts / UI. Remove or 
 
 **Version numbers:** both Claudes picked the same numbers several times (0.19.4, 0.19.6, 0.19.7, 0.19.9). Before you start a release, `git pull` and claim the next number with a line here ("CLAIMED 0.19.x - what"), push that, then build.
 
+- 2026-11-26 pigeon-claude: 0.19.18 DONE - gem bar chest (Menu.Top.Crate) resized to the bar's height, all 4 places, saved. Needs a publish.
 - 2026-11-26 pigeon-claude: 0.19.17 DONE - SPIN tile moved off the side column to a chest button on the gem bar (Menu.Top.Crate) + CrateUI. All 4 places match (226ca6c6d98e6c1c), saved. Needs a publish.
 
 - 2026-11-26 pigeon-claude: 0.19.16 DONE - store items made and wired (Crew 2X Gems 3736707225, Crew 2X Cash 3736707227, Crate 1 Spin 3736707234, Crate 5 Spins 3736707292, VIP pass 2099382685), Cosmetics.runStart uses no boosts on a test flight, tap to fire on touch (Convoy.Aim + GunshipClient fire check), bunker box hugs the bunker + all HUD markers use the GUI offset (notch phones) in GunshipUI / TargetBoxes. All 4 places match (e2b1edc3d995e84c), saved. Needs a publish.
