@@ -2,6 +2,11 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.19.21 — TEST FLIGHT on a shooting range, SUPPLY CRATE reel
+- **TEST RANGE**: a test flight now flies over its own shooting range instead of the city (no bunker, no waves, no civilians). Workspace.TestRange, built by tools/test_range.luau 5,000 studs north of each map's bunker (empty ground in all 4): a studded concrete pad with 5 lanes, divider walls with hazard caps, 100M-500M lines, ring targets on posts, wrecked trucks and barrels, a red firing line with sandbags, TEST RANGE painted on the ground, a control tower with flags, berms and corner light masts (495 instances, parts only). Infected walk down the lanes and are topped up (28 at a time) as they're shot or reach the firing line. Unlimited ammo and $20,000 to try the tiers and abilities; ends on EXIT TEST FLIGHT. Mission (the test run's own loop; the "bunker" point goes behind the firing line and back to HOME after), GunshipUI (no BUNKER box there), TestFlightUI (the HUD reads TEST RANGE, no NEXT BOSS strip, no bunker bar; back afterwards). Tested in Studio: AH-64 and AC-130 on the range, kills and cash count, EXIT back to the hangar with everything restored, a normal run afterwards over the city.
+- **SUPPLY CRATE reel**: spinning now rolls a case-opening strip of prize cards past a gold marker (StarterGui.CrateUI.Panel.Reel), slowing down over 4.3 s with a tick per card. Cards are edged by rarity (gems grey, 2X boosts blue, free nuke / unlimited ammo purple, the jackpot gold); the win pops and glows, rare ones flash, the 2,500 jackpot rains confetti. Prize paid 5 s after the spin (Crate PAY_AFTER), as the reel stops.
+- Patches: tools/snippets/test_range_0_19_21.luau, tools/snippets/crate_reel_0_19_21.luau. All 4 places match (fingerprint e6ed5173d9b4c477), GameVersion 0.19.21, saved. A real test-flight teleport to the range needs a publish.
+
 ## 0.19.20 — Gem bar and chest bigger on phones, chest lined up
 - The chest on the gem bar now lines up with the whole bar, striped top included (62 x 62 from the top of the stripe; it started 6 px lower).
 - Phones: the gem bar and its chest are 20% bigger (GunshipUI PHONE_K Top = 1.2).
