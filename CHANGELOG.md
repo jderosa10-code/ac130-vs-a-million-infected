@@ -2,6 +2,15 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.19.33 — Less lag in big waves (client)
+- **Measured** (Studio, Downtown, `DebugStartWave` 30 Hardcore, 150 infected on screen): 60 FPS at wave 1 fell to **33 FPS**; client scripts 33% of a core. The server was fine (0.21 ms a tick, 34 kbps): this was the players' frame rate, not server lag.
+- **TargetBoxes** (16% of a core): read `gui.AbsolutePosition` inside its loop right after moving the previous box, so the whole HUD was re-laid-out once per infected, every frame. Now read once per frame. GunshipUI's friendly markers / bunker box / crosshair had the same pattern (`markers.o`, set once per frame in GunshipMarkers; `worldToGui` uses it).
+- **EnemyMover** (10%): every rig's root is now moved in one `workspace:BulkMoveTo` per frame, and rigs off the screen are moved every 4th frame only.
+- **BattleOffers**: the buy tiles' prices were rewritten every frame (each write also set off RobuxGlyph): now only when they change.
+- **After**: wave 30, 150 infected: **45-51 FPS** (was 33), client scripts 19-21% (was 33%). What's left is mostly Roblox moving / drawing the rigs: 4,100 parts in 150 rigs; **Brutes are 67 parts each** (23 of them = 37% of all rig parts). Fewer parts in the Brute (and Runner, 22) models is the next step if big waves still feel heavy.
+- Not changed: the hangar (47 FPS in Studio: weld sparks, OutsideLife vehicles, 109 lights / 12 with shadows).
+- Patch: `tools/snippets/wave_lag_0_19_33.luau` (TargetBoxes, GunshipUI, EnemyMover, BattleOffers). All 4 places match (2d7fbc85e0503a01), GameVersion 0.19.33, saved. Needs a publish.
+
 ## 0.19.32 — Controllers and phones can look further out
 - On Xbox (and phones) you couldn't look far out toward the horizon. With a mouse the crosshair follows the cursor anywhere on screen, but on a controller / touch the crosshair is fixed in the middle, so the only way to aim further is to steer the sensor, and that was capped at 430 studs from the bunker (about a 20 degree look-down at most). GunshipClient `sensorReach()`: 760 studs on a controller or touch, 430 with a mouse (both pan caps).
 - Tested in Studio, Downtown run with the controller layout (DebugPad): holding forward reaches ~730 studs out, a ~9 degree look-down (close to the horizon); switching back to the mouse layout snaps back to 430. No script errors.
