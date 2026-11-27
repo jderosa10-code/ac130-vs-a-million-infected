@@ -7,6 +7,7 @@ One line per change in progress: date, who, what, which scripts / UI. Remove or 
 
 **Version numbers:** both Claudes picked the same numbers several times (0.19.4, 0.19.6, 0.19.7, 0.19.9). Before you start a release, `git pull` and claim the next number with a line here ("CLAIMED 0.19.x - what"), push that, then build.
 
+- 2026-11-27 Jacob's Claude: CLAIMED 0.19.36 - napalm flares icon (Icons ammo_napalm, Aircraft AC47 flare icon).
 - 2026-11-26 Jacob's Claude: 0.19.35 DONE - AC-47 NAPALM FLARES (40mm slot, gun `flare`): Aircraft, Mission fireGunship flare branch + armor rule, new LocalScript NapalmFX. All 4 places match, saved. Needs a publish.
 - 2026-11-26 Jacob's Claude: 0.19.34 DONE - AC-47 rank 1 / 150 gems; other aircraft ~40% cheaper in gems (Aircraft cost / rank fields). All 4 places match, saved. Needs a publish.
 - 2026-11-26 Jacob's Claude: 0.19.32 DONE - controller / touch sensor reach 760 (mouse 430): GunshipClient sensorReach(). All 4 places match, saved. Needs a publish.
