@@ -2,6 +2,14 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.19.35 — AC-47: NAPALM FLARES
+- The AC-47 gets a second weapon (key 2 / its 40mm slot): **NAPALM FLARES**. A burning flare drops out of the gunship, opens a small parachute and drifts down onto where you aimed (1.6 s), bursts (a 40mm-strength blast, radius 0.6 R), then the ground burns in a circle (R = 18 studs, grows with the 40mm blast-radius upgrades / tiers) for 7 s: every zombie in it takes 1 damage every 0.5 s (bosses half). The lingering fire skips civilians; the burst counts like any explosive. 3 flares a load, 1.1 s apart, 7 s reload; free from the start of a run.
+- Server: Mission fireGunship `gdef.flare` branch (FX "flaredrop" at, landTime, R, from, burnEnd). The AC-47 still counts as minigun-only for the armor rule (its miniguns chip armor from the start).
+- Client: new LocalScript **NapalmFX** (flare core + light + chute + smoke trail; the burn: 16 flame emitters over the circle, a smoke column, a flickering orange light). Only the game's own particle textures (Config.TEXTURES Flame / Smoke). Launch sound: Grenade_Launch.
+- Icon: uses the MK-82 bomb icon for now (no flare icon yet).
+- Tested in Studio (Downtown, AC-47, wave 10, DebugNoSave): a flare led ahead of a group killed 5 on the burst and 1 more walking into the fire; the fire draws on the street with its glow; the HUD shows NAPALM FLARES with its 3-round magazine. No script errors.
+- All 4 places match (107 scripts), GameVersion 0.19.35, saved. Needs a publish.
+
 ## 0.19.34 — First aircraft sooner, every aircraft cheaper
 - AC-47: unlocks at rank 1 (PRIVATE, was rank 2) for 150 gems (was 300): the first new aircraft after one promotion.
 - Gem prices about 40% lower: UH-1 350 (was 600), MQ-9 550 (900), AV-8B 750 (1,200), AH-64 1,000 (1,600), CH-47 1,500 (2,400), B-52 2,200 (3,500). Rank needed for the others unchanged. Robux UNLOCK NOW prices unchanged (Creator Hub products).
