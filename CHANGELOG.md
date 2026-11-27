@@ -2,6 +2,15 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.19.25 — Test range HUD, UNLIMITED AMMO switch, hold a finger down to fire
+- **Hold to fire (phones / tablets)**: a finger put down on open screen fires straight away and keeps firing while it's held, aimed at the finger, just like holding FIRE (each gun at its own rate and reloads). Moving it past a few pixels turns it into a drag that slews the sensor (firing stops); two fingers are a pinch; a quick tap still fires for a moment. A flown aircraft's stick (left 45%) never fires. Convoy.Aim. Tested in the iPhone emulator: held 2 s = 25 rounds of 25mm, stops on release.
+- **TEST RANGE title no longer flickers**: GunshipUI's top bar rewrote "WAVE 1" every time the zombie count changed and TestFlightUI put TEST RANGE back the next frame. refreshTop now writes TEST RANGE itself and hides AUTO-SKIP and NEXT BOSS on a test flight.
+- **Range layout**: AUTO-SKIP hidden there (no waves to skip). EXIT TEST FLIGHT moved out of the top bar to sit just above the cash bar (HUD.Bottom.ExitTest, where the bunker bar goes; there's no bunker on the range). On phones the TEST RANGE title moves up level with the cash bar.
+- **UNLIMITED AMMO switch** on the range only, where RELOAD ALL goes above weapon 1 (HUD.Weapons.TestAmmo, RELOAD ALL's bar with the ammo icon): amber ON / dark OFF, starts ON. Server Mission "TestAmmo" (test flights only).
+- **ZOMBIES LEFT readable**: now on a dark plate under the wave box with bigger text (it was 23 px across the whole bar, about 9 px on a phone); phones get bigger text still and the NEXT BOSS strip moves down under it. Every run, not just the range.
+- Shots on the range: checked again in Studio. Server rounds leave from exactly the camera's position (0 studs off) for the AC-130 and the AH-64, the same orbit the client draws.
+- Patch: tools/snippets/range_hud_0_19_25.luau. All 4 places match (fingerprint b8cee6dfd9d501ed), GameVersion 0.19.25, saved.
+
 ## 0.19.24 — Fix: hidden body walking off its floor in runs (Roblox health bar showing)
 - Bug: in a run the Roblox health bar sometimes popped up top right, as if you'd died. Your avatar waits on a hidden 80x80 floor 76 studs under the map (MapSpawn / SpawnFloor at about 3820, -76, 150) while the camera is on the aircraft. Holding WASD / the thumbstick to steer the view also walked that body around; steer long enough and it walked off the floor, fell and died.
 - Cause: GunshipClient turns your walking controls off whenever you're not on foot (runs, cutscenes, the hangar's LOBBY / AIRCRAFT / WEAPONS screens), but it looked for Roblox's PlayerModule in PlayerScripts. Roblox now loads it from StarterPlayer with a new API (`ControlModule.Enabled`), so it was never found and the controls were never turned off. Now it looks in both places and uses `ControlModule.Enabled` (falls back to the old GetControls() Enable / Disable).
