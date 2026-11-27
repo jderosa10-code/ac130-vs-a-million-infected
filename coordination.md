@@ -7,6 +7,7 @@ One line per change in progress: date, who, what, which scripts / UI. Remove or 
 
 **Version numbers:** both Claudes picked the same numbers several times (0.19.4, 0.19.6, 0.19.7, 0.19.9). Before you start a release, `git pull` and claim the next number with a line here ("CLAIMED 0.19.x - what"), push that, then build.
 
+- 2026-11-27 Jacob's Claude: CLAIMED 0.19.37 - tutorial radio box: control keys row in its empty bottom space (GunshipUI radio box only).
 - 2026-11-27 Jacob's Claude: 0.19.36 DONE - napalm flares icon (Icons ammo_napalm 109028986299792, Aircraft AC47). All 4 places match, saved. Needs a publish.
 - 2026-11-26 Jacob's Claude: 0.19.35 DONE - AC-47 NAPALM FLARES (40mm slot, gun `flare`): Aircraft, Mission fireGunship flare branch + armor rule, new LocalScript NapalmFX. All 4 places match, saved. Needs a publish.
 - 2026-11-26 Jacob's Claude: 0.19.34 DONE - AC-47 rank 1 / 150 gems; other aircraft ~40% cheaper in gems (Aircraft cost / rank fields). All 4 places match, saved. Needs a publish.
