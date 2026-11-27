@@ -2,6 +2,10 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.19.36 — NAPALM FLARES icon
+- New ammo icon for the AC-47's NAPALM FLARES: two silver napalm canisters with orange bands, built from parts and photographed in Studio against a magenta backdrop, keyed out, with the same cream glow as the other ammo icons (art/ammo/ammo_napalm.png; decal 97059226419356, image 109028986299792). Icons `ammo_napalm` (whole image); Aircraft AC47 flare `icon = "ammo_napalm"` (was the MK-82's). Checked on the run HUD card.
+- All 4 places match (107 scripts), GameVersion 0.19.36, saved. Needs a publish.
+
 ## 0.19.35 — AC-47: NAPALM FLARES
 - The AC-47 gets a second weapon (key 2 / its 40mm slot): **NAPALM FLARES**. A burning flare drops out of the gunship, opens a small parachute and drifts down onto where you aimed (1.6 s), bursts (a 40mm-strength blast, radius 0.6 R), then the ground burns in a circle (R = 18 studs, grows with the 40mm blast-radius upgrades / tiers) for 7 s: every zombie in it takes 1 damage every 0.5 s (bosses half). The lingering fire skips civilians; the burst counts like any explosive. 3 flares a load, 1.1 s apart, 7 s reload; free from the start of a run.
 - Server: Mission fireGunship `gdef.flare` branch (FX "flaredrop" at, landTime, R, from, burnEnd). The AC-47 still counts as minigun-only for the armor rule (its miniguns chip armor from the start).
