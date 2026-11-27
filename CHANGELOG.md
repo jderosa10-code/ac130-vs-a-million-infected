@@ -2,6 +2,11 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.19.32 — Controllers and phones can look further out
+- On Xbox (and phones) you couldn't look far out toward the horizon. With a mouse the crosshair follows the cursor anywhere on screen, but on a controller / touch the crosshair is fixed in the middle, so the only way to aim further is to steer the sensor, and that was capped at 430 studs from the bunker (about a 20 degree look-down at most). GunshipClient `sensorReach()`: 760 studs on a controller or touch, 430 with a mouse (both pan caps).
+- Tested in Studio, Downtown run with the controller layout (DebugPad): holding forward reaches ~730 studs out, a ~9 degree look-down (close to the horizon); switching back to the mouse layout snaps back to 430. No script errors.
+- All 4 places match (106 scripts), GameVersion 0.19.32, saved. Needs a publish.
+
 ## 0.19.31 — Crewmates' guns are faint
 - **Cause**: every crew's shots go out to the clients tagged `"gunship"`, and each player's ConvoyAudio treated any `"gunship"` shot as its own gun: in your head, full volume. So in a 4-player crew you heard four sets of guns as loud as your own.
 - **Fix**: Ballistics now adds who fired (UserId) to the `"shot"` FX. ConvoyAudio (`onShot` wrapper around the old one, now `playShot`): your shots are unchanged; a crewmate's play from their aircraft (the gunner's flat mix, a little muffled) at `MATE.gain` 0.3, with no echo / brass tails. FXLib ignores the extra value.
