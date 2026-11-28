@@ -2,6 +2,30 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.19.40 — Three weapons on every aircraft, weapon swaps, rank goals in a run
+- **Every aircraft has three weapons**, slot 1 LIGHT, 2 MEDIUM, 3 HEAVY, each one matched to the aircraft (and its model's pylons / pods) and stronger down the list:
+  - AC-47 + FRAG BOMBS (slot 3: 2 a load, 21-stud blast, from under the wings).
+  - UH-1 + TOW MISSILES (slot 3: 2 a load, 23-stud blast, off the pods).
+  - MQ-9 + MINI MISSILES (slot 1: 24 a load, precise, 9-stud blast, x1.6 damage) + GBU-12 LASER BOMBS (slot 2: 6 a load, 18-stud blast, x1.25 damage, from the outer pylons). The Hellfires stay slot 3.
+  - AV-8B + AGM-65 MAVERICKS (slot 2: 4 a load, 19-stud blast, x1.3 damage, from the outer pylons).
+  - CH-47 + HEAVY ROCKET PODS (slot 3: 12 a load, 16-stud blast, from the side pods).
+  - B-52 + M61 TAIL GUN (slot 1, belt-fed, x1.6 damage). Its bomb bay moved to slot 2 and its nukes to slot 3. The bomb bay hits exactly as before: x3 damage and a 2.8 radius in the 40mm slot equal the old 105mm numbers (blast checked: 33.6 studs). B-52 keys are now 1 tail gun, 2 bombs, 3 nukes (were 1 bombs, 2 nukes).
+  - AH-64 and the sleigh already had three. Their weapons are unchanged.
+- **Weapon swaps** (AIRCRAFT screen): the WEAPONS block is now three rows (number, weapon, SWAP), built in StarterGui (GunshipUI_Template.Aircraft.Specs.Loadout + SwapHint). On an aircraft you own, SWAP cycles that slot through the same slot's weapon on every other aircraft you own, then back to its own. Only the same slot, so a nuke can only replace a heavy weapon, never a minigun. One swap per aircraft: swapping another slot puts the first one back. A swapped weapon shows "// B-52" in amber and fires from this aircraft's own mount for that slot.
+  - Aircraft: `gunsOf(planeId, swap)`, `playerGuns(player, run)`, `swapOf` / `setSwap`, `gunName`, `SLOT_NAME`, `STD_GUNS` (the AC-130's own guns as empty entries, so an AC-130 gun can be swapped onto other aircraft).
+  - Mission: Swaps saved on the profile (data.Swaps), new action `SwapGun` (hangar only, both aircraft owned, same slot), RunSwap set at run start (checked against owned aircraft, none in the tutorial). The run's guns are `c.pguns` everywhere `c.plane.guns` was used: applyGun, fireGunship, armor rule, resupply, BuyTier, boom FX look. A swapped-in nuke or flare on the AC-130 uses the standard orbit.
+  - GunshipUI (weapon cards, armory), GunshipClient (send rate) and ConvoyAudio (own weapon sounds) read the swapped guns.
+- Explosives in slot 1 (the MQ-9's mini missiles) aren't bounced by armored zombies like bullets, and show their full blast instead of the bullets' small pop.
+- **RANK GOALS in a run (PC and console)**: a panel at the bottom left of the HUD with your three rank objectives, progress bars, CPL > SGT, and DONE in green. Weapon goals name the weapon in that slot of the aircraft you fly. Real instances in StarterGui (GunshipUI_Template.HUD.RankGoals, AutoScale like the other HUD panels), new LocalScript StarterPlayerScripts.RankGoalsHUD. Hidden on touch screens and in the tutorial.
+- Tested in Studio (lobby run):
+  - B-52 nukes swapped onto the AC-130: the HUD shows B61 NUKES in slot 3 and one shot cleared all 17 zombies.
+  - B-52 slots 1-3 all fire.
+  - MQ-9's mini missiles and laser bombs hit where aimed.
+  - The SWAP rows checked on iPhone 17 Pro; RANK GOALS checked at 1080p.
+  - No script errors.
+- Snippets: tools/snippets/loadout_0_19_40.luau, loadout_ui_0_19_40.luau, rank_goals_0_19_40.luau.
+- Lobby done and saved (v624). Downtown, Sand Dunes and North Pole still to copy.
+
 ## 0.19.39 — Analytics funnels remade: a Tutorial funnel, clearer Onboarding
 - **New Tutorial funnel** (one per tutorial played, all logged by the server from Mission runTutorial): Tutorial Started › Heard The Briefing › First Zombies Spawned › First Kill › Wave 1 Cleared (25mm) › Wave 2 Cleared (25mm) › 40mm Wave Cleared › Gun Upgraded › Bunker Repaired › Brute Wave Cleared › 105mm Bomber Wave Cleared › Boss Appeared › Held Off The Horde › Nuke Dropped › Survivors Rescued › Tutorial Complete. Detail field (CustomField02): wave steps say Cleared / TimedOut; upgrade, repair and nuke say Self / Auto (did the player do it, or did the tutorial do it for them). LEAVE TUTORIAL logs a TutorialLeft custom event with the last beat reached.
 - **Onboarding funnel reordered** to the order a new player really goes, with readable titles: Joined Game › Save Loaded › Tutorial Started › Tutorial First Kill › Tutorial Gun Upgraded › Tutorial Boss Appeared › Tutorial Finished › Hangar Menu Shown › Pressed PLAY › Picked Create or Join › First Real Run Started › First Real Run Kill › First Run Reached Wave 5 › First Run Ended › Debrief Button Pressed › Second Run Started › Opened Armory › First Gem Upgrade › Opened Aircraft › First Aircraft Unlocked › Reached Wave 10 › First Robux Purchase. Before, "RunStarted / FirstKill / Wave2 / Wave5" were really the tutorial and "RunEnded" never fired for it.
