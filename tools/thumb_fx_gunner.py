@@ -189,7 +189,7 @@ bright = np.clip(im - 0.72, 0, 1) * 2.4
 im = screen(im, cv2.GaussianBlur(bright, (0, 0), 16) * 0.5)
 
 # soft focus toward the frame edges
-m = np.clip(((((xx - W * 0.5) / (W * 0.5)) ** 2 + ((yy - H * 0.5) / (H * 0.55)) ** 2) ** 0.5 - 0.6) / 0.5, 0, 1) ** 1.3 * 0.8
+m = np.clip(((((xx - W * 0.5) / (W * 0.5)) ** 2 + ((yy - H * 0.5) / (H * 0.55)) ** 2) ** 0.5 - 0.6) / 0.5, 0, 1) ** 1.3 * opt.get("edge", 0.8)
 im = im * (1 - m[..., None]) + cv2.GaussianBlur(im, (0, 0), 9) * m[..., None]
 
 # grade: contrast, a little saturation (keeps the thermal greys), vignette, colour fringe, sharpen
