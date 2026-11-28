@@ -162,7 +162,7 @@ im = screen(im, core)
 
 # embers rising off the fires and soft out-of-focus sparks near the camera
 emb = np.zeros_like(im)
-for i in range(160):
+for i in range(opt.get('embers', 160)):
     b0 = srcs[rng.integers(0, len(srcs))]
     x = b0[0] + rng.normal(0, 240); y = b0[1] - abs(rng.normal(0, 300))
     L = rng.uniform(6, 16); a = np.radians(rng.uniform(-125, -55))
@@ -170,7 +170,7 @@ for i in range(160):
 emb = cv2.GaussianBlur(emb, (0, 0), 0.8) + cv2.GaussianBlur(emb, (0, 0), 4) * 0.8
 im = screen(im, emb)
 bk = np.zeros_like(im)
-for i in range(16):
+for i in range(opt.get('bokeh', 16)):
     x = rng.choice([rng.uniform(0, W * 0.22), rng.uniform(W * 0.78, W)]); y = rng.uniform(0, H)
     cv2.circle(bk, I((x, y)), int(rng.uniform(10, 28)), tuple(ORANGE * rng.uniform(0.6, 1.0)), -1, cv2.LINE_AA)
 bk = cv2.GaussianBlur(bk, (0, 0), 3) + cv2.GaussianBlur(bk, (0, 0), 12) * 0.6
@@ -182,7 +182,7 @@ for i in range(6):
     x0 = rng.uniform(-0.2, 0.5) * W; ang = np.radians(rng.uniform(20, 38)); w = rng.uniform(8, 24)
     cv2.line(beams, (int(x0), -10), (int(x0 + np.cos(ang) * W * 1.6), int(np.sin(ang) * W * 1.6)), rng.uniform(0.25, 0.5), int(w), cv2.LINE_AA)
 beams = cv2.GaussianBlur(beams, (0, 0), 7) * np.clip(1.1 - yy / (H * 0.7), 0, 1)
-im = screen(im, beams[..., None] * np.array([0.55, 0.8, 1.0]) * 0.45)
+im = screen(im, beams[..., None] * np.array([0.55, 0.8, 1.0]) * 0.45 * opt.get('beams', 1.0))
 
 # bloom
 bright = np.clip(im - 0.72, 0, 1) * 2.4
