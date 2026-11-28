@@ -7,6 +7,7 @@ One line per change in progress: date, who, what, which scripts / UI. Remove or 
 
 **Version numbers:** both Claudes picked the same numbers several times (0.19.4, 0.19.6, 0.19.7, 0.19.9). Before you start a release, `git pull` and claim the next number with a line here ("CLAIMED 0.19.x - what"), push that, then build.
 
+- 2026-11-27 pigeon-claude: CLAIMED 0.19.40 - every aircraft gets 3 weapons (light / mid / heavy), weapon swaps from owned aircraft (same slot only), rank goals shown in a run (PC). Aircraft, Mission (applyGun / fireGunship / loadout), AircraftUI, GunshipUI. Please don't edit Aircraft or AircraftUI until this is DONE.
 - 2026-11-27 Jacob's Claude: 0.19.39 DONE - analytics: new Tutorial funnel (a step per tutorial beat, logged from Mission runTutorial through the new ServerScriptService.Analytics.Step BindableEvent), Onboarding reordered + titled, tutorial excluded from the Run funnel. Funnels, Analytics, Mission (runTutorial only), AnalyticsClient. All 4 places match, saved. Needs a publish.
 - 2026-11-27 Jacob's Claude: 0.19.38 DONE - season XP bar (SeasonUI), season XP strip on the results screen (built by SeasonUI into Debrief), supply crate prizes / prices (Shop.CRATE). All 4 places match, saved. Needs a publish.
 - 2026-11-27 Jacob's Claude: 0.19.37 DONE - tutorial radio box control chips (GunshipUI). pigeon-claude FYI: GunshipUI's main chunk is AT the 200-local limit; wrap new code in a function. All 4 places match, saved. Needs a publish.
