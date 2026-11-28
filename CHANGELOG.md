@@ -24,7 +24,8 @@ Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and 
   - The SWAP rows checked on iPhone 17 Pro; RANK GOALS checked at 1080p.
   - No script errors.
 - Snippets: tools/snippets/loadout_0_19_40.luau, loadout_ui_0_19_40.luau, rank_goals_0_19_40.luau.
-- Lobby done and saved (v624). Downtown, Sand Dunes and North Pole still to copy.
+- Downtown run: a UH-1 with the B-52's nukes swapped in fired both slots with no errors.
+- All 4 places match (147 scripts / UI trees), GameVersion 0.19.40, saved (lobby v624, Downtown v247, Sand Dunes v144, North Pole v85). Needs a publish.
 
 ## 0.19.39 — Analytics funnels remade: a Tutorial funnel, clearer Onboarding
 - **New Tutorial funnel** (one per tutorial played, all logged by the server from Mission runTutorial): Tutorial Started › Heard The Briefing › First Zombies Spawned › First Kill › Wave 1 Cleared (25mm) › Wave 2 Cleared (25mm) › 40mm Wave Cleared › Gun Upgraded › Bunker Repaired › Brute Wave Cleared › 105mm Bomber Wave Cleared › Boss Appeared › Held Off The Horde › Nuke Dropped › Survivors Rescued › Tutorial Complete. Detail field (CustomField02): wave steps say Cleared / TimedOut; upgrade, repair and nuke say Self / Auto (did the player do it, or did the tutorial do it for them). LEAVE TUTORIAL logs a TutorialLeft custom event with the last beat reached.
