@@ -14,6 +14,15 @@ im = cv2.resize(src[:, cx0:cx0 + cw], (1920, 1080), interpolation=cv2.INTER_CUBI
 H, W = im.shape[:2]
 yy, xx = np.mgrid[0:H, 0:W].astype(np.float32)
 pts = json.load(open(ptsf))
+st = opt.get("sand", 0)
+if st:  # warm the grey baseplate toward desert sand (only greyish pixels in the given mask region)
+    hsv0 = cv2.cvtColor((im * 255).astype(np.uint8), cv2.COLOR_BGR2HSV).astype(np.float32)
+    grey = np.clip(1 - hsv0[..., 1] / 90, 0, 1)
+    if opt.get("sandMask"):
+        mk = cv2.resize(cv2.imread(opt["sandMask"], 0), (W, H)).astype(np.float32) / 255
+        grey = grey * mk
+    grey = grey[..., None] * st
+    im = im * (1 - grey) + (im.mean(2, keepdims=True) * np.array([0.62, 0.95, 1.35]) * 1.15) * grey
 def P(p): return np.array([(p[0] * W0 - cx0) / cw * W, p[1] * H], np.float32)
 def I(p): return (int(round(p[0])), int(round(p[1])))
 ORANGE = np.array([0.1, 0.45, 1.0]); YEL = np.array([0.45, 0.92, 1.0]); WHITE = np.array([0.95, 0.98, 1.0])
@@ -118,32 +127,31 @@ def pops(c0, c1, n, r):
             a = rng.uniform(np.pi, np.pi * 2); L = rr * rng.uniform(1, 2.6)
             cv2.line(core, I(c), I(c + np.array([np.cos(a), np.sin(a)]) * L), tuple(YEL), 2, cv2.LINE_AA)
 
-tips = [P(t) for t in pts["tips"]]
-mz = np.mean(tips, 0)
-tgt = P(pts["target"])
-u = (tgt - mz) / np.linalg.norm(tgt - mz)
 hits = [P(h) for h in pts["hits"]]
-gun = opt.get("gun", "25")
-
 for i, h in enumerate(hits):
     if i in opt.get("skip", []):
         continue
     blast(h, opt.get("sizes", [95, 55, 40])[i])
-if gun == "25":
-    sd = np.array(opt.get("strafe", [-1, 0.2]), np.float32); sd /= np.linalg.norm(sd)
-    pops(tgt, tgt + sd * opt.get("strafeLen", 260), 9, 22)
-    stream(mz + u * 10, tgt, 30, opt.get("tw", 14), 3, 5)
-    flash(mz, u, opt.get("flash", 34))
-    # brass casings spilling from the gun
-    for i in range(8):
-        p = mz + np.array([rng.uniform(120, 420), rng.uniform(-40, 120)])
-        s = rng.uniform(6, 11)
-        box = cv2.boxPoints(((float(p[0]), float(p[1])), (s * 2.3, s), rng.uniform(0, 180))).astype(np.int32)
-        cv2.fillConvexPoly(im, box, (0.3, 0.72, 0.95), cv2.LINE_AA)
-        cv2.circle(core, I(p), max(1, int(s * 0.3)), (0.7, 0.8, 0.85), -1, cv2.LINE_AA)
-else:  # 105: one fat shell streak toward the blast and a huge flash
-    stream(mz + u * 20, tgt, 3, 16, 7, 0)
-    flash(mz, u, opt.get("flash", 60))
+guns = pts.get("guns") or [{"tips": pts["tips"], "target": pts["target"], "kind": opt.get("gun", "25")}]
+srcs = list(hits)
+for gi, gdef in enumerate(guns):
+    tips = [P(t) for t in gdef["tips"]]
+    mz = np.mean(tips, 0)
+    tgt = P(gdef["target"])
+    srcs.append(tgt)
+    u = (tgt - mz) / np.linalg.norm(tgt - mz)
+    if gdef.get("back"):  # the barrel's own direction on screen (flash follows the barrel, not the target line)
+        bk = P(gdef["back"]); ub = (mz - bk) / np.linalg.norm(mz - bk)
+    else:
+        ub = u
+    if gdef["kind"] == "25":
+        sd = np.array(opt.get("strafe", [-1, 0.2]), np.float32); sd /= np.linalg.norm(sd)
+        pops(tgt, tgt + sd * opt.get("strafeLen", 260), 9, 22)
+        stream(mz + u * 10, tgt, 30, gdef.get("tw", 14), 3, 5)
+        flash(mz, ub, gdef.get("flash", 34))
+    else:
+        stream(mz + u * 20, tgt, 3, gdef.get("tw", 16), 7, 0)
+        flash(mz, ub, gdef.get("flash", 60))
 
 # ---- compose light
 glow = cv2.GaussianBlur(glow, (0, 0), 11)
@@ -154,7 +162,6 @@ im = screen(im, core)
 
 # embers rising off the fires and soft out-of-focus sparks near the camera
 emb = np.zeros_like(im)
-srcs = hits + [tgt]
 for i in range(160):
     b0 = srcs[rng.integers(0, len(srcs))]
     x = b0[0] + rng.normal(0, 240); y = b0[1] - abs(rng.normal(0, 300))

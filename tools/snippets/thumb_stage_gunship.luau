@@ -213,4 +213,8 @@ for _, d in ipairs(stage:GetDescendants()) do
 		d:Destroy()
 	end
 end
+stage:SetAttribute("TG", TG)
+stage:SetAttribute("H105", hit105)
+stage:SetAttribute("H40", hit40)
+stage:SetAttribute("H25", hit25)
 return HS:JSONEncode(pts)
