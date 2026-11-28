@@ -2,6 +2,19 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.19.42 — Shorter tutorial, no boss, SKIP button; Onboarding funnel fix
+- **Tutorial about half as long.** Only 22% of new players finished it (Tutorial funnel, 468 players), losing a few at every beat. Now:
+  - the second 25mm wave is gone (its funnel step still fires, "Wave 2 (removed in 0.19.42)", so the step numbers stay put);
+  - every teaching wave ends after 30 s at most (was 70), and whatever is left is cleared so the next beat starts clean;
+  - the radio gaps are shorter (the opening briefing is ~15 s instead of ~29 s), upgrade / repair / nuke wait 25 / 15 / 8 s before doing it for you (were 45 / 25 / 12), the horde lasts 13 s (was 20);
+  - **no boss**: after the bomber wave it goes straight to the horde ("Contact everywhere!"). The funnel step "Boss Appeared" is now "Horde Started" (Onboarding: "Tutorial Horde Started"). The NEXT BOSS bar is hidden in the tutorial;
+  - the 18 s Little Bird rescue cutscene is cut (20% of players left during it); it ends on Garmin's "Survivors are safe" line.
+  With no input at all it now takes about 4 minutes (most of that is waves timing out); a player who shoots gets through faster.
+- **SKIP TUTORIAL button** on the tutorial HUD, opposite AUTO-SKIP (a copy of that button). Press once to arm ("TAP AGAIN TO SKIP", 3 s), again to skip: counts as done, sends you to the hangar. Logged as custom event TutorialSkipped (detail = the last beat reached). New LocalScript StarterPlayerScripts.TutorialSkip; Mission Action "SkipTutorial".
+- **Onboarding funnel fix:** "Hangar Menu Shown" fired when a new player's lobby loaded, before the tutorial, and Roblox then counted every earlier step as passed (it said 95% finished the tutorial). It now only fires once TutorialDone is set and the tutorial isn't running. (Skippers still show as passing "Tutorial Finished" in Onboarding because Roblox fills earlier steps in; count them with the TutorialSkipped event.)
+- Tested in Studio (saving off): full tutorial with no input, and a skip mid-horde (TutorialSkipped logged, back to the menu, TutorialDone set).
+- Scripts: Mission (runTutorial + Action), Funnels, AnalyticsClient, new TutorialSkip. All 4 places match, GameVersion 0.19.42, saved. Needs a publish.
+
 ## 0.19.41 — RANK GOALS only pop up when a goal moves on
 - The RANK GOALS panel (PC / console, bottom left of the HUD) is hidden now and pops up for 4 seconds when a goal moves forward. That's each kill that counts for goals up to 20 (KILL 20 BOMBERS), and every twentieth of the way for bigger ones (every 13 kills of KILL 250 IN ONE RUN).
 - After a pop it won't pop again for 6 seconds, so a big wave doesn't keep it up the whole time. The counts still update quietly while it's hidden. Finishing a goal always pops it. Loading the goals, or new goals after a promotion, don't pop it.
