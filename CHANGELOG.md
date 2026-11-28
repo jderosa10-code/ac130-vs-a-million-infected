@@ -2,6 +2,20 @@
 
 Versions follow MAJOR.MINOR.PATCH. The current version is also in `VERSION` and on the `GameVersion` attribute of `ReplicatedStorage.Convoy` in the place.
 
+## 0.19.41 — RANK GOALS only pop up when a goal moves on
+- The RANK GOALS panel (PC / console, bottom left of the HUD) is hidden now and pops up for 4 seconds when a goal moves forward. That's each kill that counts for goals up to 20 (KILL 20 BOMBERS), and every twentieth of the way for bigger ones (every 13 kills of KILL 250 IN ONE RUN).
+- After a pop it won't pop again for 6 seconds, so a big wave doesn't keep it up the whole time. The counts still update quietly while it's hidden. Finishing a goal always pops it. Loading the goals, or new goals after a promotion, don't pop it.
+- Phones and tablets: still nothing (as asked).
+- RankGoalsHUD only.
+- Tested in Studio at 1080p:
+  - Hidden at the start of a run.
+  - A bomber kill popped it (14 / 20), and it hid 4 s later.
+  - A kill 5.5 s later only updated the count (15 / 20).
+  - The next kill after the gap popped it again (16 / 20).
+  - No script errors.
+- Snippet: tools/snippets/rank_goals_pop_0_19_41.luau.
+- All 4 places match (147), GameVersion 0.19.41, saved (lobby v626, Downtown v248, Sand Dunes v145, North Pole v86). Needs a publish.
+
 ## 0.19.40 — Three weapons on every aircraft, weapon swaps, rank goals in a run
 - **Every aircraft has three weapons**, slot 1 LIGHT, 2 MEDIUM, 3 HEAVY, each one matched to the aircraft (and its model's pylons / pods) and stronger down the list:
   - AC-47 + FRAG BOMBS (slot 3: 2 a load, 21-stud blast, from under the wings).
